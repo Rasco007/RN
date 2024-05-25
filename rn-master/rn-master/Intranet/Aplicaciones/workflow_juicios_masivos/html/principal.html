@@ -1,0 +1,85 @@
+<!--DIV BUSQUEDA-->
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true" style="">
+            <div class="panel-heading">Filtros</div>
+            <div class="panel-body">
+                <form id='frm_consulta'>
+                    <div class="form-group" style="display: flex; justify-content: space-around;">
+                        <input type="text" name="n_seleccion" id="n_seleccion" hidden="">
+
+                        <div class="form-inline col-md-3">
+                            <label for="d_grupo_juicios" class="control-label">Grupo</label>
+                            <div class="input-group">
+                                <input type='text' id='c_grupo_juicios' name='c_grupo_juicios'
+                                       class='form-control input-sm input-cod-short validate[required]' readonly="true"/>
+                                <input type='text' id='d_grupo_juicios' name='d_grupo_juicios'
+                                       class='form-control input-sm input-desc-long validate[required]' readonly="true"/>
+                                <span class="input-group-addon btn_lupa" id="lupa_grupo">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="fecha_creacion">Fecha de creación del Grupo</label>
+                            <div class="input-group alta_general">
+                                <input type="text"  class="form-control input-sm text-center validate[required]" id="fecha_creacion" placeholder="(DD/MM/AAAA)" style="text-align: center;" readonly="true">
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row form-group">
+                        <div class="text-center">
+                            <button type='button' class="btn btn-sm" id='btn_nuevo_grupo' style="margin-right: 27%">Nuevo grupo de Juicios</button>
+                            <button type='button' class="btn btn-sm btn_buscar" id='btn_buscar'></button>
+                            <button type='button' class="btn btn-sm btn_limpiar" id='btn_limpiar'></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--GRILLA PRINCIPAL-->
+<div id="seccion_1">
+    <table id='workflow_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+    <div id='workflow_grid_pager' class='scroll' style='text-align:center;'></div>
+</div>
+
+<!--DIV BUSQUEDA-->
+<div id="div_finalizacion" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search_finalizacion" aria-expanded="true" style="">
+            <div class="panel-heading">Finalización de Proceso</div>
+            <div class="panel-body">
+                <form id='frm_finalizacion'>
+                    <div class="form-group" style="display: flex; justify-content: space-around;">
+                        <div class="col-md-3">
+                            <label for="fecha_finalizacion">Fecha Finalización</label>
+                            <div class="input-group alta_general">
+                                <input type="text"  class="form-control input-sm text-center" id="fecha_finalizacion" placeholder="(DD/MM/AAAA)" style="text-align: center;" readonly="true">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="usuario_cierre" class="control-label">Usuario de Cierre del Proceso</label>
+                            <input type="text" class="form-control input-sm text-left" name="usuario_cierre" id="usuario_cierre" readonly="true">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row form-group">
+                        <div class="text-center">
+                            <button type='button' class="btn btn-sm" id='btn_confirmar_proceso'>Confirmar proceso finalizado</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

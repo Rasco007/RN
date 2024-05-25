@@ -1,0 +1,93 @@
+#tabs .ui-widget-header{
+    height: 39px;
+    background-color: #E9EDF3;
+}
+#tabs .ui-tabs-tab{
+    height: 35px;
+    line-height: 30px;
+    font-size: 14px;
+    background-color: #156690;
+    opacity: 0.6;
+    font-weight: bold;
+}
+
+#tabs .ui-tabs-tab .ui-tabs-anchor{
+    padding: 2px 50px !important;
+    /*color: #333333;*/
+}
+
+#tabs .ui-tabs-active{
+    height: 35px;
+    cursor: auto !important;
+    background-color: #156690 !important;
+    opacity: 1 !important;
+}
+#tabs .ui-tabs-active a{
+    color: white !important;
+}
+.div_botones{
+    overflow: hidden;
+    width: 100%;
+    margin: 10px;
+    font-family: 'Montserrat', sans-serif !important;
+}
+/*#btn_partidas_madre #btn_completo, #btn_puntual, #btn_lista_val, #btn_cta_corr, #btn_exen, #btn_prop_vig, #btn_leg_cont_prop{*/
+.div_botones button{
+    margin-right: 5px;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif !important;
+}
+#tabs .ui-jqgrid{
+    margin-bottom: 10px;
+}
+.div_validacion{
+    display: none;
+    width: 30%;
+    height: 50%;
+    margin: 50px auto;
+    border: #F1C40F 1px solid;
+    border-radius: 5px;
+    padding: 15px;
+    box-shadow: #CDCDCD 3px 3px 5px 2px;
+}
+.titulo_validacion{
+    text-align: center;
+}
+.span_validacion{
+    color: #F1C40F;
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+.btn_right{
+    float: right;
+}
+#div_datos_generales {
+    padding: 0px 25px;
+    border: 1px solid #c5c5c5;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    display: none;
+}
+#div_partida_mov{
+    margin-bottom: 10px;
+    margin-left: 20px;
+}
+#partida_mov{
+    text-align: right;
+}
+
+#gbox_valuaciones_grid, #gbox_impuesto_grid, #gbox_propietarios_1_grid,
+#gbox_propietarios_2_grid, #gbox_responsables_1_grid, #gbox_responsables_2_grid{
+    display: none;
+}
+#tabs-1 .div_botones, #tabs-2 .div_botones, #tabs-3 .div_botones, #tabs-4 .div_botones, #consigna_prop, #consigna_resp{
+    display: none;
+}
+#tabs{
+    min-height: 340px;
+    display: none;
+    margin-bottom: 110px;
+}
+#gbox_impuesto_grid{
+    width: 800px;
+}

@@ -1,0 +1,90 @@
+<style>
+    .formError {
+        z-index: 15000;
+    }
+
+    .dropdown-menu {
+        font-size: 11px;
+    }
+
+    .cDropdown {
+        padding: 5px 12px;
+        color: #555;
+        text-transform: none;
+        font-weight: unset;
+        font-size: 11px;
+        border: 1px solid #c2cad8 !important;
+        background-color: white !important;
+    }
+
+    .cDropdown :hover {
+        background-color: white !important;
+        color: #555;
+    }
+</style>
+
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading">Reimpresión de Constancias</div>
+            <div class="panel-body">
+                <form id='frm_consulta' class="form-horizontal">
+                    <div class="form-group row">
+                        <label for="c_constancia" class="col-md-2 col-md-offset-3 control-label">Constancia:</label>
+                        <div class="col-md-3">
+                            <select id="c_constancia" data-live-search="true" data-size="8" title="Seleccionar" class="selectpicker form-control input-sm validate[required]" data-style="cDropdown">
+                                <option value=""></option>
+                                <?php foreach ($constancias as $constancia): ?>
+                                <option value="<?=$constancia['C_CONSTANCIA'];?>" data-obj="<?=$constancia['PIDE_OBJETO'];?>"> <?=$constancia['D_CONSTANCIA'];?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="n_cuit" class="col-md-2 col-md-offset-3 control-label">Nro. de CUIT:</label>
+                        <div class="col-md-3">
+                            <input name='n_cuit' id='n_cuit' type='text' class='form-control input-sm text-right'/>
+                            <input name='id_contribuyente' id='id_contribuyente' type='hidden' class='sr-only'/>
+                        </div>
+                    </div> 
+                    <div class="form-group row">
+                        <label for="d_denominacion" class="col-md-2 col-md-offset-3 control-label">Denominaci&oacute;n:</label>
+                        <div class="col-md-3">
+                            <input type="text" class="form-control input-sm mayusculas" id="d_denominacion">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="d_tipo_documento" class="col-md-2 col-md-offset-3 control-label">Tipo Documento:</label>
+                        <div class="col-md-3">
+                            <div class="input-group" id="div_input_tipo_documento">
+                                <input type="text" class="form-control mayusculas input-sm input-cod-short" id="c_tipo_documento">
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_tipo_documento" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_c_tipo_documento">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                    </span>
+                            </div>
+                        </div>
+                    </div>  
+                    <div class="form-group row">
+                        <label for="n_documento" class="col-md-2 col-md-offset-3 control-label">Nro. Documento:</label>
+                        <div class="col-md-3">
+                            <input type="text" class="form-control input-sm text-right" id="n_documento">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row">
+                        <label for="d_objeto_hecho" class="col-md-2 col-md-offset-3 control-label">Objeto:</label>
+                        <div class="col-md-3">
+                            <input type="text" class="form-control input-sm text-right" id="d_objeto_hecho" disabled="disabled">
+                        </div>
+                    </div>
+                </form>
+                <div class="row text-center">
+                    <br>
+                    <button class="btn-sm btn-primary" type="button" id="btn_imprimir" style="margin-left: 8%;"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> Imprimir</button>
+                    <button type='button' id='btn_limpiar' name='btn_limpiar' class="btn-sm btn_limpiar"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

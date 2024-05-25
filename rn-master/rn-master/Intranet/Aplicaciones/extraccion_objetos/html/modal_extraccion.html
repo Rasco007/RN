@@ -1,0 +1,59 @@
+<div class="modal fade" id="modal_extraccion" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title">Extracción</h5>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <table id='detail_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+                    <div id='detail_grid_pager' class='scroll' style='text-align:center;'></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div style="display: flex; justify-content: center; gap: 35%">
+                    <button type='button' class="btn-sm btn_confirmar" id='btn_confirmar'>Confirmar</button>
+                    <button type='button' class="btn-sm btn_cancelar" id='btn_cancelar'>Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal ABM Actividad -->
+<div class="modal fade" id="modal_edicion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="exampleModalLiveLabel">Editar</h5>
+            </div>
+            <div class="modal-body">
+                <form id="form_extrac">
+                    <div class="form-group" style="display: flex;flex-direction: column;max-width: 80%;margin: 0 auto;gap: 5px;">
+                        <label for="i_saldo_compensado">Saldo Compensado</label>
+                        <div class="input-group alta_general">
+                            <input type="text" name="i_saldo_compensado" class="form-control input-sm numerico mascara_importe validate[required]" id="i_saldo_compensado">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer" id="div_botones">
+                <div class="text-center">
+                    <button type="button" class="btn btn-sm" id="btn_guardar_saldo"><span
+                            aria-hidden="true"></span> Guardar
+                    </button>
+                    <button type="button" class="btn btn-sm" id="btn_cancelar_saldo"><span
+                             aria-hidden="true"></span> Cancelar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

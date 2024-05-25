@@ -1,0 +1,125 @@
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <!--<a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>-->
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading">Datos del Contribuyente</div>
+            <div class="panel-body">
+                <form id='frm_busqueda'>
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <div id="div_cuit" >
+                                <label>CUIT</label>
+                                <input name='n_cuit' id='n_cuit' type="text" class="form-control limpiar input-sm text-right validate[required,custom[validaCuit]]" maxlength='13' >
+                                <input name='id_contribuyente' type="hidden" class="form-control limpiar input-sm text-right" id="id_contribuyente">
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-8">
+                            <label for="d_denominacion">Nombre y Apellido / Razón Social</label>
+
+                            <div class="input-group" id="div_input_obj_hecho">
+                                <input name='d_denominacion'  type="text" class="form-control limpiar input-sm mayusculas" id="d_denominacion">
+                                <span class="input-group-addon" id="mascara_lupa_denominacion">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon btn_lupa" id="lupa_denominacion">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="c_tributo">Tributo</label>
+                            <div class="input-group" id="div_input_tributo">
+                                <input name='c_tributo' type="text" class="form-control limpiar input-sm input-cod-short" id="c_tributo" value="<?=$_POST['p_c_trib']?>">
+                                <input name='d_tributo' type="text" class="form-control limpiar input-sm input-desc-long" id="d_tributo" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_c_tributo">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </span>
+                            </div>
+                        </div>
+
+                    
+                    <div class="form-group col-md-4">
+                        <label for="objeto">Objeto/Hecho</label>
+
+                        <div class="input-group" id="div_input_obj_hecho">
+                            <input name='objeto' maxlength='11' type="text" class="form-control limpiar input-sm mayusculas" id="objeto">
+                            <span class="input-group-addon" id="mascara_lupa_obj_hecho">
+                                <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                            </span>
+                            <span class="input-group-addon btn_lupa" id="lupa_obj_hecho">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </span>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label for="tipo_domicilio">Tipo de Domicilio</label>
+                        <div class="input-group" id="div_input_tributo">
+                            <input name='tipo_domicilio' type="text" class="form-control limpiar input-sm input-cod-short" id="tipo_domicilio" value="<?=$_POST['p_c_trib']?>">
+                            <input name='d_tipo_domicilio' type="text" class="form-control limpiar input-sm input-desc-long" id="d_tipo_domicilio" readonly>
+                            <span class="input-group-addon btn_lupa" id="lupa_tipo_domicilio">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        </span>
+                        </div>
+                    </div>
+                </div>
+
+                    <div class='row-search text-center' style="margin-top: 2%">
+                        <button class="btn-sm btn-primary" type="button" id="btn_nuevo_contribuyente">Nuevo Contribuyente</button>
+                        <button class="btn-sm btn-primary" type="button" id="btn_legajo">Legajo Contribuyente</button>
+                        <button class="btn-sm btn_limpiar" type="button" id="btn_limpiar"></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="gridWrapper">
+
+    <div class='detalle'>
+        <table id='grid_generar_obl' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+        <div id='grid_generar_obl_pager' class='scroll' style='text-align:center;'></div>
+    </div>
+
+    <div class='row-search text-center' style="margin-top: 2%">
+        <button class="btn-sm btn-primary" type="button" id="btn_generar_obligaciones">Generar</button>
+    </div>
+
+</div>
+
+    <!-- <div style="display: none;" class='modal fade' id='modal_cons_deuda' tabindex='-1' role='dialog' aria-labelledby='cont_histLabel' aria-hidden='true'>
+	    <div class='modal-dialog modal-lg' role='document'>
+	        <div class='modal-content'>
+	            <div class='modal-header'>
+	                <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+	                    <span aria-hidden='true'>&times;</span>
+	                </button>
+	                <h5 class='modal-title' id='cont_histLabel'>Deuda del Contribuyente</h5>
+	            </div>
+	            <div class='modal-body'>
+	                <table id='grid_generar_obl' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+	                <div id='grid_generar_obl_pager' class='scroll' style='text-align:center;'></div>
+	            </div>
+                <div class="form-group col-md-3 col-md-offset-8" style="margin-top: 1%;">
+                    <label>Importe Total</label>
+                    <input type="text" id="i_total" class="form-control input-sm text-right" readonly>
+                    <input type="text" id="i_actual" class="form-control input-sm text-right" readonly style="display:none;">
+                </div>
+	            <div class='modal-footer'>
+	                <div class='text-center' style="padding-top: 8%;">
+	                    <button type='button' class='btn btn-secondary' id='btn_volver_cons_deuda' data-dismiss='modal'>Volver</button>
+                        <button type='button' class='btn btn-secondary' id='marcar_todos'>Marcar Todos</button>
+                        <button type='button' class='btn btn-secondary' id='desmarcar_todos' style="display:none;">Desmarcar Todos</button>
+                        <button class="btn btn-primary" type="button" id="btn_emitir"><span class="glyphicon glyphicon-download" aria-hidden="true"></span> Emitir</button>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div> -->

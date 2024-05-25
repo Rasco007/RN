@@ -1,0 +1,86 @@
+<!-- Modal Detalle de Instancia -->
+<div class="modal fade" id="modal_instancia_det" tabindex="-1" role="dialog" aria-labelledby="instancia_detLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="instancia_detLabel">Detalle de Instancia</h5>
+            </div>
+            <div class="modal-body">
+                <table id='instancia_det_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+                <div id='instancia_det_grid_pager' class='scroll' style='text-align:center;'></div>
+                <div class="row">
+                    <div class="form-group col-md-2 col-md-offset-4">
+                        <label for="i_sum_deuda">Total<br>Capital</label>
+                        <input name='i_sum_deuda' type="text" class="form-control input-sm text-right" id="i_sum_deuda" readonly>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="i_sum_det">Total Capital Determinado</label>
+                        <input name='i_sum_det' type="text" class="form-control input-sm text-right" id="i_sum_det" readonly>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="i_sum_int">Total<br>Interés</label>
+                        <input name='i_sum_int' type="text" class="form-control input-sm text-right" id="i_sum_int" readonly>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="i_sum_act">Total Importe Actualizado</label>
+                        <input name='i_sum_act' type="text" class="form-control input-sm text-right" id="i_sum_act" readonly>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="button" class="btn btn-secondary" id="btn_volver_instancia_det" data-dismiss="modal">Volver</button>
+                    <button type="button" class="btn btn-secondary" id="btn_imprimir_instancia_det">Imprimir</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Detalle de Instancia Sellos -->
+<div class="modal fade" id="modal_instancia_det_sellos" tabindex="-1" role="dialog" aria-labelledby="instancia_det_sellosLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="instancia_det_sellosLabel">Detalle de Instancia</h5>
+            </div>
+            <div class="modal-body">
+                <table id='instancia_det_sellos_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+                <div id='instancia_det_sellos_grid_pager' class='scroll' style='text-align:center;'></div>
+                <div class="row">
+                    <div class="form-group col-md-2 col-md-offset-2">
+                        <label for="i_total_impuesto">Total Impuesto</label>
+                        <input name='i_total_impuesto' type="text" class="form-control input-sm text-right" id="i_total_impuesto" readonly>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="i_total_interes">Total Interés</label>
+                        <input name='i_total_interes' type="text" class="form-control input-sm text-right" id="i_total_interes" readonly>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="i_total_multas">Total Multas</label>
+                        <input name='i_total_multas' type="text" class="form-control input-sm text-right" id="i_total_multas" readonly>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="i_total_fojas">Total Fojas</label>
+                        <input name='i_total_fojas' type="text" class="form-control input-sm text-right" id="i_total_fojas" readonly>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="i_total_determinado">Total Determinado</label>
+                        <input name='i_total_determinado' type="text" class="form-control input-sm text-right" id="i_total_determinado" readonly>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="button" class="btn btn-secondary" id="btn_volver_instancia_det_sellos" data-dismiss="modal">Volver</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+<!-- Modal ABM Actividad -->
+<div class="modal fade" id="modal_asignacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="exampleModalLiveLabel">Asignación</h5>
+            </div>
+            <div class="modal-body">
+                <form id="form_asignacion">
+                    <input type="hidden" id="modal_id_inspeccion">
+                    <input type="hidden" id="tipo_plan">
+
+                    <div class="form-group" style="justify-content: center;display: flex;flex-direction: column;max-width: 80%;margin: 0 auto;gap: 5px;">
+                        <label for="modal_d_inspector" class="control-label">Inspector(*)</label>
+                        <div id="div_inspector" class="input-group">
+                            <input type='text' id='modal_c_inspector' name='modal_c_inspector'
+                                   class='form-control input-sm input-cod-short validate[required]'/>
+                            <input type='text' id='modal_d_inspector' name='modal_d_inspector'
+                                   class='form-control input-sm input-desc-long validate[required]' readonly="true"/>
+                            <span class="input-group-addon btn_lupa" id="btn_lupa_inspector">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                        </div>
+                        <br>
+                        <label for="modal_d_supervisor" class="control-label">Supervisor(*)</label>
+                        <div id="div_supervisor" class="input-group">
+                            <input type='text' id='modal_c_supervisor' name='modal_c_supervisor'
+                                   class='form-control input-sm input-cod-short validate[required]'/>
+                            <input type='text' id='modal_d_supervisor' name='modal_d_supervisor'
+                                   class='form-control input-sm input-desc-long validate[required]' readonly="true"/>
+                            <span class="input-group-addon btn_lupa" id="btn_lupa_supervisor">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="button" class="btn btn-sm" id="btn_guardar_asignacion"><span
+                            class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Guardar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

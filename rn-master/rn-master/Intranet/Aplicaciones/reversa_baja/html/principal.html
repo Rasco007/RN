@@ -1,0 +1,98 @@
+<div id="div_main" class="panel-search">
+    <div class="panel panel-primary">
+        <div class="collapse in" aria-expanded="true" style="">
+            <div class="panel-heading">Datos del Automotor</div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="form-group col-md-2">
+                        <label for="d_dominio">Dominio</label>
+                        <div class="input-group" id="div_input_dominio">
+                            <input name='d_dominio' id='d_dominio' type="text" class="form-control input-sm mayusculas">
+                            <!--<span class="input-group-addon btn_lupa" id="mascara_lupa_dominio">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </span>-->
+                            <span class="input-group-addon btn_lupa" id="lupa_dominio">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-1">
+                        <label for="c_verif_dom"></label>
+                        <input name='c_verif_dom' id='c_verif_dom' type="text" class="form-control input-sm numerico text-center" maxlength="1">
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="d_dom_ant">Dominio Anterior</label>
+                        <div class="input-group" id="div_input_dom_ant">
+                            <input name='d_dom_ant' id='d_dom_ant' type="text" class="form-control input-sm mayusculas">
+                            <!--<span class="input-group-addon btn_lupa" id="mascara_lupa_dom_ant">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </span>-->
+                            <span class="input-group-addon btn_lupa" id="lupa_dominio_ant">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-1">
+                        <label for="c_verif_dom_ant"></label>
+                        <input name='c_verif_dom_ant' id='c_verif_dom_ant' type="text" class="form-control input-sm numerico text-center" maxlength="1">
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="d_fecha_mov">Fecha de Baja</label>
+                        <input name='d_fecha_mov' id='d_fecha_mov' type="text" class="form-control input-sm text-right" readonly>
+                        <input hidden id="tipo" type="text">
+                        <!--<input name='d_fecha_mov' id='d_fecha_hasta' type="text" class="form-control input-sm text-right" readonly hidden>
+                        <input name='d_fecha_mov' id='d_fecha_cese_prov' type="text" class="form-control input-sm text-right" readonly hidden>-->
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="d_motivo">Motivo de Baja</label>
+                        <div class="input-group" id="div_input_motivo_baja">
+                            <input type="text" class="form-control mayusculas input-sm input-cod-short" id="c_motivo" readonly>
+                            <input type="text" class="form-control input-sm input-desc-long" id="d_motivo" readonly>
+                        </div>
+                    </div>
+                    <!--<div class="form-group col-md-4 de_cese">
+                        <label for="d_motivo_cese_prov">Motivo de Baja</label>
+                        <div class="input-group" id="div_input_motivo_cese">
+                            <input type="text" class="form-control mayusculas input-sm input-cod-short" id="c_motivo_cese_prov" readonly>
+                            <input type="text" class="form-control input-sm input-desc-long" id="d_motivo_cese_prov" readonly>
+                        </div>
+                    </div>-->
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-2">
+                        <label for="n_cuit">CUIT</label>
+                        <input name='n_cuit' id='n_cuit' type="text" class="form-control input-sm text-right">
+                        <input name='id_contribuyente' id='id_contribuyente' type="number" hidden>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="d_denominacion">Denominación</label>
+                        <input name='d_denominacion' id='d_denominacion' type="text" class="form-control input-sm text-right mayusculas">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="c_tipo_documento">Tipo de Documento</label>
+                        <div class="input-group" id="div_input_tipo_documento">
+                            <input type="text" class="form-control mayusculas input-sm input-cod-short" id="c_tipo_documento">
+                            <input type="text" class="form-control input-sm input-desc-long" id="d_tipo_documento" readonly>
+                            <span class="input-group-addon btn_lupa" id="lupa_c_tipo_documento">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label for="n_documento">N° de Documento</label>
+                        <input type="text" class="form-control input-sm numerico text-right" id="n_documento" name="n_documento">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-12 text-center">
+                        <button class="btn-sm btn-primary" type="button" id="btn_continuar">
+                            <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> Revertir baja
+                        </button>
+                        <button class="btn-sm btn_limpiar" type="button" id="btn_limpiar"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

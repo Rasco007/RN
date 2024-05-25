@@ -1,0 +1,74 @@
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading">Datos del Padrón</div>
+            <div class="panel-body">
+                <form id='frm_busqueda'>
+
+                    <div class="row">
+
+                        <div class="form-group col-md-2 col-md-offset-1">
+                            <label for="n_padron">Nro.de Padron</label>
+                            <input type="text"  id="n_padron" class='form-control text-right input-sm limpiar' >
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="padron_bloqueado">Padron Bloqueado</label>
+                            <input type="text"  id="padron_bloqueado" class='form-control text-right input-sm limpiar' >
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="c_tributo">Tributo</label>
+                            <input type="text"  id="c_tributo" class='form-control text-right input-sm limpiar' >
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="anio_padron">Año Padron</label>
+                            <input type="text"  id="anio_padron" class='form-control text-right input-sm limpiar' >
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="mes_padron">Mes Padron</label>
+                            <input type="text"  id="mes_padron" class='form-control text-right input-sm limpiar' >
+                        </div>
+
+                        <div class="form-group col-md-2 col-md-offset-1">
+                            <label for="altas_manuales">Altas Manuales</label>
+                            <input type="text"  id="altas_manuales" class='form-control text-right input-sm limpiar' readonly>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="bajas_manuales">Bajas Manuales</label>
+                            <input type="text"  id="bajas_manuales" class='form-control text-right input-sm limpiar' readonly>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="modificaciones_manuales">Modificaciones Manuales</label>
+                            <input type="text"  id="modificaciones_manuales" class='form-control text-right input-sm limpiar' readonly>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="cant_generada">Cant.Generada</label>
+                            <input type="text"  id="cant_generada" class='form-control text-right input-sm limpiar' >
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <button class="btn-sm btn_limpiar" style="margin-top: 17px;" type="button" id="btn_limpiar"></button>
+                            <button class="btn-sm btn-primary" type="button" id="btn_consultar"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Buscar</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="gridWrapper">
+
+    <div class='detalle'>
+        <table id='grid_sircreb' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+        <div id='grid_sircreb_pager' class='scroll' style='text-align:center;'></div>
+    </div>
+
+</div>

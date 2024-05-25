@@ -1,0 +1,181 @@
+<div class='titlebar'>
+    <span class="ui-jqgrid-title" id="titulo"></span>
+</div>
+
+<div id="div_search" class="search panel-body">
+    <form id="frm_busqueda_rendiciones">
+        <div class="row">
+            <div class="form-group col-md-3">
+                <label for="c_banco">Banco (*)</label>
+                <div class="input-group">
+                    <input type="text" class="form-control input-sm input-cod-short text-input validate[required]" id="c_banco" style="text-align: center">
+                    <input type="text" class="form-control input-sm input-desc-long" id="d_banco" readonly>
+                    <span class="input-group-addon" id="mascara_lupa_banco">
+                            <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                    </span>
+                    <span class="input-group-addon btn_lupa" id="lupa_banco">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    </span>
+                </div>       
+            </div>
+    
+            <div class="form-group col-md-3">
+                <label for="c_sucursal">Sucursal</label>
+                <div class="input-group">
+                    <input type="text" class="form-control input-sm input-cod-short text-input" id="c_sucursal" style="text-align: center">
+                    <input type="text" class="form-control input-sm input-desc-long" id="d_sucursal" readonly>
+                    <span class="input-group-addon" id="mascara_lupa_sucursal">
+                            <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                    </span>
+                    <span class="input-group-addon btn_lupa" id="lupa_sucursal">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    </span>
+                </div>       
+            </div>
+
+            <div class="form-group col-md-3">
+                <label for="f_acred">F. de Acreditación</label>
+                <input type="text" class="form-control datepicker" id="f_acred" style="text-align: center">
+            </div>
+
+            <div class="form-group col-md-3">
+                <label for="f_pago">F. de Pago</label>
+                <input type="text" class="form-control datepicker" id="f_pago" style="text-align: center">
+            </div>
+
+
+        </div>
+        <div class="row text-center" style="margin: 15px 0px 15px 0px">
+
+
+
+            <div class="form-group col-md-2 col-md-offset-2" style="margin-top:10px">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="check_automat">
+                    <label class="form-check-label" for="check_automat">Autom&aacute;tica</label>
+                </div>
+            </div>
+            <div class="form-group col-md-2" style="margin-top:10px">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="check_manual">
+                    <label class="form-check-label" for="check_manual">Manual</label>
+                </div>
+            </div>
+
+            <div class="form-group col-md-2" style="margin-top:10px">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="check_normal">
+                    <label class="form-check-label" for="check_normal">Normal</label>
+                </div>
+            </div>
+
+            <div class="form-group col-md-2" style="margin-top:10px">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="check_rts">
+                    <label class="form-check-label" for="check_rts">RTS</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row text-center" style="margin: 15px 0px 15px 0px">
+            <button type='button' id='btn_buscar' class="btn-sm btn_buscar"></button>
+            <button type='button' id='btn_limpiar' class="btn-sm btn_limpiar"></button>
+        </div>
+    </form>
+</div>
+
+<table id="rendiciones_grid" class="scroll" cellpadding="0" cellspacing="0">
+    <tr><td>&nbsp;</td></tr>
+</table>
+<div id="rendiciones_grid_pager" class="scroll" style="text-align:center;"></div>
+
+
+<div class="row text-center" id="bloque_totales" style="margin-top: 15px;">
+
+    <div class="form-group col-md-2 col-md-offset-2">
+        <label class="form-label" for="">Total Cantidad</label>
+        <input class="form-control" type="text" id="total_cant" style="text-align:right" readonly>
+    </div>
+
+    <div class="form-group col-md-2">
+        <label class="form-label" for="">Total Impuesto</label>
+        <input class="form-control" type="text" id="total_imp" style="text-align: right;" readonly>
+    </div>
+
+    <div class="form-group col-md-2">
+        <label class="form-label" for="">Total Tasa</label>
+        <input class="form-control" type="text" id="total_tasa" style="text-align: right;" readonly>
+    </div>
+
+    <div class="form-group col-md-2">
+        <label class="form-label" for="">Total</label>
+        <input class="form-control" type="text" id="total_total" style="text-align: right;" readonly>
+    </div>
+    
+   
+</div>
+
+<div class="row text-center" style="margin-top: 15px" id="bloque_botones">
+    <button type='button' id='btn_controlado' class="ui-button ui-corner-all ui-widget" disabled>Controlado</button>
+     <button type='button' id='btn_imprimir' class="ui-button ui-corner-all ui-widget">Imprimir</button>
+     <button type='button' id='btn_detalle' class="ui-button ui-corner-all ui-widget">Detalle</button>
+     <!-- <button type='button' id='btn_remesas_asociadas' class="ui-button ui-corner-all ui-widget">Remesas Asociadas</button> -->
+ </div>
+
+
+ <!--Modal para la grilla detalle-->
+<div class="modal" id="detalle_rend_modal" tabindex="-1" role="dialog" aria-labelledby="detalle_title" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="detalle_title">Detalle de la Rendici&oacute;n Seleccionada</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-group col-md-2">        
+                        <label for="id_rendicion">Nro. Rendici&oacute;n</label>
+                        <input type="text" class="form-control" id="id_rendicion" style="text-align: right" readonly>
+                    </div>
+        
+                    <div class="form-group col-md-2">        
+                        <label for="n_remito_detalle">Nro. Remito</label>
+                        <input type="text" class="form-control" id="n_remito_detalle" style="text-align: right" readonly>
+                    </div>
+                </div>
+                <table id="detalle_rendicion_grid" class="scroll" cellpadding="0" cellspacing="0">
+                    <tr><td>&nbsp;</td></tr>
+                </table>
+                <div id="detalle_rendicion_grid_pager" class="scroll" style="text-align:center;"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btn_volver_detalle" class="btn btn-secondary" data-dismiss="modal">Volver</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Modal para la grilla listado remesas-->
+<div class="modal" id="listado_remesas_modal" tabindex="-1" role="dialog" aria-labelledby="listado_remesas_title" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="listado_remesas_title">Listado de Remesas Asociadas</h4>
+            </div>
+            <div class="modal-body">
+                <table id="listado_remesas_grid" class="scroll" cellpadding="0" cellspacing="0">
+                    <tr><td>&nbsp;</td></tr>
+                </table>
+                <div id="listado_remesas_grid_pager" class="scroll" style="text-align:center;"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btn_volver_listado_remesas" class="btn btn-secondary" data-dismiss="modal">Volver</button>
+            </div>
+        </div>
+    </div>
+</div>

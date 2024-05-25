@@ -1,0 +1,37 @@
+
+.form-group{
+    margin-bottom: 10px !important;
+}
+
+#c_verif_dom, #c_verif_dom_ant{
+    width: 35px;
+}
+
+.de_baja, #lupa_dominio, #lupa_dominio_ant{
+    display: none;
+}
+
+#div_input_motivo_baja, #div_input_motivo_cese, #div_input_oficina{
+    width: 100%;
+}
+
+#d_denominacion{
+    text-align: left;
+}
+
+#btn_imprimir{
+    margin: 10px;
+}
+
+#load_responsables_grid img{
+    width: 60px !important;
+}
+
+#n_cert_baja{
+    border-radius: 3px !important;
+}
+
+#mascara_lupa_dominio, #mascara_lupa_dom_ant{
+    border-bottom-right-radius: 3px !important;
+    border-top-right-radius: 3px !important;
+}

@@ -1,0 +1,89 @@
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading">Filtros</div>
+            <div class="panel-body">
+                <form id='frm_consulta_pagos_acred' style="margin-top: 5px;">
+
+                    <div class="row">
+
+                        <div class="form-group col-md-2">
+                            <label for="n_cuit_filtro">CUIT:</label>
+                            <input name='n_cuit_filtro' id='n_cuit_filtro' type='text' class='form-control input-sm text-right validate[custom[validaCuit]]' />
+                            <input name='id_contribuyente_filtro' id='id_contribuyente_filtro' type='hidden'/>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="desc_denom_filtro">Denominaci&oacute;n:</label>
+                            <!--<input type="text" class="form-control input-sm mayusculas" id="desc_denom_filtro">-->
+
+                            <div class="input-group" id="div_input_tributo_filtro">
+                                <input type="text" class="form-control input-sm mayusculas" id="desc_denom_filtro">
+                                <span class="input-group-addon" id="mascara_lupa_d_denominacion">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon btn_lupa" id="desc_denom_filtro_lupa">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                    
+                                </span>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="d_tributo_filtro">Tributo:</label>
+                            <div class="input-group" id="div_input_tributo_filtro">
+                                <input type="text" class="form-control input-sm input-cod-short numero" id="c_tributo_filtro" maxlength="3">
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_tributo_filtro" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_c_tributo_filtro">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="d_objeto_hecho_filtro">Objeto/Hecho:</label>
+
+                            <div class="input-group" id="div_input_obj_hecho_filtro">
+                                <input type="text" class="form-control input-sm mayusculas" id="d_objeto_hecho_filtro">
+                                <span class="input-group-addon" id="mascara_lupa_obj_hecho_filtro">
+									<span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+								</span>
+                                <span class="input-group-addon btn_lupa_filtro" id="lupa_obj_hecho_filtro">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class='row text-center' style = 'margin-top:1.5%;'>
+                            <button type='button' id='btn_buscar' name='btn_buscar' class="btn-sm btn_buscar"></button>
+                            <button type='button' id='btn_limpiar' name='btn_limpiar' class="btn-sm btn_limpiar"></button>
+                        </div>
+
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--GRILLA PRINCIPAL-->
+<div id="grilla_principal" style="display: none;">
+<table id='main_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+<div id='main_grid_pager' class='scroll' style='text-align:center;'></div>
+</div>
+
+
+<!--Grilla de consulta-->
+<div id="consulta_grilla" style="display: none;">
+<table id='consulta_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+<div id='consulta_grid_pager' class='scroll' style='text-align:center;'></div>
+</div>

@@ -1,0 +1,80 @@
+<div class="modal fade" id="bonif_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="bonif_title">Bonificación</h5>
+            </div>
+            <div class="modal-body">
+                <form id="frm_bonificacion">
+                    <input type="hidden" id="bonif_oper">
+                    <input type="hidden" id="bonif_id_bonif">
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <div class="input-group">
+                                <label for="bonif_pos_fiscal">Posición Fiscal - Cuota:</label>
+                                <input type="text" class="form-control input-sm input-range-left validate[required]" id="bonif_pos_fiscal" placeholder="aaaa/mm">
+                                <input type="text" class="form-control input-sm input-range-right validate[required]" id="bonif_cuota" placeholder="nn">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="bonif_d_tipo">Tipo Bonificación:</label>
+                            <input type="hidden" id="bonif_c_tipo">
+                            <input type="text" class="form-control input-sm validate[required]" id="bonif_d_tipo" disabled>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-2">
+                            <label for="bonif_porcentaje">Porcentaje:</label>
+                            <input type="text" class="form-control input-sm validate[required]" id="bonif_porcentaje">
+                        </div>
+                        <div class="form-group col-md-10">
+                            <label for="bonif_observacion">Observación:</label>
+                            <input type="text" class="form-control input-sm" id="bonif_observacion">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="button" class="btn btn-primary" id="btn_guardar_bonif">Aceptar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $('#bonif_modal').on('hidden.bs.modal', function (e) {
+            $('#frm_bonificacion :input').val(null).validationEngine('hideAll');;
+        });
+
+        $('#bonif_pos_fiscal').mask('9999/99');
+        $('#bonif_cuota').mask('99');
+        $('#bonif_porcentaje').mask('999');
+
+        $('#bonif_pos_fiscal').change(function () {
+            valida_pos_fisc($(this));
+        });
+
+        $('#btn_guardar_bonif').click(function () {
+            if ($('#frm_bonificacion').validationEngine('validate')){
+                var params = {
+                    p_oper : $('#bonif_oper').val(),
+                    p_id_bonif_obj:$('#bonif_id_bonif').val(),
+                    p_n_posicion_fiscal: limpia_pos_fisc($('#bonif_pos_fiscal').val()),
+                    p_n_cuota: $('#bonif_cuota').val(),
+                    p_m_tipo_bonif: $('#bonif_c_tipo').val(),
+                    p_n_porc_bonificacion: $('#bonif_porcentaje').val(),
+                    p_d_observacion: $('#bonif_observacion').val()
+                };
+                abm_bonificacion(params);
+            }
+        });
+    });
+</script>

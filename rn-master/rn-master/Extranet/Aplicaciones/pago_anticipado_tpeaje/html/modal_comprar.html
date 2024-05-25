@@ -1,0 +1,37 @@
+<div class="modal fade" id="modal_comprar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="exampleModalLiveLabel">Comprar Pase</h5>
+            </div>
+            <div class="modal-body">
+                <form id="form_modal_comprar">
+                    <div class="row">
+                        <div class="form-group col-md-8 col-md-offset-2">
+                            <input type="hidden" id="d_dominio_modal">
+                            <label class="control-label" for="d_importe">Importe (*)</label>
+                            <input type="text" class="form-control input-sm validate[required] mascara_importe" id="d_importe">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="button" class="btn btn-sm" id="btn_modal_confirmar"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Confirmar</button>
+                    <button type='button' class="btn btn-sm" id='btn_modal_cancelar' data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span> Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $('#modal_comprar').on('hidden.bs.modal', function (e) {
+            $('#form_modal_comprar :input').val(null);
+        });
+    });
+</script>

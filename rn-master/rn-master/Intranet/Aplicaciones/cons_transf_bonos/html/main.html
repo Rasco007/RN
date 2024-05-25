@@ -1,0 +1,223 @@
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading">Consulta de Transferencia de Bonos</div>
+            <div class="panel-body">
+                <form id='frm_busqueda'>
+
+
+                    <div class="row">
+                        <div class="form-group col-md-2">
+                            <label for="transferencia">Transferencia</label>
+                            <input type="text"  id="transferencia" class='form-control text-right input-sm' >
+                        </div>
+                   
+                        <div class="form-group col-md-3">
+                            <label for="c_bono">Bonos</label>
+                            <div class="input-group" id="div_input_bono">
+                                <input name='c_bono' type="text" class="form-control text-right input-sm input-cod-short " id="c_bono" >
+                                <input name='d_bono' type="text" class="form-control input-sm input-desc-long" id="d_bono" readonly>
+                                <span class="input-group-addon" id="mascara_lupa_c_bono">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon btn_lupa" id="lupa_c_bono">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="especie">Especie</label>
+                            <input type="text"  id="especie" class='form-control input-sm' >
+                        </div>
+
+                        <div class="form-group col-md-2 ">
+                            <label for="f_bono">Fecha</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm datepicker text-center limpiar" name="f_bono" id="f_bono" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                   
+                        <div class="form-group col-md-3">
+                            <label for="cta_comitente">Cta. Comitente</label>
+                            <input type="text"  id="cta_comitente" class='form-control text-right input-sm' >
+                        </div>
+
+                        
+                    </div>
+                    <div class='row-search text-center'>
+                        <button type='button' id='btn_consultar' name='btn_consultar' class="btn-sm btn_buscar"></button>
+                        <button class="btn-sm btn_limpiar" style="margin-top: 17px;" type="button" id="btn_limpiar"></button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="gridWrapper">
+
+    <div class='detalle'>
+        <table id='grid_tranf_bonos' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+        <div id='grid_tranf_bonos_pager' class='scroll' style='text-align:center;'></div>
+    </div>
+
+    <div class='row-search text-center' id="contenedor_btn" style="margin-top: 2%;display: none;">
+        <button class="btn-sm btn-primary" type="button" id="btn_detalle">Detalle de Transferencia</button>
+        <button class="btn-sm btn-primary" type="button" id="btn_aplicacion">Aplicación Bonos</button>
+    </div>
+
+</div>
+
+<div style="display: none;" class='modal fade' id='modal_detalle' tabindex='-1' role='dialog' aria-labelledby='cont_histLabel' aria-hidden='true'>
+    <div class='modal-dialog modal-lg'>
+        <div class='modal-content'>
+            <div class='modal-header'>
+                <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                </button>
+                <h5 class='modal-title'>Consulta Detalle de Transferencia</h5>
+            </div>
+            <div class='modal-body'>
+                <form id='frm_modal_detalle'>
+                    <div class="form-group col-md-6">
+                        <label for="transferencia_modal">Transferencia</label>
+                        <input type="text"  id="transferencia_modal" class='form-control input-sm text-right' readonly>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="c_bono_modal">Bonos</label>
+                        <div class="input-group" id="div_input_bono" style="width: 100%;">
+                            <input name='c_bono_modal' type="text" class="form-control input-sm text-right input-cod-long" id="c_bono_modal" readonly>
+                            <input name='d_bono_modal' type="text" class="form-control input-sm input-desc-short" id="d_bono_modal" readonly>
+                        </span>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="especie_modal">Especie</label>
+                        <input type="text"  id="especie_modal" class='form-control input-sm'  readonly>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="f_bono_modal">Fecha</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control input-sm datepicker text-center limpiar" name="f_bono_modal" id="f_bono_modal" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off" readonly disabled>
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="valor_nominal">Valor Nominal</label>
+                        <input type="text"  id="valor_nominal" class='form-control input-sm text-right' readonly>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="cotizacion">Cotización</label>
+                        <input type="text"  id="cotizacion" class='form-control input-sm text-right' readonly>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="valor_pesos">Valor Nominal en Pesos</label>
+                        <input type="text"  id="valor_pesos" class='form-control input-sm text-right' readonly>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="saldo_pesos">Saldo en Pesos</label>
+                        <input type="text"  id="saldo_pesos" class='form-control input-sm text-right'readonly >
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="saldo_pesos">Saldo en Bonos</label>
+                        <input type="text"  id="saldo_bonos" class='form-control input-sm text-right'readonly >
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="v_residual">Valor Residual</label>
+                        <input type="text"  id="v_residual" class='form-control input-sm text-right' readonly>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="cta_comitente_modal">Cta. Comitente</label>
+                        <input type="text"  id="cta_comitente_modal" class='form-control input-sm text-right'readonly >
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="cta_cliente">Cta. Cliente</label>
+                        <input type="text"  id="cta_cliente" class='form-control input-sm text-right' readonly>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="titular">Titular</label>
+                        <input type="text"  id="titular" class='form-control input-sm' readonly>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="descripcion">Descripción</label>
+                        <textarea style="margin-bottom: 2%;" id="descripcion" rows="10" cols="50" class='form-control input-sm' readonly></textarea>
+                    </div>
+                </form>
+            
+                <div style="text-align: center;padding: 8%;margin-right: 4%;">
+                    <button type='button' class='btn btn-secondary' id='btn_volver_cons_deuda' data-dismiss='modal'>Volver</button>
+                    <button type='button' class='btn btn-secondary' id='btn_aplicacion_modal'>Aplicacion Bonos</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div style="display: none;" class='modal fade' id='modal_aplicacion' tabindex='-1' role='dialog' aria-labelledby='cont_histLabel' aria-hidden='true'>
+    <div class='modal-dialog modal-lg' role='document'>
+        <div class='modal-content'>
+            <div class='modal-header'>
+                <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                    <span aria-hidden='true'>&times;</span>
+                </button>
+                <h5 class='modal-title' id='cont_histLabel'>Aplicación de Bonos</h5>
+            </div>
+            <div class='modal-body'>
+                <div style="margin-top: 2%;margin-bottom: 2%">
+                    <div class="form-group col-md-6">
+                        <label for="transferencia_aplicacion">Transferencia</label>
+                        <input type="text"  id="transferencia_aplicacion" class='form-control input-sm text-right' readonly>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="c_bono_aplicacion">Bonos</label>
+                        <div class="input-group" id="div_input_bono" style="width: 100%;">
+                            <input name='c_bono_aplicacion' type="text" class="form-control input-sm input-cod-long text-right" id="c_bono_aplicacion" readonly>
+                            <input name='d_bono_aplicacion' type="text" class="form-control input-sm input-desc-short" id="d_bono_aplicacion"  readonly>
+                        </span>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="especie_aplicacion">Especie</label>
+                        <input type="text"  id="especie_aplicacion" class='form-control input-sm'  readonly>
+                    </div>
+    
+                    <div class="form-group col-md-6">
+                        <label for="f_bono_aplicacion">Fecha</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control input-sm datepicker text-center limpiar" name="f_bono_aplicacion" id="f_bono_aplicacion" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off" readonly disabled>
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="valor_nominal_aplicacion">Valor Nominal</label>
+                        <input type="text"  id="valor_nominal_aplicacion" class='form-control input-sm text-right' readonly>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="cotizacion_aplicacion">Cotización</label>
+                        <input type="text"  id="cotizacion_aplicacion" class='form-control input-sm text-right' readonly>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="cta_comitente_aplicacion">Cta. Comitente</label>
+                        <input type="text"  id="cta_comitente_aplicacion" class='form-control input-sm text-right'readonly >
+                    </div>
+                </div>
+                <table id='grid_aplicacion_bonos' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+                <div id='grid_aplicacion_bonos_pager' class='scroll'></div>
+            </div>
+            <div class='modal-footer'>
+                <div class='text-center' style="padding-top: 8%;">
+                    <button type='button' class='btn btn-secondary' id='btn_volver_aplicacion' data-dismiss='modal'>Volver</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

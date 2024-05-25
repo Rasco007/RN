@@ -1,0 +1,155 @@
+<div id="div_filtros" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading">Contribuyente</div>
+            <div class="panel-body">
+                <form action="" id="frm_filtros">
+                    <div class="row" style="margin-left: 4%;">
+                        <div class="form-group col-md-2">        
+                            <label for="n_cuit">CUIT*</label>
+                            <input type="text" class="form-control input-sm numerico" id="n_cuit" style="text-align: center">
+                            <input type="hidden" id="id_contribuyente">
+                            <input type="hidden" id="p_tributo">
+                            <input type="hidden" id="c_tipo_imp">
+                            
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="d_denominacion">Denominación</label>
+                            <div class="input-group" id="div_input_denominacion">
+                                <input name='d_denominacion' type="text" class="form-control input-sm mayusculas" id="d_denominacion">
+                                <span class="input-group-addon" id="mascara_lupa_d_denominacion">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon" id="lupa_d_denominacion">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="c_tipo_doc">Tipo de Documento*</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm input-cod-short text-input mayusculas" id="c_tipo_doc" style="text-align: center">
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_tipo_doc" readonly>
+                                <span class="input-group-addon" id="mascara_lupa_tipo_doc">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon btn_lupa" id="lupa_tipo_doc">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>       
+                        </div>
+
+                        <div class="form-group col-md-2">        
+                            <label for="n_documento">Nro. Documento*</label>
+                            <input type="text" class="form-control input-sm numerico" id="n_documento" style="text-align: center">
+                        </div>
+                    </div>
+
+                    <div class="row" style="margin-left: 4%;">
+                        <div class="form-group col-md-4">
+                            <label for="c_tributo">Tributo*</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm input-cod-short text-input numerico" id="c_tributo" style="text-align: center">
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_tributo" readonly>
+                                <span class="input-group-addon" id="mascara_lupa_tributo">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon btn_lupa" id="lupa_tributo">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>       
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="d_objeto_hecho">Nro. Objeto/Hecho*</label>
+                            <div class="input-group" id="div_input_denominacion">
+                                <input name='d_objeto_hecho' type="text" class="form-control input-sm mayusculas" id="d_objeto_hecho">
+                                <span class="input-group-addon" id="mascara_lupa_d_objeto_hecho">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon" id="lupa_d_objeto_hecho">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-2">        
+                            <label for="f_vig_desde">F. Vig. Desde</label>
+                            <input type="text" class="form-control input-sm datepicker" id="f_vig_desde" style="text-align: center">
+                        </div>
+
+
+                        <div class="text-center col-md-3" style="margin: 1.45% 0 0 3.4%">
+                            <button type='button' id='btn_buscar' name='btn_buscar' class="btn-sm btn_buscar"></button>
+                            <button type='button' id='btn_limpiar' name='btn_limpiar' class="btn-sm btn_limpiar" style="margin-left: 3%;"></button>
+                        </div>
+                    </div>
+
+                    <div class="row" style="margin-left: 4%;">
+                        <div class="form-group col-md-2">        
+                            <label for="f_cese_provisorio">F. Cese PROVISORIO</label>
+                            <input type="text" class="form-control input-sm datepicker" id="f_cese_provisorio" style="text-align: center" placeholder="dd/mm/aaaa" disabled>
+                        </div>
+                        <div class="col-md-4" style="margin-top: 1.2%;">
+                            <button type='button' id='btn_eliminar_cese' class="ui-button ui-corner-all ui-widget" style="height: 28px; margin-bottom: 3px; margin-left: 2%;" disabled>ELIMINAR CESE PROVISORIO</button>
+                            <button type='button' id='btn_cese_prov' class="ui-button ui-corner-all ui-widget" style="height: 28px; margin-bottom: 3px; margin-left: 2%;" disabled>CESE PROVISORIO</button>
+                        </div>
+
+                        <div class="col-md-3" style="margin-top: 1.6%; font-weight: bold; color: red;">
+                            <span id="leyenda"></span>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="div_contrib_tributo" hidden>
+    <table id="contrib_tributo_grid" class="scroll" cellpadding="0" cellspacing="0">
+        <tr><td>&nbsp;</td></tr>
+    </table>
+    <div id="contrib_tributo_grid_pager" class="scroll" style="text-align:center;"></div>
+</div>
+
+<!--Modal Baja-->
+<div class="modal" id="baja_modal" tabindex="-1" role="dialog" aria-labelledby="baja_title" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="baja_title">Motivo de Baja</h5>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <input type="hidden" id="n_tabla_mot_baja">
+                    <div class="form-group col-md-9" style="margin-left: 1%">
+                        <label for="c_motivo_cese">Motivo de baja</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control input-sm input-cod-short text-input mayusculas" id="c_motivo_cese" style="text-align: center">
+                            <input type="text" class="form-control input-sm input-desc-long" id="d_motivo_cese" readonly>
+                            <span class="input-group-addon btn_lupa" id="lupa_motivo_cese">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </span>
+                        </div>       
+                    </div>
+                    <div class="col-md-1" style="margin-top: 3%;">
+                        <button type='button' id='btn_limpiar_baja' name='btn_limpiar' class="btn-sm btn_limpiar"></button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btn_grabar" class="btn btn-primary">Grabar</button>
+                <button type="button" id="btn_cancelar_baja" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>

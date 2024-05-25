@@ -1,0 +1,128 @@
+/* Barra de Menú */
+#div_menu {
+    width: 100%;
+    height: 30px;
+    background: #d93b3b;
+    clear: both;
+    border-bottom: 0;
+    font-size: 12px;
+}
+
+#div_menu, #div_menu li, #div_menu ul {
+    font-family: "Calibri";
+    list-style: none;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+}
+
+#div_menu li a {
+    color: #FFF;
+    display: block;
+    border: 1px solid #FFF;
+    background: #d93b3b;
+    padding: 6px 8px;
+    text-decoration: none;
+    height: 100%;
+}
+
+#div_menu li { position:relative; z-index:99;}
+
+#div_menu li a:hover {
+    background: #a81917;
+}
+
+#div_menu li.menu-menu.active > a {
+    background: #a81917
+}
+
+/*Flechas Menú*/
+#div_menu li.menu-menu > a .flecha {
+    background: url(../Imagenes/iconos/flecha_derecha.png) no-repeat top right;
+    width: 16px;
+    height: 16px;
+    float: right
+}
+
+#div_menu li.menu-menu.active > a .flecha {
+    -ms-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+    -ms-transition-duration: 0.4s;
+    -webkittransition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+
+/*Oculta menú*/
+#div_menu li ul, #div_menu ul ul {
+    display: none;
+    position: absolute;
+    min-width: 180px;
+    max-width: 160px;
+}
+
+#div_menu #nav > li {
+    float: left;
+}
+
+/*Desplaza la apertura del menú*/
+#div_menu li ul li ul {
+    right: -180px;
+    top: 0;
+}
+
+/*Oculta flecha del menú principal*/
+#div_menu #nav > li > a .flecha {
+    width: 0;
+    height: 0;
+}
+
+/****************************       CAMINO  APLICACIONES    **********************************/
+
+#camino_migas .item_camino a, #camino_migas .item_camino span {
+    display: inline;
+    border: 0
+}
+
+#camino_migas {
+    display: inline-block;
+    left: 29px;
+    position: absolute
+}
+
+#camino_migas .item_camino {
+    float: left;
+    width: auto;
+    margin-top: 8px
+}
+
+#camino_migas a {
+    font-weight: bold;
+}
+
+#camino_migas a:hover {
+    cursor: auto;
+    background: #a81917 !important
+}
+
+#camino_migas a.enlace:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/****************************       BOTÓN MENÚ PRINCIPAL    **********************************/
+
+#bt_mostrar_menu_principal {
+    width: 28px;
+    height: 23px;
+    background: #D93B3B url(../Imagenes/iconos/ico_menu.png) no-repeat;
+    position: absolute;
+    z-index: 99;
+    margin-top: 3px;
+    padding-right: 1px;
+}
+
+#bt_mostrar_menu_principal:hover, #bt_mostrar_menu_principal.active {
+    background: #a81917 url(../Imagenes/iconos/ico_menu.png) no-repeat;
+}
+

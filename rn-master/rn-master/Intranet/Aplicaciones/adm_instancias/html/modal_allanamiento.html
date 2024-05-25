@@ -1,0 +1,66 @@
+<style>
+    /*.dropdown-menu{
+        max-width: 1px;
+    }*/
+
+    .cDropdown {
+        padding: 5px 12px;
+        color: #555;
+        text-transform: none;
+        font-weight: unset;
+        font-size: 11px;
+        border: 1px solid #c2cad8 !important;
+        background-color: white !important;
+    }
+
+    .cDropdown :hover{
+        background-color: white !important;
+        color: #555;
+    }
+</style>
+<div class="modal fade" id="allanamiento_modal" tabindex="-1" role="dialog" aria-labelledby="allanamiento_title" aria-hidden="true" data-backdrop="false" style="z-index: 960; top:50px ;">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="allanamiento_title">Posiciones Mensuales</h5>
+            </div>
+            <div class="modal-body">
+                <div class="row" style="margin-left: -15px !important;">
+                    <form id='frm_allanamiento'>
+                        <input type="hidden" id="allanamiento_n_instancia">
+                        <input type="hidden" id="allanamiento_n_orden">
+                        <div class="col-md-4">
+                            <label for="c_origen" class="control-label">Origen Impacto CC (*)</label>
+                            <select id="c_origen" data-live-search="false" title="Seleccionar" class="selectpicker form-control input-sm validate[required]" data-style="cDropdown">
+                                <option value=""></option>
+                                <option value="OFICIO" data-action="Determinación de Oficio">Oficio</option>
+                                <option value="CONTRIB" data-action="Allanamiento">Contribuyente</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <br>
+                <!--GRILLA allanamiento-->
+                <div id="grilla_allanamiento">
+                    <table id='allanamiento_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+                    <div id='allanamiento_grid_pager' class='scroll'></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="confirmar_allanamiento" class="btn-danger btn-sm">Confirmar</button>
+                <button type="button" class="btn-sm btn-info" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $('#allanamiento_modal').on('hidden.bs.modal', function (e) {
+            $('#c_origen').selectpicker('val',null);
+        });
+    });
+</script>

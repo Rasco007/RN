@@ -1,0 +1,73 @@
+<div id="div_filtros" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading">Generaci&oacute;n de Boletas PDF</div>
+            <div class="panel-body">
+                <form action="" id="frm_filtros">
+                    <div id="bloque_generacion">
+                        <div class="row" style="margin-top: 1%;">
+                                    
+                            <div class="form-group col-md-2">
+                                <label for="id_grupo">Grupo(*)</label>
+                                <input type="text" class="form-control input-sm numerico" id="id_grupo" style="text-align: center">
+                            </div>
+                    
+                            <div class="form-group col-md-2">
+                                <label for="n_seleccion">Selecci&oacute;n(*)</label>
+                                <input type="text" class="form-control input-sm numerico" id="n_seleccion" style="text-align: center">
+                            </div>
+                    
+                            <div class="form-group col-md-3">
+                                <label for="monto_fisc">Monto Fiscal.</label>
+                                <input type="text" class="form-control input-sm numerico" id="monto_fisc" style="text-align: center">
+                            </div>
+                    
+                            <div class="form-group col-md-3">
+                                <label for="n_cuit_rep">CUIT Represent.</label>
+                                <input type="text" class="form-control input-sm numerico" id="n_cuit_rep" style="text-align: center">
+                            </div>
+                    
+                            <div class="form-group col-md-2">
+                                <label for="n_generadas">Procesadas</label>
+                                <input type="text" class="form-control input-sm numerico" id="n_generadas" style="text-align: center" readonly>
+                            </div>
+
+                        </div>
+                        <div class='row text-center' id='botones_busqueda'>
+                            <br>
+                            <button type='button' class="btn-sm btn_limpiar" id='btn_limpiar'></button>
+                            <button type='button' id='btn_generar' class="btn-sm btn-primary">Generar PDF's</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--Modal grilla status generacion-->
+<div class="modal" id="resultado_generacion_modal" tabindex="-1" role="dialog" aria-labelledby="generacion_title" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="generacion_title">Resultado Generacion PDF</h5>
+            </div>
+            <div class="modal-body">
+                <table id="resultado_generacion_grid" class="scroll" cellpadding="0" cellspacing="0">
+                    <tr><td>&nbsp;</td></tr>
+                </table>
+                <div id="resultado_generacion_grid_pager" class="scroll" style="text-align:center;"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btn_volver" class="btn btn-secondary" data-dismiss="modal">Volver</button>
+            </div>
+        </div>
+    </div>
+</div>

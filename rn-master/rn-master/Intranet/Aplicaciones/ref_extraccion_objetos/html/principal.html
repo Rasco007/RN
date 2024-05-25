@@ -1,0 +1,192 @@
+<!--DIV BUSQUEDA-->
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <div class="collapse in" id="collapse_search" aria-expanded="true" style="">
+            <div class="panel-heading" style="padding-left: 1%; text-transform: none;">Plan de Pago</div>
+            <div class="panel-body">
+                <form id='frm_consulta'>
+                    <div class="row form-group">
+                        <input type="text" name="c_tributo" id="c_tributo" hidden="">
+                        <input type="text" name="c_tributo_plan" id="c_tributo_plan" hidden="">
+                        <input type="text" name="n_tabla_deleg" id="n_tabla_deleg" hidden="">
+                        <input type="text" name="f_caducidad" id="f_caducidad" hidden="">
+                        <input type="text" name="f_emision" id="f_emision" hidden="">
+                        <input type="text" name="c_caducidad" id="c_caducidad" hidden="">
+                        <input type="text" name="n_tabla_tipo_cad" id="n_tabla_tipo_cad" hidden="">
+                        <input type="text" name="c_tipo_calculo" id="c_tipo_calculo" hidden="">
+                        <input type="text" name="c_origen_deuda" id="c_origen_deuda" hidden="">
+                        <input type="text" name="c_seg_riesgo" id="c_seg_riesgo" hidden="">
+                        <input type="text" name="c_concepto" id="c_concepto" hidden="">
+
+                        <div class="col-md-2">
+                            <label for="d_plan_pago" class="control-label">Nro. Plan de Pago (*)</label>
+                            <div class="input-group">
+                                <input type='text' id='d_plan_pago' name='d_plan_pago'
+                                       class='form-control input-sm validate[required]'/>
+                                <span class="input-group-addon btn_lupa" id="btn_lupa_plan_pago">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="d_tipo_plan_pago" class="control-label">Tipo Plan Pago</label>
+                            <div class="input-group">
+                                <input type='text' id='c_tipo_plan_pago' name='c_tipo_plan_pago'
+                                       class='form-control input-sm input-cod-short'/>
+                                <input type='text' id='d_tipo_plan_pago' name='d_tipo_plan_pago'
+                                       class='form-control input-sm input-desc-long' readonly="true"/>
+                                <span class="input-group-addon btn_lupa" id="btn_lupa_tipo_plan">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="situacion" class="control-label">Situación</label>
+                            <input type="text" class="form-control input-sm text-center" name="situacion" id="situacion" style="text-align: center;" readonly="true">
+                        </div>
+                        <div class="col-md-2">
+                            <label for="n_cuit" class="control-label">CUIT</label>
+                            <input type="text" class="form-control input-sm text-center" id="n_cuit" placeholder="">
+                            <input type="hidden" class="form-control input-sm text-center" id="id_contribuyente" placeholder="">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="d_denominacion" class="control-label">Denominación</label>
+                            <div class="input-group">
+                                <input type="text" id="d_denominacion_mayuscula" hidden="">
+                                <input type="text" class="form-control input-sm" id="d_denominacion" style="text-transform:uppercase;">
+                                <span class="input-group-addon" id="mascara_lupa_d_denominacion">
+                                        <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                    </span>
+                                <span class="input-group-addon btn_lupa" id="lupa_d_denominacion">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-2">
+                            <label for="d_tipo_doc" class="control-label">Tipo Doc.</label>
+                            <div class="input-group">
+                                <input type='text' id='c_tipo_doc' name='c_tipo_doc'
+                                       class='form-control input-sm input-cod-short'/>
+                                <input type='text' id='d_tipo_doc' name='d_tipo_doc'
+                                       class='form-control input-sm input-desc-long' readonly="true"/>
+                                <span class="input-group-addon btn_lupa" id="btn_lupa_tipo_doc">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="d_tipo_imponible" class="control-label">Tipo Imponible</label>
+                            <div class="input-group">
+                                <input type='text' id='d_tipo_imponible' name='d_tipo_imponible'
+                                       class='form-control input-sm'/>
+                                <span class="input-group-addon btn_lupa" id="btn_lupa_tipo_impo">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                    </span>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="d_objeto_hecho" class="control-label">Objeto/Hecho</label>
+                            <div class="input-group">
+                                <input type='text' id='d_objeto_hecho' name='d_objeto_hecho'
+                                       class='form-control input-sm mayusculas'/>
+                                <span class="input-group-addon" id="mascara_lupa_obj_hecho">
+									<span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+								</span>
+                                <span class="input-group-addon btn_lupa" id="btn_lupa_objeto_hecho">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <label for="d_provincia" class="control-label">Prov./Oficina</label>
+                            <div class="input-group">
+                                <input type="text" name="c_delegacion" id="c_delegacion" hidden="">
+                                <input type='text' id='c_provincia' name='c_provincia'
+                                       class='form-control input-sm input-cod-short'/>
+                                <input type='text' id='d_provincia' name='d_provincia'
+                                       class='form-control input-sm input-desc-long' readonly="true"/>
+                                <span class="input-group-addon btn_lupa" id="btn_lupa_provincia">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="observacion" class="control-label">Observación</label>
+                            <input type="text" class="form-control input-sm" name="observacion" id="observacion">
+                        </div>
+                    </div>
+                    <div class="row form-group" style="display: flex; justify-content: center;">
+                        <div class="col-md-3">
+                            <div class="text-center" style="margin-top: 6%;">
+                                <button type='button' class="btn-sm btn_buscar" id='btn_buscar'></button>
+                                <button type='button' class="btn-sm btn_limpiar" id='btn_limpiar'></button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--GRILLA PRINCIPAL-->
+<div id="seccion_1">
+    <table id='main_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+    <div id='main_grid_pager' class='scroll' style='text-align:center;'></div>
+</div>
+<br>
+<div class="row">
+    <div class="col-md-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Datos para la Reformulación</div>
+            <div class="panel-body" style=" padding-top: 5px;">
+                <form id='frm_fecha_reformulacion'>
+                    <div class="row" style="display: flex; justify-content: center;">
+                        <div class="form-inline">
+                            <label for="fecha_reformulacion">F. Reformulación</label>
+                            <div class="input-group alta_general">
+                                <input type="text" value="<?= $fecha_hoy;?>" class="form-control input-sm text-center" id="fecha_reformulacion" style="text-align: center;" readonly="true">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Rango de nuevos planes reformulados</div>
+            <div class="panel-body" style="padding-top: 5px;">
+                <form id='frm_rangos_reformulacion'>
+                    <div class="row" style="display: flex; justify-content: space-between;">
+                        <input type="text" name="provincia_reformular" id="provincia_reformular" hidden="">
+                        <div class="form-inline">
+                            <label for="desde" class="control-label">Desde</label>
+                            <input type="text" class="form-control input-sm text-right validate[required, custom[onlyIntNumber]]" name="desde" id="desde" readonly="true">
+                        </div>
+                        <div class="form-inline">
+                            <label for="hasta" class="control-label">Hasta</label>
+                            <input type="text" class="form-control input-sm text-right validate[custom[onlyIntNumber]]" name="hasta" id="hasta" readonly="true">
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="seccion_2">
+    <div id="div_botones">
+        <div class="text-center" style="display: flex; justify-content: space-evenly;">
+            <button type='button' class="btn btn-sm" id='btn_reformular'><span class="glyphicon" aria-hidden="true"></span>Reformular</button>
+            <button type='button' class="btn btn-sm" id='btn_constancia'><span class="glyphicon" aria-hidden="true"></span>Imprimir Constancias</button>
+            <button type='button' class="btn btn-sm" id='btn_chequeras'><span class="glyphicon" aria-hidden="true"></span>Imprimir Chequeras</button>
+            <button type='button' class="btn btn-sm" id='btn_contratos'><span class="glyphicon" aria-hidden="true"></span>Imprimir Contratos</button>
+        </div>
+    </div>
+</div>

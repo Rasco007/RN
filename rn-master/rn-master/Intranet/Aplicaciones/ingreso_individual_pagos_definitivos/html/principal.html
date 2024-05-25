@@ -1,0 +1,217 @@
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading">Contribuyente / Impuesto</div>
+            <div class="panel-body">
+                <form id='frm_contrib' style="margin-top: 5px;">
+
+                    <div class="row">
+
+                        <div class="form-group col-md-3 col-md-offset-1">
+                            <label for="d_tributo">Tributo (*):</label>
+                            <div class="input-group" id="div_input_tributo">
+                                <input type="text" class="form-control input-sm input-cod-short numero validate[required]" id="c_tributo" maxlength="3">
+                                <input type="text" class="form-control input-sm input-desc-long validate[required]" id="d_tributo" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_c_tributo">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <input type="text" class="form-control input-sm input-cod-short numero hidden" id="c_tipo_imponible" maxlength="3">
+
+                        <div class="form-group col-md-2">
+                            <label for="d_objeto_hecho">Objeto/Hecho (*):</label>
+                            <div class="input-group" id="div_input_objeto">
+                                <input type="text" class="form-control input-sm mayusculas validate[required]" id="d_objeto_hecho" name="d_objeto_hecho">
+                                    <span class="input-group-addon" id="mascara_lupa_d_objeto_hecho">
+                                        <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                    </span>
+                                    <span class="input-group-addon btn_lupa" id="lupa_d_objeto_hecho">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                    </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-2" style="display:flex">
+                            <div class='row-search text-center' style="margin-top: 9%">
+                                <button class="btn-sm btn_inmueble btn-secondary" type="button" id="btn_lupa_inmueble">Inmueble</button>
+                                <button class="" type="button" id="lupa_inmueble" hidden></button>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <div class='row-search text-center' style="margin-top: 9%">
+                                <button class="btn-sm btn-primary" type="button" id="btn_imputar">Imputar</button>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-2" style="display:flex">
+                            <div class='row-search text-center' style="margin-top: 9%">
+                                <button type='button' id='btn_limpiar' name='btn_limpiar' class="btn-sm btn_limpiar"></button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="div_datos" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search2" aria-expanded="true" aria-controls="#collapse_search2">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search2" aria-expanded="true">
+            <div class="panel-heading">Datos del Pago</div>
+            <div class="panel-body">
+                <form id='frm_datos_pago' style="margin-top: 5px;">
+
+                    <div class="row">
+
+                        <div class="form-group col-md-2 col-md-offset-1">
+                            <label for="f_pago">F. Pago (*):</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm datepicker maxdate text-center limpiar validate[required]" name="f_pago" id="f_pago" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="f_acred">F. Acreditación (*):</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm datepicker maxdate text-center limpiar validate[required]" name="f_acred" id="f_acred" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="f_interes">F. Vto. Liquidación (*):</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm datepicker no_maxdate text-center limpiar validate[required]" name="f_interes" id="f_interes" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                                <input type="text" class="hidden form-control input-sm datepicker text-center limpiar" name="f_interes_real" id="f_interes_real" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-3 div_checkbox">
+                            <div class="form-group col-md-2">
+                                <div class="input-group">
+                                    <input type="checkbox" class="form-control input-sm text-center limpiar" name="chk_aut" id="chk_aut">
+                                </div>
+                            </div>
+                            <div class="form-group col-md-10">
+                                <label for="chk_aut">Autorizado a pagar liquidación vencida</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-4 col-md-offset-1">
+                            <label for="c_tipo_form">Tipo de Formulario (*):</label>
+                            <div class="input-group">
+                                <input name='c_tipo_form' type="text" class="form-control input-sm input-cod-short validate[required]" id="c_tipo_form">
+                                <input name='d_tipo_form' type="text" class="form-control input-sm input-desc-long validate[required]" id="d_tipo_form" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_c_tipo_form">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>   
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="n_comprobante">Nro. Comprobante:</label>
+                            <input type="text" class="form-control input-sm" id="n_comprobante">
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="c_banco_rec">Banco Receptor (*):</label>
+                            <div class="input-group">
+                                <input name='c_banco_rec' type="text" class="form-control input-sm input-cod-short validate[required]" id="c_banco_rec">
+                                <input name='d_banco_rec' type="text" class="form-control input-sm input-desc-long validate[required]" id="d_banco_rec" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_c_banco_rec">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>   
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="c_sucursal_rec">Sucursal Receptora (*):</label>
+                            <div class="input-group">
+                                <input name='c_sucursal_rec' type="text" class="form-control input-sm input-cod-short validate[required]" id="c_sucursal_rec">
+                                <input name='d_sucursal_rec' type="text" class="form-control input-sm input-desc-long validate[required]" id="d_sucursal_rec" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_c_sucursal_rec">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>   
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-2 col-md-offset-1">
+                            <label for="c_cajero_rec">Cajero Receptor:</label>
+                                <input name='c_cajero_rec' type="text" class="form-control input-sm " id="c_cajero_rec">   
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="c_medio_pago">Medio de Pago (*):</label>
+                            <div class="input-group" id="div_input_medio_pago">
+                                <input type="text" class="form-control input-sm input-cod-short numero validate[required]" id="c_medio_pago" >
+                                <input type="text" class="form-control input-sm input-desc-long validate[required]" readonly id="d_medio_pago">
+                                <span class="input-group-addon btn_lupa" id="lupa_c_medio_pago">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="c_banco_emisor">Banco Emisor:</label>
+                            <div class="input-group">
+                                <input name='c_banco_emisor' type="text" class="form-control input-sm input-cod-short" id="c_banco_emisor" readonly>
+                                <input name='d_banco_emisor' type="text" class="form-control input-sm input-desc-long" id="d_banco_emisor" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_c_banco_emisor">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>   
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="n_cheque">Nro. Cheque:</label>
+                            <input type="text" class="form-control input-sm" id="n_cheque" readonly>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <div class='row-search text-center' style="margin-top: 9%">
+                                <button class="btn-sm btn-primary" type="button" id="btn_cargar">Cargar Datos Cuotas</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="div_grid">
+    <div id='gridWrapper' >
+        <div>
+            <table id='main_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+            <div id='main_grid_pager' class='scroll' style='text-align:center;'></div>
+        </div>
+    </div>
+    <div class="div-totales">
+        <div class="tot-group input-group">
+            <label for="tot_capital">Total Capital:</label>
+            <input type="text" readonly class="form-control input-sm text-right" id="tot_capital">
+        </div>
+        <div class="tot-group input-group">
+            <label for="tot_interes">Total Interés:</label>
+            <input type="text" readonly class="form-control input-sm text-right" id="tot_interes">
+        </div>
+        <div class="tot-group input-group">
+            <label for="tot_totales">Total:</label>
+            <input type="text" readonly class="form-control input-sm text-right" id="tot_totales">
+        </div>
+    </div>
+</div>

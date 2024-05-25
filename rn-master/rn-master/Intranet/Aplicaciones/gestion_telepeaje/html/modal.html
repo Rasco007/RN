@@ -1,0 +1,35 @@
+<!-- Modal Modificación datos de dominio -->
+<div class="modal fade" id="modificacion_datos" tabindex="-1" role="dialog" aria-labelledby="modificacion_datosLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="modificacion_datosLabel">Modificación de Datos de Dominio</h5>
+            </div>
+            <div class="modal-body">
+                <form id="frm_modificacion_datos">
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="n_cuit">CUIT</label>
+                            <input type="text" class="form-control input-sm text-right validate[required]" id="n_cuit">
+                            <input type="hidden" class="form-control input-sm text-right" id="id_contribuyente">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-10">
+                            <label for="d_denominacion" class="control-label">Denominación</label>
+                            <input type="text" class="form-control input-sm mayusculas validate[required]" id="d_denominacion">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">          
+                <button type="button" class="btn btn-primary" id="btn_confirmar_modificacion">Confirmar Modificación</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>

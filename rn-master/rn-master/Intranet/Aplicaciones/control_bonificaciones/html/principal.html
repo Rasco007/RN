@@ -1,0 +1,81 @@
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading">Filtros de B&uacute;squeda</div>
+            <div class="panel-body">
+                <form id='frm_consulta' style="margin-top: 5px;">
+
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                            <label for="d_tipo_imponible">Tipo Imponible: (*)</label>
+                            <div class="input-group" id="div_input_tipo_imponible">
+                                <input type="text" class="form-control input-sm input-cod-short validate[required] entrada_filtro" id="c_tipo_imponible">
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_tipo_imponible" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_c_tipo_imponible">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="d_tributo">Tributo: (*)</label>
+                            <div class="input-group" id="div_input_tributo">
+                                <input type="text" class="form-control input-sm input-cod-short numero validate[required] entrada_filtro" id="c_tributo" maxlength="3">
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_tributo" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_c_tributo">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-1">
+                            <label for="n_posicion_fiscal">P. Fiscal: (*)</label>
+                            <input type="text" class="form-control input-sm numero validate[required] entrada_filtro" id="n_posicion_fiscal" maxlength="6" placeholder="aaaa/mm">
+                        </div>
+
+                        <div class="form-group col-md-1">
+                            <label for="n_cuota">Cuota: (*)</label>
+                            <input type="text" class="form-control input-sm numero validate[required] entrada_filtro" id="n_cuota" maxlength="2" placeholder="nn">
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="objeto_desde">Objeto Desde:</label>
+                            <input type="text" class="form-control input-sm text-right alfanumerico entrada_filtro mayusculas" id="objeto_desde">
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="objeto_hasta">Objeto Hasta:</label>
+                            <input type="text" class="form-control input-sm text-right alfanumerico entrada_filtro mayusculas" id="objeto_hasta">
+                        </div>
+
+                    </div>
+
+                    <div class="row text-center">
+                        <div class="form-group col-md-12" style="margin-top: 15px;">
+                            <button type='button' id='btn_buscar' name='btn_buscar' class="btn-sm btn_buscar"></button>
+                            <button type='button' id='btn_limpiar' name='btn_limpiar' class="btn-sm btn_limpiar"></button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="contenedor_grilla" style="display:none">
+    <table id='bonificaciones_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+    <div id="bonificaciones_grid_pager" class='scroll' style='text-align:center;'></div>
+    <br>
+    <div>
+        <b>Nota:</b> Seleccione solo las que desea: Actualizar desde la temporal a la definitiva, agregar a la
+        definitiva o borrar definitiva.
+    </div>
+</div>
+
+<div id="contenedor_botones" class="row text-center" style="display:none">
+    <button type='button' id='btn_borrar_temporal' name='btn_borrar_temporal' class="btn btn-sm">Borrar temporal</button>
+    <button type='button' id='btn_procesar_cta_cte' name='btn_procesar_cta_cte' class="btn-sm btn-primary">Procesar y Aplicar en Cta Cte</button>
+</div>

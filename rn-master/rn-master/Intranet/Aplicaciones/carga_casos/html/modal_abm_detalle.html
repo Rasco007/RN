@@ -1,0 +1,91 @@
+<div class="modal fade" id="modal_add_detalle" tabindex="-1" role="dialog"
+     aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="exampleModalLiveLabel">Alta Manual: Detalle de Operativo</h5>
+            </div>
+            <div class="modal-body">
+                <form id="form_add_detalle">
+                    <div class="row form-group" style="display: flex;flex-direction: column;max-width: 80%;margin: 0 auto;gap: 5px;">
+                        <input type="text" name="id_contribuyente_add" id="id_contribuyente_add" hidden="">
+                        <input type="text" name="c_tributo_add" id="c_tributo_add" hidden="">
+                        <input type="text" name="c_tributo_operativo" id="c_tributo_operativo" value="<?= $p_c_tributo;?>" hidden="">
+                        <input type="text" name="d_objeto_hecho_add" id="d_objeto_hecho_add" hidden="">
+                        <input type="text" name="n_personal_add" id="n_personal_add" hidden="">
+
+                        <label for="n_cuit_add" class="control-label">Cuit(*)</label>
+                        <div id="div_cuit" class="input-group">
+                            <input type="text" id="n_cuit_add" name="n_cuit_add"
+                                   class="form-control input-sm validate[required] limpiar" readonly="true">
+                            <span class="input-group-addon btn_lupa" id="btn_lupa_cuit">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </span>
+                        </div>
+                        <label for="d_denominacion_add" class="control-label">Denominación(*)</label>
+                        <input type="text" class="form-control input-sm validate[required] limpiar" id="d_denominacion_add" readonly="true">
+                        <br>
+                        <label for="d_inscripcion_add" class="control-label">Inscripción(*)</label>
+                        <div id="div_plan" class="input-group">
+                            <input type='text' id='d_inscripcion_add' name='d_inscripcion_add'
+                                   class='form-control input-sm validate[required] limpiar' readonly="true"/>
+                            <span class="input-group-addon btn_lupa" id="btn_lupa_inscripcion">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </span>
+                        </div>
+                        <label for="n_periodo_desde_add">Periodo Desde(*)</label>
+                        <div class="input-group alta_general">
+                            <input type="text" value="<?= $p_periodo_desde;?>" class="form-control input-sm validate[required]" id="n_periodo_desde_add">
+                        </div>
+                        <label for="n_periodo_hasta_add">Periodo Hasta(*)</label>
+                        <div class="input-group alta_general">
+                            <input type="text" value="<?= $p_periodo_hasta;?>" class="form-control input-sm validate[required]" id="n_periodo_hasta_add">
+                        </div>
+                        <label for="i_declarado_add">Declarado</label>
+                        <div class="input-group alta_general">
+                            <input type='text' id='i_declarado_add' name='i_declarado_add'
+                                   class='form-control input-sm numerico mascara_importe limpiar'/>
+                        </div>
+                        <label for="i_verificado_add">Verificado</label>
+                        <div class="input-group alta_general">
+                            <input type='text' id='i_verificado_add' name='i_verificado_add'
+                                   class='form-control input-sm numerico mascara_importe limpiar'/>
+                        </div>
+                        <label for="i_diferencia_add">Diferencia(*)</label>
+                        <div class="input-group alta_general">
+                            <input type='text' id='i_diferencia_add' name='i_diferencia_add'
+                                   class='form-control input-sm validate[required] numerico mascara_importe limpiar'/>
+                        </div>
+                        <label for="d_fiscalizador_add" class="control-label">Fiscalizador(*)</label>
+                        <div id="div_programa" class="input-group">
+                            <input type='text' id='d_fiscalizador_add' name='d_fiscalizador_add'
+                                   class='form-control input-sm validate[required] limpiar' readonly="true"/>
+                            <span class="input-group-addon btn_lupa" id="btn_lupa_fiscalizador">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </span>
+                        </div>
+                        <label id="label" for="c_grupo_add">Grupo de Fiscalización</label>
+                        <div class="input-group alta_general">
+                            <select name="c_grupo_add" class="form-control input-sm" id='c_grupo_add'>
+                                <option value="" selected></option>
+                                <?php foreach ($data_gruposemail as $grupo): ?>
+                                <option value="<?=$grupo['C_DATO']; ?>"><?= $grupo['C_DATO'];?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="button" class="btn btn-sm" id="btn_add_detalle"><span
+                            class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Guardar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

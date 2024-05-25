@@ -1,0 +1,93 @@
+<div class='titlebar'>
+    <span class="ui-jqgrid-title">Incorporación masiva de pagos y ddjj</span>
+</div>
+<div id="div_search" class="search panel-body">
+    
+    <form id='frm_pagos_y_ddjj'>
+        <div class="row">
+            
+            <div class="form-group col-md-2">
+                <label for="f_remesa">F. De Acreditación(*)</label>
+                <input type="text" class="form-control input-sm datepicker text-center validate[required]" name="f_remesa" id="f_remesa" placeholder="(DD/MM/AAAA)" maxlength="10">
+                
+            </div>
+        
+        
+            <div class="form-group col-md-2">
+                <label for="n_remito">Nro. Remesa</label>
+                <input type="text" class="form-control input-sm text-center" name="n_remito" id="n_remito" readonly maxlength="10" width="25%">
+            
+            </div>
+            <div class="form-group col-md-8">
+                <label for="ruta_archivo_recibido">Path y nombre del archivo(*) (incluyendo su extensión)<span class="badge badge-pill badge-warning" style="background: #6762a2;margin-left: 10px;"> * Soporta archivos con extensión .txt</span></label>
+                <div class="input-group" id="div_input_archivo_recibido">
+                    <input type='file' id='path_arch_recibido' name='d_path_arch_recibido' style='display:none' class="validate[required]" onchange='actualizar_input()'>
+                    <input name='ruta_archivo_recibido' id='ruta_archivo_recibido' type='text' class="form-control input-sm" readonly>
+                    <span class="input-group-btn " id="div_span_archivo_recibido">
+                        <button class="btn-sm btn-default" type="button" id='examinar_recibido'><span class="glyphicon glyphicon-upload" aria-hidden="true"></span></button>
+                    </span>
+                </div>
+
+            </div>
+       
+        </div>
+
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label for="cant_reg" >Cantidad de registros recuperados</label>
+                <input type="text" class="form-control input-sm text-center" id="cant_reg" name="cant_reg" readonly>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="estado">Estado del Proceso</label>
+                <input id='estado' name='estado' class="form-control" readonly >
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label>Cantidad de pagos correctos</label>
+                <input type="text" class="form-control input-sm text-center" id="pagos_acreditados" name="pagos_acreditados" readonly>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label>Cantidad de pagos erróneos</label>
+                <input type="text" class="form-control input-sm text-center" id="pagos_pendientes" name="pagos_pendientes" readonly>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label>Pagos procesados</label>
+                <input type="text" class="form-control input-sm text-center" id="pagos_no_procesados" name="pagos_no_procesados" readonly>
+            </div>
+        </div>
+
+        <div class='row text-center' style = 'margin-top:10px;'>
+            <button type='button' id='btn-procesar' class="ui-button ui-corner-all ui-widget">Procesar</button>
+            <button type='button' id='btn-limpiar' class="ui-button ui-corner-all ui-widget">Limpiar</button>
+        </div>
+
+    </form>
+
+</div>
+
+<div class="modal fade" id="rechazos_modal" tabindex="-1" role="dialog" aria-labelledby="rechazos_title" aria-hidden="true" data-backdrop="false" style="z-index: 960; top:50px ;">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="rechazos_title"></h5>
+            </div>
+            <div class="modal-body">
+                <div id='rechazos_div' style='width:850px;'>
+                    <table id='rechazos_grid' class='scroll' cellpadding='0' cellspacing='0'></table>
+                    <div id='rechazos_grid_pager' class='scroll' style='text-align: center;'></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btn_aceptar_rechazos" class="btn btn-primary" data-dismiss="modal">Aceptar</button>
+            </div>
+        </div>
+    </div>
+</div>

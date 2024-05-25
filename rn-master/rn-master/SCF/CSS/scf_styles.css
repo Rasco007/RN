@@ -1,0 +1,135 @@
+/*@import url("https://use.fontawesome.com/9d284c9beb.js");
+@import url(http://fonts.googleapis.com/css?family=Titillium+Web:400,700,400italic);*/
+
+html{
+	box-sizing: border-box;
+	height: 100%;
+}
+
+body {
+	font-family: 'Montserrat', sans-serif;
+	position: relative;
+	margin: 0;
+	padding-bottom: 6rem;
+	min-height: 100%;
+	background: #fff;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+.div_proc_overlay .proc_txt > img{display: flex;margin: 0px auto;}
+
+.navbar {
+    position: relative;
+    min-height: 50px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+}
+
+nav.navbar {
+    border: none;
+    margin: 0;
+    padding-top: 10px;
+    padding-right: 0;
+    padding-bottom: 60px;
+    padding-left: 0;
+    background-color: #F0F0F0;
+}
+
+.navbar-default{
+	background: #F0F0F0;
+}
+
+.navbar-brand img {
+    height: 80px;
+    cursor: pointer;
+}
+
+.navbar-brand>img {
+    display: block;
+}
+
+.pull-right {
+    float: right!important;
+}
+
+.page-content{
+	margin-left: 10% !important;
+	margin-right: 10% !important;
+}
+
+h1 {
+    color: #FFF;
+	background-color: #156690;	
+    padding: 5px 0px 10px 20px;
+    margin: 0;
+    display: block;
+    font-size: 2.0rem;
+    font-weight: 300;
+    font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;
+    clear:both;
+}
+
+.card {
+    position: relative;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+	border-radius: .25rem;
+	box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,.075);
+    min-height: 180px;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.card-header {
+    padding: 0.75rem;
+    background-color: #F0F0F0;
+    border-bottom: 1px solid rgba(0,0,0,.125);
+}
+
+.card-body {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1.25rem;
+}
+
+footer{
+	background:#231F20;
+	color:#fff;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	text-align: center;
+}
+
+a:link, a:visited, a:hover, a:active{
+	text-decoration: none;
+	outline: none; /* elimina el borde de puntitos que aplica el navegador */
+}
+
+@media (max-width: 768px){
+    .navbar-brand img {
+        height: 35px;
+    }
+
+    nav.navbar {
+		padding-bottom: 5px;
+		padding-top:0;
+    }
+    
+    h1 {
+        font-size:1.5rem;
+    }
+}

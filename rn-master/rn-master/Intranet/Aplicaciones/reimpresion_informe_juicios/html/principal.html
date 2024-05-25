@@ -1,0 +1,117 @@
+<div id="div_max_min" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading">Datos para Identificaci&oacute;n del Expediente</div>
+            <div class="panel-body">
+                <div id="bloque_busqueda" style="margin: 0 1% 0 1%;">
+                    <form id="frm_busqueda">
+                        <div class="row">
+                            <div class="form-group col-md-2">
+                                <label for="n_cuit">CUIT</label>
+                                <input type="text" class="form-control input-sm numerico" id="n_cuit" style="text-align: center">
+                                <input type="hidden" id="n_cuit_filtro">
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <label for="d_denominacion">Denominaci&oacute;n</label>
+                                <div class="input-group" id="div_input_denominacion">
+                                    <input name='d_denominacion' type="text" class="form-control input-sm mayusculas" id="d_denominacion">
+                                    <span class="input-group-addon" id="mascara_lupa_d_denominacion">
+                                            <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                        </span>
+                                    <span class="input-group-addon" id="lupa_d_denominacion">
+                                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                        </span>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="boleta_deuda">Boleta de deuda</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control input-sm numerico" id="boleta_deuda" style="text-align: center">
+                                    <span class="input-group-addon btn_lupa" id="lupa_boletas">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="expediente">Exp. Admin</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control input-sm" id="expediente" style="text-align: center">
+                                    <span class="input-group-addon btn_lupa" id="lupa_expedientes">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                    </span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class='row-search text-center' style="margin-top: 2%">
+                                <button type='button' id='btn_limpiar' name='btn_limpiar' class="btn-sm btn_limpiar"></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div id="bloque_botones" style="margin: 1% 1% 0 1%;">
+                    <div class="row" style="border: 2px solid #ccc9c9;margin-bottom: 15px;">
+                        <div class="row">
+                            <div class="form-check text-center" style="margin-bottom: 10px;margin-top: 10px;">
+                                <input class="form-check-input" type="checkbox" id="check_crear_pdf">
+                                <label class="form-check-label" for="check_crear_pdf">CREAR PDF</label>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-bottom: 30px;">
+                            <div class="col-md-3">
+                                <button type="button" id="btn_liq_original" class="ui-button ui-corner-all ui-widget" style="width: 100%;">Liquidaci&oacute;n Original</button>
+                            </div>
+                            <div class="col-md-3">
+                                <button type="button" id="btn_demanda_inh" class="ui-button ui-corner-all ui-widget" style="width: 100%;">Demanda (inhibici&oacute;n)</button>
+                            </div>
+                            <div class="col-md-3">
+                                <button type="button" id="btn_demanda_bco" class="ui-button ui-corner-all ui-widget" style="width: 100%;">Demanda (Banco)</button>
+                            </div>
+                            <div class="col-md-3">
+                                <button type="button" id="btn_demanda_bs" class="ui-button ui-corner-all ui-widget" style="width: 100%;">Demanda (Bs)</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row text-center" style="border: 2px solid #ccc9c9;  padding: 0.75%;">
+                        <div class="col-md-6" >
+                            <div class="col-md-6 col-md-offset-4">
+                                <button type="button" id="btn_datos_ad" class="ui-button ui-corner-all ui-widget" style="width: 100%;">Datos Adicionales</button>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="col-md-6 col-md-offset-2">
+                                <button type='button' id='btn_datos_ref' class="ui-button ui-corner-all ui-widget" style="width: 100%;">Datos Referenciales</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row" style="margin-top: 15px; border: 2px solid #ccc9c9;  padding: 0.75%;">
+                        <div class="col-md-4" >
+                            <div class="form-group">
+                                <label for="f_actualizacion">Fecha de Actualizaci&oacute;n</label>
+                                <input type="text" class="form-control input-sm datepicker" id="f_actualizacion" style="text-align: center">
+                            </div>
+                        </div>
+
+                        <div class="col-md-4" style="margin-top: 17px;">
+                            <button type='button' id='btn_liq_act' class="ui-button ui-corner-all ui-widget" style="width: 100%;">Liquidaci&oacute;n Actualizada</button>
+                        </div>
+                        <div class="col-md-4" style="margin-top: 17px;">
+                            <button type='button' id='btn_inf_obl_juicio' class="ui-button ui-corner-all ui-widget" style="width: 100%;">Informe de Oblig. de Juicio</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

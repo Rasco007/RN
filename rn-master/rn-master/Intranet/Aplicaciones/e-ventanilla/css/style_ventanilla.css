@@ -1,0 +1,34 @@
+.dropdown-menu{
+    max-width: 1px;
+}
+
+.cDropdown {
+    padding: 5px 12px;
+    color: #555;
+    text-transform: none;
+    font-weight: unset;
+    font-size: 11px;
+    border: 1px solid #c2cad8 !important;
+    background-color: white !important;
+}
+
+.cDropdown :hover{
+    background-color: white !important;
+    color: #555;
+}
+
+.leyenda_grilla {
+    font-style: italic;
+    font-weight: bold;
+    padding-left: 15px;
+    font-size: 10px;
+    color: var(--colorPrimerNivel);
+}
+
+.tox-tinymce-aux{
+    z-index: 10050;
+}
+
+.ui-autocomplete{
+    z-index: 10051!important;
+}

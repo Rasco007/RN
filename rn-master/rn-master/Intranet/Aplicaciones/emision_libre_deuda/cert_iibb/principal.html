@@ -1,0 +1,49 @@
+<div id="div_search2" class="panel-search">
+    <div class="panel panel-primary">
+        <div class="collapse in" id="collapse_search2" aria-expanded="true" style="">
+            <div class="panel-heading">Datos de la Emisión</div>
+	        <div class="panel-body">
+	            <form id='frm_busqueda2'>
+	                <div class="row">
+	                	<div class="form-group col-md-4">
+						    <label for="c_motivo">Motivo</label>
+						    <div class="input-group">
+						        <input name='c_motivo' type="text" class="form-control input-sm input-cod-short validate[required] limpiar" id="c_motivo">
+						        <input name='d_motivo' type="text" class="form-control input-sm input-desc-long" id="d_motivo" readonly>
+						        <span class="input-group-addon btn_lupa" id="lupa_c_motivo" name='lupa_c_motivo'>
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </span>
+						    </div>
+						</div>
+
+						<div class="form-group col-md-2">
+                            <label for="f_emision">Fecha Emisión</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm datepicker text-center validate[required] limpiar" name="f_emision" id="f_emision" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off" value="<?=$f_emision?>">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+
+						<div class="form-group col-md-4">
+						    <label for="c_delegacion">Oficina</label>
+						    <div class="input-group">
+						        <input name='c_delegacion' type="text" class="form-control input-sm input-cod-short validate[required] limpiar" id="c_delegacion">
+						        <input name='d_delegacion' type="text" class="form-control input-sm input-desc-long" id="d_delegacion" readonly>
+						        <span class="input-group-addon btn_lupa" id="lupa_c_delegacion" name='lupa_c_delegacion'>
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </span>
+						    </div>
+						</div>
+
+						<div class="form-group col-md-2">
+                            <label for="m_detalle_ddjj">Detalle de DDJJ c/Error</label>
+                            <input type="checkbox" class="form-control input-sm text-center" name="m_detalle_ddjj" id="m_detalle_ddjj">
+                        </div>
+					</div>
+	            </form>
+	        </div>
+	    </div>
+	</div>
+</div>

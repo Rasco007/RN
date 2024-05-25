@@ -1,0 +1,297 @@
+<div class='titlebar'>
+    <span class="ui-jqgrid-title">Ingreso de planillas de rendiciones manuales</span>
+</div>
+
+<div id="div_search" class="search panel-body">
+    <form id='frm_ingreso_planillas'>
+        <div class="row">
+            <div class="form-group col-md-3">
+                <label for="c_banco">Banco (*)</label>
+                <div class="input-group">
+                    <input type="text" class="form-control input-sm input-cod-short text-input" id="c_banco"
+                        style="text-align: center;width: auto;">
+                    <input type="text" class="form-control input-sm input-desc-long" id="d_banco" style="width: 100%;"
+                        readonly>
+                    <span class="input-group-addon" id="mascara_lupa_banco">
+                        <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                    </span>
+                    <span class="input-group-addon btn_lupa" id="lupa_banco">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    </span>
+                </div>
+            </div>
+            <div class="form-group col-md-3">
+                <label for="c_sucursal">Sucursal (*)</label>
+                <div class="input-group">
+                    <input type="text" class="form-control input-sm input-cod-short text-input" id="c_sucursal"
+                        style="text-align: center">
+                    <input type="text" class="form-control input-sm input-desc-long" id="d_sucursal" readonly>
+                    <span class="input-group-addon" id="mascara_lupa_sucursal">
+                        <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                    </span>
+                    <span class="input-group-addon btn_lupa" id="lupa_sucursal">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    </span>
+                </div>
+            </div>
+            <div class="form-group col-md-3">
+                <label for="f_acred">F. Acreditación</label>
+                <input type="text" class="form-control datepicker" id="f_acred" style="text-align: center">
+            </div>
+            <div class="form-group col-md-3">
+                <label for="f_pago">F. De pago</label>
+                <input type="text" class="form-control datepicker" id="f_pago" style="text-align: center">
+            </div>
+
+
+        </div>
+        <div class='row-search text-right' style="margin-top: 2%">
+            <div class="col-md-7">
+                <button class="btn-sm btn_buscar" type="button" style="margin-top: 1%;" id="btn_buscar"></button>
+                <button class="btn-sm btn_limpiar" type="button" id="btn_limpiar"></button>
+            </div>
+            <div class="col-md-4 col-md-offset-1">
+                <button type='button' id='btn_habilitar_alta' class="ui-button ui-corner-all ui-widget"
+                    style="margin-top: 1%">Alta Planilla</button>
+                <button type='button' id='btn_confirmar_alta' class="ui-button ui-corner-all ui-widget"
+                    style="margin-top: 1%" disabled>Guardar</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div id="container_main_grid_consulta" hidden>
+    <table id="main_grid" class="scroll" cellpadding="0" cellspacing="0">
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+    </table>
+    <div id="main_grid_pager" class="scroll" style="text-align:center;"></div>
+</div>
+
+<div id="container_main_grid_alta" hidden>
+    <table id="main_grid_tmp" class="scroll" cellpadding="0" cellspacing="0">
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+    </table>
+    <div id="main_grid_tmp_pager" class="scroll" style="text-align:center;"></div>
+</div>
+
+<div class="button-group" id="container_btn_controlado" style="text-align: center;" hidden>
+    <div class="col">
+        <button type="button" id="controlado" style="width: 15%; margin-top: 1%; margin-bottom: 1%;" disabled>
+            Controlado</button>
+    </div>
+</div>
+
+<div id="container_det_grid_consulta" hidden>
+    <table id="det_grid" class="scroll" cellpadding="0" cellspacing="0">
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+    </table>
+    <div id="det_grid_pager" class="scroll" style="text-align:center;"></div>
+</div>
+
+<div id="container_det_grid_alta" hidden>
+    <table id="det_grid_tmp" class="scroll" cellpadding="0" cellspacing="0">
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+    </table>
+    <div id="det_grid_tmp_pager" class="scroll" style="text-align:center;"></div>
+</div>
+
+
+<div class="row" id="container_totales" hidden>
+    <div class="form-group col-md-6 col-md-offset-3">
+        <div class="col-md-3" id="totales">
+            <label for="tot_cantidad">Total cantidad:</label>
+            <input type="text" class="input" id="tot_cantidad" style="text-align: center" readonly>
+        </div>
+
+        <div class="col-md-3">
+            <label for="tot_impue" id="totales">Total impuestos:</label>
+            <input type="text" class="input" id="tot_impue" style="text-align: center" readonly>
+        </div>
+
+        <div class="col-md-3">
+            <label for="tot_tasa" id="totales">Total tasa:</label>
+            <input type="text" class="input" id="tot_tasa" style="text-align: center" readonly>
+        </div>
+
+        <div class="col-md-3">
+            <label for="tot_total" id="totales">Total:</label>
+            <input type="text" class="input" id="tot_total" style="text-align: center" readonly>
+        </div>
+    </div>
+</div>
+
+
+<!--Modal ABM Rendiciones Cab-->
+<div class="modal" id="abm_rend_cab_modal" role="dialog" aria-labelledby="abm_rend_cab_title" aria-hidden="true"
+    data-backdrop="false">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                    id="btn_cerrar_abm_rend_cab">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="abm_rend_cab_title">Alta Rendiciones</h5>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label for="c_banco_modal">Banco (*)</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control input-sm input-cod-short text-input"
+                                id="c_banco_modal" style="text-align: center;width: auto;">
+                            <input type="text" class="form-control input-sm input-desc-long" id="d_banco_modal"
+                                style="width: 100%;" readonly>
+                            <span class="input-group-addon" id="mascara_lupa_banco_modal">
+                                <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                            </span>
+                            <span class="input-group-addon btn_lupa" id="lupa_banco_modal">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label for="c_sucursal_modal">Sucursal (*)</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control input-sm input-cod-short text-input"
+                                id="c_sucursal_modal" style="text-align: center">
+                            <input type="text" class="form-control input-sm input-desc-long" id="d_sucursal_modal"
+                                readonly>
+                            <span class="input-group-addon" id="mascara_lupa_sucursal_modal">
+                                <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                            </span>
+                            <span class="input-group-addon btn_lupa" id="lupa_sucursal_modal">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label for="f_acred_modal">F. Acreditación</label>
+                        <input type="text" class="form-control datepicker" id="f_acred_modal"
+                            style="text-align: center">
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label for="f_pago_modal">F. De pago</label>
+                        <input type="text" class="form-control datepicker" id="f_pago_modal" style="text-align: center">
+                    </div>
+                </div>
+
+                <div class="row" style="margin-top: 1%;">
+                    <div class="col-md-12 text-right">
+                        <button class="btn-sm btn_limpiar" type="button" id="btn_limpiar_rend_cab"></button>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <div class="row">
+                    <div class="col-md-12 text-right">
+                        <button type="button" id="btn_guardar_rend_cab" class="btn btn-secondary">Guardar</button>
+                        <button type="button" id="btn_cancelar_rend_cab" class="btn btn-secondary"
+                            data-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="abm_rend_det_modal" role="dialog" aria-labelledby="abm_rend_det_title" aria-hidden="true"
+    data-backdrop="false">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                    id="btn_cerrar_abm_rend_det">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="abm_rend_det_title">Alta Detalle Rendiciones</h5>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-group col-md-4 col-md-offset-2">
+                        <label for="c_tributo_modal">Impuesto(*)</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control input-sm input-cod-short text-input"
+                                id="c_tributo_modal" style="text-align: center;width: auto;">
+                            <input type="text" class="form-control input-sm input-desc-long" id="d_tributo_modal"
+                                style="width: 100%;" readonly>
+                            <span class="input-group-addon btn_lupa" id="lupa_tributo_modal">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label for="c_cod_form_modal">Código Formulario(*)</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control input-sm input-cod-short text-input"
+                                id="c_cod_form_modal" style="text-align: center;width: auto;">
+                            <input type="text" class="form-control input-sm input-desc-long" id="d_cod_form_modal"
+                                style="width: 100%;" readonly>
+                            <span class="input-group-addon btn_lupa" id="lupa_cod_form_modal">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-2 col-md-offset-2">
+                        <label for="n_cantidad_modal">Cantidad</label>
+                        <input type="text" class="form-control input-sm text-input numerico" id="n_cantidad_modal"
+                            style="text-align: right">
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label for="i_importe_modal">Importe</label>
+                        <input type="text" class="form-control input-sm text-input numerico mascara_importe"
+                            id="i_importe_modal" style="text-align: right">
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label for="i_tasa_modal">Tasa</label>
+                        <input type="text" class="form-control input-sm text-input numerico mascara_importe"
+                            id="i_tasa_modal" style="text-align: right">
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label for="i_total_modal">Total</label>
+                        <input type="text" class="form-control input-sm text-input numerico mascara_importe"
+                            id="i_total_modal" style="text-align: right" readonly>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="row" style="margin-top: 1%;">
+                        <div class="col-md-12 text-right" style="width: 82.3%;">
+                            <button class="btn-sm btn_limpiar" type="button" id="btn_limpiar_rend_det"></button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <div class="row">
+                    <div class="col-md-12 text-right">
+                        <button type="button" id="btn_guardar_rend_det" class="btn btn-secondary">Guardar</button>
+                        <button type="button" id="btn_cancelar_rend_det" class="btn btn-secondary"
+                            data-dismiss="modal">Cancelar</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

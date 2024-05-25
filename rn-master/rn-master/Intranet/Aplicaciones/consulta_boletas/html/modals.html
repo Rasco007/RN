@@ -1,0 +1,141 @@
+<div class="modal fade" id="mails_grid_modal" tabindex="-1" role="dialog" aria-labelledby="gird_mails_modal" aria-hidden="true" data-backdrop="false" style="z-index: 960; top:50px ;">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="titulo">Mails</h5>
+            </div>
+            <div class="modal-body">
+                <div id='mails_grid_div' style='width:850px;'>
+                    <table id='mails_grid' class='scroll' cellpadding='0' cellspacing='0'></table>
+                    <div id='mails_grid_pager' class='scroll' style='text-align: center;'></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btn_volver_mails" class="btn btn-primary" data-dismiss="modal">Volver</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="detalles_boleta_modal" tabindex="-1" role="dialog" aria-labelledby="detalle_title" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="detalle_title">Detalle de la Boleta Seleccionada</h5>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-group col-md-3">
+                        <label for="banelco">Banelco</label>
+                        <input type="text" class="form-control" id="banelco" style="text-align: right" disabled>
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <label for="link">Link</label>
+                        <input type="text" class="form-control" id="link" style="text-align: right" disabled>
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <label for="f_emision">F. Emisión</label>
+                        <input type="text" class="form-control" id="f_emision" style="text-align: right" disabled>
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <label for="f_vto">F. Vto.</label>
+                        <input type="text" class="form-control" id="f_vto" style="text-align: right" disabled>
+                    </div>
+
+                </div>
+                <table id="detalle_dbl_click_boleta_grid" class="scroll" cellpadding="0" cellspacing="0">
+                    <tr><td>&nbsp;</td></tr>
+                </table>
+                <div id="detalle_dbl_click_boleta_grid_pager" class="scroll" style="text-align:center;"></div>
+
+
+                <div class="row">
+                    <div class="form-group col-md-2" style="float: right;">
+                        <label for="i_total">Total</label>
+                        <input type="text" class="form-control" id="i_total" style="text-align: right" disabled>
+                    </div>
+                </div>
+
+                <div class='row'>
+                    <div class="form-group col-md-12">
+                        <label for="leyenda">Leyenda</label>
+                        <textarea id='leyenda' name='leyenda' rows='6' class="form-control" readonly='readonly' style='text-align: center; font-family: tahoma,verdana;font-size: 12px; background: #FFF'></textarea>
+                    </div>
+                    <div class="form-group col-md-2"></div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btn_volver_detalle" class="btn btn-secondary" data-dismiss="modal">Volver</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="detalles_boleta_sellos_modal" tabindex="-1" role="dialog" aria-labelledby="detalle_title" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="detalle_sellos_title">Detalle de la Boleta Seleccionada</h5>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-group col-md-3">
+                        <label for="f_emision">F. Emisión</label>
+                        <input type="text" class="form-control" id="f_emision_sellos" style="text-align: right" disabled>
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <label for="f_vto">F. Vto.</label>
+                        <input type="text" class="form-control" id="f_vto_sellos" style="text-align: right" disabled>
+                    </div>
+
+                </div>
+                <div id="div_tabla_detalle_dbl_click_boleta_sellos">
+                    <table id="detalle_dbl_click_boleta_sellos_grid" class="scroll" cellpadding="0" cellspacing="0">
+                        <tr><td>&nbsp;</td></tr>
+                    </table>
+                    <div id="detalle_dbl_click_boleta_sellos_grid_pager" class="scroll" style="text-align:center;"></div>
+                </div>
+
+                <div id="div_tabla_detalle_dbl_click_boleta_sellos_sin_obj_hecho">
+                    <table id="detalle_dbl_click_boleta_sellos_sin_obj_hecho_grid" class="scroll" cellpadding="0" cellspacing="0">
+                        <tr><td>&nbsp;</td></tr>
+                    </table>
+                    <div id="detalle_dbl_click_boleta_sellos_sin_obj_hecho_grid_pager" class="scroll" style="text-align:center;"></div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-2" style="float: right;">
+                        <label for="i_total">Total</label>
+                        <input type="text" class="form-control" id="i_total_sellos" style="text-align: right" disabled>
+                    </div>
+                </div>
+
+                <div class='row'>
+                    <div class="form-group col-md-12">
+                        <label for="leyenda">Leyenda</label>
+                        <textarea id='leyenda_sellos' name='leyenda' rows='6' class="form-control" readonly='readonly' style='text-align: center; font-family: tahoma,verdana;font-size: 12px; background: #FFF'></textarea>
+                    </div>
+                    <div class="form-group col-md-2"></div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btn_volver_detalle_sellos" class="btn btn-secondary" data-dismiss="modal">Volver</button>
+            </div>
+        </div>
+    </div>
+</div>

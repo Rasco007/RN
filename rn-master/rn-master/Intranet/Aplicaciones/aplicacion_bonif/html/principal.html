@@ -1,0 +1,76 @@
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading">Bonificaciones</div>
+            <div class="panel-body">
+                <form id='frm_consulta' style="margin-top: 5px;">
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                            <label for="d_tributo">Tributo</label>
+                            <div class="input-group" id="div_input_tributo">
+                                <input type="text" class="form-control input-sm input-cod-short" id="c_tributo" maxlength="3">
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_tributo" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_c_tributo">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-2">
+                            <label for="d_objeto_hecho" class="control-label">Objeto/Hecho</label>
+                            <div class="input-group">
+                                <input type='text' id='d_objeto_hecho' name='d_objeto_hecho'
+                                       class='form-control input-sm' readonly="true"/>
+                                <span class="input-group-addon btn_lupa" id="btn_lupa_objeto_hecho">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                    </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="n_posicion_fiscal_desde">Posición Fiscal Desde</label>
+                            <input type="text" class="form-control input-sm" id="n_posicion_fiscal_desde" maxlength="6" placeholder="aaaa/mm">
+                        </div>
+
+                        <div class="form-group col-md-1" style="width: 9%">
+                            <label for="n_cuota_desde">Cuota Desde</label>
+                            <input type="text" class="form-control input-sm" id="n_cuota_desde" maxlength="2" placeholder="nn">
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="n_posicion_fiscal_hasta">Posición Fiscal Hasta</label>
+                            <input type="text" class="form-control input-sm" id="n_posicion_fiscal_hasta" maxlength="6" placeholder="aaaa/mm">
+                        </div>
+
+                        <div class="form-group col-md-1" style="width: 9%">
+                            <label for="n_cuota_hasta">Cuota Hasta</label>
+                            <input type="text" class="form-control input-sm" id="n_cuota_hasta" maxlength="2" placeholder="nn">
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label class="form-check-label" for="check_cta_cte">Aplica en Cta. Cte.</label>
+                            <input type="checkbox" class="form-check-input" id="check_cta_cte">
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label class="check_temporal" for="check_temporal">Generar Temporal.</label>
+                            <input type="checkbox" class="form-check-input" id="check_temporal">
+                        </div>
+
+                    </div>
+                </form>
+                <div class="row form-group" style="display: flex; justify-content: center;">
+                    <div class="col-md-3">
+                        <div class="text-center">
+                            <button type='button' class="btn-sm btn" id='btn_bonificar' style="margin-bottom: 1%">Aplicar Bonificación</button>
+                            <button type='button' class="btn-sm btn_limpiar" id='btn_limpiar'></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

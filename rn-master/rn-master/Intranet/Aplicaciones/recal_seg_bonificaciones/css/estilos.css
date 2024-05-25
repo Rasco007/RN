@@ -1,0 +1,22 @@
+.btn_limpiar:before {
+    content: 'Borrar Seguimiento' !important;
+}
+
+#comentarios_grid{
+    margin-top: 5px;
+}
+
+#comentarios_grid label{
+    margin-left: 15px;
+}
+
+#div_input_tributo .lupa_oculta {
+    border-bottom-right-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+#div_input_objeto .lupa_oculta{
+    width: 100% !important;
+    border-bottom-right-radius: 3px;
+    border-top-right-radius: 3px;
+}

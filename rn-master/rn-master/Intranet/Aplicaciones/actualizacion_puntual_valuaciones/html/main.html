@@ -1,0 +1,177 @@
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading" style="padding-left: 1%;text-transform: none;">Actualizacion Puntual de Valuaciones</div>
+            <div class="panel-body">
+                <form id='frm_busqueda' >
+
+                    <div class="row">
+                        <div class="form-group col-md-4" style="margin-left: 10%;">
+                            <label for="fecha">Fecha (*)</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm datepicker text-center" name="fecha" id="fecha" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off">
+                            </div>
+                        </div>
+
+
+                        <div class="form-group col-md-2" style="margin-left: -5%;" >
+                            <label for="d_patente">Dominio (*)</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm text-center mayusculas" name="d_patente" id="d_patente">
+                                <span class="input-group-addon" id="mascara_lupa_d_dominio">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon btn_lupa" id="lupa_d_dominio">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group col-md-2" style="margin-left: 10%;" >
+                            <label for="d_patente_vieja">Dominio anterior</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm text-center mayusculas" name="d_patente_vieja" id="d_patente_vieja">
+                                <span class="input-group-addon" id="mascara_lupa_d_dominio_viejo">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon btn_lupa" id="lupa_d_dominio_viejo">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+             </div>  
+        </div>
+    </div>
+
+    <div class="panel-search">
+        <div class="panel panel-primary">
+            <div class="collapse in" id="collapse_buttons" aria-expanded="true">
+                <div class="panel-heading" style="padding-left: 1%;text-transform: none;">Detalles del Automotor</div>
+                <div class="panel-body">
+                    <form id='frm_buttons'>
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                                <label for="c_marca">Marca</label>
+                                <div class="input-group" style="width: 100%;">
+                                    <input type="text" class="form-control input-sm input-cod-short text-center" name="c_marca" id="c_marca">
+                                    <input type="text" class="form-control input-sm input-desc-long limpiar" name="d_descrip_marca" id="d_descrip_marca" readonly>
+                                    <span class="input-group-addon btn_lupa" id="lupa_marca">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <label for="id_modelo">Modelo</label>
+                                <div class="input-group" style="width: 100%;">
+                                    <input type="text" class="form-control input-sm input-cod-short text-center" name="id_modelo" id="id_modelo">
+                                    <input type="text" class="form-control input-sm input-desc-long limpiar" name="d_descrip_modelo" id="d_descrip_modelo" readonly>
+                                    <span class="input-group-addon btn_lupa" id="lupa_modelo">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <label for="id_descripcion">Descripción</label>
+                                <div class="input-group" style="width: 100%;">
+                                    <input type="text" class="form-control input-sm input-cod-short text-center" name="id_descripcion" id="id_descripcion">
+                                    <input type="text" class="form-control input-sm input-desc-long limpiar" name="d_descrip" id="d_descrip" readonly>
+                                    <span class="input-group-addon btn_lupa" id="lupa_descripcion">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-2">
+                                <label for="d_texto_marca">Marca no codificada</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control input-sm input-desc-long" name="d_texto_marca" id="d_texto_marca" readonly>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-2">
+                                <label for="d_texto_modelo">Modelo no codificado</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control input-sm input-desc-long" name="d_texto_modelo" id="d_texto_modelo" readonly>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-2">
+                                <label for="d_texto_descripcion">Descripción no codificada</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control input-sm input-desc-long" name="d_texto_descripcion" id="d_texto_descripcion" readonly>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="c_tipo">Tipo</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control input-sm input-cod-short text-center" name="c_tipo" id="c_tipo">
+                                    <input type="text" class="form-control input-sm input-desc-long" name="d_descrip_tipo" id="d_descrip_tipo" readonly>
+                                    <span class="input-group-addon btn_lupa" id="lupa_tipo">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="c_grupo">Grupo</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control input-sm input-cod-short text-center mayusculas" name="c_grupo" id="c_grupo">
+                                    <input type="text" class="form-control input-sm input-desc-long" name="d_grupo" id="d_grupo" readonly>
+                                    <span class="input-group-addon btn_lupa" id="lupa_grupo">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row" >
+
+                            <div class="form-group col-md-2">
+                                <label for="n_modelo_año">Modelo-Año</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control input-sm input-desc-long" name="n_modelo_año" id="n_modelo_año" readonly>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-2">
+                                <label for="n_peso_cilindrada">Peso/Cilindrada/Eslora</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control input-sm input-desc-long" name="n_peso_cilindrada" id="n_peso_cilindrada" readonly>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-2">
+                                <label for="c_fmcamod">MTM</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control input-sm input-desc-long" name="c_fmcamod" id="c_fmcamod" readonly>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-2">
+                                <label for="n_hp">HP</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control input-sm input-desc-long" name="n_hp" id="n_hp" readonly>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <button type="button" class="btn btn-primary btn-main" id="btn_limpiar" style="float: right;margin: 15px 0 0 15px;">LIMPIAR</button>
+                                <button type="button"  id="btn_generar_reporte" class="btn btn-secondary" style="float: right;margin: 15px 0 0 0;">Certificado</button>
+                            </div>
+
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

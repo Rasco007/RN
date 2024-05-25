@@ -1,0 +1,50 @@
+<!--DIV BUSQUEDA-->
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading">B&uacute;squeda</div>
+            <div class="panel-body">
+                <form id='frm_busqueda' style="margin-top: 5px;">
+                    <div class="row">
+                        <div class="form-group col-md-3 col-md-offset-2">
+                            <label for="c_forma_pago">Forma de Pago (*):</label>
+                            <div class="input-group" id="div_input_tipo_imponible">
+                                <input id='c_forma_pago_filtro' type='text' class='form-control input-sm text-right' style="display: none;"/>
+                                <input type="text" class="form-control input-sm validate[required]" id="d_forma_pago_filtro" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_c_forma_pago">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-1">
+                            <label for="n_anio">Año (*):</label>
+                            <input id='n_anio' type='text' class='form-control input-sm text-right validate[required]'/>
+                        </div>
+                        
+                        <div class="form-group col-md-3 col-md-offset-1 text-center" style="margin-top: 15px;">
+                            <button type='button' id='btn_buscar' name='btn_buscar' class="btn-sm btn_buscar"></button>
+                            <button type='button' id='btn_limpiar' name='btn_limpiar' class="btn-sm btn_limpiar"></button>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        
+
+                    </div>
+
+                </form>
+            </div>
+        </div>
+        
+        <div id="grid_wrapper">
+            <table id='crono_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+            <div id='crono_grid_pager' class='scroll' style='text-align:center;'></div>
+        </div>
+    </div>
+</div>
+
+<!--GRILLA PRINCIPAL-->

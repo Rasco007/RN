@@ -1,0 +1,147 @@
+<style>
+    .dropdown-menu{
+        font-size: 11px !important;
+    }
+
+    .cDropdown {
+        padding: 5px 12px;
+        color: #555;
+        text-transform: none;
+        font-weight: unset;
+        font-size: 11px;
+        border: 1px solid #c2cad8 !important;
+        background-color: white !important;
+    }
+
+    .cDropdown :hover{
+        background-color: white !important;
+        color: #555;
+    }
+
+    @media (max-width: 768px) {
+        .full-width {
+            width:100%;
+            margin-top:5px;
+        }
+    }
+</style>
+<!--DIV BUSQUEDA-->
+<div id="div_search" class="panel-search">
+<div class="panel panel-primary">
+    <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+        <span class="glyphicon"></span>
+    </a>
+    <div class="collapse in" id="collapse_search" aria-expanded="true" style="">
+        <div class="panel-heading">Consultá tu deuda</div>
+        <div class="panel-body">
+            <form id='frm_consulta'>
+
+                <div class="row form-group">
+                    <div class="col-md-2">
+                        <label for="n_cuit" class="control-label">CUIT</label>
+                        <input type="text" class="form-control input-sm text-center" id="n_cuit" placeholder="" value="<?=$n_cuit?>" disabled>
+                        <input type="hidden" class="form-control input-sm text-center" id="id_contribuyente" value="<?=$_SESSION[id_rel_persona]?>" placeholder="">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="d_denominacion" class="control-label">Denominación</label>
+                        <input type="text" class="form-control input-sm" id="d_denominacion" placeholder="" value="<?=$d_denominacion?>" disabled>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="c_tributo" class="control-label">Tributo</label>
+                        <input type="hidden" class="form-control input-sm" id="c_tributo" placeholder="" value="<?=$c_tributo?>" disabled>
+                        <input type="text" class="form-control input-sm" id="d_tributo" placeholder="" value="<?=$d_tributo?>" disabled>
+                    </div>
+                    <div class="col-md-2">
+                        <label for="d_objeto_hecho" class="control-label" id='d_objeto_hecho_label'>Objeto</label>
+                        <select id="d_objeto_hecho" data-live-search="true" class="selectpicker validate[required] form-control input-sm limpiar" data-style="cDropdown">
+                            <!--<option value=""></option>-->
+                            <?php foreach ($objetos as $objeto): ?>
+                                <option value="<?=$objeto['D_OBJETO_HECHO']; ?>"><?= $objeto['D_OBJETO_HECHO'];?></option>
+                            <?php endforeach; ?>                        
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row form-group" id="filtros_canon" hidden>
+                    <div class="col-md-2">
+                        <label for="d_nomenclatura" class="control-label" id='d_nomenclatura_label'>Nomenclatura</label>
+                        <select id="d_nomenclatura" data-live-search="true" class="selectpicker form-control input-sm limpiar" data-style="cDropdown">
+                            <!--<option value=""></option>-->
+                            <?php foreach ($nomenclaturas as $nomenclatura): ?>
+                                <option value="<?=$nomenclatura['D_NOMENCLATURA']; ?>"><?= $nomenclatura['D_NOMENCLATURA'];?></option>
+                            <?php endforeach; ?>                        
+                        </select>
+                    </div>
+
+                    <div class="col-md-2">
+                        <label for="n_regante">Número de Regante / Parcela</label>
+                        <div id="div_regante" class="input-group">
+                            <input type='text' id='n_regante' name='n_regante' class='form-control input-sm mayusculas limpiar' readonly="true" disabled="true" />
+                            <span class="input-group-addon btn_lupa" id="btn_lupa_regante" name='btn_lupa_regante'>
+                                <span class="glyphicon glyphicon-search"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class='row text-center' id='botones_busqueda'>
+                    <br>
+                    <button type='button' class="btn-sm btn_buscar" id='btn_buscar'></button>
+                    <button type='button' class="btn-sm btn_limpiar" id='btn_limpiar'></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+
+<div id="datos_deuda" hidden>
+    <div id="div_f_actualizacion" class="panel-search">
+        <div class="panel panel-primary">
+            <div class="collapse in" id="collapse_search" aria-expanded="true">
+                <div class="panel-heading">Fecha de Actualización</div>
+                <div class="panel-body">
+                    <form id='frm_actualiza_deuda'>    
+                        <div class="row form-group">
+                            <div class="col-md-2">
+                                <input type="text" class="form-control input-sm text-center datepicker" id="f_actualizacion" placeholder="dd/mm/aaaa" value="<?=$fecha_hoy?>" readonly>
+                            </div>
+                            <div class="col-md-4">
+                                <button type='button' class="btn-sm btn-success full-width" id='btn_actualizar' hidden>Actualizar Deuda</button>
+                            
+                                <button type='button' class="btn-sm btn-primary full-width" id='btn_volver'>Cambiar filtros</button>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--GRILLA PRINCIPAL-->
+
+    <table id='main_grid' class='scroll' cellpadding='0' cellspacing='0' ><tr><td>&nbsp;</td></tr></table>
+    <div id='main_grid_pager' class='scroll' style='text-align:center;'></div>
+    <br>
+    <div class="row">
+        <div class="col-md-12 col-md-offset-3 text-right">
+            <div class="col-md-3">
+                <label for="i_capital_total">Capital Total</label>
+                <input type="text" class="input-sm text-right" id="i_capital_total" placeholder="0" disabled>
+            </div>
+            <div class="col-md-3">
+                <label for="i_interes_total">Interes Total</label>
+                <input type="text" class="input-sm text-right" id="i_interes_total" placeholder="0" disabled>
+           </div>
+            <div class="col-md-3">
+                <label for="i_saldo_total">Saldo Total</label>
+                <input type="text" class="input-sm text-right" id="i_saldo_total" placeholder="0" disabled>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="row text-center">
+        <button type='button' class="btn btn-sm" id='btn_emitir_boleta'><span class="glyphicon glyphicon-print" aria-hidden="true"></span> Emitir Boleta</button>
+    </div>
+</div>

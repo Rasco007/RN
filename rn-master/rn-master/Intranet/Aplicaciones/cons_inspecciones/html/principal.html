@@ -1,0 +1,115 @@
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true" style="">
+            <div class="panel-heading">Inspecciones a Seleccionar</div>
+            <div class="panel-body">
+                <form id='frm_busqueda'>
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                            <label for="n_expediente">Nro expediente</label>
+                            <input name='n_expediente' type="text" class="form-control input-sm" id="n_expediente">
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="a_expediente">Año</label>
+                            <input name='a_expediente' type="text" class="form-control input-sm" id="a_expediente">
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="c_plan_fiscalizacion">Plan de fiscalización</label>
+                            <div class="input-group" id="div_input_plan_fiscalizacion">
+                                <input name='c_plan_fiscalizacion' type="text" class="form-control input-sm input-cod-short" id="c_plan_fiscalizacion">
+                                <input name='d_plan_fiscalizacion' type="text" class="form-control input-sm input-desc-long" id="d_plan_fiscalizacion" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_plan_fiscalizacion" name='lupa_plan_fiscalizacion'>
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for='inspecciones'>Inspecciones</label>
+                            <select name='inspecciones'id='inspecciones' title='Seleccione' class='form-control input-sm validate[required]' data-style='cDropdown'>
+                                <option disabled selected>seleccione</option>
+                                <option value='1'>Todas</option>
+                                <option value='2'>Abiertas</option>
+                                <option value='3'>Cerradas</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                            <label for="c_programa">Programa</label>
+                            <div class="input-group" id="div_input_programa">
+                                <input name='c_programa' type="text" class="form-control input-sm input-cod-short" id="c_programa">
+                                <input name='d_programa' type="text" class="form-control input-sm input-desc-long" id="d_programa" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_programa" name='lupa_programa'>
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="n_cuit">CUIT Contribuyente</label>
+                            <input name='n_cuit' type="text" class="form-control input-sm" id="n_cuit">
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="d_denominacion">Denominación / Razón Social</label>
+                            <input name='d_denominacion' type="text" class="form-control input-sm" id="d_denominacion">
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="desvio_respecto">Desvío Respecto</label>
+                            <select id="desvio_respecto" name="desvio_respecto" title='Seleccione' class='form-control input-sm validate[required]' data-style='cDropdown'>
+                                <option disabled selected>seleccione</option>
+                                <option value="1">Opción A</option>
+                                <option value="2">Opción B</option>
+                                <option value="3">Opción C</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                            <label for="c_tributo">Tributo</label>
+                            <div class="input-group" id="div_input_tributo">
+                                <input name='c_tributo' type="text" class="form-control input-sm input-cod-short" id="c_tributo">
+                                <input name='d_tributo' type="text" class="form-control input-sm input-desc-long" id="d_tributo" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_tributo" name='lupa_tributo'>
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="n_oficina">Nro de Oficina</label>
+                            <input name='n_oficina' type="text" class="form-control input-sm" id="n_oficina">
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="n_onjeto_hecho">Nro de Objeto / Hecho</label>
+                            <input name='n_onjeto_hecho' type="text" class="form-control input-sm" id="n_onjeto_hecho">
+                        </div>
+
+                        <div class="form-group col-md-3 text-center">
+                            <label class="invisible" style="display: block;">.</label>
+                            <button class="btn-sm btn-primary" type="button" id="btn_continuar"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Continuar</button>
+                            <button class="btn-sm btn_limpiar" type="button" id="btn_limpiar"></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="body">
+    <div class="grid">
+        <table id='main_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+        <div id="main_grid_pager" class='scroll' style='text-align:center;'></div>
+    </div>
+</div>

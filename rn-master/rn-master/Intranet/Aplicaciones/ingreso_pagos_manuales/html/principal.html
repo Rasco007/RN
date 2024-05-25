@@ -1,0 +1,255 @@
+<div id="div_filtros" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading">Datos del Banco</div>
+            <div class="panel-body">
+                <form action="" id="frm_busqueda_banco">
+                    <div class="row" style="margin-left: 0; margin-right: 0;">
+                        <div class="col-md-8" style="border: solid 2px #ccc9c9; padding: 0.75%; ">
+                            <div class="row" style=" margin-left: 0; margin-right: 0;">
+                                <div class="form-group col-md-4">
+                                    <label for="c_banco">Banco (*)</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control input-sm input-cod-short text-input" id="c_banco" style="text-align: center">
+                                        <input type="text" class="form-control input-sm input-desc-long" id="d_banco" readonly>
+                                        <span class="input-group-addon btn_lupa" id="lupa_banco">
+                                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                        </span>
+                                    </div>       
+                                </div>
+                        
+                                <div class="form-group col-md-4">
+                                    <label for="c_sucursal">Sucursal (*)</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control input-sm input-cod-short text-input" id="c_sucursal" style="text-align: center">
+                                        <input type="text" class="form-control input-sm input-desc-long" id="d_sucursal" readonly>
+                                        <span class="input-group-addon btn_lupa" id="lupa_sucursal">
+                                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                        </span>
+                                    </div>       
+                                </div>
+                        
+                                <div class="form-group col-md-2">        
+                                    <label for="f_acred">F. Acred (*)</label>
+                                    <input type="text" class="form-control input-sm datepicker" id="f_acred" style="text-align: center">
+                                </div>
+                        
+                                <div class="form-group col-md-2">        
+                                    <label for="f_pago">F. Pago (*)</label>
+                                    <input type="text" class="form-control input-sm datepicker" id="f_pago" style="text-align: center">
+                                </div>
+                            </div>
+        
+                            <div class="row">
+                                <div class="form-group col-md-4 col-md-offset-5" style="margin-top: 2%;">
+                                    <button type='button' id='btn_limpiar' class="ui-button ui-corner-all ui-widget" style="margin-right: 10px;">Limpiar</button>
+                                    <button type='button' id='btn_buscar' class="ui-button ui-corner-all ui-widget">Buscar</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4" style="border: solid 2px #ccc9c9; padding: 0.75%; ">
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label for="n_remesa">Remesa</label>
+                                    <input type="text" class="form-control input-sm" id="n_remesa" readonly style="text-align: right;">    
+                                </div>
+                        
+                                <div class="form-group col-md-4">
+                                    <label for="n_cant_total">Cantidad</label>
+                                    <input type="text" class="form-control input-sm" id="n_cant_total" readonly style="text-align: right;">    
+                                </div>
+                        
+                                <div class="form-group col-md-4">
+                                    <label for="i_importe_total">Importe</label>
+                                    <input type="text" class="form-control input-sm" id="i_importe_total" readonly style="text-align: right;">    
+                                </div>
+                            </div>
+        
+                            <div class="row">
+                                <div class="form-group col-md-12">
+                                    <label for="d_estado">Estado</label>
+                                    <input type="text" class="form-control input-sm" id="d_estado" readonly style="text-align: left;">    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="div_filtros" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading">Datos del Pago</div>
+            <div class="panel-body">
+                <form action="" id="frm_barra_soft">
+                    <div class="row">
+                        <div class="form-group col-md-6 ">
+                            <label for="barra">Barra</label>
+                            <input type="text" class="form-control input-sm numerico" id="barra">    
+                        </div>
+            
+                        <div class="form-group col-md-6">
+                            <label for="d_responsable">Resp.</label>
+                            <input type="text" class="form-control input-sm" id="d_responsable" readonly>    
+                        </div>
+                    </div>
+            
+                    <div class="row">
+                        <div class="form-group col-md-1">
+                            <label class="form-label" for="c_tipo_registro">Tipo Boleta</label>
+                            <div>
+                                <select class="form-select" id="c_tipo_registro" aria-label="Default select example" style="width: 100%">
+                                    <option value="S" selected>Siat</option>
+                                    <option value="gm">GM</option>
+                                </select>   
+                            </div>
+                        </div>
+            
+                        <div class="form-group col-md-3">
+                            <label for="n_comp">Comprobante</label>
+                            <input type="text" class="form-control input-sm numerico" id="n_comp" style="text-align: right;">    
+                        </div>
+            
+                        <div class="form-group col-md-2">
+                            <label for="c_impuesto_form">C&oacute;digo</label>
+                            <input type="text" class="form-control input-sm" id="c_impuesto_form" readonly style="text-align: right;">    
+                        </div>
+            
+                        <div class="form-group col-md-2">
+                            <label for="tipo_comp">Tipo Comprobante</label>
+                            <input type="text" class="form-control input-sm" id="tipo_comp" readonly style="text-align: right;">    
+                        </div>
+            
+                        <div class="form-group col-md-2">
+                            <label for="d_objeto_hecho">Objeto</label>
+                            <input type="text" class="form-control input-sm" id="d_objeto_hecho" readonly style="text-align: center;">    
+                        </div>
+
+                        <div class="form-group col-md-1">
+                            <label for="">A&ntilde;o</label>
+                            <input type="text" class="form-control input-sm" id="n_anio" readonly style="text-align: right;">    
+                        </div>
+                        <div class="form-group col-md-1">
+                            <label for="">Cuota</label>
+                            <input type="text" class="form-control input-sm" id="n_cuota" readonly style="text-align: right;">    
+                        </div>
+                    </div>
+            
+                    <div class="row">
+                        <div class="form-group col-md-3 ">
+                            <label for="i_pagado">Imp. Pagado</label>
+                            <input type="text" class="form-control input-sm numerico mascara_importe" id="i_pagado" style="text-align: right;">    
+                        </div> 
+
+                        <div class="form-group col-md-2">
+                            <label for="i_tasa">Imp. Tasa</label>
+                            <input type="text" class="form-control input-sm" id="i_tasa" readonly style="text-align: right;">    
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="i_retenciones">Imp. Retenciones</label>
+                            <input type="text" class="form-control input-sm numerico mascara_importe" id="i_retenciones" style="text-align: right;">    
+                        </div>
+
+                        <div class="form-group col-md-1">
+                            <label for="f_vto">1er Vto</label>
+                            <input type="text" class="form-control input-sm" id="f_vto" readonly style="text-align: center;">    
+                        </div>
+
+                        <div class="form-group col-md-1">
+                            <label for="f_vto2">2do Vto</label>
+                            <input type="text" class="form-control input-sm" id="f_vto2" readonly style="text-align: center;">    
+                        </div>
+
+                        <div class="form-group col-md-1">
+                            <label for="i_importe1">Importe 1° Vto</label>
+                            <input type="text" class="form-control input-sm mascara_importe" id="i_importe1" readonly style="text-align: right;">    
+                        </div>
+                        
+                        <div class="form-group col-md-1">
+                            <label for="i_importe2">Importe 2° Vto</label>
+                            <input type="text" class="form-control input-sm" id="i_importe2" readonly style="text-align: right;">    
+                        </div>
+            
+                        <div class="form-group col-md-1" style="margin: 20px 0px 0px 0px;">
+                            <button type='button' id='btn_ok' class="ui-button ui-corner-all ui-widget" style="width: 100%;">OK</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="bloque_consulta" hidden>
+    <table id="consulta_grid" class="scroll" cellpadding="0" cellspacing="0">
+        <tr><td>&nbsp;</td></tr>
+    </table>
+    <div id="consulta_grid_pager" class="scroll" style="text-align:center;"></div>
+</div>
+
+<div class="row" style="margin-top: 15px" id="bloque_botones">
+    <div class="col-md-4 col-md-offset-1">
+        <span><b>Tipos de Comprobantes</b></span>
+        <div class="row">
+            <div class="col-md-4">
+                <ul style="list-style-type: none;">
+                    <li>901 = COM</li>
+                    <li>904 = MOR</li>
+                    <li>907 = REA</li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <ul style="list-style-type: none;">
+                    <li>902 = CRE</li>
+                    <li>905 = SYS</li>
+                    <li>908 = LIQ</li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <ul style="list-style-type: none;">
+                    <li>903 = PFP</li>
+                    <li>906 = SYL</li>
+                    <li>909 = RED</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-7">
+        <button type='button' id='btn_controlado' class="ui-button ui-corner-all ui-widget">Controlado</button>
+        <button type='button' id='btn_listado' class="ui-button ui-corner-all ui-widget">Listado</button>
+        <button type='button' id='btn_grabar' class="ui-button ui-corner-all ui-widget">Grabar</button>
+    </div>
+</div>
+
+<!--Modal para la grilla Remesas-->
+<div class="modal" id="remesas_modal" tabindex="-1" role="dialog" aria-labelledby="remesas_title" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="remesas_title">Listado de Remesas Asociadas</h5>
+            </div>
+            <div class="modal-body">
+                <table id="remesas_grid" class="scroll" cellpadding="0" cellspacing="0">
+                    <tr><td>&nbsp;</td></tr>
+                </table>
+                <div id="remesas_grid_pager" class="scroll" style="text-align:center;"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btn_aceptar_remesas" class="btn btn-secondary">Aceptar</button>
+            </div>
+        </div>
+    </div>
+</div>

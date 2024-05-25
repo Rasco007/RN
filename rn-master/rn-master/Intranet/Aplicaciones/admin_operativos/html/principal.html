@@ -1,0 +1,98 @@
+<!--DIV BUSQUEDA-->
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true" style="">
+            <div class="panel-heading">B&uacute;squeda</div>
+            <div class="panel-body">
+                <form id='frm_consulta'>
+                    <div class="form-group" style="display: flex; justify-content: space-between;">
+                        <div class="from-group col-md-2">
+                            <label for="n_operativo" class="control-label">Nro. Operativo</label>
+                            <input type="text" class="form-control input-sm text-right validate[custom[onlyIntNumber]] limpiar" name="n_operativo" id="n_operativo" maxlength="10">
+                        </div>
+                        <div class="from-group col-md-4">
+                            <label for="tipo_inconsistencia">Tipo Inconsistencias</label>
+                            <select name="tipo_inconsistencia" class="form-control input-sm" id='tipo_inconsistencia'>
+                                <option value="" selected></option>
+                                <?php foreach ($data_inconsistencias as $inconsistencia): ?>
+                                <option value="<?=$inconsistencia['C_DATO']; ?>"><?= $inconsistencia['D_DATO'];?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <div class="from-group col-md-4">
+                            <label for="estado">Estado</label>
+                            <select name="estado" class="form-control input-sm" id='estado'>
+                                <option value="" selected></option>
+                                <?php foreach ($data_estados as $estado): ?>
+                                <option value="<?=$estado['C_DATO']; ?>"><?= $estado['D_DATO'];?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <div class="from-group col-md-4">
+                            <label for="departamento">Departamento</label>
+                            <select name="departamento" class="form-control input-sm" id='departamento'>
+                                <?php foreach ($data_departamentos as $departamento): ?>
+                                <option value="<?=$departamento['D_DATO2']; ?>"><?= $departamento['D_DATO'];?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="text-center" style="margin: 20px;">
+                            <button type='button' class="btn-sm btn_buscar" id='btn_buscar'></button>
+                            <button type='button' class="btn-sm btn_limpiar" id='btn_limpiar'></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--GRILLA PRINCIPAL-->
+<div id="seccion_1">
+    <table id='main_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+    <div id='main_grid_pager' class='scroll' style='text-align:center;'></div>
+    <br>
+    <div id="div_botones" hidden>
+        <div class="text-center" style="display: flex; justify-content: space-evenly;">
+            <button type='button' class="btn btn-sm" id='btn_administrar'><span class="glyphicon glyphicon-open" aria-hidden="true"></span> Administrar Casos</button>
+            <button type='button' class="btn btn-sm" id='btn_cerrar' style="width: 10%;"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Cerrar</button>
+            <button type='button' class="btn btn-sm" id='btn_notificar' style="width: 10%;"><span class="glyphicon glyphicon-send" aria-hidden="true"></span> Notificar</button>
+            <button type='button' class="btn btn-sm" id='btn_validar' style="width: 10%;"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> Validar</button>
+            <button type='button' class="btn btn-sm" id='btn_errores' style="width: 10%;"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> Ver Errores</button>
+        </div>
+    </div>
+</div>
+
+<div id="seccion_2" style="display: none">
+    <br>
+    <table id='detail_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+    <div id='detail_grid_pager' class='scroll' style='text-align:center;'></div>
+    <br>
+</div>
+
+<div class="modal fade" id="modal_errores_operativo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title">Errores de Operativo</h5>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <table id='errores_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+                    <div id='errores_grid_pager' class='scroll' style='text-align:center;'></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>

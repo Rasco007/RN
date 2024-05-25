@@ -1,0 +1,37 @@
+<div style="max-width: 95%;margin: 0 auto;">
+    <div id="div_search" class="panel-search">
+        <div class="panel panel-primary">
+            <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+                <span class="glyphicon"></span>
+            </a>
+            <div class="collapse in" id="collapse_search" aria-expanded="true" style="">
+                <div class="panel-heading">B&uacute;squeda</div>
+                <div class="panel-body">
+                    <form id='frm_consulta'>
+                        <div class="form-group" style="display: flex; justify-content: space-between;">
+                            <input type="hidden" class="form-control input-sm text-right" value="<?= $p_n_orden;?>" id="n_orden" readonly="true">
+
+                            <div class="from-group col-md-3">
+                                <label for="n_operativo" class="control-label">Nro. Operativo</label>
+                                <input type="text" class="form-control input-sm text-right" value="<?= $p_n_operativo;?>" id="n_operativo" readonly="true">
+                            </div>
+                            <div class="from-group col-md-3">
+                                <label for="n_cuit" class="control-label">CUIT</label>
+                                <input type="text" class="form-control input-sm text-right" value="<?= $n_cuit;?>" id="n_cuit" readonly="true">
+                            </div>
+                            <div class="from-group col-md-4">
+                                <label for="d_denominacion" class="control-label">Denominación</label>
+                                <input type="text" class="form-control input-sm text-right" value="<?= $d_denominacion;?>" id="d_denominacion" readonly="true">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div id="seccion_1">
+        <table id='main_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+        <div id='main_grid_pager' class='scroll' style='text-align:center;'></div>
+    </div>
+</div>

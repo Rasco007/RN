@@ -1,0 +1,178 @@
+<!--DIV BUSQUEDA-->
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading">B&uacute;squeda</div>
+            <div class="panel-body">
+                <form id='frm_filtro' style="margin-top: 5px;">
+                    <div class="row">
+                        <div class="form-group col-md-2">
+                            <label for="id_boleta_agr">N° Boleta (*):</label>
+                            <input name='id_boleta_agr' id='id_boleta_agr' type='text' class='validate[required] form-control input-sm text-right' />
+                        </div>
+
+                        <div id="monto_boleta_div" class="form-group col-md-2" style="display: none;">
+                            <label for="n_monto_boleta">Monto cobrado en LAPOS:</label>
+                            <input id='n_monto_boleta' type='text' class='form-control mascara_importe input-sm text-right'/>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="d_denominacion">Contrib:</label>
+                            <input type="text" class="form-control input-sm" id="d_denominacion" readonly>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="n_cuit">CUIT:</label>
+                            <input id='n_cuit' type='text' class='form-control input-sm text-right' readonly/>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="d_localidad">Localidad Boleta:</label>
+                            <input id='d_localidad' type='text' class='form-control input-sm' readonly/>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-offset-4 col-md-4 text-center" style="margin-top: 15px;">
+                            <button type='button' id='btn_buscar' name='btn_buscar' class="btn btn_buscar"></button>
+                            <button type='button' id='btn_limpiar' name='btn_limpiar' class="btn btn_limpiar"></button>
+                        </div>
+
+                    </div>
+
+                </form>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="form-group col-md-2 col-md-offset-2">
+                <label for="f_emision_agr">Fecha Emisión:</label>
+                <input name='f_emision_agr' id='f_emision_agr' type='text' class='form-control input-sm text-right' readonly/>
+            </div>
+            <div class="form-group col-md-2 col-md-offset-1">
+                <label for="f_vto_agr">Fecha Vencimiento:</label>
+                <input name='f_vto_agr' id='f_vto_agr' type='text' class='form-control input-sm text-right' readonly/>
+            </div>
+            <div class="form-group col-md-2 col-md-offset-1">
+                <label for="f_vto_2">Fecha 2do Vencimiento:</label>
+                <input name='f_vto_2' id='f_vto_2' type='text' class='form-control input-sm text-right' readonly/>
+            </div>
+        </div>
+         
+            <table id='boletas_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+            <div id='boletas_grid_pager' class='scroll' style='text-align:center;'></div>
+        
+        <div class="row">
+            <div class="form-group col-md-2 col-md-offset-7">
+                <label for="total_2dovto">Importe 2do:</label>
+                <input name='total_2dovto' id='total_2dovto' type='text' class='form-control input-sm text-right' readonly/>
+            </div>
+            <div class="form-group col-md-2 col-md-offset-1">
+                <label for="total">Importe:</label>
+                <input name='total' id='total' type='text' class='form-control input-sm text-right' readonly/>
+            </div>
+        </div>
+
+        <div class="panel-body">
+            <form id='frm_pago'>
+                <div class="row">
+                    <div class="form-group col-md-2">
+                        <label for="f_pago">Fecha Pago:</label>
+                        <input name='f_pago' id='f_pago' type='text' class='form-control datepicker input-sm text-right validate[required]'/>
+                    </div>
+                    <div class="form-group col-md-3 col-md-offset-2">
+                        <label for="c_banco">Banco:</label>
+                        <div class="input-group">
+                            <input name='c_banco' type="text" class="form-control input-cod-short validate[required]" id="c_banco">
+                            <input name='d_banco' type="text" class="form-control input-desc-long" id="d_banco" readonly>
+                            <span class="input-group-addon btn_lupa" id="lupa_c_banco">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </span>
+                        </div>   
+                    </div>
+                    <div class="form-group col-md-3 col-md-offset-2">
+                        <label for="c_sucursal">Sucursal:</label>
+                        <div class="input-group">
+                            <input name='c_sucursal' type="text" class="form-control input-cod-short validate[required]" id="c_sucursal">
+                            <input name='d_sucursal' type="text" class="form-control input-desc-long" id="d_sucursal" readonly>
+                            <span class="input-group-addon btn_lupa" id="lupa_c_sucursal">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </span>
+                        </div>   
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-2 col-md-offset-4" style="text-align: center;">
+                        <button type='button' id='btn_procesar' name='btn_procesar' class="btn" style="margin-top: 15px;">Procesar</button>
+                    </div>
+                    <div class="form-group col-md-2" style="text-align: center;">
+                        <button type='button' id='btn_datos_bonos' name='btn_datos_bonos' class="btn" style="margin-top: 15px;" disabled>Datos Bonos</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+<div class="modal fade" id="modal_emitir_boleta" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="exampleModalLiveLabel">Ingreso de datos adicionales BONOS</h5>
+            </div>
+            <div class="modal-body">
+                <form id="frm_datos_bonos">
+                    <div class="row">
+                        <div class="form-group col-md-3 col-md-offset-1">
+                            <label for="">Cuit Tenedor (*):</label>
+                            <input name='n_cuit_bono' type="text" class="form-control validate[required]" id="n_cuit_bono">
+                            <input name='id_contribuyente' type="text" class="form-control" id="id_contribuyente" style="display: none;">
+                        </div>
+                        <div class="form-group col-md-7">
+                            <label for="">Denominación:</label>
+                            <div class="input-group">
+                                <input name='d_denominacion_bono' type="text" class="form-control" id="d_denominacion_bono" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_n_cuit_bono">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-3 col-md-offset-1">
+                            <label for="">Ofi. Present. (*):</label>
+                            <input name='ofi_presentacion' type="text" class="form-control validate[required]" id="ofi_presentacion">
+                        </div>
+                        <div class="form-group col-md-7">
+                            <label for="">Ofi. Nombre:</label>
+                            <div class="input-group">
+                                <input name='ofi_nombre' type="text" class="form-control" id="ofi_nombre" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_c_ofi">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </div>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-3 col-md-offset-1">
+                            <label for="">Fecha Nota Solicitud (*):</label>
+                            <input name='f_nota_sol' type="text" class="form-control datepicker input-sm text-right validate[required]" id="f_nota_sol">
+                        </div>
+                        <div class="form-group col-md-3 col-md-offset-1" style="text-align: center;">
+                            <button type='button' id='btn_procesar_datos_bonos' name='btn_procesar_datos_bonos' class="btn" style="margin-top: 25px;">Procesar</button>
+                        </div>
+                        <div class="form-group col-md-3" style="text-align: center;">
+                            <button type='button' id='btn_limpiar_datos_bonos' name='btn_limpiar_datos_bonos' class="btn" style="margin-top: 25px;">Limpiar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

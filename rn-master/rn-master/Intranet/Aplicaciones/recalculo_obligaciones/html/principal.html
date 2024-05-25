@@ -1,0 +1,143 @@
+<div class='titlebar'>
+    <span class="ui-jqgrid-title">Recálculo Individual de Cuotas</span>
+</div>
+<div id="div_search" class="search panel-body">
+    <form id='frm_recalculo_obligaciones'>
+        <div class='row'>
+            <div class="form-group col-md-5 col-md-offset-1">
+                <label for="c_tributo">Tributo (*):</label>
+                <div class="input-group" id="div_input_tributo">
+                    <input type="text" class="form-control input-sm input-cod-short numero validate[required]" id="c_tributo">
+                    <input type="text" class="form-control input-sm input-desc-long" readonly id="d_tributo">
+                    <span class="input-group-addon btn_lupa" id="lupa_c_tributo">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    </span>
+                </div>
+            </div>
+
+            <div class="form-group col-md-5 col-md-offset-1">
+                <label for="f_periodo_desde">Período Recálculo Desde:</label>
+                <div class="input-group">
+                    <input type="text" class="form-control input-sm text-center validate[required]" id="f_periodo_desde" name="f_periodo_desde" placeholder="AAAA/MM" maxlength="7">
+                </div>
+            </div>
+
+        </div>
+        <div class='row'>
+
+        </div>
+        <br>
+        <div class='titlebar'>
+            <span class="ui-jqgrid-title">Datos del Objeto</span>
+        </div>
+        <br>
+
+        <div class='row'>
+
+            <div class="form-group col-md-3 col-md-offset-2">
+                <div id="div_cuit">
+                    <label for="n_cuit">CUIT (*):</label>
+                    <input name='id_contribuyente' type="hidden" class="form-control input-sm text-right" id="id_contribuyente">
+                    <input type="text" class="form-control input-sm text-right validate[required,custom[validaCuit]]" maxlength='13' id="n_cuit">
+                </div>
+            </div>
+
+            <div class="form-group col-md-5">
+                <label for="nombre">Apellido y Nombre / Razón Social (*):</label>
+                <div class="input-group" id="div_nombre">
+                    <input name='nombre' type="text" class="mayusculas form-control input-sm validate[required]" id="nombre">
+                    <span class="input-group-addon" id="mascara_lupa_nombre">
+                        <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                    </span>
+                    <span class="input-group-addon btn_lupa" id="lupa_nombre">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-md-3 col-md-offset-2">
+                <label for="c_documento">Tipo Documento:</label>
+                <div class="input-group" id="div_input_documento">
+                    <input name='c_documento' type="text" class="form-control input-sm input-cod-short" id="c_documento" >
+                    <input name='d_documento' type="text" class="form-control input-sm input-desc-long" id="d_documento" readonly>
+                    <span class="input-group-addon btn_lupa" id="lupa_c_documento">
+                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                </span>
+                </div>
+            </div>
+            <div class="form-group col-md-5">
+                <label for="documento">Nro.Documento:</label>
+                <input name='documento' maxlength='11' type="text" class="form-control input-sm text-right" id="documento">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-md-3 col-md-offset-2">
+                <label for="c_tipo_imponible">Tipo Imponible:</label>
+                <div class="input-group" id="div_input_tipo_imponible">
+                    <input name='c_tipo_imponible' type="text" class="form-control input-sm input-cod-short" id="c_tipo_imponible" >
+                    <input name='d_tipo_imponible' type="text" class="form-control input-sm input-desc-long" id="d_tipo_imponible" readonly>
+                    <span class="input-group-addon btn_lupa" id="lupa_c_tipo_imponible">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    </span>
+                </div>
+            </div>
+
+
+            <div class="form-group col-md-5">
+                <label for="obj_hecho">Objeto/Hecho (*):</label>
+                <div class="input-group" id="div_input_obj_hecho">
+                    <input name='obj_hecho' type="text" class="mayusculas form-control input-sm validate[required]" id="obj_hecho">
+                    <span class="input-group-addon btn_lupa" id="lupa_obj_hecho">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row">
+            <div id="div_checkbox_generacion">
+                <div class="form-group col-md-3 col-md-offset-2" style="display: flex;">
+                    <input type="checkbox" class="form-control input-sm text-center" style="width: auto; margin: -1px 7px 0 0;" name="checkbox_tipo_ajuste" id="checkbox_tipo_ajuste" onchange="mostrar_ocultar_tipo_ajuste()">
+                    <label for="checkbox_tipo_ajuste">Generación por ajustes de cuenta corriente</label>
+
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="form-group col-md-3 col-md-offset-2" id="div_input_tipo_ajuste" style="display: none">
+                <label for="c_tipo_ajuste">Tipo de Ajuste:</label>
+                <div class="input-group">
+                    <input name='c_tipo_ajuste' type="text" class="form-control input-sm input-cod-short" id="c_tipo_ajuste" >
+                    <input name='d_tipo_ajuste' type="text" class="form-control input-sm input-desc-long" id="d_tipo_ajuste" readonly>
+                    <span class="input-group-addon btn_lupa" id="lupa_c_tipo_ajuste">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class='row text-center col-md-offset-1' style = 'margin-top:25px; float: left;'>
+            <button type='button' id='btn_cta_cte' class="ui-button ui-corner-all ui-widget">Cuenta Corriente</button>
+            <button type='button' id='btn_exenciones' class="ui-button ui-corner-all ui-widget">Exenciones</button>
+            <button type='button' id='btn_bonificaciones' class="ui-button ui-corner-all ui-widget">Bonificaciones</button>
+        </div>
+
+        <div class='row text-center col-md-offset-1' style = 'margin-top:25px; float: right; margin-right: 8.5%;'>
+            <button type='button' id='btn_recalcular' class="ui-button ui-corner-all ui-widget">Recalcular</button>
+            <button type='button' id='btn_cancelar' class="ui-button ui-corner-all ui-widget">Cancelar</button>
+        </div>
+
+    </form>
+
+
+
+</div>
+
+
+

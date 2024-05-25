@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio -->
+<jasperTemplate xmlns="http://jasperreports.sourceforge.net/jasperreports/template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/template http://jasperreports.sourceforge.net/xsd/jaspertemplate.xsd">
+	<style name="Texto" isDefault="true" forecolor="#000000" isBlankWhenNull="true" fontName="Arial" fontSize="9"/>
+	<style name="Etiquetas" style="Texto" isBold="true"/>
+	<style name="Grilla_Cab" style="Texto" mode="Opaque" backcolor="#CCCCCC" fill="Solid" isBold="true"/>
+	<style name="Grilla_Det" style="Texto"/>
+</jasperTemplate>

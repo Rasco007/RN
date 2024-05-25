@@ -1,0 +1,259 @@
+<!-- Modal ABM Actividad -->
+<div class="modal fade" id="modal_abm_actividad" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="exampleModalLiveLabel">Alta de Actividad - Version 25/11/2022</h5>
+            </div>
+            <div class="modal-body">
+                <form id="form_abm_actividad">
+                    <input type="hidden" id="id_contribuyente">
+                    <input type="hidden" id="c_tributo">
+                    <input type="hidden" id="posicion_fiscal">
+                    <input type="hidden" id="modal_hecho">
+
+
+
+                    <div class="form-group">
+                        <label for="modal_c_actividad" class="control-label">Actividad: (*)</label>
+                        <div id="div_ent_filtro" class="input-group">
+                            <input type='text' id='modal_c_actividad' name='modal_c_actividad'
+                                   class='form-control input-sm input-cod-short validate[required]'/>
+                            <input type='text' id='modal_d_actividad' name='modal_d_actividad'
+                                   class='form-control input-sm input-desc-long validate[required]' readonly="true"/>
+                            <span class="input-group-addon btn_lupa" id="btn_lupa_actividad">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            <span class="input-group-addon btn_lupa" id="btn_lupa_actividad_total">
+                                    <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+                                </span>
+                        </div>
+                        <label for="modal_d_trat_fiscal" class="control-label">Tratamiento Fiscal:</label>
+                        <div id="div_trat_fiscal" class="input-group">
+                            <input type='text' id='modal_c_trat_fiscal' name='modal_c_trat_fiscal'
+                                   class='form-control input-sm input-cod-short'/>
+                            <input type='text' id='modal_d_trat_fiscal' name='modal_d_trat_fiscal'
+                                   class='form-control input-sm input-desc-long ' readonly="true"/>
+                            <span class="input-group-addon btn_lupa" id="btn_lupa_trat_fiscal">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                        </div>
+                        <label for="modal_d_trat_fiscal" class="control-label">Artículo:</label>
+                        <div id="div_articulo_act" class="input-group">
+                            <input type='text' id='modal_c_articulo_act' name='modal_c_articulo_act'
+                                   class='form-control input-sm input-cod-short'/>
+                            <input type='text' id='modal_d_articulo_act' name='modal_d_articulo_act'
+                                   class='form-control input-sm input-desc-long ' readonly="true"/>
+                            <span class="input-group-addon btn_lupa" id="btn_lupa_articulo_act">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                        </div>
+                        <label for="modal_d_trat_fiscal" class="control-label">Unidades Fijas:</label>
+                        <div id="div_c_tipo_unidad" class="input-group">
+                            <input type='text' id='modal_c_tipo_unidad' name='modal_c_tipo_unidad'
+                                   class='form-control input-sm input-cod-short'/>
+                            <input type='text' id='modal_d_tipo_unidad' name='modal_d_tipo_unidad'
+                                   class='form-control input-sm input-desc-long ' readonly="true"/>
+                            <span class="input-group-addon btn_lupa" id="btn_lupa_tipo_unidad">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </span>
+                            <input type='text' id='modal_n_unidad' name='modal_n_unidad'
+                                   class='form-control input-sm input-desc-long '
+                                   placeholder="Cantidad" style="width: 100% !important;"/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="button" class="btn btn-sm" id="btn_agregar_actividad"><span
+                            class="glyphicon glyphicon-saved" aria-hidden="true"></span> Aceptar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#modal_abm_actividad').on('hidden.bs.modal', function (e) {
+            $('#modal_c_actividad, #modal_d_actividad,#modal_c_trat_fiscal, #modal_d_trat_fiscal, #modal_c_articulo_act, #modal_d_articulo_act').val(null);
+        });
+
+        $('#modal_c_trat_fiscal').change(function () {
+            if ($('#modal_c_trat_fiscal').val()) {
+                $.ajax({
+                    url: 'carga_inspec_iibb_oblig/php/funciones.php',
+                    type: "POST",
+                    data: {
+                        p_oper: 'getTratFiscal',
+                        p_c_trat_fiscal: $('#modal_c_trat_fiscal').val(),
+                    },
+                    success: function (response) {
+                        $('#main').procOverlay({visible: false});
+                        res = JSON.parse(response);
+                        if (res.resultado == 'OK') {
+                            $('#modal_d_trat_fiscal').val(res.d_trat_fiscal);
+                        } else {
+                            mostrar_error(res.resultado);
+                            $('#modal_c_trat_fiscal').val(null);
+                            $('#modal_d_trat_fiscal').val(null);
+                        }
+                    }
+                });
+            } else {
+                $('#modal_c_trat_fiscal').val(null);
+                $('#modal_d_trat_fiscal').val(null);
+            }
+        });
+
+        $('#modal_c_articulo_act').change(function () {
+            if ($('#modal_c_articulo_act').val()) {
+                $.ajax({
+                    url: 'carga_inspec_iibb_oblig/php/funciones.php',
+                    type: "POST",
+                    data: {
+                        p_oper: 'getArticulo',
+                        p_c_articulo: $('#modal_c_articulo_act').val(),
+                    },
+                    success: function (response) {
+                        $('#main').procOverlay({visible: false});
+                        res = JSON.parse(response);
+                        if (res.resultado == 'OK') {
+                            $('#modal_d_articulo_act').val(res.d_articulo);
+                        } else {
+                            mostrar_error(res.resultado);
+                            $('#modal_c_articulo_act').val(null);
+                            $('#modal_d_articulo_act').val(null);
+                        }
+                    }
+                });
+            } else {
+                $('#modal_c_articulo_act').val(null);
+                $('#modal_d_articulo_act').val(null);
+            }
+        });
+
+        $("#btn_lupa_actividad").lupa_generica({
+            id_lista: 10730,
+            titulos: ['Codigo', 'Inicio', 'Fin', 'Descripcion'],
+            grid: [
+                {index: 'c_codigo', width: 70},
+                {index: 'f_inicio', width: 70},
+                {index: 'f_fin', width: 70},
+                {index: 'd_descrip', width: 450}
+            ],
+            caption: 'Lista de Actividades',
+            filtroNull: false,
+            filtros: ['#id_contribuyente', '#c_tributo','#posicion_fiscal', '#modal_hecho' ],
+            campos: {c_codigo: 'modal_c_actividad', d_descrip: 'modal_d_actividad'},
+            keyNav: true
+        });
+
+        $("#btn_lupa_actividad_total").lupa_generica({
+            id_lista: 10754,
+            titulos: ['Codigo', 'Descripcion'],
+            grid: [
+                {index: 'c_codigo', width: 130},
+                {index: 'd_descrip', width: 450}
+            ],
+            caption: 'Nomenclador de Actividades',
+            filtroNull: false,
+            filtros: ['#posicion_fiscal', '#c_tributo'],
+            campos: {c_codigo: 'modal_c_actividad', d_descrip: 'modal_d_actividad'},
+            keyNav: true
+        });
+
+        $('#modal_c_actividad').change(function () {
+            if ($('#modal_c_actividad').val()) {
+                let fecha = '01/01/' + $('#posicion_fiscal').val().substring(0, 4);
+                $.ajax({
+                    url: 'carga_inspec_iibb_oblig/php/funciones.php',
+                    type: "POST",
+                    data: {
+                        p_oper: 'getActividad',
+                        p_c_tributo: $('#c_tributo').val(),
+                        p_c_actividad: $('#modal_c_actividad').val(),
+                        p_f_posicion_fiscal: fecha
+                    },
+                    success: function (response) {
+                        $('#main').procOverlay({visible: false});
+                        res = JSON.parse(response);
+                        if (res.resultado == 'OK') {
+                            $('#modal_d_actividad').val(res.d_actividad);
+                        } else {
+                            mostrar_error(res.resultado);
+                            $('#modal_c_actividad').val(null);
+                            $('#modal_d_actividad').val(null);
+                        }
+                    }
+                });
+            } else {
+                $('#modal_c_actividad').val(null);
+                $('#modal_d_actividad').val(null);
+            }
+        });
+
+        $("#btn_lupa_trat_fiscal").lupa_generica({
+            id_lista: 10750,
+            titulos: ['Codigo', 'Descripcion'],
+            grid: [
+                {index: 'c_codigo', width: 130},
+                {index: 'd_descrip', width: 450}
+            ],
+            caption: 'Lista de Tratamientos Fiscales',
+            filtroNull: false,
+            campos: {c_codigo: 'modal_c_trat_fiscal', d_descrip: 'modal_d_trat_fiscal'},
+            keyNav: true
+        });
+
+        $("#btn_lupa_articulo_act").lupa_generica({
+            id_lista: 10755,
+            titulos: ['Codigo', 'Descripcion'],
+            grid: [
+                {index: 'c_codigo', width: 130},
+                {index: 'd_descrip', width: 450}
+            ],
+            caption: 'Lista de Artículos',
+            filtroNull: false,
+            campos: {c_codigo: 'modal_c_articulo_act', d_descrip: 'modal_d_articulo_act'},
+            keyNav: true
+        });
+
+        $('#btn_agregar_actividad').click(function () {
+            if ($('#form_abm_actividad').validationEngine('validate')) {
+                let c_actividad = $('#modal_c_actividad').val();
+                let c_trat_fiscal = $('#modal_c_trat_fiscal').val();
+                let c_art_fiscal = $('#modal_c_articulo_act').val();
+                let c_tipo_unidad = $('#modal_c_tipo_unidad').val();
+                let n_unidad_fija = $('#modal_n_unidad').val();
+                abmActividad('add', c_actividad, null, c_trat_fiscal, c_art_fiscal, c_tipo_unidad, n_unidad_fija);
+            }
+        });
+
+        $("#btn_lupa_tipo_unidad").lupa_generica({
+            id_lista: 10760,
+            titulos: ['Codigo', 'Descripcion'],
+            grid: [
+                {index: 'c_codigo', width: 130},
+                {index: 'd_descrip', width: 450}
+            ],
+            caption: 'Tipos de Unidades Fijas',
+            filtroNull: false,
+            filtros: ['#modal_c_actividad'],
+            campos: {c_codigo: 'modal_c_tipo_unidad', d_descrip: 'modal_d_tipo_unidad'},
+            keyNav: true,
+            searchCode: true,
+            notFoundDialog: false,
+            limpiarCod: true,
+            searchInput: "#modal_c_tipo_unidad",
+        });
+
+
+    });
+</script>

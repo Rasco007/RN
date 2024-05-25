@@ -1,0 +1,211 @@
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading">Filtros de B&uacute;squeda</div>
+            <div class="panel-body">
+                <form id='frm_consulta' style="margin-top: 5px;">
+
+                    <div class="row">
+                        <div class="form-group col-md-2">
+                            <label for="n_cuit">CUIT Contribuyente:</label>
+                            <input name='n_cuit_mask' id='n_cuit' type='text' class='form-control input-sm text-right' />
+                            <input name='id_contribuyente' id='id_contribuyente' type='hidden' class='sr-only'/>
+                            <input type="hidden" id="m_persona">
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="d_denominacion">Denominaci&oacute;n Contribuyente:</label>
+                            <input type="text" class="form-control input-sm mayusculas" id="d_denominacion">
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="d_tipo_documento">Tipo Documento:</label>
+                            <div class="input-group" id="div_input_tipo_documento">
+                                <input type="text" class="form-control mayusculas input-sm input-cod-short" id="c_tipo_documento">
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_tipo_documento" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_c_tipo_documento">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                    </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="n_documento">N&uacute;mero de Documento:</label>
+                            <input type="text" class="form-control input-sm text-right" id="n_documento">
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="form-group col-md-4">
+                            <label for="d_tipo_imponible">Tipo Imponible:</label>
+                            <div class="input-group" id="div_input_tipo_imponible">
+                                <input type="text" class="form-control input-sm input-cod-short" id="c_tipo_imponible">
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_tipo_imponible" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_c_tipo_imponible">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="d_tributo">Tributo:</label>
+                            <div class="input-group" id="div_input_tributo">
+                                <input type="text" class="form-control input-sm input-cod-short numero" id="c_tributo" maxlength="3">
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_tributo" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_c_tributo">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="d_objeto_hecho">Objeto/Hecho:</label>
+                            <div class="input-group" id="div_input_obj_hecho">
+                                <input type="text" class="form-control input-sm mayusculas" id="d_objeto_hecho" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_d_objeto_hecho">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div class="row text-center">
+                    <div class="form-group col-md-12" style="margin-top: 15px;">
+                        <button type='button' id='btn_buscar' name='btn_buscar' class="btn-sm btn_buscar"></button>
+                        <button type='button' id='btn_limpiar' name='btn_limpiar' class="btn-sm btn_limpiar"></button>
+                        <button class="btn-sm btn-primary" type="button" id="btn_constancia" style="display: none"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> Imprimir Constancia</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-primary" id="seccion_pf" style="display: none">
+    <div id="persona_fisica" class="panel-heading"> Persona Física </div>
+    <div class="panel-body">
+        <form id='frm_per_fisica'>
+        <div class='row'>
+            <div class='form-group col-md-4 col-md-offset-2'>
+                <label for='d_tipo_nacionalidad'>Nacionalidad</label>
+                <div class='input-group' id='div_input_nacionalidad'>
+                    <input name='c_nacionalidad' id='c_nacionalidad' type='text' class='form-control mayusculas input-sm input-cod-short validate[required]'>
+                    <input name='d_tipo_nacionalidad' id='d_tipo_nacionalidad' type='text' class='form-control input-sm input-desc-long validate[required]' readonly>
+                    <span class='input-group-addon btn_lupa' id='lupa_tipo_nacionalidad'>
+								<span class='glyphicon glyphicon-search' aria-hidden='true'></span>
+							</span>
+                    </div>
+                </div>
+            <div class='form-group col-md-4'>
+                <label for='d_tipo_estado_civil'>Estado Civil</label>
+                <div class='input-group' id='div_input_estado_civil'>
+                    <input name='c_estado_civil' id='c_estado_civil' type='text' class='form-control mayusculas input-sm input-cod-short validate[required]'>
+                    <input name='d_tipo_estado_civil' id='d_tipo_estado_civil' type='text' class='form-control input-sm input-desc-long validate[required]' readonly>
+                    <span class='input-group-addon btn_lupa' id='lupa_tipo_estado_civil'>
+								<span class='glyphicon glyphicon-search' aria-hidden='true'></span>
+							</span>
+                    </div>
+                </div>
+            </div>
+
+        <div class='row'>
+            <div id='tipo_sexo_div' class='form-group col-md-4 col-md-offset-2'>
+                <label for='c_sexo'>Sexo</label>
+                <select name='c_sexo'id='c_sexo' data-live-search='true' title='Seleccione' class='selectpicker form-control input-sm validate[required]' data-style='cDropdown' $disabled>
+                    <option value='M' selected>Masculino</option>
+                    <option value='F'>Femenino</option>
+                    </select>
+                </div>
+            <div class='form-group col-md-4'>
+                <label for='f_nacimiento'>Fecha de Nacimiento</label>
+                <div class='input-group'>
+                    <input name='f_nacimiento' id='f_nacimiento' type='text' class='form-control input-sm text-center fecha' maxlength='10' autocomplete='off'>
+                    <span class='input-group-addon'>
+								<span class='glyphicon glyphicon-calendar'></span>
+							</span>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="panel panel-primary" id="seccion_pj" style="display: none">
+    <div id="persona_juridica" class="panel-heading"> Persona Jurídica </div>
+    <div class="panel-body">
+        <form id='frm_datos_per_juridica'>
+        <div class='row'>
+            <div class='form-group col-md-4'>
+                <label for='d_tipo_empresa'>Tipo de Empresa</label>
+                <div class='input-group' id='tipo_empresa_div'>
+                    <input name='c_tipo_empresa' id='c_tipo_empresa' type='text' class='form-control input-sm input-cod-short validate[required]'>
+                    <input name='d_tipo_empresa' id='d_tipo_empresa' type='text' class='form-control input-sm input-desc-long validate[required]' readonly>
+                    <span class='input-group-addon btn_lupa' id='lupa_tipo_empresa'>
+								<span class='glyphicon glyphicon-search' aria-hidden='true'></span>
+							</span>
+                    </div>
+                </div>
+            <div class='form-group col-md-4'>
+                <label for='d_tipo_forma_juridica'>Forma Jurídica</label>
+                <div class='input-group' id='tipo_forma_juridica_div'>
+                    <input name='c_forma_juridica' id='c_forma_juridica' type='text' class='form-control input-sm input-cod-short validate[required]' >
+                    <input name='d_tipo_forma_juridica' id='d_tipo_forma_juridica' type='text' class='form-control input-sm input-desc-long validate[required]' readonly>
+                    <span class='input-group-addon btn_lupa' id='lupa_tipo_forma_juridica'>
+								<span class='glyphicon glyphicon-search' aria-hidden='true'></span>
+							</span>
+                    </div>
+                </div>
+            </div>
+
+        <div class='row'>
+            <div id='n_sucursales_div' class='form-group col-md-2'>
+                <label for='n_sucursales'>Cant. de Sucursales</label>
+                <input name='n_sucursales' id='n_sucursales' type='text' class='form-control input-sm text-right validate[required,custom[onlyIntNumber]]'>
+                </div>
+            <div id='n_duracion_anios_div' class='form-group col-md-2'>
+                <label for='n_duracion_anios'>Duración en años</label>
+                <input name='n_duracion_anios' id='n_duracion_anios' type='text' class='form-control input-sm text-right validate[custom[onlyIntNumber]]'>
+                </div>
+            <div id='n_inscripcion_igj_div' class='form-group col-md-2'>
+                <label for='n_inscripcion_igj'>Nro. inscripción IGJ</label>
+                <input name='n_inscripcion_igj' id='n_inscripcion_igj' type='text' class='form-control input-sm text-right validate[custom[onlyIntNumber]]'>
+                </div>
+            <div class='form-group col-md-2'>
+                <label for='f_inscripcion_igj'>Fecha de Inscrip. IGJ</label>
+                <div class='input-group'>
+                    <input name='f_inscripcion_igj' id='f_inscripcion_igj' type='text' class='form-control input-sm text-center fecha' maxlength='10' autocomplete='off'>
+                    <span class='input-group-addon'>
+								<span class='glyphicon glyphicon-calendar'></span>
+							</span>
+                    </div>
+            </div>
+            <div class='form-group col-md-2'>
+                <label for='f_contrato_social'>Fecha de Contrato Social</label>
+                <div class='input-group'>
+                    <input name='f_contrato_social' id='f_contrato_social' type='text' class='form-control input-sm text-center fecha' maxlength='10' autocomplete='off'>
+                    <span class='input-group-addon'>
+								<span class='glyphicon glyphicon-calendar'></span>
+							</span>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="row text-center" id="div_btngrabar_pj" style="display: none">
+            <br>
+            <button type='button' id='btn_grabar_pj' name='btn_grabar_pj' class="btn btn-sm">Grabar Cambios</button>
+        </div>
+        <br>
+        <table id='integrantes_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+        <div id='integrantes_grid_pager' class='scroll' style='text-align:center;'></div>
+        <table id='integrantestmp_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+        <div id='integrantestmp_grid_pager' class='scroll' style='text-align:center;'></div>
+    </div>
+</div>
+<div class="row text-center">
+    <button type='button' id='btn_modif_tp' name='btn_modif_tp' class="btn btn-sm" style="display: none">Modificar Tipo Persona</button>
+    <button type='button' id='btn_grabar' name='btn_grabar' class="btn btn-sm" style="display: none">Grabar</button>
+</div>

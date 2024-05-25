@@ -1,0 +1,85 @@
+<!--DIV BUSQUEDA-->
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true" style="">
+            <div class="panel-heading">B&uacute;squeda</div>
+            <div class="panel-body">
+                <form id='frm_consulta'>
+
+                    <div class="row">
+                        <div class="form-group col-md-4" id='div_ente_filtro'>
+                            <label for="c_ente_filtro">Ente</label>
+                            <div id="div_ent_filtro" class="input-group">
+                                <input type='text' id='c_ente_filtro' name='c_ente_filtro' class='form-control input-sm input-cod-short limpiar mayusculas' />
+                                <input type='text' id='d_ente_filtro' name='d_ente_filtro' class='form-control input-sm input-desc-long' readonly="true" />
+                                <span class="input-group-addon btn_lupa" id="btn_lupa_ente" name='btn_lupa_ente'>
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group col-md-2">
+                            <label for="f_vig_desde">Fecha Vigencia Desde</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm datepicker text-center limpiar" name="f_vig_desde" id="f_vig_desde" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="f_vig_hasta">Fecha Vigencia Hasta</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm datepicker text-center limpiar" name="f_vig_hasta" id="f_vig_hasta" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="m_pers_juridica" class="control-label">Permite Persona Jurídica?</label>
+                            <div id="div_select_juridica">
+                                <select id="m_pers_juridica" data-live-search="true" title="Seleccione" class="selectpicker form-control input-sm" data-style="cDropdown">
+                                    <option value='' selected></option>
+                                    <option value='S'>Si</option>
+                                    <option value='N'>No</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="m_pers_fisica" class="control-label">Permite Persona Física?</label>
+                            <div id="div_select_fisica">
+                                <select id="m_pers_fisica" data-live-search="true" title="Seleccione" class="selectpicker form-control input-sm" data-style="cDropdown">
+                                    <option value='' selected></option>
+                                    <option value='S'>Si</option>
+                                    <option value='N'>No</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class='row text-center'>
+                        <button type='button' class="btn-sm btn_buscar" id='btn_buscar'></button>
+                        <button type='button' class="btn-sm btn_limpiar" id='btn_limpiar'></button>    
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--GRILLA PRINCIPAL-->
+<table id='main_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+<div id='main_grid_pager' class='scroll' style='text-align:center;'></div>
+<br>
+
+<!-- GRILLA SECUNDARIA -->
+<table id='second_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+<div id='second_grid_pager' class='scroll' style='text-align:center;'></div>
+<br>

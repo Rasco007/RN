@@ -1,0 +1,336 @@
+    <div id="div_search" class="panel-search">
+        <div class="panel panel-primary">
+            <!--<a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+                <span class="glyphicon"></span>
+            </a>-->
+            <div class="collapse in" id="collapse_search" aria-expanded="true">
+                <div class="panel-heading">Datos del Contribuyente</div>
+                <div class="panel-body">
+                    <form id='frm_busqueda'>
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                                <div id="div_cuit" style="padding-left: 1%;">
+                                    <label>CUIT</label>
+                                    <input name='n_cuit' id='n_cuit' type="text" class="form-control input-sm text-right validate[required,custom[validaCuit]]" >
+                                    <input name='id_contribuyente' type="hidden" class="form-control input-sm text-right" id="id_contribuyente">
+                                </div>
+                            </div>
+
+                            <!-- <div class="form-group col-md-7">
+                                <label for="d_denominacion">Denominación / Razón Social</label>
+                                <input name='d_denominacion' type="text" class="mayusculas form-control input-sm validate[required]" id="d_denominacion">
+                            </div> -->
+
+                            <div class="form-group col-md-8">
+                                <label for="d_denominacion">Denominación / Razón Social</label>
+    
+                                <div class="input-group" id="div_input_obj_hecho">
+                                    <input name='d_denominacion'  type="text" class="form-control input-sm mayusculas" id="d_denominacion">
+                                    <span class="input-group-addon" id="mascara_lupa_denominacion">
+                                        <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                    </span>
+                                    <span class="input-group-addon btn_lupa" id="lupa_denominacion">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                    </span>
+                                </div>
+    
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="form-group col-md-4">
+                                <label for="c_tipo_imponible">Tipo Imponible</label>
+                                <div class="input-group" id="div_input_tipo_imponible">
+                                    <input name='c_tipo_imponible' type="text" class="form-control input-sm input-cod-short" id="c_tipo_imponible" >
+                                    <input name='d_tipo_imponible' type="text" class="form-control input-sm input-desc-long" id="d_tipo_imponible" readonly>
+                                    <span class="input-group-addon btn_lupa" id="lupa_c_tipo_imponible">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <label for="c_tributo">Tributo</label>
+                                <div class="input-group" id="div_input_tributo">
+                                    <input name='c_tributo' type="text" class="form-control input-sm input-cod-short" id="c_tributo" value="<?=$_POST['p_c_trib']?>">
+                                    <input name='d_tributo' type="text" class="form-control input-sm input-desc-long" id="d_tributo" readonly>
+                                    <span class="input-group-addon btn_lupa" id="lupa_c_tributo">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <label for="objeto">Objeto/Hecho:</label>
+    
+                                <div class="input-group" id="div_input_obj_hecho">
+                                    <input name='objeto' maxlength='11' type="text" class="form-control input-sm mayusculas" id="objeto">
+                                    <span class="input-group-addon" id="mascara_lupa_obj_hecho">
+                                        <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                    </span>
+                                    <span class="input-group-addon btn_lupa" id="lupa_obj_hecho">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                    </span>
+                                </div>
+    
+                            </div>
+
+                        </div>
+
+                        <div class='row-search text-center' style="margin-top: 2%">
+                            <button class="btn-sm btn-primary" type="button" id="btn_consultar"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Consultar</button>
+                            <button class="btn-sm btn_limpiar" type="button" id="btn_limpiar"></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <div id="div_generar_boleta" class="panel-search">
+        <div class="panel panel-primary">
+            <div class="collapse in" id="collapse_boleta" aria-expanded="true">
+                <div class="panel-heading">Emitir Boleta</div>
+                <div class="panel-body">
+                    <form id='frm_emitir_boleta'>
+
+                        <div class="row">
+                            <div class="form-group col-md-5 ">
+                                <label for="f_vto_pago_anticipado">Vto.Pago Anticipado</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control input-sm datepicker text-center limpiar" name="f_vto_pago_anticipado" id="f_vto_pago_anticipado" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off" disabled="true" readonly>
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-5">
+                                <label for="importe">Importe</label>
+                                <input name='importe' id='importe' type='text' class='form-control mascara_importe numerico text-right input-sm' disabled="true" />
+                            </div>
+
+                            <div class="form-group col-md-2" style="margin-top:18px;padding-left: 4%;">
+                                <button class="btn-sm btn-primary" type="button" id="btn_emitir" style="width: 50%;"><span class="glyphicon glyphicon-download" aria-hidden="true" disabled="true"></span> Emitir</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div id="div_domicilio" class="panel-search">
+            <div class="panel panel-primary">
+                <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_domicilio" aria-expanded="true" aria-controls="#collapse_domicilio">
+                    <span class="glyphicon glyphicon-arrow-down"></span>
+                </a>
+                <div class="panel-heading">Domicilio del responsable</div>
+
+                <div class="collapse in" id="collapse_domicilio" aria-expanded="true">
+                    
+                    <div class="panel-body">
+                        <form id='frm_domicilio'>
+                            <div class="row">
+
+                                <div class="form-group col-md-6">
+                                    <div id="div_calle">
+                                        <label>Calle</label>
+                                        <input name='calle' id='calle' type="text" class="form-control input-sm text-right" readonly disabled>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    <label for="nro">Número</label>
+                                    <input name='nro' type="text" class="mayusculas form-control input-sm validate[required]" id="nro" readonly disabled>
+                                </div>
+
+                                <div class="form-group col-md-1">
+                                    <label for="piso">Piso</label>
+                                    <input name='piso' type="text" class="mayusculas form-control input-sm validate[required]" id="piso" readonly disabled>
+                                </div>
+
+                                <div class="form-group col-md-1">
+                                    <label for="dpto">Dpto.</label>
+                                    <input name='dpto' type="text" class="mayusculas form-control input-sm validate[required]" id="dpto" readonly disabled>
+                                </div>
+
+                                <div class="form-group col-md-1">
+                                    <label for="of">Of</label>
+                                    <input name='of' type="text" class="mayusculas form-control input-sm validate[required]" id="of" readonly disabled>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="form-group col-md-3">
+                                    <label for="monoblock">Monoblock</label>
+                                    <input name='monoblock' type="text" class="mayusculas form-control input-sm validate[required]" id="monoblock" disabled readonly>
+                                </div>
+
+                                <div class="form-group col-md-1">
+                                    <label for="puerta">Puerta</label>
+                                    <input name='puerta' type="text" class="mayusculas form-control input-sm validate[required]" id="puerta" readonly disabled>
+                                </div>
+
+                                <div class="form-group col-md-1">
+                                    <label for="manzana">Manzana</label>
+                                    <input name='manzana' type="text" class="mayusculas form-control input-sm validate[required]" id="manzana" readonly disabled>
+                                </div>
+
+                                <div class="form-group col-md-2">
+                                    <label for="c_postal">Cod.Postal</label>
+                                    <input name='c_postal' type="text" class="mayusculas form-control input-sm validate[required]" id="c_postal" readonly disabled>
+                                </div>
+
+                                <div class="form-group col-md-5">
+                                    <label for="localidad">Localidad</label>
+                                    <input name='localidad' type="text" class="mayusculas form-control input-sm validate[required]" id="localidad" readonly disabled>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="form-group col-md-6">
+                                    <label for="depto_localidad">Dpto.</label>
+                                    <input name='depto_localidad' type="text" class="mayusculas form-control input-sm validate[required]" id="depto_localidad" readonly disabled>
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                    <label for="provincia">Provincia</label>
+                                    <input name='provincia' type="text" class="mayusculas form-control input-sm validate[required]" id="provincia" readonly disabled>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="div_inmueble" class="panel-search">
+            <div class="panel panel-primary">
+                <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_inmueble" aria-expanded="true" aria-controls="#collapse_inmueble">
+                    <span class="glyphicon glyphicon-arrow-down"></span>
+                </a>
+
+                <div class="panel-heading">Datos del Inmueble</div>
+
+                <div class="collapse in" id="collapse_inmueble" aria-expanded="true">
+                    
+                    <div class="panel-body">
+                        <form id='frm_inmueble'>
+
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                        <label>Partida</label>
+                                        <input name='partida' id='partida' type="text" class="form-control input-sm text-right" readonly disabled>
+                                </div>
+
+                                <div class="form-group col-md-4">
+                                    <label for="nomenclatura">Nomenclatura</label>
+                                    <input name='nomenclatura' type="text" class="mayusculas form-control input-sm" id="nomenclatura" readonly disabled>
+                                </div>
+
+                                <div class="form-group col-md-4">
+                                    <label for="titular">Titular</label>
+                                    <input name='titular' type="text" class="mayusculas form-control input-sm" id="titular" readonly disabled>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group col-md-5">
+                                    <label>Domicilio</label>
+                                    <input name='domicilio' id='domicilio' type="text" class="form-control input-sm text-right" readonly disabled>
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    <label for="sup_terreno">Superficie Terreno</label>
+                                    <input name='sup_terreno' type="text" class="mayusculas form-control input-sm" id="sup_terreno" readonly disabled>
+                                </div>
+
+                                <div class="form-group col-md-1">
+                                    <label for="valor_terreno">Valor</label>
+                                    <input name='valor_terreno' type="text" class="mayusculas form-control input-sm" id="valor_terreno" readonly disabled>
+                                </div>
+
+                                <div class="form-group col-md-2">
+                                    <label>Superficie Edificada</label>
+                                    <input name='sup_edificada' id='sup_edificada' type="text" class="form-control input-sm text-right" readonly disabled>
+                                </div>
+
+                                <div class="form-group col-md-1">
+                                    <label for="valor_sup_edificada">Valor</label>
+                                    <input name='valor_sup_edificada' type="text" class="mayusculas form-control input-sm" id="valor_sup_edificada" readonly disabled>
+                                </div>
+
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="div_auto" class="panel-search">
+            <div class="panel panel-primary">
+                <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_auto" aria-expanded="true" aria-controls="#collapse_auto">
+                    <span class="glyphicon glyphicon-arrow-down"></span>
+                </a>
+
+                <div class="panel-heading">Datos del Automotor</div>
+                
+                <div class="collapse in" id="collapse_auto" aria-expanded="true">
+                    
+                    <div class="panel-body">
+                        <form id='frm_auto'>
+
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label>Dominio</label>
+                                    <input name='dominio' id='dominio' type="text" class="form-control input-sm text-right" readonly disabled>
+                                </div>
+
+                                <div class="form-group col-md-4">
+                                    <label for="dominio_anterior">Dominio Anterior</label>
+                                    <input name='dominio_anterior' type="text" class="mayusculas form-control input-sm" id="dominio_anterior" readonly disabled>
+                                </div>
+
+                                <div class="form-group col-md-4">
+                                    <label for="marca">Marca</label>
+                                    <input name='marca' type="text" class="mayusculas form-control input-sm" id="marca" readonly disabled>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="form-group col-md-4">
+                                    <label for="modelo">Modelo</label>
+                                    <input name='modelo' type="text" class="mayusculas form-control input-sm" id="modelo" readonly disabled>
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                    <label>Descripción</label>
+                                    <input name='descripcion' id='descripcion' type="text" class="form-control input-sm text-right" readonly disabled>
+                                </div>
+
+                                <div class="form-group col-md-2">
+                                    <label for="año_modelo">Año del Modelo</label>
+                                    <input name='año_modelo' type="text" class="mayusculas form-control input-sm" id="año_modelo" readonly disabled>
+                                </div>
+
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>

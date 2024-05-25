@@ -1,0 +1,263 @@
+<style>
+    #ui-datepicker-div {
+        z-index: 11000 !important;
+        position: absolute !important;
+    }
+</style>
+
+<div class="modal fade" id="exen_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="exen_title">Exención</h5>
+            </div>
+            <div class="modal-body">
+                <form id="frm_exencion">
+                    <input type="hidden" id="exen_oper">
+                    <input type="hidden" id="exen_id_exen">
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label for="exen_d_mot">Exención: (*)</label>
+                            <div class="input-group">
+                                <input type="hidden" id="exen_c_rdf_res">
+                                <input type="text" class="form-control input-sm input-cod-short numero"
+                                    id="exen_c_exen">
+                                <input type="text" class="form-control input-sm input-desc-long" id="exen_d_exen"
+                                    readonly>
+                                <span class="input-group-addon btn_lupa" id="exen_lupa_c_exen">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                            <label for="exen_tributo">Exención Tributo:</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm" id="exen_tributo">
+                                <span class="input-group-addon">%</span>
+                            </div>
+                        </div>                
+                        <div class="form-group col-md-3">
+                            <label for="exen_tasa">Exención Tasa:</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm" id="exen_tasa">
+                                <span class="input-group-addon">%</span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="exen_dictamen">Dictamen:</label>                        
+                            <input type="text" class="form-control input-sm mayusculas" id="exen_dictamen">
+                        </div>
+                    </div>
+                    <div class="row">                    
+                        <div class="form-group col-md-3">
+                            <label for="exen_resolucion">Resolución:</label>                                        
+                                <input type="text" class="form-control input-sm" id="exen_resolucion" placeholder="nnnn/aaaa">                                
+                        </div>
+                        <div class="form-group col-md-9">
+                            <label for="exen_d_prov">Prov./Oficina: (*)</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm input-cod-short"
+                                    id="exen_c_prov">
+                                <input type="text" class="form-control input-sm input-desc-long" id="exen_d_prov"
+                                    readonly>
+                                <span class="input-group-addon btn_lupa" id="exen_lupa_c_prov">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>                    
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-8">
+                            <label>Fecha de Vigencia: (*)</label>
+                            <div class="input-group" id="rango_fecha">
+                                <input name='exen_f_desde' id='exen_f_desde' type='input' class='form-control input-sm text-center datepicker validate[required]' placeholder="(DD/MM/AAAA)"/>
+                                <div class="input-group-addon">hasta</div>
+                                <input name='exen_f_hasta' id='exen_f_hasta' type='input' class='form-control input-sm text-center datepicker validate[required]' placeholder="(DD/MM/AAAA)"/>
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>                        
+                        </div>
+                        <div class="form-group col-md-4" id="exen_div_exp" style="display: none;">
+                            <label for="exen_d_exp">Expediente:</label>
+                            <input type="text" class="form-control input-sm mayusculas" id="exen_d_exp" maxlength="13" placeholder="Ej. 111R2013">
+                        </div>
+                    </div>
+                    <div id="datos_disc" style="display: none;">
+                        <hr>
+                        <h5>Datos del Discapacitado</h5>
+                        <div class="row" id="disc_cuit_div" style="display: none;">
+                            <div class="form-group col-md-4">
+                                <label for="disc_cuit">CUIT:</label>
+                                <input name='disc_cuit' id='disc_cuit' type='text' class='form-control input-sm text-right' />
+                                <input name='disc_id_contribuyente' id='disc_id_contribuyente' type='hidden' class='sr-only'/>
+                            </div>
+    
+                            <div class="form-group col-md-8">
+                                <label for="disc_denominacion">Denominaci&oacute;n:</label>
+                                <input type="text" class="form-control input-sm mayusculas" id="disc_denominacion" disabled="disabled">
+                            </div>
+                        </div>
+                        <div  class="row">
+                            <div class="form-group col-md-8" id="disc_exp_div" style="display: none;">
+                                <label for="disc_exp">Cert. Exp. por:</label>
+                                <input type="text" class="form-control input-sm mayusculas" id="disc_exp">
+                            </div>
+                            <div class="form-group col-md-4" id="disc_vinc_div" style="display: none;">
+                                <label for="disc_vinc">Vínculo:</label>
+                                <input type="text" class="form-control input-sm mayusculas" id="disc_vinc">
+                            </div>
+                        </div>
+                    </div>                
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="button" class="btn btn-primary" id="btn_guardar_exen">Aceptar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#exen_modal').on('hidden.bs.modal', function (e) {
+            $('#frm_exencion :input').val(null).validationEngine('hideAll');
+            $('#exen_c_exen, #exen_c_prov').unbind('blur');
+            ver_campos_disc();
+        });
+
+        $('#exen_modal').on('shown.bs.modal', function (e){
+            $('html').scrollTop(0);
+            $('#exen_lupa_c_exen').lupa_generica({
+                id_lista:v_lista_exen_mot,
+                titulos:['C&oacute;digo','Descripci&oacute;n','Vig. Desde','Vig. Hasta','Resolución'],
+                grid:[{index:'c_exencion',width:100},
+                    {index:'d_exencion',width:250},
+                    {index:'f_vig_desde',hidden:true},
+                    {index:'f_vig_hasta',hidden:true},
+                    {index:'c_rdf_resolucion',hidden:true}],
+                caption:'Motivos de Exenciones',
+                sortname:'c_exencion',
+                sortorder:'asc',
+                filtros: [c_tributo],
+                searchInput: '#exen_c_exen',
+                searchCode: true,
+                limpiarCod: true,
+                exactField: 'c_exencion',
+                campos:{c_exencion:'exen_c_exen',d_exencion:'exen_d_exen',c_rdf_resolucion:'exen_c_rdf_res'},
+                keyNav:true,
+                onClose: function(){
+                    ver_campos_disc();
+                    $('#exen_d_exp, #disc_cuit,#disc_denominacion,#disc_exp,#disc_vinc').val(null);
+                }
+            });
+
+            $('#exen_lupa_c_prov').lupa_generica({
+                id_lista:v_lista_exen_deleg,
+                titulos:['C&oacute;digo','Descripci&oacute;n','n_tabla'],
+                grid:[{index:'c_dato',width:100},
+                    {index:'d_dato',width:250},
+                    {index:'n_tabla',hidden:true}],
+                caption:'Delegaciones',
+                sortname:'c_dato',
+                sortorder:'asc',
+                searchInput: '#exen_c_prov',
+                searchCode: true,
+                limpiarCod: true,
+                exactField: 'c_dato',
+                campos:{c_dato:'exen_c_prov',d_dato:'exen_d_prov'},
+                keyNav:true
+            });
+
+            ver_campos_disc();
+        });
+
+        $('#disc_cuit').mask('99-99999999-9');
+        $('#exen_tributo, #exen_tasa').mask('999,99');
+        $('#exen_resolucion').mask('999999/9999');
+
+        $('#exen_resolucion').change(function () {
+            let reg = /^[\d]{1,6}[\//]{1}[\d]{4}$/;
+            if (!reg.test($('#exen_resolucion').val()) && $('#exen_resolucion').val() != '') {
+                mostrar_validacion('El formato ingresado para la Resolución es incorrecto.<br>Utilice el siguiente formato: nnnn/aaaa Ej.: 1234/2013');
+                $('#exen_resolucion').val(null);
+            }
+        });
+
+        $('#exen_d_exp').change(function () {
+            let reg = /^[\d]{1,6}[A-Z]{1,3}[\d]{4}$/;
+            if (!reg.test($('#exen_d_exp').val()) && $('#exen_d_exp').val() != '') {
+                mostrar_validacion('El formato ingresado para el Expediente es incorrecto.<br>Utilice el siguiente formato: [NUMERO][LETRA][AÑO] Ej.: 12345R2013');
+                $('#exen_d_exp').val(null);
+            }
+        });
+
+        $('#disc_cuit').change(function () {
+            if ($('#disc_cuit').val() && $('#disc_cuit').val().length == 13) {
+                let cuit_sin_guiones =limpia_cuit($('#disc_cuit').val());
+                $('#main').procOverlay({visible:true});
+                $.ajax({
+                    url: "excenciones_hechos/php/autocomplete.php",
+                    type:"POST",
+                    data:{  p_oper:'getDatosDisc',p_filtro: cuit_sin_guiones},
+                    success: function(response)
+                    {
+                        $('#main').procOverlay({visible:false});
+                        res = JSON.parse(response);
+                        if (res){
+                            $("#disc_denominacion").val(res['DENOMINACION']);
+                            $("#disc_id_contribuyente").val(res['ID_CONTRIBUYENTE']);
+                            if  ($('#disc_id_contribuyente').val() == id_contrib) {
+                                $('#disc_vinc').val('TITULAR').attr('disabled',true);
+                            }else{
+                                $('#disc_vinc').attr('disabled',false);
+                            }
+                        }else{
+                            mostrar_validacion('El CUIT ingresado no existe en SIAT.');
+                            $('#disc_cuit').val(null);
+                            $("#disc_denominacion").val(null);
+                            $("#disc_id_contribuyente").val(null);
+                        }
+                    }
+                });
+            } else {
+                $("#disc_denominacion").val(null);
+                $("#disc_cuit").val(null);
+                $("#disc_id_contribuyente").val(null);
+            }
+        });
+
+        $('#btn_guardar_exen').click(function () {
+            if ($('#frm_exencion').validationEngine('validate')) {
+                var params = {
+                    p_id_exencion_obj:$('#exen_id_exen').val(),
+                    p_c_exencion:$('#exen_c_exen').val(),
+                    p_d_dictamen:$('#exen_dictamen').val(),
+                    p_d_resolucion:$('#exen_resolucion').val(),
+                    p_p_exencion:$('#exen_tributo').val(),
+                    p_p_exencion_tasa:$('#exen_tasa').val(),
+                    p_f_vig_desde:$('#exen_f_desde').val(),
+                    p_f_vig_hasta:$('#exen_f_hasta').val(),
+                    p_c_delegacion:$('#exen_c_prov').val(),
+                    p_d_disc_vinculo:$('#disc_vinc').val(),
+                    p_d_disc_expe_por:$('#disc_exp').val(),
+                    p_d_expediente:$('#exen_d_exp').val(),
+                    p_n_disc_cuit:limpia_cuit($('#disc_cuit').val()),
+                    p_disc_id_contrib:$('#disc_id_contribuyente').val(),
+                    p_oper:$('#exen_oper').val(),
+                    p_primera:'S',
+                };
+                abm_exencion(params);
+            }
+        });
+    });
+</script>

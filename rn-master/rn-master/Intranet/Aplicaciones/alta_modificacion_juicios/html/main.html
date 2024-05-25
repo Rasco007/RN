@@ -1,0 +1,278 @@
+
+
+<div id='tabs_det_cuenta_cor'>
+    <ul class='nav nav-tabs'>
+        <li class='nav-item active' onclick="cambiarTab(1);">
+            <a href='#tab_principal' data-toggle='tab' role='tab' data-grid='main_grid'>Datos del juicio</a>
+        </li>
+        <li class='nav-item inactive' onclick="cambiarTab(2);">
+            <a href='#tab_secundario' data-toggle='tab' role='tab' data-grid='secondary_grid'>Deuda</a>
+        </li>
+    </ul>
+    <div class='tab-content' style="border: white;">
+        <div id='tab_principal' class='tab-pane fade active in' role='tabpanel'>
+            <div id="div_search" class="panel-search">
+                <div class="panel panel-primary">
+                    <div class="collapse in" id="collapse_search" aria-expanded="true">
+                        <div class="panel-heading" style="padding-left: 1%;text-transform: none;">Datos de la Instancia</div>
+                        <div class="panel-body">
+                            <form id='frm_busqueda'>
+            
+                                <div class="form-group col-md-2">
+                                    <label for="boleta_deuda">Boleta de Deuda</label>
+                                    <input name='boleta_deuda' type="text" class="mayusculas form-control limpiar input-sm validate[required] text-right" id="boleta_deuda">
+                                </div>
+            
+                                <div class="form-group col-md-2">
+                                    <label for="c_expediente">Exp. Adm.</label>
+                                    <input name='c_expediente' type="text" class="mayusculas alta form-control limpiar input-sm validate[required] text-right" id="c_expediente" disabled>
+                                </div>
+            
+                                <div class="form-group col-md-1" style="width: 11%;">
+                                    <label for="instancia">Nro. Instancia</label>
+                                    <input name='instancia' type="text" class="text-right form-control input-sm limpiar validate[required]" id="instancia" disabled>
+                                </div>
+            
+                                <div class="form-group col-md-1" style="width: 10%;">
+                                    <label for="n_orden">Nro. de Orden</label>
+                                    <input name='n_orden' type="text" class="mayusculas form-control input-sm limpiar validate[required] text-right" id="n_orden" disabled>
+                                </div>
+            
+                                <div class="form-group col-md-3">
+                                    <label for="c_instancia">Tipo de Juicio (*)</label>
+                                    <div class="input-group" id="div_input_instancia">
+                                        <input name='c_instancia' type="text" class="form-control alta input-sm input-cod-short limpiar" id="c_instancia" readonly>
+                                        <input name='d_instancia' type="text" class="form-control input-sm input-desc-long limpiar" id="d_instancia" readonly>
+                                        <span class="input-group-addon" id="mascara_lupa_c_instancia">
+                                            <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                        </span>
+                                        <span class="input-group-addon btn_lupa" id="lupa_c_instancia">
+                                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                        </span>
+                                    </div>
+                                </div>
+            
+                                <div class="form-group col-md-3" style="width: 20%;">
+                                    <div id="div_cuit">
+                                        <label>CUIT (*)</label>
+                                        <input name='n_cuit' id='n_cuit' type="text" class="form-control alta limpiar input-sm text-right validate[required,custom[validaCuit]]" maxlength='13' readonly>
+                                        <input name='id_contribuyente' type="hidden" class="form-control limpiar input-sm text-right" id="id_contribuyente">
+                                        <input name='d_resolucion' type="hidden" class="form-control limpiar input-sm text-right" id="d_resolucion">
+                                        <input name='id_grupo' type="hidden" class="form-control limpiar input-sm text-right" id="id_grupo">
+                                        <input name='n_seleccion' type="hidden" class="form-control limpiar input-sm text-right" id="n_seleccion">
+                                    </div>
+                                </div>
+            
+                                <div class="form-group col-md-3" style="width: 28%;">
+                                    <label for="d_denominacion">Denominación</label>
+                                    <div class="input-group" id="div_input_denominacion">
+                                        <input name='d_denominacion' type="text" class="form-control input-sm limpiar mayusculas" id="d_denominacion">
+                                        <span class="input-group-addon" id="mascara_lupa_d_denominacion">
+                                            <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                        </span>
+                                        <span class="input-group-addon" id="lupa_d_denominacion">
+                                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                        </span>
+                                    </div>
+
+                                </div>
+            
+                                <div class="form-group col-md-3">
+                                    <label for="c_documento">Tipo Documento</label>
+                                    <div class="input-group" id="div_input_documento">
+                                        <input name='c_documento' type="text" class="form-control alta limpiar input-sm input-cod-short " id="c_documento" readonly>
+                                        <input name='d_documento' type="text" class="form-control limpiar input-sm input-desc-long" id="d_documento" readonly>
+                                        <span class="input-group-addon" id="mascara_lupa_c_documento">
+                                            <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                        </span>
+                                        <span class="input-group-addon btn_lupa" id="lupa_c_documento">
+                                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                        </span>
+                                    </div>
+                                </div>
+            
+                                <div class="form-group col-md-2">
+                                    <label for="documento">Nro. Documento</label>
+                                    <input name='documento' readonly maxlength='11' type="text" class="form-control alta limpiar input-sm text-right" id="documento">
+                                </div>
+            
+                                <div class="form-group col-md-4" style="width: 30%;">
+                                    <label for="c_sector_origen">Oficina (*)</label>
+                                    <div class="input-group" id="div_input_sector_origen">
+                                        <input name='c_sector_origen' type="text" class="form-control alta input-sm limpiar input-cod-short " id="c_sector_origen" readonly>
+                                        <input name='d_sector_origen' type="text" class="form-control input-sm limpiar input-desc-long" id="d_sector_origen" readonly>
+                                        <span class="input-group-addon" id="mascara_lupa_c_sector_origen">
+                                            <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                        </span>
+                                        <span class="input-group-addon btn_lupa" id="lupa_c_sector_origen">
+                                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                        </span>
+                                    </div>
+                                </div>
+            
+                                <div class="form-group col-md-2">
+                                    <label for="f_origen">F. Pres. Juicio </label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control input-sm datepicker alta text-center limpiar" name="f_origen" id="f_origen" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off" readonly>
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-2" style="display: none;">
+                                    <label for="f_origen">F. Pres. Juicio </label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control input-sm datepicker alta text-center limpiar" name="f_vto" id="f_vto" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off" readonly>
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-2" style="display: none;">
+                                    <label for="f_origen">F. Pres. Juicio (*)</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control input-sm datepicker alta text-center limpiar" name="f_resolucion" id="f_resolucion" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off" readonly>
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                        </span>
+                                    </div>
+                                </div>
+            
+                                <div class="form-group col-md-4">
+                                    <label for="c_motivo_origen">Motivo (*)</label>
+                                    <div class="input-group" id="div_input_motivo_origen">
+                                        <input name='c_motivo_origen' type="text" class="form-control alta input-sm input-cod-short limpiar" id="c_motivo_origen" readonly>
+                                        <input name='d_motivo_origen' type="text" class="form-control input-sm input-desc-long limpiar" id="d_motivo_origen" readonly>
+                                        <span class="input-group-addon" id="mascara_lupa_c_motivo_origen">
+                                            <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                        </span>
+                                        <span class="input-group-addon btn_lupa" id="lupa_c_motivo_origen">
+                                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                        </span>
+                                    </div>
+                                </div>
+            
+                                <div class="form-group col-md-6">
+                                    <label>Observaciones</label>
+                                    <textarea id="observaciones" readonly rows="3" cols="50" class='form-control alta limpiar input-sm'></textarea>
+                                </div>
+            
+                                <div class="row-search text-center form-group col-md-12" style="margin-top: 1%;">
+                                        <button class="btn-sm btn-primary" type="button" id="btn_consultar"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Consultar</button>
+                                        <button class="btn-sm btn_limpiar" type="button" id="btn_limpiar"></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+
+                <div class='detalle' id="grid_detalle">
+                    <table id='main_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+                    <div id='main_grid_pager' class='scroll' style='text-align:center;'></div>
+                </div>
+            
+                <div style="margin-top: 1%;">
+                    <button class="btn-sm btn-primary" type="button" id="btn_cargar_obj"> Cargar Objetos</button>
+                    <button class="btn-sm btn_limpiar" type="button" id="btn_limpiar_grilla"></button>
+                    <button class="btn-sm btn-primary" type="button" id="btn_select_all" style="display: none;"> Seleccionar Todos</button>
+                    <button class="btn-sm btn-primary" type="button" id="btn_desmarcar_todos" style="display: none;"> Desmarcar Todos</button>
+                </div>
+            
+            </div>
+
+            <div id='div_leyenda_datos_juicio'>
+                <div style=" margin-top: -2%;float: right;width: 46%;">
+                    <div>
+                        <div class="col-md-6">
+                            <p style="font-size: 11px;"><b>OJNC</b>: Objeto en otros Juicios NO Confirmados</p>
+                            <p style="font-size: 11px;"><b>Insp</b>: Objeto en Inspección Abierta</p>
+                            <p style="font-size: 11px;"><b>PFP</b>: Objeto con Plan Vigente</p>
+                            <p style="font-size: 11px;"><b>Int</b>: Objeto con Intimación Vigente</p>
+                        </div>
+                        <div class="col-md-4" style="float: right;width: 45%;">
+                            <p style="font-size: 11px;"><b>CQ</b>: Objeto en CQ no Confirmados</p>
+                            <p style="font-size: 11px;color: #337ab7"><b>OJ</b>: Objeto YA incluido en este juicio</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div id='tab_secundario' class='tab-pane fade' role='tabpanel'>
+
+
+
+
+            <div>
+                <div class='deuda'>
+                    <table id='secondary_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+                    <div id='secondary_grid_pager' class='scroll' style='text-align:center;'></div>
+                </div>
+            </div>
+            <div class="form-group col-md-2 col-md-offset-6" style="margin-top: 1%;">
+                <label>Total Adeudado</label>
+                <input type="text" id="i_adeudado" class="form-control input-sm text-right" readonly>
+            </div>
+            <div class="form-group col-md-2 " style="margin-top: 1%;">
+                <label>Total Interés</label>
+                <input type="text" id="i_interes" class="form-control input-sm text-right" readonly>
+            </div>
+            <div class="form-group col-md-2" style="margin-top: 1%;">
+                <label>Total Actualizado</label>
+                <input type="text" id="i_actualizado" class="form-control input-sm text-right" readonly>
+            </div>
+            <div class="form-group col-md-2 col-md-offset-10" style="margin-top: 1%;">
+                <label>Suma Selección</label>
+                <input type="text" id="suma_seleccionado" class="form-control input-sm text-right" readonly>
+            </div>
+
+            <div id='div_leyenda_deuda'>
+                <div>
+                    <div>
+                        <div class="col-md-4" style="margin-top: -9%;">
+                            <div style="display: flex;">
+                                <div style="width: 11px; height: 11px; background-color: #006400;"></div><p style="font-size: 11px;padding-left: 1%;margin-top: -0.5%;">Responsable de Obligación</p>
+                            </div>
+                            <div style="display: flex;">
+                                <div style="width: 11px; height: 11px; background-color: #c00000;"></div><p style="font-size: 11px;padding-left: 1%;margin-top: -0.5%;">Otra Figura</p>
+                            </div>
+                            <div style="display: flex;">
+                                <div style="width: 11px; height: 11px; background-color: #ffffc0;"></div><p style="font-size: 11px;padding-left: 1%;margin-top: -0.5%;">Prox. a Prescribir</p>
+                            </div>
+                            <div style="display: flex;">
+                                <div style="width: 11px; height: 11px;"><b>J</b></div><p style="font-size: 11px;padding-left: 1%;">Obligación Juicio Vigente</p>
+                            </div>
+                            <div style="display: flex;">
+                                <div style="width: 11px; height: 11px;"><b>I</b></div><p style="font-size: 11px;padding-left: 1%;">Oblig. en Inspección Cerrada</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group text-right col-md-2 col-md-offset-8" style="margin-top: 1%;">
+                <label>¿Toda la Deuda?</label>
+                <input class="form-check-input" type="checkbox" id="check_all">
+                <label>Sola Sin Prescribir</label>
+                <input class="form-check-input" type="checkbox" id="sola_sin_prescribir">
+            </div>
+            <div class="form-group text-center col-md-2" style="margin-top: 2%;">
+                <button class="btn-sm btn-primary" style="width: 100%;" type="button" id="btn_modificar"><span class="glyphicon" aria-hidden="true"></span> Modificar Juicio</button>
+                <button class="btn-sm btn-primary" style="width: 100%;display: none;" type="button" id="btn_generar"><span class="glyphicon" aria-hidden="true"></span> Generar Juicio</button>
+            </div>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+

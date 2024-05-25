@@ -1,0 +1,174 @@
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true" style="">
+            <div class="panel-heading">Datos del Contribuyente</div>
+            <div class="panel-body">
+                <form id='frm_busqueda'>
+                    <div class="row">
+                        <div class="form-group col-md-2">
+                            <label for="n_cuit">N° de CUIT</label>
+                            <input name='n_cuit' id='n_cuit' type="text" class="form-control input-sm text-right validate[required]" maxlength='13' value='<?=$p_n_cuit?>'>
+                            <input name='id_contribuyente' type="hidden" class="form-control input-sm text-right" id="id_contribuyente" value='<?=$p_id_contribuyente?>'>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="d_denominacion">Denominación / Razón Social</label>
+                            <input type="text" class="form-control input-sm mayusculas" id="d_denominacion" value='<?=$p_denominacion?>'>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="c_tipo_documento">Tipo de Documento</label>
+                            <div class="input-group" id="div_input_tipo_documento">
+                                <input type="text" class="form-control mayusculas input-sm input-cod-short" id="c_tipo_documento" value='<?=$p_c_tipo_documento?>'>
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_tipo_documento" value='<?=$p_d_tipo_documento?>' readonly placeholder="Seleccione un tipo de documento">
+                                <span class="input-group-addon btn_lupa" id="lupa_c_tipo_documento">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="n_documento">N° de Documento</label>
+                            <input type="text" class="form-control input-sm text-right" id="n_documento" name="n_documento" value='<?=$p_n_documento?>'>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                            <label for="d_partida">Partida</label>
+                            <div class="input-group" id="div_input_partida">
+                                <input name='d_partida' id='d_partida' type="text" class="form-control input-sm text-right" value='<?=$p_d_partida?>' placeholder="Seleccione una partida">
+                                <span class="input-group-addon btn_lupa" id="lupa_partida">
+                                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="d_nomenclatura">Nomenclatura</label>
+                            <div class="input-group" id="div_input_nomenc">
+                                <input name='d_nomenclatura' id='d_nomenclatura' type="text" class="form-control input-sm text-right mayusculas" value='<?=$p_d_nomenclatura?>' placeholder="Seleccione una nomenclatura">
+                                <span class="input-group-addon btn_lupa" id="lupa_nomenclatura">
+                                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4 text-center">
+                            <label class="invisible" style="display: block;">Continuar y limpiar campos</label>
+                            <button class="btn-sm btn-primary" type="button" id="btn_mostrar"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Continuar</button>
+                            <button class="btn-sm btn_limpiar" type="button" id="btn_limpiar"></button>
+                        </div>
+                        <div class="form-group col-md-2 text-right">
+                            <label class="invisible" style="display: block;">Continuar y limpiar campos</label>
+                            <!--BOTONES AUDITORIAS E IRC COMENTADOS PORQUE EN EL FORM ESTÁN PERO NO SE USAN NI SE MUESTRAN
+                            <button class="btn-sm btn_generico" type="button" id="btn_audit_inm">Auditor&iacute;a de Inmuebles</button>
+                            <button class="btn-sm btn_generico" type="button" id="btn_audit_val">Auditor&iacute;a de Valuaciones</button>
+                            <button class="btn-sm btn_generico" type="button" id="btn_datos_irc">Datos IRC</button>-->
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+<!--
+    <button class="btn-sm btn_generico" type="button" id="btn_mostrar">Mostrar Datos</button>
+-->
+</div>
+
+<div id="div_datos_generales">
+    <h5>Seleccione una fila para cargar la informaci&oacute;n del inmueble</h5>
+    <table id='datos_generales_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+    <div id='datos_generales_grid_pager' class='scroll' style='text-align:center;'></div>
+
+    <div class="div_botones">
+        <div class="btn_right">
+            <button class="btn-sm btn-primary" type="button" id="btn_cargar_tabs">Cargar informaci&oacute;n</button>
+            <button class="btn-sm btn_generico" type="button" id="btn_partidas_madre">Partidas Madre</button>
+            <button class="btn-sm btn_generico" type="button" id="btn_mov">Movimientos</button>
+            <!--<button class="btn-sm btn_generico" type="button" id="btn_completo">Completo</button>
+            <button class="btn-sm btn_generico" type="button" id="btn_puntual">Puntual</button>-->
+        </div>
+    </div>
+
+</div>
+
+<div id="tabs">
+    <ul>
+        <li><a href="#tabs-1">Valuaciones</a></li>
+        <li id="t_tab2"><a href="#tabs-2">Impuesto</a></li>
+        <li id="t_tab3"><a href="#tabs-3">Propietarios/Codeudores</a></li>
+        <li id="t_tab4"><a href="#tabs-4">Otros Responsables</a></li>
+    </ul>
+
+    <div id="tabs-1">
+        <table id='valuaciones_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+        <div id='valuaciones_grid_pager' class='scroll' style='text-align:center;'></div>
+        <div class="div_botones">
+            <div class="btn_right">
+                <button class="btn-sm btn_generico" type="button" id="btn_lista_valu">Lista Valuaciones</button>
+            </div>
+        </div>
+        <div id="no_hay_val" class="div_validacion">
+            <h4 class="titulo_validacion">
+                <span class="glyphicon glyphicon-exclamation-sign span_validacion"></span>
+                <p>No hay valuaciones para el inmueble seleccionado</p>
+            </h4>
+        </div>
+    </div>
+    <div id="tabs-2">
+        <table id='impuesto_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+        <div id='impuesto_grid_pager' class='scroll' style='text-align:center;'></div>
+
+        <div class="div_botones">
+            <div class="btn_right">
+                <button class="btn-sm btn_generico" type="button" id="btn_lista_val">Lista Valuaciones</button>
+                <button class="btn-sm btn_generico" type="button" id="btn_cta_corr">Cuenta Corriente</button>
+                <button class="btn-sm btn_generico" type="button" id="btn_exen">Exenciones</button>
+            </div>
+        </div>
+        <div id="no_hay_imp" class="div_validacion">
+            <h4 class="titulo_validacion">
+                <span class="glyphicon glyphicon-exclamation-sign span_validacion"></span>
+                <p>No hay impuestos para el inmueble seleccionado</p>
+            </h4>
+        </div>
+    </div>
+    <div id="tabs-3">
+        <h5 id="consigna_prop">Seleccione una fila para cargar los domicilios del propietario</h5>
+        <table id='propietarios_1_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+        <div id='propietarios_1_grid_pager' class='scroll' style='text-align:center;'></div>
+        <div class="div_botones">
+            <div class="btn_right">
+                <button class="btn-sm btn_generico" type="button" id="btn_leg_cont_prop">Ver Legajo de Contribuyente</button>
+                <button class="btn-sm btn_generico" type="button" id="btn_prop_vig">Prop. Vigentes CATASTRO - RPI</button>
+            </div>
+        </div>
+        <table id='propietarios_2_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+        <div id='propietarios_2_grid_pager' class='scroll' style='text-align:center;'></div>
+        <div id="no_hay_prop" class="div_validacion">
+            <h4 class="titulo_validacion">
+                <span class="glyphicon glyphicon-exclamation-sign span_validacion"></span>
+                <p>No hay propietarios para el inmueble seleccionado</p>
+            </h4>
+        </div>
+    </div>
+    <div id="tabs-4">
+        <h5 id="consigna_resp">Seleccione una fila para cargar los domicilios del responsable</h5>
+        <table id='responsables_1_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+        <div id='responsables_1_grid_pager' class='scroll' style='text-align:center;'></div>
+        <div class="div_botones">
+            <div class="btn_right">
+                <button class="btn-sm btn_generico" type="button" id="btn_leg_cont_resp">Ver Legajo de Contribuyente</button>
+            </div>
+        </div>
+        <table id='responsables_2_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+        <div id='responsables_2_grid_pager' class='scroll' style='text-align:center;'></div>
+        <div id="no_hay_resp" class="div_validacion">
+            <h4 class="titulo_validacion">
+                <span class="glyphicon glyphicon-exclamation-sign span_validacion"></span>
+                <p>No hay otros responsables para el inmueble seleccionado</p>
+            </h4>
+        </div>
+    </div>
+</div>

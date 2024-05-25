@@ -1,0 +1,82 @@
+<div style="max-width: 95%;margin: 0 auto;">
+    <div id="div_search" class="panel-search">
+        <div class="panel panel-primary">
+            <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+                <span class="glyphicon"></span>
+            </a>
+            <div class="collapse in" id="collapse_search" aria-expanded="true" style="">
+                <div class="panel-heading">B&uacute;squeda</div>
+                <div class="panel-body">
+                    <form id='frm_consulta'>
+                        <div class="form-group" style="display: flex; justify-content: space-between;">
+                            <div class="from-group col-md-12">
+                                <label for="d_titulo" class="control-label">Titulo Operativo</label>
+                                <input type="text" class="form-control input-sm" value="<?= $p_d_titulo;?>" id="d_titulo" readonly="true">
+                            </div>
+                        </div>
+                        <div class="form-group" style="display: flex; justify-content: space-between;">
+                            <div class="from-group col-md-3">
+                                <label for="n_operativo" class="control-label">Nro. Operativo</label>
+                                <input type="text" class="form-control input-sm text-right" value="<?= $p_n_operativo;?>" id="n_operativo" readonly="true">
+                            </div>
+                            <div class="from-group col-md-3">
+                                <label for="n_periodo_desde" class="control-label">Período</label>
+                                <div class="input-group">
+                                    <input name='n_periodo_desde' id='n_periodo_desde' value="<?= $p_periodo_desde;?>" type='text' class='form-control input-sm' readonly="true"/>
+                                    <div class="input-group-addon">/</div>
+                                    <input name='n_periodo_hasta' id='n_periodo_hasta' value="<?= $p_periodo_hasta;?>" type='text' class='form-control input-sm' readonly="true"/>
+                                </div>
+                            </div>
+                            <div class="from-group col-md-4">
+                                <label for="tipo_inconsistencia">Tipo Inconsistencias</label>
+                                <select  class="form-control input-sm" id='tipo_inconsistencia' readonly="true" disabled>
+                                    <option><?= $p_d_tipo_inconsistencia;?></option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--<div id="div_archivo" hidden>
+        <form id="form_archivo">
+            <div class='titlebar'>
+                <span class='ui-jqgrid-title'>Cargar Archivo</span>
+            </div>
+            <div class="input-group col-sm-12" style="padding: 0px;">
+                <input id='d_imagen_diag' name='imagen_diag' class='validate[required,] form-control input-sm' type='file' role='textbox' style="height: 100px">
+            </div>
+        </form>
+    </div>-->
+    <div id='div_archivo' style="width: 100%" hidden>
+        <div class='search' align='center' style="border: none" id='div_carga'>
+            <div class='titlebar'>
+                <span class='ui-jqgrid-title'>Cargar Archivo</span>
+            </div>
+            <div class='search' align='center' style='padding:5px;'>
+                <form action='carga_casos/php/levantar_archivo.php' class='dropzone needsclick dz-clickable' id='form_archivo' name="form_archivo" method='post' enctype='multipart/form-data'>
+                    <div class='fallback'>
+                        <input name='file' id="d_imagen_diag" type='file' class='validate[required] form-control input-sm'/>
+                    </div>
+                    <input name='p_n_id_menu' value='<?=$p_id_menu;?>' type='hidden'/>
+                    <input name='operativo' value='<?=$p_n_operativo;?>' type='hidden'/>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div id="seccion_1">
+        <div id="div_botones" hidden>
+            <div class="text-center" style="display: flex; justify-content: space-evenly;">
+                <button type='button' class="btn btn-sm" id='btn_procesar'><span class="glyphicon glyphicon-open" aria-hidden="true"></span> Procesar Archivo</button>
+                <button type='button' class="btn btn-sm" id='btn_exportar'><span class="glyphicon glyphicon-save" aria-hidden="true"></span> Exportar Archivo Modelo</button>
+            </div>
+        </div>
+        <br>
+        <table id='main_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+        <div id='main_grid_pager' class='scroll' style='text-align:center;'></div>
+    </div>
+</div>

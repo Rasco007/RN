@@ -1,0 +1,164 @@
+<div id="div_filtros" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true" style="margin-bottom: 0px;">
+            <div class="panel-heading">Contribuyente</div>
+            <div class="panel-body">
+                <form action="" id="frm_filtros">
+                    <div class="row">
+                        <div class="form-group col-md-3">        
+                            <label for="n_cuit">N° de Cuit</label>
+                            <input type="text" class="form-control input-sm numerico text-right" id="n_cuit" >
+                            <input type="hidden" id="id_contribuyente">
+                            <input type="hidden" id="p_tributo">                            
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="d_denominacion">Apellido y Nombre / Razón Social</label>
+                            <div class="input-group" id="div_input_denominacion">
+                                <input name='d_denominacion' type="text" class="form-control input-sm mayusculas" id="d_denominacion">
+                                <span class="input-group-addon" id="mascara_lupa_d_denominacion">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon" id="lupa_d_denominacion">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-3">        
+                            <label for="f_ini_tributo">F. de Inicio en el Tributo</label>
+                            <input type="text" class="form-control input-sm  text-center" id="f_ini_tributo" readonly>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="c_tributo">Tributo</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm input-cod-short text-input numerico" id="c_tributo" style="text-align: center">
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_tributo" readonly>
+                                <span class="input-group-addon" id="mascara_lupa_tributo">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon btn_lupa" id="lupa_tributo">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>       
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="d_objeto_hecho">Objeto/Hecho</label>
+                            <div class="input-group" id="div_input_denominacion">
+                                <input name='d_objeto_hecho' type="text" class="form-control input-sm mayusculas" id="d_objeto_hecho">
+                                <span class="input-group-addon" id="mascara_lupa_d_objeto_hecho">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon" id="lupa_d_objeto_hecho">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="row-search text-center" style="margin-top: 2%;">
+                            <button type='button' id='btn_buscar' name='btn_buscar' class="btn-sm btn_buscar"></button>
+                            <button type='button' id='btn_limpiar' name='btn_limpiar' class="btn-sm btn_limpiar"></button>
+                            <button type="button" id="btn_procesar" class="ui-button ui-corner-all ui-widget" style="height: 28px; margin-bottom: 3px;" disabled="">Procesar</button>
+                        </div>
+                    </div>
+                </form>          
+            </div>
+        </div>
+            <!-- -------------------------------------- -->
+            <div class="panel-body">
+                <div class="col-10" id="datos_agentes" style="border: solid 2px #ccc9c9; padding: 0.75%; ">
+                    <div class="row" >
+                        <div class="form-group col-md-3">
+                            <label for="cod_organismo">Cod. Organismo</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm input-cod-short text-input numerico" id="cod_organismo" disabled>
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_cod_organismo" readonly>
+                            </div>       
+                        </div>
+                        
+                        <div class="form-group col-md-3">
+                            <label for="d_den_agente">Denominación</label>
+                            <input name='d_den_agente' type="text" class="form-control input-sm mayusculas" id="d_den_agente" disabled>
+                        </div>
+                        <div class="form-group col-md-3">        
+                            <label for="act_desarrolla">Act. Desarrolla</label>
+                            <input type="text" class="form-control input-sm " id="act_desarrolla" disabled>
+                        </div>
+                        <div class="form-group col-md-3">        
+                            <label for="act_retiene">Act. Retiene</label>
+                            <input type="text" class="form-control input-sm " id="act_retiene" disabled>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-2">        
+                            <label for="anexo_ppal">Anexo Principal</label>
+                            <select class="form-control input-sm" id="anexo_ppal" disabled>
+                                <option value="01"></option>
+                                <option value="01">01</option>
+                                <option value="02">02</option>
+                                <option value="03">03</option>
+                                <option value="04">04</option>
+                                <option value="05">05</option>
+                                <option value="06">06</option>
+                                <option value="07">07</option>
+                                <option value="08">08</option>
+                                <option value="09">09</option>
+                            </select>                      
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="anexo_1">Anexo 1</label>
+                            <select class="form-control input-sm" id="anexo_1" disabled>
+                                <option value="01"></option>
+                                <option value="01">01</option>
+                                <option value="02">02</option>
+                                <option value="03">03</option>
+                                <option value="04">04</option>
+                                <option value="05">05</option>
+                                <option value="06">06</option>
+                                <option value="07">07</option>
+                                <option value="08">08</option>
+                                <option value="09">09</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-2">        
+                            <label for="anexo_2">Anexo 2</label>
+                            <select class="form-control input-sm" id="anexo_2" disabled>
+                                <option value="01"></option>
+                                <option value="01">01</option>
+                                <option value="02">02</option>
+                                <option value="03">03</option>
+                                <option value="04">04</option>
+                                <option value="05">05</option>
+                                <option value="06">06</option>
+                                <option value="07">07</option>
+                                <option value="08">08</option>
+                                <option value="09">09</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-3">        
+                            <label for="cont_operativo">Contacto Operativo</label>
+                            <input type="text" class="form-control input-sm" id="cont_operativo" disabled>
+                        </div>
+                        <div class="form-group col-md-3">        
+                            <label for="cont_admin">Contacto Administrativo</label>
+                            <input type="text" class="form-control input-sm" id="cont_admin" disabled>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    </div>
+</div>
+
+
+

@@ -1,0 +1,73 @@
+<!--DIV BUSQUEDA-->
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading">Parámetros</div>
+            <div class="panel-body">
+                <form id='frm_filtro' style="margin-top: 5px;">
+                    <div class="row">
+                        <div class="form-group col-md-1">
+                            <label for="n_anio_desde">Año <br>Desde:</label>
+                            <input type="text" class="form-control input-sm validate[required]" id="n_anio_desde">
+                        </div>
+                        <div class="form-group col-md-1">
+                            <label for="n_anio_hasta">Año <br>Hasta:</label>
+                            <input type="text" class="form-control input-sm validate[required]" id="n_anio_hasta">
+                        </div>
+                        <div class="form-group col-md-1">
+                            <label for="n_cuota_desde">Cuota Desde:</label>
+                            <input type="text" class="form-control input-sm validate[required]" id="n_cuota_desde">
+                        </div>
+                        <div class="form-group col-md-1">
+                            <label for="n_cuota_hasta">Cuota Hasta:</label>
+                            <input type="text" class="form-control input-sm validate[required]" id="n_cuota_hasta">
+                        </div>
+                        <div class="form-group col-md-7 col-md-offset-1">
+                            <label style="margin-bottom: 1%;">Tipo:</label>
+                            <br>
+                            <input type="radio" checked="checked" class='input-sm' name="c_tipo" value="nc_normal">Normal
+                            <input type="radio" style="margin-left: 1%;" class='input-sm' name="c_tipo" value="nc_pago_anual">Pago Anual
+                            <input type="radio" style="margin-left: 1%;" class='input-sm' name="c_tipo" value="nc_pago_anual_comp">Pago Anual Comp
+                            <input type="radio" style="margin-left: 1%;" class='input-sm' name="c_tipo" value="nc_pago_anual_bis">Pago Anual Bis
+                            <br>
+                            <input type="radio"  class='input-sm' name="c_tipo" value="nc_fruti">Fruticultores
+                            <input type="radio" style="margin-left: 1%;" class='input-sm' name="c_tipo" value="nc_linea_sur">Linea Sur
+                            <input type="radio" style="margin-left: 1%;" class='input-sm' name="c_tipo" value="nc_saldogral">Saldo Gral
+                            <input type="radio" style="margin-left: 1%;" class='input-sm' name="c_tipo" value="nc_saldogral_comp">Saldo Gral Comp
+                            <input type="radio" style="margin-left: 1%;" class='input-sm' name="c_tipo" value="nc_saldo_interes">Saldo Interés
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<table id='compensaciones_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+<div id='compensaciones_grid_pager' class='scroll' style='text-align:center;'></div>
+
+<div>
+    <div class="form-group col-md-1 col-md-offset-2">
+        <label for="total">Total:</label>
+        <input name='total' id='total' type='text' class='form-control input-sm text-right' readonly/>
+    </div>
+    <div class="form-group col-md-3 col-md-offset-1">
+        <label for="d_estado">Estado:</label>
+        <input name='d_estado' id='d_estado' type='text' class='form-control input-sm' readonly/>
+    </div>
+    <div class="form-group col-md-3 col-md-offset-1">
+        <label for="nom_job">Nombre del Job:</label>
+        <input name='nom_job' id='nom_job' type='text' class='form-control input-sm' readonly/>
+    </div>
+</div>
+
+<div style="text-align: center;margin-top: 1%;">
+    <button type='button' id='btn_compensaciones' class="btn btn_sm">Compensaciones</button>
+    <button type='button' id='btn_verificacion' class="btn btn_sm">Verificación</button>
+    <button type='button' id='btn_actualizar' class="btn btn_sm">Actualizar Materialized</button>
+    <button type='button' id='btn_tiempos' class="btn btn_sm">Tiempos</button>
+</div>

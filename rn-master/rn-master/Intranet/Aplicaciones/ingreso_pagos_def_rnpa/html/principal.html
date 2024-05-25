@@ -1,0 +1,96 @@
+<div id="div_main" >
+    <div class="panel panel-primary">
+        <div aria-expanded="true">
+            <div class="panel-heading" style="font-weight: bold">Confirmaci&oacute;n de pagos - Archivos de ACARA/RNPA</div>
+            <div class="panel-body main-body">
+                <form id='frm_fechas' class ="col-md-12">
+                    <div class="row fechas-container">
+
+                        <div id="div_fecha2" class="fechas-box col-md-4">
+                            <div class="panel panel-primary">
+                                <div aria-expanded="true">
+                                    <div class="panel-heading text-center" style="font-weight: bold">Fechas de cobro a procesar</div>
+                                    <div class="panel-body">
+
+                                        <div class="row">
+                                            <div class="form-group col-md-10 col-md-offset-1 f-input">
+                                                <label for="f_desde">Desde (*)</label>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control input-sm datepicker text-center limpiar validate[required]" name="f_desde" id="f_desde" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off">
+                                                    <span class="input-group-addon">
+                                                        <span class="glyphicon glyphicon-calendar"></span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-md-10 col-md-offset-1 f-input">
+                                                <label for="f_hasta">Hasta (*)</label>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control input-sm datepicker text-center limpiar validate[required]" name="f_hasta" id="f_hasta" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off">
+                                                    <span class="input-group-addon">
+                                                        <span class="glyphicon glyphicon-calendar"></span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div id="div_fecha3" class=" fechas-box col-md-4">
+                            <div class="panel panel-primary">
+                                <div aria-expanded="true">
+                                    <div class="panel-heading text-center" style="font-weight: bold">Datos de la transferencia</div>
+                                    <div class="panel-body">
+
+                                        <div class="row">
+                                            <div class="form-group col-md-10 col-md-offset-1 f-input">
+                                                <label for="f_pago">F. de Pago (*)</label>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control input-sm datepicker text-center limpiar validate[required]" name="f_pago" id="f_pago" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off">
+                                                    <span class="input-group-addon">
+                                                        <span class="glyphicon glyphicon-calendar"></span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="form-group col-md-10 col-md-offset-1 f-input">
+                                                <label for="f_acred">F. de Acreditaci&oacute;n (*)</label>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control input-sm datepicker text-center limpiar validate[required]" name="f_acred" id="f_acred" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off">
+                                                    <span class="input-group-addon">
+                                                        <span class="glyphicon glyphicon-calendar"></span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        
+                </form>
+
+                <div id="bot-container" class="col-lg-12">
+                    <div>
+                        <label for="res_proceso">Resultado del proceso:</label><br>
+                        <textarea  id = "res_proceso" readonly name="res_proceso" class="col-lg-12"></textarea>
+                    </div>
+                    <div class="btn-container">
+                        <button type='button' id='btn_procesar' class="btn btn-primary">Procesar</button>
+                        <button type='button' id='btn_limpiar' name='btn_limpiar' class="btn btn_limpiar"></button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

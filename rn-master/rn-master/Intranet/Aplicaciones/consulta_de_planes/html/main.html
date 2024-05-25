@@ -1,0 +1,504 @@
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading" style="padding-left: 1%;text-transform: none;">Plan de Pago</div>
+            <div class="panel-body">
+                <form id='frm_busqueda'>
+
+                    <!--<div class="form-group col-md-2">
+                        <label for="nro_plan">Nro. Plan</label>
+                        <input name='nro_plan' type="text" class="mayusculas form-control input-sm limpiar validate[required] text-right" id="nro_plan">
+                    </div>-->
+
+                    <div class="form-group col-md-2">
+                        <label for="nro_plan">Nro. Plan</label>
+                        <div class="input-group">
+                            <input name='nro_plan' type="text" class="mayusculas form-control input-sm limpiar validate[required] text-right" id="nro_plan">
+                            <span class="input-group-addon" id="mascara_lupa_n_plan_pago">
+                                <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                            </span>
+                            <span class="input-group-addon btn_lupa" id="lupa_n_plan_pago">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label for="c_plan">Tipo Plan</label>
+                        <div class="input-group">
+                            <input name='c_plan' type="text" class="form-control input-sm limpiar input-cod-short " id="c_plan" >
+                            <input name='d_plan' type="text" class="form-control input-sm limpiar input-desc-long" id="d_plan" readonly>
+                            <span class="input-group-addon" id="mascara_lupa_c_plan">
+                                <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                            </span>
+                            <span class="input-group-addon btn_lupa" id="lupa_c_plan">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label for="c_tributo_plan">Tributo Plan</label>
+                        <div class="input-group" style="width: 100%;">
+                            <input name='c_tributo_plan' type="text" class="form-control input-sm limpiar input-cod-short " id="c_tributo_plan" >
+                            <input name='tributo_plan' type="text" class="form-control input-sm limpiar input-desc-long" id="tributo_plan" readonly>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <div id="div_cuit" style="padding-left: 1%;">
+                            <label>CUIT</label>
+                            <input type="hidden" id="n_cuit_sin_formato">
+                            <input name='n_cuit' id='n_cuit' type="text" class="form-control input-sm limpiar text-right" maxlength='13' >
+                            <input name='id_contribuyente' type="hidden" class="form-control input-sm limpiar text-right" id="id_contribuyente">
+                            <input name='archivo_contrato' type="hidden" class="form-control input-sm limpiar text-right" id="archivo_contrato">
+                        </div>
+                    </div>
+
+                    <!-- <div class="form-group col-md-3">
+                        <label for="d_denominacion">Denominación</label>
+                        <input name='d_denominacion' type="text" class="mayusculas form-control input-sm limpiar validate[required]" id="d_denominacion">
+                    </div> -->
+
+                    <div class="form-group col-md-3">
+                        <label for="d_denominacion">Denominación </label>
+                        <div class="input-group" id="div_input_denominacion">
+                            <input name='d_denominacion' type="text" class="form-control input-sm limpiar mayusculas validate[required]" id="d_denominacion">
+                            <span class="input-group-addon" id="mascara_lupa_d_denominacion">
+                                <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                            </span>
+                            <span class="input-group-addon" id="lupa_d_denominacion">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <label for="c_documento">Tipo Documento</label>
+                        <div class="input-group" id="div_input_documento">
+                            <input name='c_documento' type="text" class="form-control input-sm limpiar input-cod-short " id="c_documento" >
+                            <input name='d_documento' type="text" class="form-control input-sm limpiar input-desc-long" id="d_documento" readonly>
+                            <span class="input-group-addon" id="mascara_lupa_c_documento">
+                                <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                            </span>
+                            <span class="input-group-addon btn_lupa" id="lupa_c_documento">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label for="documento">Nro.Documento</label>
+                        <input name='documento' maxlength='11' type="text" class="form-control input-sm limpiar text-right" id="documento">
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label for="tipo_imponible">Tipo Imponible</label>
+                        <div class="input-group">
+                            <input name='tipo_imponible' type="text" class="mayusculas form-control input-sm limpiar validate[required] text-right" id="tipo_imponible">
+                            <span class="input-group-addon" id="mascara_lupa_c_tipo_imponible">
+                                <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                            </span>
+                            <span class="input-group-addon btn_lupa" id="lupa_c_tipo_imponible">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label for="objeto">Objeto/Hecho</label>
+                        <div class="input-group">
+                            <input name='objeto' type="text" class="mayusculas form-control input-sm limpiar validate[required] text-right" id="objeto">
+                            <span class="input-group-addon" id="mascara_lupa_objeto">
+                                <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                            </span>
+                            <span class="input-group-addon btn_lupa" id="lupa_objeto">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label for="c_sector_origen">Oficina</label>
+                        <div class="input-group" id="div_input_sector_origen">
+                            <input name='c_sector_origen' type="text" class="form-control input-sm limpiar input-cod-short " id="c_sector_origen" >
+                            <input name='d_sector_origen' type="text" class="form-control input-sm limpiar input-desc-long" id="d_sector_origen" readonly>
+                            <span class="input-group-addon" id="mascara_lupa_c_sector_origen">
+                                <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                            </span>
+                            <span class="input-group-addon btn_lupa" id="lupa_c_sector_origen">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-8">
+                        <label>Observaciones</label>
+                        <textarea id="observaciones" class='form-control input-sm limpiar'></textarea>
+                    </div>
+
+
+                    <div class="form-group col-md-12">
+                        <div style="margin-top: 1%;" class="text-center">
+                            <button class="btn-sm btn-primary" type="button" id="btn_consultar"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Consultar</button>
+                            <button class="btn-sm btn btn_limpiar" type="button" id="btn_limpiar"></button>
+                            <button class="btn-sm btn" type="button" id="btn_imprimir" disabled>Const.Plan</button>
+                            <button class="btn-sm btn" type="button" id="btn_honorarios" disabled>Honorarios</button>
+                            <button class="btn-sm btn" type="button" id="btn_chequera" disabled>Emitir Chequera</button>
+                            <button class="btn-sm btn" type="button" id="btn_contrato" disabled>Contrato</button>
+                            <button class="btn-sm btn" type="button" id="btn_constancia" disabled>Const.de Cad.</button>
+                            <button class="btn-sm btn" type="button" id="btn_pdf" disabled>Contrato PDF</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div style="display: none;" class='modal fade' id='modal_chequera' tabindex='-1' role='dialog' aria-labelledby='cont_histLabel' aria-hidden='true'>
+    <div class='modal-dialog modal-lg' role='document'>
+        <div class='modal-content'>
+            <div class='modal-header'>
+                <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                    <span aria-hidden='true'>&times;</span>
+                </button>
+                <h5 class='modal-title' id='cont_histLabel'>Cuotas a Emitir</h5>
+            </div>
+            <div class='modal-body'>
+                <div class="form-group col-md-2">
+                    <label for="n_cuota_desde">Desde</label>
+                    <input name='n_cuota_desde' type="text" class="mayusculas form-control input-sm limpiar validate[required] text-right" id="n_cuota_desde">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="n_cuota_hasta">Hasta</label>
+                    <input name='n_cuota_hasta' type="text" class="mayusculas form-control input-sm limpiar validate[required] text-right" id="n_cuota_hasta">
+                </div>
+            </div>
+            <div class='modal-footer'>
+                <div class='text-center' style="padding-top: 8%;">
+                    <button class="btn btn-primary" type="button" id="btn_emitir"><span class="glyphicon glyphicon-download" aria-hidden="true"></span> Emitir</button>
+                    <button type='button' class='btn btn-secondary' id='generar_pdf' style="display:none;">Generar PDF</button>
+                    <button type='button' class='btn btn-secondary' id='btn_volver' data-dismiss='modal'>Volver</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Modal Honorarios-->
+<div class="modal" id="honorarios_modal" tabindex="-1" role="dialog" aria-labelledby="honorarios_title" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="honorarios_title">Datos de Honorarios</h5>
+            </div>
+            <div class="modal-body">
+                <div id="div_datos_gral">
+                    <table id="honorarios_grid" class="scroll" cellpadding="0" cellspacing="0">
+                        <tr><td>&nbsp;</td></tr>
+                    </table>
+                    <div id="honorarios_grid_pager" class="scroll" style="text-align:center;"></div>
+                </div>
+
+                <div id="div_patrocinante_fiscal" class="panel-search">
+                    <div class="panel panel-primary">
+                        <div class="collapse in" id="collapse_search_2" aria-expanded="true">
+                            <div class="panel-heading" style="padding-left: 1.5%">Patrocinante Fiscal</div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="form-group col-md-3">
+                                        <label for="n_cuit_patrocinante">CUIT Patrocinante</label>
+                                        <input name='n_cuit_patrocinante' type="text" class="form-control input-sm mayusculas" id="n_cuit_patrocinante" readonly>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="d_patrocinante">Denominación Patrocinante</label>
+                                        <input name='d_patrocinante' type="text" class="form-control input-sm mayusculas" id="d_patrocinante" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="div_repr_contrib" class="panel-search">
+                    <div class="panel panel-primary">
+                        <div class="collapse in" id="collapse_search_3" aria-expanded="true">
+                            <div class="panel-heading" style="padding-left: 1.5%">Representante del Contribuyente</div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label for="d_denominacion_rc">Apellido y Nombre</label>
+                                        <input name='d_denominacion_rc' type="text" class="form-control input-sm mayusculas" id="d_denominacion_rc" readonly>
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="d_caracter_rc">En su carácter de:</label>
+                                        <input name='d_caracter_rc' type="text" class="form-control input-sm mayusculas" id="d_caracter_rc" readonly>
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="d_acredita_rc">Acredita con:</label>
+                                        <input name='d_acredita_rc' type="text" class="form-control input-sm mayusculas" id="d_acredita_rc" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="div_planes_relacionados">
+                    <table id="relacionados_grid" class="scroll" cellpadding="0" cellspacing="0">
+                        <tr><td>&nbsp;</td></tr>
+                    </table>
+                    <div id="relacionados_grid_pager" class="scroll" style="text-align:center;"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btn_volver_honorarios" class="btn btn-secondary" data-dismiss="modal">Volver</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id='tabs_det_cuenta_cor'>
+    <ul class='nav nav-tabs'>
+        <li class='active'><a href='#tab_principal' data-toggle='tab' id="0" data-toggle='tab'>Resumen</a></li>
+        <li ><a href='#tab_secundario' data-toggle='tab' id="1"  data-grid='main_grid'>Detalle</a></li>
+        <li ><a href='#tab_tercero' data-toggle='tab' id="2"  data-grid='secondary_grid'>Cuotas</a></li>
+    </ul>
+    
+
+    <div class='tab-content' id='tabs' style="border: white;">
+        <div id='tab_principal' class='tab-pane fade active in form-group' role='tabpanel'>
+            <div id="div_search_2" class="panel-search">
+                <div class="panel panel-primary">
+                    <div class="collapse in" id="collapse_search_4" aria-expanded="true">
+                        <!-- <div class="panel-heading">Plan de Pago</div> -->
+                        <div class="panel-body">
+                            <div class='resumen'>
+                                <table id='resumen_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+                                <div id='resumen_grid_pager' class='scroll' style='text-align:center;'></div>
+                            </div>
+                            <form id='frm_busqueda_2' hidden>
+
+                            <div class="form-group col-md-3">
+                                <label for="c_tributo">Tributo</label>
+                                <div class="input-group">
+                                    <input name='c_tributo' type="text" class="form-control input-sm limpiar input-cod-short " id="c_tributo" readonly>
+                                    <input name='d_tributo' type="text" class="form-control input-sm limpiar input-desc-long" id="d_tributo" readonly>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="c_concepto">Concepto</label>
+                                <div class="input-group">
+                                    <input name='c_concepto' type="text" class="form-control input-sm limpiar input-cod-short " id="c_concepto" readonly>
+                                    <input name='d_concepto' type="text" class="form-control input-sm limpiar input-desc-long" id="d_concepto" readonly>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="objeto_tab_resumen">Objeto/Hecho</label>
+                                <input name='objeto_tab_resumen' type="text" class="mayusculas form-control input-sm limpiar validate[required] text-right" id="objeto_tab_resumen" readonly>
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="c_tipo_imponible">Tipo Imponible</label>
+                                <div class="input-group">
+                                    <input name='c_tipo_imponible' type="text" class="form-control input-sm limpiar input-cod-short " id="c_tipo_imponible" readonly>
+                                    <input name='d_tipo_imponible' type="text" class="form-control input-sm limpiar input-desc-long" id="d_tipo_imponible" readonly>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-2">
+                                <label for="deuda_original">Deuda Original</label>
+                                <input name='deuda_original' type="text" class="mayusculas form-control input-sm limpiar validate[required] text-right" id="deuda_original" readonly>
+                            </div>
+            
+                            <div class="form-group col-md-2">
+                                <label for="deuda_original_descuentos">Deuda Original con Dto.</label>
+                                <input name='deuda_original_descuentos' type="text" class="mayusculas form-control input-sm limpiar validate[required] text-right" id="deuda_original_descuentos" readonly>
+                            </div>
+            
+                            <div class="form-group col-md-2">
+                                <label for="intereses_resarcitorios">Intereses Resarcitorios</label>
+                                <input name='intereses_resarcitorios' type="text" class="mayusculas form-control input-sm limpiar validate[required] text-right" id="intereses_resarcitorios" readonly>
+                            </div>
+            
+                            <div class="form-group col-md-2">
+                                <label for="porcentaje_descuento_interes">Descuento Interés (%)</label>
+                                <input name='porcentaje_descuento_interes' type="text" class="mayusculas form-control input-sm limpiar validate[required] text-right" id="porcentaje_descuento_interes" readonly>
+                            </div>
+            
+                            <div class="form-group col-md-2">
+                                <label for="intereses_con_descuentos">Intereses con Descuentos</label>
+                                <input name='intereses_con_descuentos' type="text" class="mayusculas form-control input-sm limpiar validate[required] text-right" id="intereses_con_descuentos" readonly>
+                            </div>
+
+                            <div class="form-group col-md-2">
+                                <label for="i_actualizado">Total a Financiar</label>
+                                <input name='i_actualizado' type="text" class="mayusculas form-control input-sm limpiar validate[required] text-right" id="i_actualizado" readonly>
+                            </div>
+
+                            
+                            <div class="form-group col-md-2">
+                                <label for="cant_cuotas">Cantidad de Cuotas</label>
+                                <input name='cant_cuotas' type="text" class="mayusculas form-control input-sm limpiar validate[required] text-right" id="cant_cuotas" readonly>
+                            </div>
+            
+                            <div class="form-group col-md-3">
+                                <label for="metodo_cuotas">Calculo de Cuotas por Metodo</label>
+                                <input name='metodo_cuotas' type="text" class="mayusculas form-control input-sm limpiar validate[required] text-right" id="metodo_cuotas" readonly>
+                            </div>
+            
+                            <div class="form-group col-md-2">
+                                <label for="periodicidad_ctas">Periodicidad Cuotas</label>
+                                <input name='periodicidad_ctas' type="text" class="mayusculas form-control input-sm limpiar validate[required] text-right" id="periodicidad_ctas" readonly>
+                            </div>
+            
+                            <div class="form-group col-md-2">
+                                <label for="i_anticipo">Importe Anticipo</label>
+                                <input name='i_anticipo' type="text" class="mayusculas form-control input-sm limpiar validate[required] text-right" id="i_anticipo"readonly>
+                            </div>
+            
+                            <div class="form-group col-md-3">
+                                <label for="i_intereses">Importe de Intereses</label>
+                                <input name='i_intereses' type="text" class="mayusculas form-control input-sm limpiar validate[required] text-right" id="i_intereses"readonly>
+                            </div>
+
+                            <div class="form-group col-md-2">
+                                <label for="i_tasas">Importe de Tasas</label>
+                                <input name='i_tasas' type="text" class="mayusculas form-control input-sm limpiar validate[required] text-right" id="i_tasas"readonly>
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="i_total">Importe Total</label>
+                                <input name='i_total' type="text" class="mayusculas form-control input-sm limpiar validate[required] text-right" id="i_total"readonly>
+                            </div>
+
+                            
+
+                            <div class="form-group col-md-2">
+                                <label for="f_confirmacion">F. de Confirmación </label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control input-sm datepicker alta text-center limpiar" name="f_confirmacion" id="f_confirmacion" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off" disabled>
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="user">Usuario</label>
+                                <input name='user' type="text" class="mayusculas form-control input-sm limpiar validate[required] text-right" id="user" readonly>
+                            </div>
+
+                            <div class="form-group col-md-2">
+                                <label for="f_actualizacion">F. de Actualización</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control input-sm datepicker alta text-center limpiar" name="f_actualizacion" id="f_actualizacion" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off" disabled>
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="c_caducidad">Motivo Finalización</label>
+                                <div class="input-group">
+                                    <input name='c_caducidad' type="text" class="form-control input-sm limpiar input-cod-short " id="c_caducidad" readonly>
+                                    <input name='d_caducidad' type="text" class="form-control input-sm limpiar input-desc-long" id="d_caducidad" readonly>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-2">
+                                <label for="user_act">Usuario Actualización</label>
+                                <input name='user_act' type="text" class="mayusculas form-control input-sm limpiar validate[required] text-right" id="user_act" readonly>
+                            </div>
+
+                            <div class="form-group col-md-2">
+                                <label for="f_finalizacion">F. de Finalización</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control input-sm datepicker alta text-center limpiar" name="f_finalizacion" id="f_finalizacion" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off" disabled>
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-5">
+                                <label for="c_tributo_plan">Contribuyente Alternativo</label>
+                                <div class="input-group" style="width: 100%;">
+                                    <input name='n_cuit_alter' id='n_cuit_alter' type="text" class="form-control input-sm limpiar input-cod-short validate[required,custom[validaCuit]]" maxlength='13' readonly>
+                                    <input name='id_contribuyente_alter' type="hidden" class="form-control input-sm limpiar text-right" id="id_contribuyente_alter">
+
+                                    <input name='d_denominacion_alter' type="text" class="form-control input-sm limpiar input-desc-long validate[required]" id="d_denominacion_alter" readonly>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="situacion">Situación</label>
+                                <input name='situacion' type="text" class="mayusculas form-control input-sm limpiar validate[required]" id="situacion" readonly>
+                            </div>
+
+                            <div class="form-group col-md-2">
+                                <label for="f_alta">F. de Alta en el Sistema</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control input-sm datepicker alta text-center limpiar" name="f_alta" id="f_alta" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off" disabled>
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group col-md-2">
+                                <label for="user_alt">Usuario</label>
+                                <input name='user_alt' type="text" class="mayusculas form-control input-sm limpiar validate[required] text-right" id="user_alt" readonly>
+                            </div>
+                </form>
+            </div>
+        </div>
+    </div>
+            </div>
+            
+            
+        </div>
+
+        <div id='tab_secundario' class='tab-pane fade in form-group' role='tabpanel'>
+            <div id="gridWrapper">
+
+                <div class='detalle'>
+                    <table id='main_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+                    <div id='main_grid_pager' class='scroll' style='text-align:center;'></div>
+                </div>
+            
+            </div>
+                
+        </div>
+
+        <div id='tab_tercero' class='tab-pane fade in form-group' role='tabpanel'>
+            <div>
+                <div class='deuda'>
+                    <table id='secondary_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+                    <div id='secondary_grid_pager' class='scroll' style='text-align:center;'></div>
+                </div>
+            </div>
+            <div class="form-group col-md-2 col-md-offset-7" style="margin-top: 1%">
+                <label>Importe Total</label>
+                <input type="text" id="i_total_cuotas" disabled class="form-control input-sm text-right" readonly>
+            </div>
+            <div>
+                <p id="texto_saldo" style="margin: 3% 0 0 0;">SALDO</p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

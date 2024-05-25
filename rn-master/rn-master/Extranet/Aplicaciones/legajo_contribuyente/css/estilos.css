@@ -1,0 +1,92 @@
+#accordion .ui-state-active{
+    background-color: var(--colorSegundoNivel);
+    line-height: 20px;
+}
+
+.ui-accordion .ui-accordion-header{
+    margin: 2px 0 0 0;
+    line-height: 20px;
+}
+
+#accordion h3{
+    font-weight: 700;
+}
+
+.titulo_consultas{
+    background-color: var(--colorPrimerNivel);
+    font-weight: bold;
+    padding-left: 10px;
+    color: #fff;
+    line-height: 30px;
+    font-size: 14px;
+    margin-bottom: 2px;
+}
+
+.card{
+    border: 1px solid #156690;
+    height: 170px;
+    width: 15%;
+    box-shadow: 2px 2px #156690;
+    float: left;
+    margin: 20px 0.7% auto;
+    border-radius: 5px;
+    position: relative;
+}
+.card:hover{
+    cursor: pointer;
+    background-color: #E9EDF3;
+}
+.card h4, .card p{
+    text-align: center;
+}
+.card img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 15%;
+    margin-top: 10px;
+}
+.no_disponible{
+    filter: grayscale(100%);
+    background-color: #f0F000;
+}
+.no_disponible:hover{
+    cursor: auto !important;
+    /*background-color: #FCFCFC !important;*/
+    background-color: #f0F000;
+}
+
+.close {
+    position: absolute;
+    right: 15px;
+}
+
+.btn_volver{
+    margin: 2% 43% auto;
+}
+#form_ddjj_no_pagadas{
+    margin: 10px 20%;
+}
+#form_ddjj_no_pagadas .texto{
+    width: 215px;
+}
+#form_ddjj_no_pagadas input{
+    margin-top: 10px;
+}
+#chk_boleta_deuda, #chk_gestion_judicial, #chk_intimacion{
+    vertical-align: bottom;
+    margin-left: 10px;
+}
+
+#d_objeto_hecho{
+    width: 100% !important;
+}
+
+.modal_chk{
+    vertical-align: bottom;
+    margin-left: 10px !important;
+}
+
+.card center i{
+    margin-top: 5px;
+}

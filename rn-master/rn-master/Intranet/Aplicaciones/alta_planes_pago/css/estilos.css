@@ -1,0 +1,14 @@
+.div_input{
+    margin: 0 4% 0 4%;
+}
+
+.tab-deshabilitado{
+    background-color: rgb(223, 209, 209);
+    opacity:50%;
+}
+.btn-cuota{
+    border:solid 1px rgb(215, 213, 213);
+}
+.total_cuota{
+    width:90% !important;
+}

@@ -1,0 +1,32 @@
+<div class="modal fade" id="detalle_modal" tabindex="-1" role="dialog" aria-labelledby="detalle_title" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="detalle_title"></h5>
+            </div>
+            <div class="modal-body">
+                <!--GRILLA Detalle-->
+                <div id="grilla_detalle">
+                    <table id='detalle_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+                    <div id='detalle_grid_pager' class='scroll' style='text-align:center;'></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $('#detalle_modal').on('shown.bs.modal', function (e) {
+            $('#detalle_title').text('Detalle Periodo ' + $("#main_grid").getCell($('#main_grid').getGridParam('selrow'), 'd_periodo'));
+            let gridParentWidth1 = $('#gbox_detalle_grid').parent().parent().width();
+            $('#detalle_grid').setGridWidth(gridParentWidth1);
+        });
+    });
+</script>

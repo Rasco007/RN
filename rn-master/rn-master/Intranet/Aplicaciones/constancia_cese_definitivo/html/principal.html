@@ -1,0 +1,83 @@
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading" style="text-transform: none;">Reimpresi&oacute;n de Constancias</div>
+            <div class="panel-body">
+                <form id='frm_consulta_pagos_acred' style="margin-top: 5px;">
+                    <div class="row">
+                        <div class="form-group col-md-2">
+                            <label for="n_cuit">CUIT (*):</label>
+                            <input name='n_cuit' id='n_cuit' type='text' class='form-control input-sm text-right' />
+                            <input name='id_contribuyente' id='id_contribuyente' type='hidden'/>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="desc_denom">Nombre y Apellido / Razón Social:</label>
+                            <div class="input-group" id="div_input_denominacion">
+                                <input name='d_denominacion' type="text" class="form-control input-sm mayusculas" id="desc_denom">
+                                <span class="input-group-addon" id="mascara_lupa_d_denominacion">
+                                        <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                    </span>
+                                <span class="input-group-addon" id="lupa_d_denominacion">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                    </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="d_tipo_documento">Tipo Documento:</label>
+                            <div class="input-group" id="div_input_tipo_documento">
+                                <input type="text" class="form-control mayusculas input-sm input-cod-short" id="c_tipo_documento">
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_tipo_documento" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_c_documento">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                    </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="n_documento">N&uacute;mero de Documento:</label>
+                            <input type="text" class="form-control input-sm text-right" id="n_documento">
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="form-group col-md-3">
+                            <label for="d_tributo">Tributo (*):</label>
+                            <div class="input-group" id="div_input_tributo" aria-describedby="tributo_aclaracion">
+                                <input type="text" class="form-control input-sm input-cod-short numero" id="c_tributo" maxlength="3">
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_tributo" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_c_tributo">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                            <div id="tributo_aclaracion" class="form-text" style="font-size: 11px; color: #484848;">*En caso de que el contribuyente tenga más de un cese  definitivo debe seleccionar desde la lupa tributos</div>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="d_objeto_hecho"> </label>
+                            <div class="input-group" id="div_input_obj_hecho">
+                                <input type="text" class="form-control input-sm mayusculas validate[required]" id="d_objeto_hecho" readonly>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-6" style="margin-top: 1%;">
+                            <button type="button" class="btn btn-primary btn-main" id="btn_limpiar" style="float: right;">LIMPIAR</button>
+                            <!--<button type="button" class="btn btn-primary btn-main" id="btn_generar_pdf" style="float: right; margin-right: 2%;">GENERAR PDF</button>-->
+                            <button type="button" class="btn btn-primary btn-main" id="btn_imprimir" style="margin-right: 2%; float: right;">IMPRIMIR</button>
+                        </div>
+
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

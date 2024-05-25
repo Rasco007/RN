@@ -1,0 +1,277 @@
+<style>
+    #ui-datepicker-div {
+        z-index: 11000 !important;
+        position: absolute !important;
+    }
+    .modal-draggable .modal-backdrop {
+      position: fixed;
+    }
+    .modal.modal-draggable {
+        overflow: overflow-y;
+    }
+    .modal-draggable .modal-header:hover {
+      cursor: move;
+    }
+    .modal{
+       overflow: hidden;
+    }
+</style>
+
+<!-- Modal Alta de partida -->
+<div class="modal fade modal-draggable" id="inscripcion_tributo" tabindex="-1" role="dialog" aria-labelledby="inscripcion_tributoLabel" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="inscripcion_tributoLabel">Alta de Partida</h5>
+            </div>
+            <div class="modal-body">
+                <form id="frm_inscripcion_tributo">
+                    <div class='row'>
+                        <div class="form-group col-md-7">
+                            <label for="f_inscripcion">Fecha de Inscripción (*)</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm datepicker text-center validate[required]" name="f_inscripcion" id="f_inscripcion" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class='row'>
+                        <div class="form-group col-md-7">
+                            <label for="n_hectareas">Hectareas Bajo Riego (*)</label>
+                            <input type="text" class="form-control input-sm text-right validate[required]" id="n_hectareas" name="n_hectareas">
+                        </div>
+                    </div>
+
+                    <div class='row'>
+                        <div class="form-group col-md-7">
+                            <label for="c_unid_med_i">Unidad de medida (*)</label>
+                            <div id="div_c_unid_med_i" class="input-group">
+                                <input type='text' id='c_unid_med_i' name='c_unid_med_i' class='form-control input-sm input-cod-short mayusculas validate[required]'/>
+                                <input type='text' id='d_unid_med_i' name='d_unid_med_i' class='form-control input-sm input-desc-long validate[required]' readonly/>
+                                <span class="input-group-addon btn_lupa" id="btn_lupa_unidades" name='btn_lupa_unidades'>
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class='row'>
+                        <div class="form-group col-md-7">
+                            <label for="c_actividad_i">Actividad</label>
+                            <div id="div_c_actividad_i" class="input-group">
+                                <input type='text' id='c_actividad_i' name='c_actividad_i' class='form-control input-sm input-cod-short mayusculas'/>
+                                <input type='text' id='d_actividad_i' name='d_actividad_i' class='form-control input-sm input-desc-long' readonly/>
+                                <span class="input-group-addon btn_lupa" id="btn_lupa_actividad" name='btn_lupa_actividad'>
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-7">
+                            <label for="n_cuit">CUIT Responsable</label>
+                            <input type="text" class="form-control input-sm text-right validate[custom[validaCuit]] limpiar" id="n_cuit">
+                            <input type="hidden" class="form-control input-sm text-right limpiar" id="id_contribuyente">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-7">
+                            <label for="d_denominacion" class="control-label">Denominación Responsable</label>
+                            <input type="text" class="form-control input-sm mayusculas limpiar" id="d_denominacion">
+                        </div>
+                    </div>
+
+                    <div class='row'>
+                        <div class="form-group col-md-7">
+                            <label for="n_regante">Número de Regante / Parcela</label>
+                            <input type="text" class="form-control input-sm mayusculas" id="n_regante" name="n_regante">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="button" class="btn btn-primary" id="btn_inscribir_tributo"><span class="glyphicon glyphicon-check" aria-hidden="true"></span> Inscribir</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Baja de Partida -->
+<div class="modal fade" id="cese_tributo" tabindex="-1" role="dialog" aria-labelledby="cese_tributoLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="cese_tributoLabel">Baja de Partida</h5>
+            </div>
+            <div class="modal-body">
+                <form id="frm_cese_tributo">
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="f_baja">Fecha de Baja (*)</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm datepicker text-center validate[required]" name="f_baja" id="f_baja" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="c_motivo">Motivo de Baja (*)</label>
+                            <div id="div_motivo" class="input-group">
+                                <input type='text' id='c_motivo' name='c_motivo' class='form-control input-sm input-cod-short mayusculas validate[required]'/>
+                                <input type='text' id='d_motivo' name='d_motivo' class='form-control input-sm input-desc-long' readonly="true"/>
+                                <span class="input-group-addon btn_lupa" id="btn_lupa_motivo" name='btn_lupa_region'>
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-8">
+                            <label for="d_observacion">Observaciones</label>
+                            <textarea id="d_observacion" class="form-control"></textarea>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">          
+                <button type="button" class="btn btn-primary" id="btn_cese_tributo">Confirmar Baja</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Modificación Datos -->
+<div class="modal fade" id="modificacion_datos" tabindex="-1" role="dialog" aria-labelledby="modificacion_datosLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="modificacion_datosLabel">Modificacion Datos</h5>
+            </div>
+            <div class="modal-body">
+                <form id="frm_modificacion_datos">
+                    <div class='row'>
+                        <div class="form-group col-md-7">
+                            <label for="n_hectareas">Hectareas Bajo Riego (*)</label>
+                            <input type="text" class="form-control input-sm text-right validate[required]" id="n_hectareas" name="n_hectareas">
+                        </div>
+                    </div>
+
+                    <div class='row'>
+                        <div class="form-group col-md-7">
+                            <label for="c_unid_med_m">Unidad de medida (*)</label>
+                            <div id="div_c_unid_med_m" class="input-group">
+                                <input type='text' id='c_unid_med_m' name='c_unid_med_m' class='form-control input-sm input-cod-short mayusculas validate[required]'/>
+                                <input type='text' id='d_unid_med_m' name='d_unid_med_m' class='form-control input-sm input-desc-long validate[required]' readonly/>
+                                <span class="input-group-addon btn_lupa" id="btn_lupa_unidades" name='btn_lupa_unidades'>
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class='row'>
+                        <div class="form-group col-md-7">
+                            <label for="c_actividad_m">Actividad</label>
+                            <div id="div_c_actividad_m" class="input-group">
+                                <input type='text' id='c_actividad_m' name='c_actividad_m' class='form-control input-sm input-cod-short mayusculas'/>
+                                <input type='text' id='d_actividad_m' name='d_actividad_m' class='form-control input-sm input-desc-long' readonly/>
+                                <span class="input-group-addon btn_lupa" id="btn_lupa_actividad" name='btn_lupa_actividad'>
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-7">
+                            <label for="n_cuit">CUIT Responsable</label>
+                            <input type="text" class="form-control input-sm text-right limpiar" id="n_cuit">
+                            <input type="hidden" class="form-control input-sm text-right limpiar" id="id_contribuyente">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-7">
+                            <label for="d_denominacion" class="control-label">Denominación Responsable</label>
+                            <input type="text" class="form-control input-sm mayusculas limpiar" id="d_denominacion">
+                        </div>
+                    </div>
+                    
+                    <div class='row'>
+                        <div class="form-group col-md-7">
+                            <label for="n_regante">Número de Regante / Parcela</label>
+                            <input type="text" class="form-control input-sm mayusculas" id="n_regante" name="n_regante">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">          
+                <button type="button" class="btn btn-primary" id="btn_modificar_datos">Modificar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Liquidación de Extinción -->
+<div class="modal fade" id="liq_extincion" tabindex="-1" role="dialog" aria-labelledby="liq_extincionLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="liq_extincionLabel">Liquidación de Extinción</h5>
+            </div>
+            <div class="modal-body">
+                <form id="frm_liq_extincion">
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="f_vto">Fecha de Vencimiento (*)</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm datepicker text-center validate[required]" name="f_vto" id="f_vto" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="i_baja">Importe de Baja (*)</label>
+                            <input type="text" class="form-control input-sm text-right validate[required,custom[validaImporte]] mascara_numero" name="i_baja" id="i_baja">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">          
+                <button type="button" class="btn btn-primary" id="btn_liq_extincion">Confirmar Extinción</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>

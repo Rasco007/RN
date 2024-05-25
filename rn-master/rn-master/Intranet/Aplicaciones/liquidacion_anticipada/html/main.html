@@ -1,0 +1,450 @@
+<div class='titlebar'>
+    <span id="title" class="ui-jqgrid-title">Alta Planes de Pago</span>
+</div>
+<div id="div_search" class="search panel-body">
+
+    <form id='frm_ddjj'>
+        <div class="row">
+
+            <div class="form-group col-md-2">
+                <label for="n_plan">Nro. de Plan:</label>
+                <div class="input-group">
+                    <input name='n_plan' type="text" class="form-control input-sm numerico" id="n_plan" maxlength='15'>
+                    <span class="input-group-addon btn_lupa" id="lupa_n_plan">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    </span>
+                </div>
+            </div>
+
+            <div class="form-group col-md-5">
+                <label for="c_tipo_plan_pago">Tipo Plan Pago:</label>
+                <div class="input-group" id="div_input_c_tipo_plan_pago">
+                    <input name='c_tipo_plan_pago' type="text" class="form-control input-sm input-cod-short"
+                        id="c_tipo_plan_pago">
+                    <input name='d_tipo_plan_pago' type="text" class="form-control input-sm input-desc-long"
+                        id="d_tipo_plan_pago" readonly>
+                    <span class="input-group-addon btn_lupa" id="lupa_c_tipo_plan_pago">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    </span>
+                </div>
+            </div>
+
+            <div class="form-group col-md-4" style="float: right;margin-top: 1.4%;">
+                <button class="btn-sm btn-primary" type="button" style="float: left;"
+                    id="btn_liq_ant">Liquidaci&oacute;n Anticipada</button>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="form-group col-md-2">
+                <label>CUIT:</label>
+                <div id="div_input_cuit" class="input-group">
+                    <input name='n_cuit' id='n_cuit' type="text"
+                        class="form-control input-sm text-right validate[required,custom[validaCuit]]" maxlength='14'>
+                    <input name='id_contribuyente' type="hidden" class="form-control input-sm text-right"
+                        id="id_contribuyente">
+                </div>
+            </div>
+
+            <div class="form-group col-md-3">
+                <label for="d_denominacion">Denominaci&oacute;n:</label>
+                <div class="input-group" id="div_input_d_denominacion">
+                    <input name='d_denominacion' type="text" class="form-control input-sm" id="d_denominacion">
+                    <span class="input-group-addon" id="mascara_lupa_d_denominacion">
+                        <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                    </span>
+                    <span class="input-group-addon btn_lupa" id="lupa_d_denominacion">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    </span>
+                </div>
+            </div>
+
+            <div class="form-group col-md-2">
+                <label for="c_tipo_documento">Tipo Doc. :</label>
+                <div class="input-group">
+                    <input name='c_tipo_documento' type="text" class="form-control input-sm input-cod-short"
+                        id="c_tipo_documento">
+                    <input name='d_tipo_documento' type="text" class="form-control input-sm input-desc-long"
+                        id="d_tipo_documento" readonly>
+                    <span class="input-group-addon btn_lupa" id="lupa_c_tipo_documento">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    </span>
+                </div>
+            </div>
+
+            <div class="form-group col-md-2">
+                <label for="n_documento">Nro. Documento:</label>
+                <div class="input-group">
+                    <input name='n_documento' type="text" class="form-control input-sm numerico" id="n_documento"
+                        style="text-align: right;">
+                </div>
+            </div>
+
+            <div class="form-group col-md-2" style="width: 10% !important;">
+                <label for="c_tipo_imponible">Tipo Imponible:</label>
+                <div class="input-group" id="div_input_tipo_imponible">
+                    <input name='c_tipo_imponible' type="text" class="form-control input-sm numerico"
+                        id="c_tipo_imponible">
+                    <span class="input-group-addon btn_lupa" id="lupa_c_tipo_imponible">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    </span>
+                    <input id="n_tabla_tipo_imp" class="hidden">
+                </div>
+            </div>
+
+            <div class="form-group col-md-2">
+                <label for="d_objeto2">Nro. de Objeto/Hecho:</label>
+                <div class="input-group" id="div_input_objeto">
+                    <input type="text" class="form-control input-sm mayusculas" id="d_objeto2" name="d_objeto2">
+                    <span class="input-group-addon" id="mascara_lupa_d_objeto2">
+                        <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                    </span>
+                    <span class="input-group-addon btn_lupa" id="lupa_d_objeto2">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    </span>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+
+            <div class="form-group col-md-3">
+                <label for="c_delegacion">Prov/Oficina:</label>
+                <div class="input-group" id="div_input_delegacion">
+                    <input name='c_delegacion' type="text" class="form-control input-sm input-cod-short"
+                        id="c_delegacion">
+                    <input name='d_delegacion' type="text" class="form-control input-sm input-desc-long"
+                        id="d_delegacion" readonly>
+                    <span class="input-group-addon btn_lupa" id="lupa_c_delegacion">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    </span>
+                </div>
+                <input id="n_tabla_deleg" class="hidden">
+            </div>
+
+            <div class="form-group col-md-5">
+                <label for="d_observaciones">Observación:</label>
+                <textarea class="form-control validate[required]" rows="4" id="d_observaciones"></textarea>
+            </div>
+
+            <div class="form-group col-md-4" style="float: right;margin-top: 1.4%;">
+                <button class="btn-sm btn-primary btn_limpiar" style="float: right; margin: 0 2%;" type="button"
+                    id="btn_limpiar"></button>
+                <button class="btn-sm btn-primary btn_buscar" style="float: right;" type="button"
+                    id="btn_buscar"></button>
+            </div>
+        </div>
+
+    </form>
+</div>
+<div id='tabs_grid'>
+    <ul class='nav nav-tabs'>
+        <li class='nav-item' id="etiqueta_tab_resumen">
+            <a class="nav-item active" href='#tab_resumen' data-toggle='tab' role='tab' data-grid='resumen_grid'
+                id="btn_tab_resumen">Resumen</a>
+        </li>
+        <li class='nav-item' id="etiqueta_tab_detalle">
+            <a class="nav-item tab-deshabilitado" href='#tab_detalle' role='tab' data-grid='detalle_grid'
+                id="btn_tab_detalle">Detalle</a>
+        </li>
+        <li class='nav-item' id="etiqueta_tab_cuotas">
+            <a class="nav-item tab-deshabilitado" href='#tab_cuotas' role='tab' id="btn_tab_cuotas">Cuotas</a>
+        </li>
+    </ul>
+    <div class='tab-content'>
+
+        <div id='tab_resumen' class='tab-pane fade active in' role='tabpanel'>
+
+            <div class="row">
+                <div class="form-group col-md-3">
+                    <label for="c_tributo">Tributo:</label>
+                    <div class="input-group" id="div_input_tributo">
+                        <input readonly name='c_tributo' type="text"
+                            class="form-control input-sm input-cod-short numerico" id="c_tributo">
+                        <input name='d_tributo' type="text" class="form-control input-sm input-desc-long" id="d_tributo"
+                            readonly>
+                        <!-- <span class="input-group-addon" id="mascara_lupa_c_tributo">
+                            <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                        </span> -->
+                        <!-- <span class="input-group-addon btn_lupa " id="lupa_c_tributo">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        </span> -->
+                    </div>
+                </div>
+
+                <div class="form-group col-md-2">
+                    <label for="c_concepto">Concepto:</label>
+                    <div class="input-group" id="div_input_concepto">
+                        <input readonly name='c_concepto' type="text" class="form-control input-sm input-cod-short"
+                            id="c_concepto">
+                        <input name='d_concepto' type="text" class="form-control input-sm input-desc-long"
+                            id="d_concepto" readonly>
+                        <!-- <span class="input-group-addon btn_lupa" id="lupa_c_concepto">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    </span> -->
+                    </div>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="d_objeto_hecho">Tipo Imponible:</label>
+                    <div class="input-group" id="div_input_d_objeto_hecho">
+                        <input readonly name='d_objeto_hecho' type="text"
+                            class="form-control input-sm input-cod-short numerico" id="d_objeto_hecho">
+                        <input name='desc_impon' type="text" class="form-control input-sm input-desc-long"
+                            id="desc_impon" readonly>
+                        <!-- <span class="input-group-addon" id="mascara_lupa_d_objeto_hecho">
+                                <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                        </span>
+                        <span class="input-group-addon btn_lupa hidden" id="lupa_d_objeto_hecho">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        </span> -->
+                    </div>
+                </div>
+
+            </div>
+            <div style="display:flex;">
+                <div class="col-md-6" style="border: solid 1px grey; border-right:solid 0px;">
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="i_capital_ori">Deuda Original:</label>
+                            <div class="input-group">
+                                <input readonly name='i_capital_ori' type="text"
+                                    class="input form-control mascara_importe" id="i_capital_ori">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="i_intereses_ori">Intereses Resarcitorios:</label>
+                            <div class="input-group">
+                                <input readonly name='i_intereses_ori' type="text"
+                                    class="input form-control mascara_importe" id="i_intereses_ori">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="p_descuento_interes">Descuento Intereses:</label>
+                            <div class="input-group">
+                                <input readonly name='p_descuento_interes' type="text"
+                                    class="input form-control mascara_importe" id="p_descuento_interes">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon">%</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" style="border: solid 1px grey; border-left:solid 0px; ">
+                    <div class="form-group col-md-12">
+                        <label for="i_capital">Deuda Original con Descuentos:</label>
+                        <div class="input-group">
+                            <input readonly name='i_capital' type="text" class="input form-control mascara_importe"
+                                id="i_capital">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="i_interes_mora">Intereses con Descuentos:</label>
+                        <div class="input-group">
+                            <input readonly name='i_interes_mora' type="text" class="input form-control mascara_importe"
+                                id="i_interes_mora">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="i_actualizado">Total a Financiar:</label>
+                        <div class="input-group">
+                            <input readonly name='i_actualizado' type="text" class="input form-control mascara_importe"
+                                id="i_actualizado">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="form-group col-md-2">
+                    <label for="n_cuotas">Cantidad de Cuotas:</label>
+                    <div class="input-group">
+                        <input readonly name='n_cuotas' type="text" class="input form-control numerico" id="n_cuotas">
+                    </div>
+                </div>
+
+                <div class="form-group col-md-2">
+                    <label for="d_metodo">C&aacute;lculo de Cuotas por M&eacute;todo:</label>
+                    <div class="input-group" id="div_input_d_metodo">
+                        <input readonly name='d_metodo' type="text" class="form-control" id="d_metodo">
+                    </div>
+                    <input id="c_tipo_calculo" class="hidden">
+                    <input id="n_tabla_calculo" class="hidden">
+                </div>
+
+                <div class="form-group col-md-2">
+                    <label for="d_periodicidad">Periodicidad de las Cuotas:</label>
+                    <div class="input-group">
+                        <input readonly name='d_periodicidad' type="text" class="input form-control"
+                            id="d_periodicidad">
+                    </div>
+                </div>
+
+                <div class="form-group col-md-2">
+                    <label for="i_anticipo">Importe Anticipo:</label>
+                    <div class="input-group">
+                        <input readonly name='i_anticipo' type="text" class="input form-control mascara_importe"
+                            id="i_anticipo">
+                    </div>
+                </div>
+
+                <div class="form-group col-md-2">
+                    <label for="i_intereses">Importe de Intereses:</label>
+                    <div class="input-group">
+                        <input readonly name='i_intereses' type="text" class="input form-control mascara_importe"
+                            id="i_intereses">
+                    </div>
+                </div>
+
+                <div class="form-group col-md-2">
+                    <label for="i_tasas">Importe de Tasas:</label>
+                    <div class="input-group">
+                        <input readonly name='i_tasas' type="text" class="input form-control mascara_importe"
+                            id="i_tasas">
+                    </div>
+                </div>
+
+                <div class="form-group col-md-2">
+                    <label for="i_total">Importe Total:</label>
+                    <div class="input-group">
+                        <input readonly name='i_total' type="text" class="input form-control mascara_importe"
+                            id="i_total">
+                    </div>
+                </div>
+
+                <div class="form-group col-md-2">
+                    <label for="f_efectivo">F. Confirmacion:</label>
+                    <div class="input-group">
+                        <input type="text" readonly class="form-control text-center" name="f_efectivo" id="f_efectivo"
+                            placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off">
+                    </div>
+                </div>
+
+                <div class="form-group col-md-2">
+                    <label for="c_usuario_efec">Usuario:</label>
+                    <div class="input-group">
+                        <input readonly name='c_usuario_efec' type="text" class="input form-control"
+                            id="c_usuario_efec">
+                    </div>
+                </div>
+
+                <div class="form-group col-md-2">
+                    <label for="f_emision">F. Actualizaci&oacute;n:</label>
+                    <div class="input-group">
+                        <input type="text" readonly class="form-control text-center" name="f_emision" id="f_emision"
+                            placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off">
+                    </div>
+                </div>
+
+                <div class="form-group col-md-2">
+                    <label for="f_liquidacion">F. Liquidaci&oacute;n:</label>
+                    <div class="input-group">
+                        <input type="text" readonly class="form-control text-center" name="f_liquidacion"
+                            id="f_liquidacion" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off">
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+
+                <div class="form-group col-md-2">
+                    <label style="color:blue;">Contribuyente Alternativo:</label>
+                    <div id="div_input_cuit_alter" class="input-group">
+                        <input readonly name='n_cuit_alter' id='n_cuit_alter' type="text"
+                            class="form-control input-sm text-right validate[required,custom[validaCuit]]"
+                            maxlength='14'>
+                        <input name='id_contribuyente_alter' type="hidden" class="form-control input-sm text-right"
+                            id="id_contribuyente_alter">
+                    </div>
+                </div>
+
+                <div class="form-group col-md-3">
+                    <label style="color:blue;" for="d_deno_alter">Denominaci&oacute;n Alternativo:</label>
+                    <div class="input-group col-md-12" id="div_input_d_deno_alter">
+                        <input readonly name='d_deno_alter' type="text" class="form-control input-sm" id="d_deno_alter">
+                        <!-- <span class="input-group-addon" id="mascara_lupa_d_deno_alter">
+                            <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                        </span>
+                        <span class="input-group-addon btn_lupa" id="lupa_d_deno_alter">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        </span> -->
+                    </div>
+                </div>
+
+                <div class="form-group col-md-2" style="border: solid 1px grey; margin-left:8.3%">
+                    <label for="situacion">Situaci&oacute;n:</label>
+                    <div class="input-group">
+                        <h4 readonly name='situacion' id="situacion"><br></h4>
+                    </div>
+                </div>
+
+                <div class="form-group col-md-2">
+                    <label for="f_alta">F. Alta en el Sistema:</label>
+                    <div class="input-group">
+                        <input type="text" readonly class="form-control text-center" name="f_alta" id="f_alta"
+                            placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off">
+                    </div>
+                </div>
+
+                <div class="form-group col-md-2">
+                    <label for="c_usuarioalt">Usuario:</label>
+                    <div class="input-group">
+                        <input readonly name='c_usuarioalt' type="text" class="input form-control" id="c_usuarioalt">
+                    </div>
+                </div>
+
+            </div>
+            <input id="c_caducidad" class="hidden">
+            <input id="n_tabla_tipo_cad" class="hidden">
+            <input id="f_caducidad" class="hidden">
+            <input id="f_efectivacion_rehab" class="hidden">
+            <input id="f_efectivacion_refor" class="hidden">
+            <input id="cuota" class="hidden">
+            <input id="i_descuento" class="hidden">
+        </div>
+
+
+        <div id='tab_detalle' class='tab-pane fade' role='tabpanel'>
+            <div>
+                <table id="detalle_grid" class="scroll" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td>&nbsp;</td>
+                    </tr>
+                </table>
+                <div id="detalle_grid_pager" class="scroll" style="text-align:center;"></div>
+            </div>
+        </div>
+
+        <div id='tab_cuotas' class='tab-pane fade' role='tabpanel'>
+            <div>
+                <table id="cuotas_grid" class="scroll" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td>&nbsp;</td>
+                    </tr>
+                </table>
+                <div id="cuotas_grid_pager" class="scroll" style="text-align:center;"></div>
+            </div>
+            <div id="div_bottom" style="display:flex; justify-content: center; margin-top:2%">
+                <label for="total_saldo">Total saldo:</label>
+                <div name="total_saldo" id="total_saldo" style="display:flex; margin-left:2%;">
+                    <div class="input-group">
+                        <input type="text" readonly class="form-control mascara_importe input-sm text-right total_cuota"
+                            id="total">
+                    </div>
+                </div>
+                <div name="div_membrete" id="div_membrete" style="display:flex; margin-left:15%">
+                    <div class="input-group">
+                        <h5 id="contr_membrete"></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

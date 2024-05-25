@@ -1,0 +1,131 @@
+<style>
+.btn_area{
+  padding:10px;
+  text-align:center
+}
+
+@media screen and (max-width:480px){
+  .btn{
+    display:block;
+    margin:5px;
+    width:100%
+  }
+}
+</style>
+
+<!--DIV BUSQUEDA-->
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading">B&uacute;squeda</div>
+            <div class="panel-body">
+                <form id='frm_consulta'>
+                    <div class="row">
+						<div class="form-group col-md-2">
+                            <label for="n_cuit">CUIT</label>
+                            <input type="text" class="form-control input-sm text-right" name="n_cuit" id="n_cuit">
+                            <input type="text" id="id_contribuyente" hidden>
+                        </div>
+                        
+                        <div class="form-group col-md-4">
+                            <label for="d_denominacion">Denominación</label>
+                            <input type="text" class="form-control input-sm text-left" name="d_denominacion" id="d_denominacion">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label for="id_inspeccion" class="control-label">Inspección</label>
+                            <select id="id_inspeccion" data-live-search="true" title="Inspección Relacionada" class="selectpicker form-control input-sm " data-style="cDropdown">
+                                <?php foreach ($inspecciones as $inspeccion): ?>
+                                <option value="<?=$inspeccion['ID_INSPECCION']; ?>"> N° <?=$inspeccion['ID_INSPECCION']; ?> - Exp: <?=$inspeccion['D_EXPEDIENTE']; ?> CUIT: <?=$inspeccion['N_CUIT']; ?> - <?=$inspeccion['D_DENOMINACION']; ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+
+                        <div class="col-md-6 form-group">
+                            <label for="c_Tipo_multa" class="control-label">Tipo de Multa</label>
+                            <select id="c_tipo_multa" data-live-search="true" title="Seleccionar" class="selectpicker form-control input-sm" data-style="cDropdown">
+                                <option value=""></option>
+                                <?php foreach ($infracciones as $infraccion): ?>
+                                <option value="<?=$infraccion['ID_INFRACCION']; ?>"> <?=$infraccion['D_INFRACCION']; ?> - Art: <?=$infraccion['D_ARTICULO']; ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <input type="text" id="c_multa" hidden value="1">
+                    </div>
+                    <div class="row">
+
+
+                        <div class="form-Generación col-md-4 form-group">
+                            <label>Fecha Generación </label>            
+                            <div class="input-group" id="div_rango_f_gen">
+                               
+                                <input name='f_generacion_desde' id='f_generacion_desde' type='text' class='form-control datepicker text-center input-sm validate[custom[validaFecha]]'/> 
+                               
+                                <div class="input-group-addon">hasta</div>
+                                <input name='f_generacion_hasta' id='f_generacion_hasta' type='text' class='form-control datepicker text-center input-sm validate[custom[validaFecha]]'/>
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>  
+                        </div> 
+
+                        <div class="form-group col-md-4">
+                            <label>Fecha Notificación </label>            
+                            <div class="input-group" id="div_rango_f_notif">
+                                
+                                <input name='f_notificacion_desde' id='f_notificacion_desde' type='text' class='form-control datepicker text-center input-sm validate[custom[validaFecha]]'/> 
+                               
+                                <div class="input-group-addon">hasta</div>
+                                <input name='f_notificacion_hasta' id='f_notificacion_hasta' type='text' class='form-control datepicker text-center input-sm validate[custom[validaFecha]]'/>
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>  
+                        </div> 
+
+                        
+                
+                        <div class="form-group col-xs-6 col-sm-2 col-md-2">
+                                <label for="f_actualizacion">Fecha Actualización </label>
+
+                                <div class="input-group">
+                                    
+                                    <input type="text" class="form-control input-sm datepicker text-center" name="f_actualizacion" id="f_actualizacion" placeholder="(DD/MM/AAAA)" readonly="" maxlength="10" autocomplete="off" style="text-align: center;">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+					
+                    <div class='row text-center'>
+                        <button type='button' class="btn-sm btn_buscar" id='btn_buscar'></button>
+						<button type='button' class="btn-sm btn_limpiar" id='btn_limpiar'></button>	
+							
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+ 
+
+<!--GRILLA PRINCIPAL-->
+<table id='main_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+<div id='main_grid_pager' class='scroll' style='text-align:center;'></div>
+<br>
+
+
+<!--BOTONERA-->
+
+<div class="btn_area" aria-label="Toolbar with button groups">   
+    <a href="#" id="emitir_boleta" class="btn_accion btn btn-primary" fun-valida="oblig" >Emitir Boleta</a>
+    <a href="#" id="anular_multa" class="btn_accion btn btn-primary">Anular Multa</a>
+    <a href="#" id="reducir_multa" class="btn_accion btn btn-primary">Ajustar Multa</a>
+    <a href="#" id="notificar_multa" class="btn_accion btn btn-primary" fun-valida="noOblig">Notificar Multa</a>
+</div>

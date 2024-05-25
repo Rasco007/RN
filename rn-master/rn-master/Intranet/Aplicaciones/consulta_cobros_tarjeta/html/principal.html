@@ -1,0 +1,214 @@
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading">Filtros</div>
+            <div class="panel-body">
+                <form id='frm_consulta' style="margin-top: 5px;">
+                    <div class="row">
+                        <div class="form-group col-md-2">
+                            <label for="f_envio_tran">F. Envío</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm datepicker text-center limpiar" name="f_envio_tran" id="f_envio_tran" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="c_disco_envio">Disco Enviado</label>
+                            <div class="input-group" id="div_c_disco_envio">
+                                <input name='c_disco_envio' id='c_disco_envio' type='text' class='form-control input-sm'/>
+                                <span class="input-group-addon" id="mascara_lupa_c_disco_enviado">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon btn_lupa" id="lupa_c_disco_enviado">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="f_recepcion_tran">F. Recepción</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm datepicker text-center limpiar" name="f_recepcion_tran" id="f_recepcion_tran" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="c_disco_recepcionado">Disco Recepcionado</label>
+                            <div class="input-group" id="div_c_disco_recepcionado">
+                                <input name='c_disco_recepcionado' id='c_disco_recepcionado' type='text' class='form-control input-sm'/>
+                                <span class="input-group-addon" id="mascara_lupa_c_disco_recepcionado">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon btn_lupa" id="lupa_c_disco_recepcionado">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="f_cartera">Mes Cartera (mm/aaaa)</label>
+                            <div class="input-group" style="width: 100%;">
+                                <input type="text" class="form-control input-sm text-center" value="<?=$_POST['f_cartera']?>" id="f_cartera" placeholder="mm/aaaa" maxlength=6>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="form-group col-md-2">
+                            <label for="f_reversa">F. de Reversa</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm datepicker text-center limpiar" name="f_reversa" id="f_reversa" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="d_tributo">Tributo</label>
+                            <div class="input-group" id="div_input_tributo">
+                                <input type="text" class="form-control input-sm input-cod-short numero" id="c_tributo" maxlength="3">
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_tributo" readonly>
+                                <span class="input-group-addon" id="mascara_lupa_c_tributo">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon btn_lupa" id="lupa_c_tributo">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="d_objeto_hecho">Objeto/Hecho</label>
+                            <div class="input-group" id="div_input_obj_hecho">
+                                <input type="text" class="form-control input-sm mayusculas" id="d_objeto_hecho">
+                                <span class="input-group-addon" id="mascara_lupa_obj_hecho">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon btn_lupa" id="lupa_d_objeto_hecho">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group col-md-3" >
+                            <label for="d_tributo">Medio Pago</label>
+                            <div class="input-group" id="div_medio_pago">
+                                <input type="text" class="form-control input-sm input-cod-short numero" id="c_medio_pago" maxlength="3" value="<?=$_POST['p_c_medio_pago']?>">
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_medio_pago" value="<?=$_POST['p_d_medio_pago']?>" readonly>
+                                <span class="input-group-addon" id="mascara_lupa_c_medio_pago">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon btn_lupa" id="lupa_c_medio_pago">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                            <label for="d_tributo">Producto</label>
+                            <div class="input-group" id="div_producto">
+                                <input type="text" class="form-control input-sm input-cod-short numero" id="c_producto" maxlength="3" value="<?=$_POST['p_c_producto']?>">
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_producto" value="<?=$_POST['p_d_producto']?>" readonly>
+                                <span class="input-group-addon" id="mascara_lupa_c_producto">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon btn_lupa" id="lupa_c_producto">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="d_motivo_rechazo">Motivo de Rechazo</label>
+                            <div class="input-group" id="div_motivo_rechazo">
+                                <input type="text" class="form-control input-sm input-cod-short numero" id="c_motivo_rechazo" oninput="this.value = this.value.toUpperCase()">
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_motivo_rechazo" readonly>
+                                <span class="input-group-addon" id="mascara_lupa_c_motivo_rechazo">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon btn_lupa" id="lupa_c_motivo_rechazo">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group col-md-2" id="div_estado">
+                            <label for="estado">Estado</label>
+                            <div>
+                                <select id="estado" name="estado" class="limpiar" style="width: 100%;">
+                                    <option value="">Todos</option>
+                                    <option value="PENDIENTE">Pendientes</option>
+                                    <option value="ENVIADA">Enviadas</option>
+                                    <option value="ACEPTADA">Aceptados</option>
+                                    <option value="RECHAZADA">Rechazada</option>
+                                    <option value="ENVIADOANULADO">Para Reenviar</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="n_solicitud">Solicitud</label>
+                            <div class="input-group" style="width: 100%;">
+                                <input type="text" class="form-control input-sm text-center limpiar" name="n_solicitud" id="n_solicitud"  maxlength="10" autocomplete="off">
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="d_denominacion">Contribuyente</label>
+                            <div class="input-group" id="div_input_denominacion">
+                                <input name='d_denominacion' type="text" class="form-control input-sm mayusculas" id="d_denominacion">
+                                <span class="input-group-addon" id="mascara_lupa_d_denominacion">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon btn_lupa" id="lupa_d_denominacion">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                    </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="fec_cartera">F. Cartera</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm datepicker text-center limpiar" name="fec_cartera" id="fec_cartera" value="<?=$_POST['p_fec_cartera']?>" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="n_medio_pago">CBU</label>
+                            <div class="input-group" style="width: 100%;">
+                                <input type="text" class="form-control input-sm text-center limpiar" name="n_medio_pago" id="n_medio_pago"  maxlength="30" autocomplete="off">
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="i_total">Total Importe</label>
+                            <div class="input-group" style="width: 100%;">
+                                <input type="text" class="form-control input-sm text-right limpiar numerico mascara_importe" name="i_total" id="i_total" autocomplete="off">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class='row-search text-center' style="margin-top: 2%">
+                            <button type='button' id='btn_buscar' name='btn_buscar' class="btn-sm btn_buscar"></button>
+                            <button type='button' id='btn_limpiar' name='btn_limpiar' class="btn-sm btn_limpiar"></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div id='gridWrapper' >
+    <div>
+        <table id='main_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+        <div id='main_grid_pager' class='scroll' style='text-align:center;'></div>
+    </div>
+    <br/>
+    <div id='detalle'>
+        <table id='detalles_grid' class='scroll' cellpadding='0' cellspacing='0'>
+            <tr>
+                <td>&nbsp;</td>
+            </tr>
+        </table>
+        <div id='detalles_grid_pager' class='scroll' style='text-align:center;'></div>
+    </div>
+</div>

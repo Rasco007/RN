@@ -1,0 +1,41 @@
+
+
+<div style="margin-left:20px">
+    <table id="jqGrid"></table>
+    <div id="jqGridPager"></div>
+</div>
+
+<div class='row' style="margin-left: 0;margin-right: 0;">
+
+    <div id="div_search" class="panel-search">
+        <div class="panel panel-primary">
+            <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+                <span class="glyphicon"></span>
+            </a>
+            <div class="collapse in" id="collapse_search" aria-expanded="true" style="">
+                <div class="panel-heading">Datos del Contribuyente</div>
+                <div class="panel-body">
+                    <div class="row">
+
+                        <div class="form-group col-md-4 col-md-offset-4">
+                            <label>CUIT (*)</label>
+                            <div>
+                            <input name='n_cuit' id='n_cuit' type="text" class="d-inline-block validate[required,custom[validaCuit]]" style="width: 75%" maxlength='13' value='<?=$cuit?>'>
+
+                            <button class="btn-sm btn-primary" type="button" id="btn_buscar" onclick="estadoContribuyentesBC();"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Buscar</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<div id="datos_contribuyente">
+
+</div>

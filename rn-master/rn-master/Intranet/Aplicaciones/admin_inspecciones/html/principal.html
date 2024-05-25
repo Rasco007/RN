@@ -1,0 +1,109 @@
+<!--DIV BUSQUEDA-->
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true" style="">
+            <div class="panel-heading">B&uacute;squeda</div>
+            <div class="panel-body">
+                <form id='frm_consulta'>
+                    <div class="row form-group">
+                        <input type="text" name="id_plan_fis" id="id_plan_fis" hidden="">
+                        <input type="text" name="n_programa_fis" id="n_programa_fis" hidden="">
+                        <div class="col-md-2">
+                            <label for="n_cuit" class="control-label">CUIT</label>
+                            <input type="text" class="form-control input-sm text-center" id="n_cuit" placeholder="">
+                            <input type="hidden" class="form-control input-sm text-center" id="id_contribuyente" placeholder="">
+                        </div>
+                        <div class="col-md-5">
+                            <label for="d_denominacion" class="control-label">Denominación</label>
+                            <div class="input-group">
+                                <input type="text" id="d_denominacion_mayuscula" hidden="">
+                                <input type="text" class="form-control input-sm" id="d_denominacion" style="text-transform:uppercase;">
+                                <span class="input-group-addon" id="mascara_lupa_d_denominacion">
+                                        <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                    </span>
+                                <span class="input-group-addon btn_lupa" id="lupa_d_denominacion">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="n_inspeccion" class="control-label">Nro. Inspección</label>
+                            <input type="text" class="form-control input-sm text-right validate[custom[onlyIntNumber]] limpiar" name="n_inspeccion" id="n_inspeccion" maxlength="10">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="d_expediente" class="control-label">Expediente/Año</label>
+                            <div class="input-group">
+                                <input name='d_expediente' id='d_expediente' type='text' class='form-control input-sm' maxlength="12"/>
+                                <div class="input-group-addon">/</div>
+                                <input name='d_anio_exp' id='d_anio_exp' type='text' class='form-control input-sm'/>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row form-group">
+                        <div class="col-md-3">
+                            <label for="d_plan_fis" class="control-label">Plan de Fiscalización</label>
+                            <div class="input-group">
+                                <input type='text' id='d_plan_fis' name='d_plan_fis'
+                                       class='form-control input-sm' readonly="true"/>
+                                <span class="input-group-addon btn_lupa" id="btn_lupa_plan_fis">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="d_programa_fis" class="control-label">Programa de Fiscalización</label>
+                                <div class="input-group">
+                                <input type='text' id='d_programa_fis' name='d_programa_fis'
+                                       class='form-control input-sm' readonly="true"/>
+                                <span class="input-group-addon btn_lupa" id="btn_lupa_programa_fis">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                    </span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="text-center" style="margin-top: 6%;">
+                                <button type='button' class="btn-sm btn_buscar" id='btn_buscar'></button>
+                                <button type='button' class="btn-sm btn_limpiar" id='btn_limpiar'></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="alert alert-danger col-12">
+                            <b>Recuerde que debe ingresar algunos de los siguientes criterios de búsqueda:</b>
+                            CUIT y Denominación o Nro. de Inspección o Expediente o Plan de Fiscalización.
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--GRILLA PRINCIPAL-->
+<div id="seccion_1">
+    <table id='main_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+    <div id='main_grid_pager' class='scroll' style='text-align:center;'></div>
+    <br>
+    <div id="div_botones" hidden>
+        <div class="text-center" style="display: flex; justify-content: space-evenly;">
+            <button type='button' class="btn btn-sm restriccion" id='btn_asignacion'><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Asig. Personal</button>
+            <button type='button' class="btn btn-sm restriccion" id='btn_asig_expte'><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> F. Asig. Expte.</button>
+            <button type='button' class="btn btn-sm sin_restriccion" id='btn_ver_alcance'><span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span> Ver Alcance</button>
+            <button type='button' class="btn btn-sm restriccion" id='btn_estimados'><span class="glyphicon glyphicon-floppy-open" aria-hidden="true"></span> Estimados</button>
+            <button type='button' class="btn btn-sm restriccion" id='btn_apertura'><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> Apertura</button>
+            <button type='button' class="btn btn-sm sin_restriccion" id='btn_movimientos'><span class="glyphicon glyphicon-list" aria-hidden="true"></span> Resto de Movimientos</button>
+            <button type='button' class="btn btn-sm sin_restriccion" id='btn_resumen'><span class="glyphicon glyphicon-list" aria-hidden="true"></span> Resumen</button>
+        </div>
+    </div>
+</div>
+
+<div id="seccion_2" style="display: none">
+    <br>
+    <table id='detail_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+    <div id='detail_grid_pager' class='scroll' style='text-align:center;'></div>
+    <br>
+</div>

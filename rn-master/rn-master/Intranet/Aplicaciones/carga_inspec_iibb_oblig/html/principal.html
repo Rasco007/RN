@@ -1,0 +1,444 @@
+<style>
+    .importe_sum {font-weight:bold;
+        font-size: 12px
+    }
+
+    .form-inline .form-group {
+        padding: 5px;
+        margin-bottom: 0px!important
+    }
+
+    .labelslargos {
+        padding: 3px !important;
+    }
+
+    .divregimen {
+        width: 12%;
+    }
+
+    .btn_custom {
+        top: 0;
+        height: 28.5px;
+        border-radius: 0px 3px 3px 0px;
+    }
+
+    .bt_g{background:#04B404 !important;}
+    .bt_y{background:#FFFF00 !important;}
+
+    .footerRowGrid {
+        font-weight: bold;
+        font-size: 13px;
+    }
+
+    .declarado {
+        color: var(--colorPrimerNivel);
+    }
+
+    .verificado {
+        color: green;
+    }
+
+</style>
+<div class="panel" style="margin-bottom: 0px !important;">
+    <div class="panel-body" style="background-color: #ffffff !important;">
+        <nav aria-label="Posición Fiscal" class="col-xs-offset-2 col-xs-9">
+            <ul class="pager" style="margin:5px 0">
+                <li id='ant_pos' class="col-xs-3 previous">
+                    <a href="#">
+                        <span class="glyphicon glyphicon-chevron-left"></span>Anterior
+                    </a>
+                </li>
+                <input type="hidden" id="obl_anterior">
+                <label id='pos_fiscal_obl' class="col-xs-4" style="font-size: 22px">POSICION FISCAL</label>
+                <input type="hidden" id="obl_siguiente">
+                <li id='sig_pos' class="col-xs-3 next">
+                    <a href="#">Siguiente
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<div>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Régimen </h3>
+        </div>
+        <div class="panel-body" style="padding-top: 5px;">
+            <form id='frm_regimen'>
+                <div class="row">
+                    <div class="form-group divregimen col-md-1">
+                        <label for="regimen_decl">Régimen</label>
+                        <input type="text" class="form-control input-sm" id="regimen_decl" readonly>
+                    </div>
+
+                    <div class="form-group divregimen col-md-1">
+                        <label for="tipo_act_decl">Tipo Act.</label>
+                        <input type="text" class="form-control input-sm" id="tipo_act_decl" readonly>
+                    </div>
+
+                    <div class="form-group divregimen col-md-1">
+                        <label for="categoria_decl">Categoría:</label>
+                        <input type="text" class="form-control input-sm" id="categoria_decl" readonly>
+                    </div>
+
+                    <div class="form-group divregimen col-md-1">
+                        <label for="impuesto_decl">Impuesto:</label>
+                        <input type="text" class="form-control input-sm" id="impuesto_decl" readonly>
+                    </div>
+
+                    <div class="form-group divregimen col-md-1" style="margin-left: 40px">
+                        <label for="regimen_verif">Régimen</label>
+                        <input type="hidden" id="original_regimen_verif">
+                        <select name="regimen_verif" id="regimen_verif" data-live-search="false" title="Seleccionar" class="selectpicker form-control input-sm validate[required]" data-style="cDropdown">
+                            <option value=""></option>
+                            <option value="G">General</option>
+                            <option value="S">Régimen Simplificado</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group divregimen col-md-1">
+                        <label for="tipo_act_verif">Tipo Act.</label>
+                        <input type="hidden" id="original_tipo_act_verif">
+                        <select name="tipo_act_verif" id="tipo_act_verif" data-live-search="false" title="Seleccionar" class="selectpicker form-control input-sm validate[required]" data-style="cDropdown">
+                            <option value=""></option>
+                        </select>
+                    </div>
+
+                    <div class="form-group divregimen col-md-1">
+                        <label for="categoria_verif">Categoría:</label>
+                        <input type="hidden" id="original_categoria_verif">
+                        <select name="categoria_verif" id="categoria_verif" data-live-search="false" title="Seleccionar" class="selectpicker form-control input-sm validate[required]" data-style="cDropdown">
+                            <option value=""></option>
+                        </select>
+                    </div>
+
+                    <div class="form-group divregimen col-md-1">
+                        <label for="impuesto_verif">Impuesto:</label>
+                        <input type="text" class="form-control input-sm" id="impuesto_verif" readonly>
+                    </div>
+                </div>
+
+                <div class="row text-center">
+                    <button id="btn_act_reg_verif" type="button" class="btn btn-sm" style="border-radius: 3px">
+                        <span class="glyphicon glyphicon-floppy-save" aria-hidden="true">
+                        </span> Actualizar
+                    </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-primary" style="margin-bottom: 5px;">
+    <div class="panel-heading">
+        <h3 class="panel-title">Actividades</h3>
+    </div>
+    <div class="panel-body" style="padding: 0px 0!important;">
+        <div class="row" style="padding-bottom: .2em;">
+            <div class="col-md-12">
+                <table id='actividades_grid' class='scroll table table-bordered' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+                <div id='actividades_grid_pager' class='scroll' style='text-align:center;'></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" style="margin-bottom: 5px">
+    <div id="div_acciones_intermedio">
+        <div class="col-md-6">
+            <span class="label label-danger">*Realice doble click sobre una fila de la grilla para Editar, presione la tecla Enter para finalizar la edición.</span>
+        </div>
+        <div class="col-md-2">
+            <button id="btn_rec_pagos" type="button" class="btn btn-sm" style="border-radius: 3px">
+                        <span class="glyphicon glyphicon-download-alt" aria-hidden="true">
+                        </span> Recuperar Pagos
+            </button>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <button id="semaforo_pago_prov" type="button" class="btn-lg bt_g" style="border-radius: 3px">
+        </button>
+        <label for="semaforo_pago_prov" style="position: inherit;top: 3px;">Pagos Provisorios en CC</label>
+    </div>
+    <div class="col-md-2">
+        <button id="semaforo_jcq" type="button" class="btn-lg bt_g" style="border-radius: 3px">
+        </button>
+        <label for="semaforo_jcq" style="position: inherit;top: 3px;">Juicio / CQ en CC / PFP</label>
+    </div>
+</div>
+
+<!-- LIQUIDACIONES DET -->
+<div class="row">
+    <div class="col-md-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Declarado</h3>
+            </div>
+            <div class="panel-body" style=" padding-top: 5px;">
+                <form id='frm_importes_declarados'>
+                    <div class="row">
+                        <div class="form-group labelslargos col-md-3">
+                            <label for="i_retenciones_banc_decl">Reten. Banco:</label>
+                            <div class="input-group">
+                                <span class="input-group-addon">$</span>
+                                <input type="text" class="form-control mascara_importe input-sm" id="i_retenciones_banc_decl" readonly>
+                            </div>
+                        </div>
+
+                        <div class="form-group labelslargos col-md-3">
+                            <label for="i_retenciones_decl">Reten. IIBB:</label>
+                            <div class="input-group">
+                                <span class="input-group-addon">$</span>
+                                <input type="text" class="form-control mascara_importe input-sm" id="i_retenciones_decl" readonly>
+                            </div>
+                        </div>
+
+                        <div class="form-group labelslargos col-md-3">
+                            <label for="i_percepciones_decl">Percepciones:</label>
+                            <div class="input-group">
+                                <span class="input-group-addon">$</span>
+                                <input type="text" class="form-control mascara_importe input-sm" id="i_percepciones_decl" readonly>
+                            </div>
+                        </div>
+
+                        <div class="form-group labelslargos col-md-3">
+                            <label for="i_percepciones_ad_decl" >Percep Aduana:</label>
+                            <div class="input-group">
+                                <span class="input-group-addon">$</span>
+                                <input type="text" class="form-control mascara_importe input-sm" id="i_percepciones_ad_decl" readonly>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group labelslargos col-md-3">
+                            <label for="i_saldo_favor_decl">Saldo a Favor:</label>
+                            <div class="input-group">
+                                <span class="input-group-addon">$</span>
+                                <input type="text" class="form-control mascara_importe input-sm" id="i_saldo_favor_decl" readonly>
+                            </div>
+                        </div>
+
+                        <div class="form-group labelslargos col-md-3">
+                            <label for="i_pagos_decl">Pagos Decl.:</label>
+                            <div class="input-group">
+                                <span class="input-group-addon">$</span>
+                                <input type="text" class="form-control mascara_importe input-sm" id="i_pagos_decl" readonly>
+                            </div>
+                        </div>
+
+                        <div class="form-group labelslargos col-md-3">
+                            <label for="i_otros_cred_decl">Otros Créditos:</label>
+                            <div class="input-group">
+                                <span class="input-group-addon">$</span>
+                                <input type="text" class="form-control mascara_importe input-sm" id="i_otros_cred_decl" readonly>
+                            </div>
+                        </div>
+
+                        <div class="form-group labelslargos col-md-3">
+                            <label for="i_otros_deb_decl">Otros Ajustes:</label>
+                            <div class="input-group">
+                                <span class="input-group-addon">$</span>
+                                <input type="text" class="form-control mascara_importe input-sm" id="i_otros_deb_decl" readonly>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="form-group labelslargos col-md-3">
+                            <label for="i_bonif_decl">Bonificaciones</label>
+                            <div class="input-group">
+                                <span class="input-group-addon">$</span>
+                                <input type="text" class="form-control mascara_importe input-sm" id="i_bonif_decl" readonly>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Verificado </h3>
+            </div>
+            <div class="panel-body" style="padding-top: 5px;">
+                <form id='frm_importes_ajustados'>
+                    <div class="row">
+                        <div class="form-group labelslargos col-md-3">
+                            <label for="i_retenciones_banc_verif">Reten. Banco:</label>
+                            <div class="input-group">
+                                <!--<span class="input-group-addon">$</span>-->
+                                <input type="text" class="form-control mascara_importe input-sm" id="i_retenciones_banc_verif" disabled="disabled">
+                                <span class="input-group-btn">
+                                    <button type="button" class="glyphicon glyphicon-pencil btn_custom" id="btn_i_ret_b_verif"></button>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group labelslargos col-md-3">
+                            <label for="i_retenciones_verif">Reten. IIBB:</label>
+                            <div class="input-group">
+                                <!--<span class="input-group-addon">$</span>-->
+                                <input type="text" class="form-control mascara_importe input-sm" id="i_retenciones_verif" disabled="disabled">
+                                <span class="input-group-btn">
+                                    <button type="button" class="glyphicon glyphicon-pencil btn_custom" id="btn_i_ret_verif"></button>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group labelslargos col-md-3">
+                            <label for="i_percepciones_verif">Percepciones:</label>
+                            <div class="input-group">
+                                <!--<span class="input-group-addon">$</span>-->
+                                <input type="text" class="form-control mascara_importe input-sm" id="i_percepciones_verif" disabled="disabled">
+                                <span class="input-group-btn">
+                                    <button type="button" class="glyphicon glyphicon-pencil btn_custom" id="btn_i_p_verif"></button>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group labelslargos col-md-3">
+                            <label for="i_percepciones_ad_verif">Percep Aduana:</label>
+                            <div class="input-group">
+                                <!--<span class="input-group-addon">$</span>-->
+                                <input type="text" class="form-control mascara_importe input-sm" id="i_percepciones_ad_verif" disabled="disabled">
+                                <span class="input-group-btn">
+                                    <button type="button" class="glyphicon glyphicon-pencil btn_custom" id="btn_i_p_ad_verif"></button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group labelslargos col-md-3">
+                            <label for="i_saldo_favor_verif">Saldo a Favor:</label>
+                            <div class="input-group">
+                                <input type="hidden" id="i_saldo_favor_verif_orig">
+                                <span class="input-group-addon">$</span>
+                                <input type="text" class="form-control mascara_importe input-sm" id="i_saldo_favor_verif">
+                            </div>
+                        </div>
+
+                        <div class="form-group labelslargos col-md-3">
+                            <label for="i_cred_ant_verif">Créditos Ant.:</label>
+                            <div class="input-group">
+                                <span class="input-group-addon">$</span>
+                                <input type="text" class="form-control mascara_importe input-sm" id="i_cred_ant_verif" disabled="disabled">
+                            </div>
+                        </div>
+
+                        <div class="form-group labelslargos col-md-3">
+                            <label for="i_otros_cred_verif">Otros Créditos:</label>
+                            <div class="input-group">
+                                <input type="hidden" id="i_otros_cred_verif_orig">
+                                <span class="input-group-addon">$</span>
+                                <input type="text" class="form-control mascara_importe input-sm" id="i_otros_cred_verif">
+                            </div>
+                        </div>
+
+                        <div class="form-group labelslargos col-md-3">
+                            <label for="i_otros_deb_verif">Otros Ajustes:</label>
+                            <div class="input-group">
+                                <input type="hidden" id="i_otros_deb_verif_orig">
+                                <span class="input-group-addon">$</span>
+                                <input type="text" class="form-control mascara_importe input-sm" id="i_otros_deb_verif" disabled>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group labelslargos col-md-3">
+                            <label for="i_bonif_verif">Bonificaciones:</label>
+                            <div class="input-group">
+                                <input type="hidden" id="i_bonif_verif_orig">
+                                <span class="input-group-addon">$</span>
+                                <input type="text" class="form-control mascara_importe input-sm" id="i_bonif_verif" disabled="disabled">
+                            </div>
+                        </div>
+
+                        <div class="form-group labelslargos col-md-3" style="display: none">
+                            <label for="i_ajus_min_verif">Ajuste por Min.:</label>
+                            <div class="input-group">
+                                <input type="hidden" id="i_ajus_min_verif_orig">
+                                <span class="input-group-addon">$</span>
+                                <input type="text" class="form-control mascara_importe input-sm" id="i_ajus_min_verif">
+                            </div>
+                        </div>
+
+                        <div class="form-group labelslargos col-md-3">
+                            <label for="btn_inf_adicional">Inf. Adicional</label>
+                            <div class="input-group">
+                                <!--<span class="input-group-addon">$</span>-->
+                                <input type="text" class="form-control input-sm" id="txt_inf_adicional" disabled="disabled" value="Ver Datos" style="text-align: center">
+                                <span class="input-group-btn">
+                                    <button type="button" class="glyphicon glyphicon-pencil btn_custom" id="btn_inf_adicional"></button>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group labelslargos col-md-3">
+                            <label for="i_cred_post_verif">Créditos Post.:</label>
+                            <div class="input-group">
+                                <span class="input-group-addon">$</span>
+                                <input type="text" class="form-control mascara_importe input-sm" id="i_cred_post_verif" disabled="disabled">
+                            </div>
+                        </div>
+
+                        <div class="form-group labelslargos col-md-3">
+                            <label for="i_intereses_verif">Intereses:</label>
+                            <div class="input-group">
+                                <span class="input-group-addon">$</span>
+                                <input type="text" class="form-control mascara_importe input-sm" id="i_intereses_verif" disabled="disabled">
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-12" style="margin-top: -20px;">
+    <form id="frm_totales" class="form-inline">
+        <div class="row">
+            <div class="form-group col-md-6">
+                <input type="checkbox" class="form-check-input" id="check_trasladar">
+                <label class="form-check-label" for="check_trasladar"> Trasladar Saldo a Siguiente Posición</label>
+            </div>
+            <div class="form-group col-md-3" style="margin-left: 10px;">
+                <label for="i_saldo_contrib">Saldo Contrib.</label>
+                <div class="input-group col-md-6">
+
+                    <span class="input-group-addon">$</span><input type="text" class="form-control importe_sum mascara_importe input-sm" id="i_saldo_contrib" readonly="" style="text-align: right;">
+                </div>
+            </div>
+            <div style="margin-left: -10px;" class="form-group col-md-3">
+                <label for="i_saldo_art">Saldo ART</label>
+                <div class="input-group col-md-6">
+                    <span class="input-group-addon">$</span>
+                    <input type="text" class="form-control importe_sum mascara_importe input-sm" id="i_saldo_art" readonly="" style="text-align: right;">
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="row text-center">
+    <button id="btn_cerrar" type="button" class="btn btn-primary btn-sm">
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true">
+                        </span> Cerrar
+    </button>
+</div>

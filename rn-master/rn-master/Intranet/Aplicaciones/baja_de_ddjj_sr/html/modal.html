@@ -1,0 +1,239 @@
+<div class="modal fade" id="abm_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal_grilla_2 modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="bono_title"></h5>
+            </div>
+            <div class="modal-body">
+                <form id="frm_cuota">
+                    <input type="hidden" readonly id="n_secuencia">
+                    <input type="hidden" readonly id="id_evento">
+                    <input type="hidden" readonly id="id_inspeccion">
+                    <input type="hidden" readonly id="p_oper">
+                    <div class="row">
+                        <div class="form-group col-md-8">
+                            <label for="d_titulo">Titulo:</label>
+                            <div class="">
+                                <input type="text" class="form-control  mayusculas validate[required]"
+                                    readonly id="d_titulo">
+                               
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-8">
+                            <label for="d_valor">Valor:</label>
+                            <div class="input-group">
+                                <textarea type="text"
+                                    class="form-control"
+                                    name="d_valor" id="d_valor"> </textarea>
+                                <span class="input-group-addon btn_lupa" id="lupa_d_valor">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div> 
+                    </div>
+                    
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="button" class="btn btn-primary" id="btn_aceptar_edicion_datos_mov">Aceptar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal_evento_1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="bono_title">GRUPOS</h5>
+            </div>
+            <div class="modal-body">
+                <form id="frm_tributo_objeto_hecho">
+                    <!--<input type="hidden" readonly id="n_secuencia">-->
+                    <input type="hidden" readonly id="id_evento">
+                    <!--<input type="hidden" readonly id="id_inspeccion">-->
+                    <!--<input type="hidden" readonly id="p_oper">-->
+
+                    <div class="row">
+                        <div class="form-group col-md-5">
+                            <label for="c_tributo">Codigo Tributo a Verificar:</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control  mayusculas validate[required]"
+                                    readonly id="c_tributo">
+                                <span class="input-group-addon btn_lupa" id="lupa_c_tributo">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-8">
+                            <label for="nro_objeto_imponible">Nro Objeto Imponible:</label>
+                            <div class="input-group">
+                                <input type="text"
+                                    class="form-control"
+                                    name="nro_objeto_imponible" id="nro_objeto_imponible">
+                                
+                            </div>
+                        </div> 
+                    </div>
+                    
+                    <div class="row">
+                        <div class="form-group col-md-8">
+                            <label for="posicion_desde">Posicion Desde:</label>
+                            <div class="input-group">
+                                <input type="text"
+                                    class="form-control"
+                                    name="posicion_desde" id="posicion_desde">
+                                
+                            </div>
+                        </div> 
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-8">
+                            <label for="cuota_desde">Cuota Desde:</label>
+                            <div class="input-group">
+                                <input type="text"
+                                    class="form-control"
+                                    name="cuota_desde" id="cuota_desde">
+                                
+                            </div>
+                        </div> 
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-8">
+                            <label for="posicion_hasta">Posicion Hasta:</label>
+                            <div class="input-group">
+                                <input type="text"
+                                    class="form-control"
+                                    name="posicion_hasta" id="posicion_hasta">
+                                
+                            </div>
+                        </div> 
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-8">
+                            <label for="cuota_hasta">Cuota Hasta:</label>
+                            <div class="input-group">
+                                <input type="text"
+                                    class="form-control"
+                                    name="cuota_hasta" id="cuota_hasta">
+                                
+                            </div>
+                        </div> 
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-8">
+                            <label for="tramite_desde">Tramite Desde:</label>
+                            <div class="input-group">
+                                <input type="text"
+                                    class="form-control"
+                                    name="tramite_desde" id="tramite_desde">
+                                
+                            </div>
+                        </div> 
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-8">
+                            <label for="tramite_hasta">Tramite Hasta:</label>
+                            <div class="input-group">
+                                <input type="text"
+                                    class="form-control"
+                                    name="tramite_hasta" id="tramite_hasta">
+                                
+                            </div>
+                        </div> 
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="button" class="btn btn-primary" id="btn_aceptar_modal_1">Aceptar</button>
+                    <button type="button" class="btn btn-secondary" id="btn_cancelar_modal1" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="modal_evento_6" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="bono_title">GRUPOS</h5>
+            </div>
+            <div class="modal-body">
+                <form id="frm_horas_afectadas">
+                    <input type="hidden" readonly id="n_secuencia">
+                    <input type="hidden" readonly id="id_evento">
+                    <input type="hidden" readonly id="id_inspeccion">
+                    <input type="hidden" readonly id="n_movimiento">
+                    <input type="hidden" readonly id="p_oper">
+
+                    <div class="row">
+                        <div class="form-group col-md-5">
+                            <label for="f_fecha">Fecha:</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control datepicker"
+                                placeholder="(DD/MM/AAAA)"  id="f_fecha">
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-5">
+                            <label for="horas">Horas</label>
+                            <div class="input-group">
+                                <input type="text"
+                                    class="form-control"
+                                    name="horas" id="horas">
+                                
+                            </div>
+                        </div> 
+                    </div>
+                    
+                    <div class="row">
+                        <div class="form-group col-md-5">
+                            <label for="tarea_realizada">Tarea Realizada:</label>
+                            <div class="input-group">
+                                <input type="text"
+                                    class="form-control"
+                                    name="tarea_realizada" id="tarea_realizada">
+                                
+                            </div>
+                        </div> 
+                    </div>
+                    
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="button" class="btn btn-primary" id="btn_aceptar_modal_6">Aceptar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

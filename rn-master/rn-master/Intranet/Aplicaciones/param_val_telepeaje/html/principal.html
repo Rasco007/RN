@@ -1,0 +1,56 @@
+<style>
+.btn_area{
+  padding:10px;
+  text-align:center
+}
+
+@media screen and (max-width:480px){
+  .btn{
+    display:block;
+    margin:5px;
+    width:100%
+  }
+}
+</style>
+
+<!--DIV BUSQUEDA-->
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading">B&uacute;squeda</div>
+            <div class="panel-body">
+                <form id='frm_consulta'>
+                    <div class="row form-group">
+                        <div class="col-md-4">
+                            <label for="filtro_c_concepto" class="control-label">Concepto</label>
+                            <select id="filtro_c_concepto" data-live-search="true" title="Seleccionar" class="selectpicker form-control input-sm" data-style="cDropdown">
+                                <option value=""></option>
+                                <?php foreach ($conceptos as $concepto): ?>
+                                <option value="<?=$concepto['C_CONCEPTO']; ?>"> <?=$concepto['D_CONCEPTO']; ?> - COD: <?=$concepto['C_CONCEPTO']; ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="filtro_f_vigencia">Fecha Vigencia</label>
+                                <input type="text" class="form-control input-sm datepicker text-center" name="filtro_f_vigencia" id="filtro_f_vigencia" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off" style="text-align: center;">
+                        </div>
+                        <div class='col-md-4 text-center' style="margin-top: 15px;">
+                            <button type='button' class="btn-sm btn_buscar" id='btn_buscar'></button>
+                            <button type='button' class="btn-sm btn_limpiar" id='btn_limpiar'></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+ 
+
+<!--GRILLA PRINCIPAL-->
+<table id='main_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+<div id='main_grid_pager' class='scroll' style='text-align:center;'></div>
+<br>

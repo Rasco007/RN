@@ -1,0 +1,8 @@
+#btn_procesar{
+    background-color:#d0d0d0; 
+    border-radius: 0px;
+}
+
+#btn_procesar:hover{
+    background-color: #5c0099;
+}

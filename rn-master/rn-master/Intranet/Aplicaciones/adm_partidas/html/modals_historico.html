@@ -1,0 +1,241 @@
+<!-- Grilla Histórico de Hectáreas -->
+<div class="modal fade" id="modal_grid_hist_hectareas" tabindex="-1" role="dialog" aria-labelledby="grid_hist_hectareas_title" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="grid_hist_hectareas_title">Histórico de Hectáreas</h5>
+            </div>
+            <div class="modal-body">
+                <div id="div_hist_hectareas">
+                    <table id='grid_hist_hectareas' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+                    <div id='grid_hist_hectareas_pager' class='scroll'></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Edicion Histórico de Hectáreas -->
+<div class="modal fade" id="modificacion_h_hect" tabindex="-1" role="dialog" aria-labelledby="modificacion_h_hectLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="modificacion_h_hectLabel">Modificacion Datos Histórico de Hectáreas</h5>
+            </div>
+            <div class="modal-body">
+                <form id="frm_modificacion_h_hect">
+                    <div class="form-group col-md-7" hidden>
+                        <label for="n_partida">Partida</label>
+                        <input type='text' id='n_partida' name='n_partida' class='form-control input-sm mayusculas validate[required,custom[onlyIntNumber]]'/>
+                    </div>
+
+                    <div class="form-group col-md-7" hidden>
+                        <label for="f_vig_desde">Fecha de Vigencia Desde (*)</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control input-sm datepicker text-center validate[required]" name="f_vig_desde" id="f_vig_desde" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off">
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-7" hidden>
+                        <label for="f_vig_hasta">Fecha de Vigencia Hasta</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control input-sm datepicker text-center" name="f_vig_hasta" id="f_vig_hasta" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off">
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class='row'>
+                        <div class="form-group col-md-7">
+                            <label for="n_hectareas">Hectareas Bajo Riego (*)</label>
+                            <input type="text" class="form-control input-sm text-right validate[required]" id="n_hectareas" name="n_hectareas">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">          
+                <button type="button" class="btn btn-primary" id="btn_modificar_h_hect">Modificar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Grilla Histórico de Actividades -->
+<div class="modal fade" id="modal_grid_hist_actividades" tabindex="-1" role="dialog" aria-labelledby="grid_hist_actividades_title" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="grid_hist_actividades_title">Histórico de Actividades</h5>
+            </div>
+            <div class="modal-body">
+                <div id="div_hist_actividades">
+                    <table id='grid_hist_actividades' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+                    <div id='grid_hist_actividades_pager' class='scroll'></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Edicion Histórico de Actividades -->
+<div class="modal fade" id="modificacion_h_act" tabindex="-1" role="dialog" aria-labelledby="modificacion_h_actLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="modificacion_h_actLabel">Modificacion Datos Histórico de Actividades</h5>
+            </div>
+            <div class="modal-body">
+                <form id="frm_modificacion_h_act">
+                    <div class="form-group col-md-7" hidden>
+                        <label for="n_partida">Partida</label>
+                        <input type='text' id='n_partida' name='n_partida' class='form-control input-sm mayusculas validate[required,custom[onlyIntNumber]]'/>
+                    </div>
+
+                    <div class="form-group col-md-7" hidden>
+                        <label for="f_vig_desde">Fecha de Vigencia Desde (*)</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control input-sm datepicker text-center validate[required]" name="f_vig_desde" id="f_vig_desde" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off">
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-7" hidden>
+                        <label for="f_vig_hasta">Fecha de Vigencia Hasta</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control input-sm datepicker text-center" name="f_vig_hasta" id="f_vig_hasta" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off">
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class='row'>
+                        <div class="form-group col-md-7">
+                            <label for="c_actividad_h">Actividad</label>
+                            <div id="div_c_actividad_h" class="input-group">
+                                <input type='text' id='c_actividad_h' name='c_actividad_h' class='form-control input-sm input-cod-short mayusculas'/>
+                                <input type='text' id='d_actividad_h' name='d_actividad_h' class='form-control input-sm input-desc-long' readonly/>
+                                <span class="input-group-addon btn_lupa" id="btn_lupa_actividad" name='btn_lupa_actividad'>
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">          
+                <button type="button" class="btn btn-primary" id="btn_modificar_h_act">Modificar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Grilla Histórico de Responsables -->
+<div class="modal fade" id="modal_grid_hist_responsables" tabindex="-1" role="dialog" aria-labelledby="grid_hist_responsables_title" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="grid_hist_responsables_title">Histórico de Responsables</h5>
+            </div>
+            <div class="modal-body">
+                <div id="div_hist_responsables">
+                    <table id='grid_hist_responsables' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+                    <div id='grid_hist_responsables_pager' class='scroll'></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Edicion Histórico de Responsables -->
+<div class="modal fade" id="modificacion_h_resp" tabindex="-1" role="dialog" aria-labelledby="modificacion_h_respLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="modificacion_h_respLabel">Modificacion Datos Histórico de Responsables</h5>
+            </div>
+            <div class="modal-body">
+                <form id="frm_modificacion_h_resp">
+                    <div class="form-group col-md-7" hidden>
+                        <label for="n_partida">Partida</label>
+                        <input type='text' id='n_partida' name='n_partida' class='form-control input-sm mayusculas validate[required,custom[onlyIntNumber]]'/>
+                    </div>
+
+                    <div class="form-group col-md-7" hidden>
+                        <label for="f_vig_desde">Fecha de Vigencia Desde (*)</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control input-sm datepicker text-center validate[required]" name="f_vig_desde" id="f_vig_desde" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off">
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-7" hidden>
+                        <label for="f_vig_hasta">Fecha de Vigencia Hasta</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control input-sm datepicker text-center" name="f_vig_hasta" id="f_vig_hasta" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off">
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-7">
+                            <label for="n_cuit">CUIT Responsable</label>
+                            <input type="text" class="form-control input-sm text-right validate[custom[validaCuit]]" id="n_cuit">
+                            <input type="hidden" class="form-control input-sm text-right limpiar" id="id_contribuyente">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-7">
+                            <label for="d_denominacion" class="control-label">Denominación Responsable</label>
+                            <input type="text" class="form-control input-sm mayusculas limpiar" id="d_denominacion">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">          
+                <button type="button" class="btn btn-primary" id="btn_modificar_h_resp">Modificar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>

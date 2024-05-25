@@ -1,0 +1,76 @@
+<!--DIV BUSQUEDA-->
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true" style="">
+            <div class="panel-heading">Filtros</div>
+            <div class="panel-body">
+                <form id='frm_consulta'>
+                    <div class="form-group" style="display: flex; justify-content: space-around;">
+                        <input type="text" name="n_seleccion" id="n_seleccion" hidden="">
+
+                        <div class="form-inline col-md-3">
+                            <label for="d_grupo_juicios" class="control-label">Grupo</label>
+                            <div class="input-group">
+                                <input type='text' id='c_grupo_juicios' name='c_grupo_juicios'
+                                       class='form-control input-sm input-cod-short validate[required]' readonly="true"/>
+                                <input type='text' id='d_grupo_juicios' name='d_grupo_juicios'
+                                       class='form-control input-sm input-desc-long validate[required]' readonly="true"/>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="fecha_creacion">Fecha de creación del Grupo</label>
+                            <div class="input-group alta_general">
+                                <input type="text"  class="form-control input-sm text-center validate[required]" id="fecha_creacion" placeholder="(DD/MM/AAAA)" style="text-align: center;" readonly="true">
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--GRILLA PRINCIPAL-->
+<div id="seccion_1">
+    <table id='main_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+    <div id='main_grid_pager' class='scroll' style='text-align:center;'></div>
+</div>
+
+<!--DIV BUSQUEDA-->
+<div id="div_finalizacion" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search_finalizacion" aria-expanded="true" style="">
+            <div class="panel-heading">Excels</div>
+            <div class="panel-body">
+                <form id='frm_finalizacion'>
+					<div class="form-group" style="display: flex; justify-content: space-around;">
+						<div class="row form-group">
+							<div class="text-center">
+								<button type='button' class="btn btn-sm" id='btn_contrib'>Excel solo Contribuyentes</button>
+							</div>
+						</div>
+						<br>
+                        <div class="form-inline">
+                            <label for="d_imagen_diag" class="control-label">Excel a importar</label>
+                            <input id='d_imagen_diag' name='imagen_diag' class='validate[required] form-control input-sm' type='file' role='textbox'>
+                            <button type='button' class="btn btn-sm" id='btn_levantar'>Levantar Excel</button>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row form-group">
+                        <div class="text-center">
+                            <button type='button' class="btn btn-sm" id='btn_confirmar_seleccion'>Confirmar Selección</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

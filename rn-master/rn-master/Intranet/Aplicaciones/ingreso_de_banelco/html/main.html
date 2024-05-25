@@ -1,0 +1,54 @@
+<div class='titlebar'>
+    <span class="ui-jqgrid-title">Ingreso de archivos Banelco</span>
+</div>
+<div id="div_search" class="search panel-body">
+    
+    <form id='frm_ingreso_de_archivos_banelco'>
+        <div class="row justify-content-between" style="margin-left:23%">
+            
+                <div class="col-md-8 col-md-offset-2" style="width: 36%;">
+                <label for="ruta_archivo_recibido">Path y nombre del archivo(*) (incluyendo su extensión):</label>
+                    <div class="input-group" id="div_input_archivo_recibido">
+                        <input type='file' id='path_arch_recibido' name='d_path_arch_recibido' style='display:none' class="validate[required]" onchange='actualizar_input()'>
+                        <input name='ruta_archivo_recibido' id='ruta_archivo_recibido' type='text' class="form-control input-sm" readonly>
+                        <span class="input-group-btn " id="div_span_archivo_recibido">
+                            <button class="btn-sm btn-default" type="button" id='examinar_recibido'><span class="glyphicon glyphicon-upload" aria-hidden="true"></span></button>
+                        </span>
+                    </div>
+                
+                </div>
+        
+        
+       
+        </div>
+        
+
+        <div class="row" style="margin-left: 23%;">
+            
+            <div class="col-md-2  col-md-offset-2" style="margin-right: 0%;">
+                <label for="n_remesa" class="">Nro. de archivo:</label>
+                <input type="text" class="form-control input-sm text-center" name="n_remesa" id="n_remesa" readonly maxlength="10">
+            
+            </div>
+            <div class="col-md-2 col-md-offset-2" style="margin-left: 0%;">
+                <label for="pagos_ok" >Registros correctos:</label>
+                <input type="text" class="form-control input-sm text-center" id="pagos_ok" name="pagos_ok" readonly>
+            </div>
+
+        </div>
+
+
+
+        <div class='row text-center' style = 'margin-top:2%; margin-bottom: 1%;'>
+            <button type='button' id='btn-cargar-archivo' class="ui-button ui-corner-all ui-widget" style="margin-right:auto;">Cargar archivo</button>
+            <button type="button" id="cancelar" class="ui-button ui-corner-all ui-widget" style="margin-left: auto;">Cancelar</button>
+        </div>
+
+    </form>
+    
+    <table id="main_grid" class="scroll" cellpadding="0" cellspacing="0">
+        <tr><td>&nbsp;</td></tr>
+      </table>
+      <div id="main_grid_pager" class="scroll" style="text-align:center;"></div>
+
+</div>

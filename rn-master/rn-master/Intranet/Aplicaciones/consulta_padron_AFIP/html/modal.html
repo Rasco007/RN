@@ -1,0 +1,102 @@
+<!--Modal Honorarios-->
+<div class="modal" id="honorarios_modal" tabindex="-1" role="dialog" aria-labelledby="honorarios_title" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="honorarios_title">Datos de Honorarios</h5>
+            </div>
+            <div class="modal-body">
+                <div id="div_datos_gral">
+                    <table id="honorarios_grid" class="scroll" cellpadding="0" cellspacing="0">
+                        <tr><td>&nbsp;</td></tr>
+                    </table>
+                    <div id="honorarios_grid_pager" class="scroll" style="text-align:center;"></div>
+                </div>
+
+                <div id="div_repr_contrib" class="panel-search">
+                    <div class="panel panel-primary">
+                        <div class="collapse in" id="collapse_search" aria-expanded="true">
+                            <div class="panel-heading" style="padding-left: 1.5%">Representante del Contribuyente</div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label for="d_denominacion_rc">Apellido y Nombre</label>
+                                        <input name='d_denominacion_rc' type="text" class="form-control input-sm mayusculas" id="d_denominacion_rc" readonly>
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="d_caracter_rc">En su caracter de:</label>
+                                        <input name='d_caracter_rc' type="text" class="form-control input-sm mayusculas" id="d_caracter_rc" readonly>
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="d_acredita_rc">Acredita con:</label>
+                                        <input name='d_acredita_rc' type="text" class="form-control input-sm mayusculas" id="d_acredita_rc" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="div_planes_relacionados">
+                    <table id="relacionados_grid" class="scroll" cellpadding="0" cellspacing="0">
+                        <tr><td>&nbsp;</td></tr>
+                    </table>
+                    <div id="relacionados_grid_pager" class="scroll" style="text-align:center;"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Volver</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--Modal Cheque-->
+
+<div class="modal" id="cheque_modal" tabindex="-1" role="dialog" aria-labelledby="cheque_title" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="cheque_title">Cuotas</h5>
+            </div>
+            <div class="modal-body">
+                
+
+                <div id="div_repr_contrib" class="panel-search">
+                    <div class="panel panel-primary">
+                        <div class="collapse in" id="collapse_search" aria-expanded="true">
+                            <div class="panel-heading" style="padding-left: 1.5%">Cuotas a Emitir</div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label for="n_cuota_desde">Desde</label>
+                                        <input name='n_cuota_desde' type="text" class="form-control input-sm" id="n_cuota_desde" >
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="n_cuota_hasta">Hasta:</label>
+                                        <input name='n_cuota_hasta' type="text" class="form-control input-sm" id="n_cuota_hasta" >
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id='btn_emitir_cheque' data-dismiss="modal">Emitir</button>
+
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Volver</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,118 @@
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <div class="collapse in" id="collapse_search" aria-expanded="true" style="">
+            <div class="panel-heading">Cuenta Corriente</div>
+            <div class="panel-body">
+                <form>
+                    <div class="row">
+                        <div class="form-group col-md-6 col-md-offset-2">
+                            <label for="d_oficina">Oficina:</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control mayusculas input-sm input-cod-short" id="c_oficina">
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_oficina" readonly>
+                                <span class="input-group-addon btn_lupa"> <!-- id="lupa_c_tipo_documento" -->
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="aforador">Aforador:</label>
+                            <input name='aforador' type="text" id="aforador" class="form-control input-sm text-right">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6 col-md-offset-2">
+                            <label for="d_hecho_imponible">Hecho Imponible:</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control mayusculas input-sm input-cod-short" id="c_hecho_imponible">
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_hecho_imponible" readonly>
+                                <span class="input-group-addon btn_lupa"> <!-- id="lupa_c_tipo_documento" -->
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group form-group col-md-2">
+                            <label for="tramite">Trámite:</label>
+                            <input name='tramite' type="text" id="tramite" class="form-control input-sm text-right">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6 col-md-offset-2">
+                            <label for="d_denominacion">Denominación:</label>
+                            <input name='d_denominacion' type="text" id="d_denominacion" class="form-control input-sm text-right">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-3 col-md-offset-2">
+                                <label for="n_cuit">CUIT:</label>
+                                <input name='n_cuit' id='n_cuit' type="text" class="form-control input-sm text-right validate[required,custom[validaCuit]]" maxlength='13' value='<?=$cuit?>'>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="c_tipo_documento">Tipo Documento</label>
+                            <div class="input-group" id="div_input_tipo_documento">
+                                <input name='c_tipo_documento' type="text" class="form-control input-sm input-cod-short" id="c_tipo_documento" value='<?=$tipo_documento?>'>
+                                <input name='d_c_tipo_documento' type="text" class="form-control input-sm input-desc-long" id="d_c_tipo_documento" value='<?=$d_tipo_documento?>' readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_c_tipo_documento" name='lupa_c_tipo_documento'>
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="n_documento">N° de Documento</label>
+                            <input name='n_documento' maxlength='11' type="text" class="form-control input-sm text-right" id="n_documento" value='<?=$documento?>'>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="grid">
+    <table id='inst_sellos_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+    <div id="inst_sellos_grid_pager" class='scroll' style='text-align:center;'></div>
+</div>
+
+<div class="panel-search">
+    <div class="panel panel-primary">
+        <div class="collapse in" aria-expanded="true" style="">
+            <div class="panel-body">
+                <form>
+                    <div class="row">
+                        <div class="form-group col-md-2 col-md-offset-2">
+                            <label for="totales">Total impuestos:</label>
+                            <input name='totales' type="text" id="totales" class="form-control input-sm text-right">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-2 col-md-offset-2">
+                            <label for="aforador_f2">Aforador:</label>
+                            <input name='aforador_f2' type="text" id="aforador_f2" class="form-control input-sm text-right">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="sellador">Sellador:</label>
+                            <input name='sellador' type="text" id="sellador" class="form-control input-sm text-right">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="fecha_ctrl_pago">Fecha Control Pago:</label>
+                            <input name='fecha_ctrl_pago' type="text" id="fecha_ctrl_pago" class="form-control input-sm text-right">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="fecha_pago">Fecha de Pago:</label>
+                            <input name='fecha_pago' type="text" id="fecha_pago" class="form-control input-sm text-right">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class='row-search text-center'>
+                            <button class="btn-sm btn-primary" type="button"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Cálculo del Impuesto</button>
+                            <button class="btn-sm btn-primary" type="button"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Datos Adicionales</button>
+                            <button class="btn-sm btn-primary" type="button"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Cuenta Corriente</button>
+                            <button class="btn-sm btn-primary" type="button"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> DDJJ</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

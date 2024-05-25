@@ -1,0 +1,89 @@
+<!-- Modal ABM Actividad -->
+<div class="modal fade" id="modal_estimados" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="exampleModalLiveLabel">Estimados</h5>
+            </div>
+            <div class="modal-body">
+                <form id="form_estimados">
+                    <input type="hidden" id="estimados_id_inspeccion">
+
+                    <div class="form-group" style="display: flex;flex-direction: column;max-width: 80%;margin: 0 auto;gap: 5px;">
+                        <label for="motivo_estimado">Motivo de Ajuste(*)</label>
+                        <div class="input-group alta_general">
+                            <select name="estimados" class="form-control input-sm validate[required] estimados" id='motivo_estimado'>
+                                <option value="" selected></option>
+                                <?php foreach ($data_motivos_ajuste as $motivo): ?>
+                                <option value="<?=$motivo['C_DATO']; ?>"><?= $motivo['D_DATO'];?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <label for="regla_estimado">Regla</label>
+                        <div class="input-group alta_general">
+                            <select name="estimados" class="form-control input-sm estimados" id='regla_estimado'>
+                                <option value="" selected></option>
+                                <?php foreach ($data_reglas as $regla): ?>
+                                <option value="<?=$regla['C_DATO']; ?>"><?= $regla['D_DATO'];?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <div class="input-group" style="margin-top: 10px">
+                            <div class="row col-md-6 form-group">
+                                <label for="pos_fiscal_desde_estimado" class="control-label">Posición Fiscal Desde(*)</label>
+                                <div class="input-group" id="div_input_pos_fiscal_desde">
+                                    <input type="text" id="pos_fiscal_desde_estimado" placeholder="aaaa" maxlength="4"
+                                           value="" autocomplete="off"
+                                           class="form-control input-sm input-range-left validate[required]">
+                                    <input type="text"
+                                           class="form-control input-sm validate[required]"
+                                           id="cuota_desde_estimado"
+                                           placeholder="nn" maxlength="2" value="" autocomplete="off" style="width:30%;">
+                                </div>
+                            </div>
+                            <div class="row col-md-6 form-group" style="float: right;">
+                                <label for="pos_fiscal_hasta_estimado" class="control-label">Posición Fiscal Hasta(*)</label>
+                                <div class="input-group" id="div_input_pos_fiscal_hasta">
+                                    <input type="text" id="pos_fiscal_hasta_estimado" placeholder="aaaa" maxlength="4"
+                                           value="" autocomplete="off"
+                                           class="form-control input-sm input-range-left validate[required]">
+                                    <input type="text"
+                                           class="form-control input-sm validate[required]"
+                                           id="cuota_hasta_estimado"
+                                           placeholder="nn" maxlength="2" value="" autocomplete="off" style="width:30%;">
+                                </div>
+                            </div>
+                        </div>
+                        <label for="ajuste_estimado">Ajuste Impuesto Estimado</label>
+                        <div class="input-group alta_general">
+                            <input type="text" name="estimados" class="form-control input-sm estimados numerico mascara_importe" id="ajuste_estimado">
+                        </div>
+                        <label for="diferencia_estimado">Diferencia Base Imponible Estimada</label>
+                        <div class="input-group alta_general">
+                            <input type="text" name="estimados" class="form-control input-sm estimados numerico mascara_importe" id="diferencia_estimado">
+                        </div>
+                        <label for="bonificacion_estimado">Impugnación Bonificación</label>
+                        <div class="input-group alta_general">
+                            <input type="text" name="estimados" class="form-control input-sm estimados numerico mascara_importe" id="bonificacion_estimado">
+                        </div>
+                        <label for="pagos_estimado">Impugnación Pagos a Cuenta</label>
+                        <div class="input-group alta_general">
+                            <input type="text" name="estimados" class="form-control input-sm estimados numerico mascara_importe" id="pagos_estimado">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer" id="div_botones_estimados" hidden>
+                <div class="text-center">
+                    <button type="button" class="btn btn-sm" id="btn_guardar_estimados"><span
+                            class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Guardar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

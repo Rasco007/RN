@@ -1,0 +1,31 @@
+<div class="modal fade" id="foto_modal" tabindex="-1" role="dialog" aria-labelledby="detalle_title" aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <input type="hidden" id="foto_path">
+                <div id="div_foto">
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $('#foto_modal').on('shown.bs.modal', function (e) {
+            let tamaño = $('#div_foto').parent().width();
+
+            $('#div_foto').append(
+                '<img src="../../Fotos_Telepeaje/'+$('#foto_path').val()+'" id="foto" width="'+tamaño+'">'
+            );
+        });
+
+        $('#foto_modal').on('hidden.bs.modal', function (e) {
+            $('#div_foto').empty();
+        });
+    });
+</script>

@@ -1,0 +1,11 @@
+.htaccess
+.idea/*
+Thumbs.db
+Framework/Proyecto/Config/*
+/Framework/*.ffs_db
+Intranet/archivos_tmp/*
+jsconfig.json
+Extranet/Aplicaciones/seleccion_operador.php
+Extranet/CSS/index2.css
+Extranet/index2.php
+Framework/Nucleo/Recursos.rar

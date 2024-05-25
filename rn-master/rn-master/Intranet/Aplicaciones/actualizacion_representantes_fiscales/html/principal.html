@@ -1,0 +1,309 @@
+<div id="bloque_busqueda" class="panel-search" style="z-index: 0">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading">Actualizaci&oacute;n de datos de Asesores Legales</div>
+            <div class="panel-body">
+                <form action="" id="frm_busqueda_rendiciones">
+        
+                    <div class="row">
+                        <div class="form-group col-md-2" style="margin-left: 50px;">        
+                            <label for="n_cuit">CUIT*</label>
+                            <input type="text" class="form-control input-sm numerico" id="n_cuit" style="text-align: center">
+                        </div>
+            
+                        <div class="form-group col-md-3">
+                            <label for="d_denominacion">Denominaci&oacute;n*</label>
+                            <div class="input-group" id="div_input_denominacion">
+                                <input name='d_denominacion' type="text" class="form-control input-sm mayusculas" id="d_denominacion">
+                                <span class="input-group-addon" id="mascara_lupa_d_denominacion">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon" id="lupa_d_denominacion">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                    </span>
+                            </div>
+                        </div>
+            
+                        <div class="form-group col-md-1">
+                            <label class="form-label" for="">Tipo Repres.</label>
+                            <select class="form-control input-sm" id="c_tipo_representante">
+                                <option value="" selected></option>
+                                <option value="I">Interno</option>
+                                <option value="E">Externo</option>
+                                <option value="F">Fiscal&iacute;a</option>
+                            </select>   
+                        </div>
+            
+                        <div class="form-group col-md-2">
+                            <label for="c_circun">Circunscripci&oacute;n</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm input-cod-short text-input" id="c_circun" style="text-align: center">
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_circun" readonly>
+                                <span class="input-group-addon" id="mascara_lupa_circunscripcion">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon btn_lupa" id="lupa_circunscripcion">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>       
+                        </div>
+            
+                        <div class="form-group col-md-3">
+                            <label class="form-label" for="d_juzgado">Juzgado</label>
+                            <select class="form-control input-sm" id="d_juzgado">
+                                <option value="" selected></option>
+                                <option value="CIVIL, COMERCIAL Y DE MINERIA">CIVIL, COMERCIAL Y DE MINERIA</option>
+                                <option value="CAPITAL FEDERAL">CAPITAL FEDERAL</option>
+                                <option value="JUZGADO DE PAZ ALLEN">JUZGADO DE PAZ ALLEN</option>
+                                <option value="JUZGADO DE PAZ BARILOCHE">JUZGADO DE PAZ BARILOCHE</option>
+                                <option value="JUZGADO DE PAZ CHOELE CHOEL">JUZGADO DE PAZ CHOELE CHOEL</option>
+                                <option value="JUZGADO DE PAZ CIPOLLETTI">JUZGADO DE PAZ CIPOLLETTI</option>
+                                <option value="JUZGADO DE PAZ GRAL ROCA">JUZGADO DE PAZ GRAL ROCA</option>
+                                <option value="JUZGADO DE PAZ RIO COLORADO">JUZGADO DE PAZ RIO COLORADO</option>
+                                <option value="JUZGADO DE PAZ SAO">JUZGADO DE PAZ SAO</option>
+                                <option value="JUZGADO DE PAZ VIEDMA">JUZGADO DE PAZ VIEDMA</option>
+                            </select>   
+                        </div>
+                    </div>
+            
+                    <div class="row">
+                        <div class="form-group col-md-2" style="margin-left: 50px;">
+                            <label for="c_provincia">Provincia</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm input-cod-short text-input mayusculas" id="c_provincia" style="text-align: center">
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_provincia" readonly>
+                                <span class="input-group-addon" id="mascara_lupa_provincia">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon btn_lupa" id="lupa_provincia">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>       
+                        </div>
+            
+                        <div class="form-group col-md-3">
+                            <label for="c_depto">Departamento</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm input-cod-short text-input" id="c_depto" style="text-align: center">
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_depto" readonly>
+                                <span class="input-group-addon" id="mascara_lupa_depto">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon btn_lupa" id="lupa_depto">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>       
+                        </div>
+            
+                        <div class="form-group col-md-3">
+                            <label for="c_localidad">Localidad</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm input-cod-short text-input" id="c_localidad" style="text-align: center">
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_localidad" readonly>
+                                <span class="input-group-addon" id="mascara_lupa_localidad">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon btn_lupa" id="lupa_localidad">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>       
+                        </div>
+            
+                        <div class="form-group col-md-1">        
+                            <label for="c_postal">Cód. Postal</label>
+                            <input type="text" class="form-control input-sm numerico" id="c_postal" style="text-align: center">
+                        </div>
+            
+                        <div class="form-group col-md-1">
+                            <label class="form-label" for="c_patrocinante">Patrocinante:</label>
+                            <select class="form-control input-sm" id="c_patrocinante">
+                                <option value="" selected></option>
+                                <option value="S">Si</option>
+                            </select>   
+                        </div>
+            
+                        <div class="form-group col-md-1">
+                            <label class="form-label" for="c_baja">Baja</label>
+                            <select class="form-control input-sm" id="c_baja">
+                                <option value="" selected></option>
+                                <option value="S">Si</option>
+                            </select>   
+                        </div>
+                    </div>
+            
+                    <div class="row text-center" style="margin: 15px 0px 15px 0px">
+                        <button type='button' id='btn_buscar' class="ui-button ui-corner-all ui-widget">Buscar</button>
+                        <button type='button' id='btn_limpiar' class="ui-button ui-corner-all ui-widget">Limpiar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<table id="asesores_legales_grid" class="scroll" cellpadding="0" cellspacing="0">
+    <tr><td>&nbsp;</td></tr>
+</table>
+<div id="asesores_legales_grid_pager" class="scroll" style="text-align:center;"></div>
+
+<!--Modal ABM Asesor-->
+<div class="modal" id="modal_abm_asesor" tabindex="-2" role="dialog" aria-labelledby="abm_modal_title" aria-hidden="true" data-backdrop="false" style="z-index: 2; top: 75px">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="abm_modal_title" style="font-weight: bold; margin-left: 10px;"></h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-group col-md-2">        
+                        <label for="n_cuit_modal">CUIT(*)</label>
+                        <input type="text" class="form-control input-sm numerico" id="n_cuit_modal" style="text-align: center">
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label for="d_denominacion_modal">Denominaci&oacute;n(*)</label>
+                        <input name='d_denominacion_modal' type="text" class="form-control input-sm mayusculas" id="d_denominacion_modal">
+                    </div>
+                
+                    <div class="form-group col-md-4">        
+                        <label for="d_domicilio_modal">Domicilio (calle y Nro.)(*)</label>
+                        <input type="text" class="form-control input-sm" id="d_domicilio_modal" style="text-align: center">
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label class="form-label" for="">Tipo Repres.(*)</label>
+                        <select class="form-control input-sm" id="c_tipo_representante_modal">
+                            <option value="" selected></option>
+                            <option value="I">Interno</option>
+                            <option value="E">Externo</option>
+                            <option value="F">Fiscal&iacute;a</option>
+                        </select>   
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-3">
+                        <label for="c_circun_modal">Circunscripci&oacute;n(*)</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control input-sm input-cod-short text-input" id="c_circun_modal" style="text-align: center">
+                            <input type="text" class="form-control input-sm input-desc-long" id="d_circun_modal" readonly>
+                            <span class="input-group-addon btn_lupa" id="lupa_circunscripcion_modal">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </span>
+                        </div>       
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label class="form-label" for="d_juzgado_modal">Juzgado(*)</label>
+                        <select class="form-control input-sm" id="d_juzgado_modal">
+                            <option value="" selected></option>
+                            <option value="CIVIL, COMERCIAL Y DE MINERIA">CIVIL, COMERCIAL Y DE MINERIA</option>
+                            <option value="CAPITAL FEDERAL">CAPITAL FEDERAL</option>
+                            <option value="JUZGADO DE PAZ ALLEN">JUZGADO DE PAZ ALLEN</option>
+                            <option value="JUZGADO DE PAZ BARILOCHE">JUZGADO DE PAZ BARILOCHE</option>
+                            <option value="JUZGADO DE PAZ CHOELE CHOEL">JUZGADO DE PAZ CHOELE CHOEL</option>
+                            <option value="JUZGADO DE PAZ CIPOLLETTI">JUZGADO DE PAZ CIPOLLETTI</option>
+                            <option value="JUZGADO DE PAZ GRAL ROCA">JUZGADO DE PAZ GRAL ROCA</option>
+                            <option value="JUZGADO DE PAZ RIO COLORADO">JUZGADO DE PAZ RIO COLORADO</option>
+                            <option value="JUZGADO DE PAZ SAO">JUZGADO DE PAZ SAO</option>
+                            <option value="JUZGADO DE PAZ VIEDMA">JUZGADO DE PAZ VIEDMA</option>
+                        </select>   
+                    </div>
+
+                    <div class="form-group col-md-2">        
+                        <label for="n_telefono_modal">Tel&eacute;fono</label>
+                        <input type="text" class="form-control input-sm" id="n_telefono_modal" style="text-align: center">
+                    </div>
+
+                    <div class="form-group col-md-3">        
+                        <label for="d_mail_modal">Mail</label>
+                        <input type="text" class="form-control input-sm" id="d_mail_modal" style="text-align: center">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label for="c_provincia_modal">Provincia(*)</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control input-sm input-cod-short text-input mayusculas" id="c_provincia_modal" style="text-align: center">
+                            <input type="text" class="form-control input-sm input-desc-long" id="d_provincia_modal" readonly>
+                            <span class="input-group-addon btn_lupa" id="lupa_provincia_modal">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </span>
+                        </div>       
+                    </div>
+        
+                    <div class="form-group col-md-4">
+                        <label for="c_depto_modal">Departamento(*)</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control input-sm input-cod-short text-input" id="c_depto_modal" style="text-align: center">
+                            <input type="text" class="form-control input-sm input-desc-long" id="d_depto_modal" readonly>
+                            <span class="input-group-addon btn_lupa" id="lupa_depto_modal">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </span>
+                        </div>       
+                    </div>
+        
+                    <div class="form-group col-md-4">
+                        <label for="c_localidad_modal">Localidad(*)</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control input-sm input-cod-short text-input" id="c_localidad_modal" style="text-align: center">
+                            <input type="text" class="form-control input-sm input-desc-long" id="d_localidad_modal" readonly>
+                            <span class="input-group-addon btn_lupa" id="lupa_localidad_modal">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </span>
+                        </div>       
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-2">        
+                        <label for="c_postal_modal">Cód. Postal(*)</label>
+                        <input type="text" class="form-control input-sm numerico" id="c_postal_modal" style="text-align: center">
+                    </div>
+
+                    <div class="form-group col-md-2">        
+                        <label for="d_colegio_modal">Colegio</label>
+                        <input type="text" class="form-control input-sm" id="d_colegio_modal" style="text-align: center">
+                    </div>
+
+                    <div class="form-group col-md-2">        
+                        <label for="d_tomo_modal">Tomo</label>
+                        <input type="text" class="form-control input-sm" id="d_tomo_modal" style="text-align: center">
+                    </div>
+
+                    <div class="form-group col-md-2">        
+                        <label for="d_folio_modal">Folio</label>
+                        <input type="text" class="form-control input-sm" id="d_folio_modal" style="text-align: center">
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label class="form-label" for="c_patrocinante_modal">Patrocinante</label>
+                        <select class="form-control input-sm" id="c_patrocinante_modal">
+                            <option value="" selected></option>
+                            <option value="S">Si</option>
+                        </select>   
+                    </div>
+        
+                    <div class="form-group col-md-2">
+                        <label class="form-label" for="c_baja_modal">Baja</label>
+                        <select class="form-control input-sm" id="c_baja_modal">
+                            <option value="" selected></option>
+                            <option value="S">Si</option>
+                        </select>   
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btn_cancelar_modal" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" id="btn_guardar_modal" class="btn btn-primary">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>

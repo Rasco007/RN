@@ -1,0 +1,136 @@
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <div class="collapse in" aria-expanded="true">
+            <div class="panel-heading">Histórico Padrón AFIP Contribuyentes</div>
+            <div class="panel-body">
+                    <div class="row">
+                        <div id="div_contrib" class="panel-search">
+                            <div class="panel panel-primary">
+                                <div class="collapse in" aria-expanded="true">
+                                    <div class="panel-heading" style="padding-left: 10px;">Datos Principales</div>
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="form-group col-md-3">
+                                                <label for="n_cuit_filtro">CUIT (*)</label>
+                                                <div style="padding-left: 1%;">
+                                                    <input readonly name='n_cuit_filtro' id='n_cuit_filtro' type="text" class="form-control input-sm text-right validate[required,custom[validaCuit]]" maxlength='13'>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group col-md-1">
+                                                <label for="n_baja">Baja</label>
+                                                <div class="input-group" id="div_input_plan_pago">
+                                                    <input readonly name='n_baja' type="text" class="form-control input-sm" id="n_baja" >
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group col-md-3">
+                                                <label for="n_cuit_reemp_filtro">CUIT reemplazo</label>
+                                                <div style="padding-left: 1%;">
+                                                    <input readonly name='n_cuit_reemp_filtro' id='n_cuit_reemp_filtro' type="text" class="form-control input-sm text-right validate[required,custom[validaCuit]]" maxlength='13' >
+
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group col-md-1">
+                                                <label for="sexo_filtro">Sexo</label>
+                                                <div style="padding-left: 1%;">
+                                                    <input readonly name='sexo_filtro' id='sexo_filtro' type="text" class="form-control input-sm text-right validate[required,custom[validaCuit]]" maxlength='13' >
+
+                                                </div>
+                                            </div>
+
+                                            <!--
+                                            <div class="form-group col-md-2">
+                                                <label for="n_pc_cuit_filtro">PC CUIT</label>
+                                                <div id="div_cuit" style="padding-left: 1%;">
+                                                    <input name='n_pc_cuit_filtro' id='n_pc_cuit_filtro' type="text" class="form-control input-sm text-right validate[required,custom[validaCuit]]" maxlength='13' >
+
+                                                </div>
+                                            </div>-->
+                                            <div class="form-group col-md-4">
+                                                <label for="d_denominacion_filtro" class="control-label">Denominación</label>
+                                                <div class="input-group" id="div_input_denominacion">
+                                                    <input readonly name='d_denominacion_filtro' type="text" class="mayusculas form-control input-sm validate[required]" id="d_denominacion_filtro">
+                                                    <span class="input-group-addon" id="mascara_lupa_d_denominacion">
+                                                        <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                                    </span>
+                                                    <span class="input-group-addon btn_lupa" id="lupa_d_denominacion">
+                                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                            
+                        <div class="row">
+                            <div class="col-md-6" style="padding-left: 0px;">
+                                <div class="panel panel-primary">
+                                    <div class="collapse in" aria-expanded="true">
+                                        <div class="panel-heading" style="padding-left: 1.5%">Domicilio</div>
+                                        <div class="panel-body">
+                                            <div class="row">
+                                                <div class="form-group col-md-12">
+                                                    <label for="d_calle">Calle</label>
+                                                    <div id="div_d_calle" class="form-group" style="padding-left: 1%;">
+                                                        <input readonly name='d_calle' id='d_calle' type="text" class="form-control input-sm"   >
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="div_fechas" class="col-md-6" style="padding-right: 0px;">
+                                    <div class="panel panel-primary">
+                                        <div class="collapse in" id="collapse_search" aria-expanded="true">
+                                            <div class="panel-heading" style="padding-left: 1.5%">Fechas</div>
+                                            <div class="panel-body">
+                                                <div class="row">
+                                                    <div class="form-group col-md-6">
+                                                        <label for="f_alta">Alta Afip</label>
+                                                        <div id="div_f_alta" class="form-group" style="padding-left: 1%;">
+                                                            <input readonly name='f_alta' id='f_alta' type="text" class="form-control input-sm"   >
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group col-md-6">
+                                                        <label for="f_nac">Nacimiento</label>
+                                                        <div id="div_f_nac" class="form-group" style="padding-left: 1%;">
+                                                            <input readonly name='f_nac' id='f_nac' type="text" class="form-control input-sm"   >
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>     
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="hidden" id="n_cuit">
+                    <div id='gridWrapper' >
+                        <div style="margin-top: 10px;">
+                            <table id='main_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+                            <div id='main_grid_pager' class='scroll' style='text-align:center;'></div>
+                        </div>
+                        <br/>
+                    </div>
+                    <div class="text-center">
+                        <button type="button" class="btn btn-secondary" id="btn_volver" data-dismiss="modal">Volver</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

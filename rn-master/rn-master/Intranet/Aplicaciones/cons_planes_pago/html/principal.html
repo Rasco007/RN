@@ -1,0 +1,103 @@
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true" style="">
+            <div class="panel-heading">Datos del Contribuyente y sus Planes de Pago</div>
+            <div class="panel-body">
+                <form id="frm_busqueda">
+                    <div class="row">
+                        <div class="form-group col-md-2">
+                            <div id="div_cuit">
+                                <label>CUIT (*)</label>
+                                <input name='n_cuit' id='n_cuit' type="text" class="form-control input-sm text-right validate[required,custom[validaCuit]] limpiar" maxlength='13' value="<?=$p_n_cuit?>">
+                                <input name='id_contribuyente' type="hidden" class="form-control input-sm text-right" id="id_contribuyente" value="<?=$p_id_contribuyente?>">
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="d_denominacion">Denominación</label>
+                            <input name='d_denominacion' type="text" class="mayusculas form-control input-sm limpiar" id="d_denominacion" value="<?=$p_d_denominacion?>">
+                        </div>
+                        
+                        <div class="form-group col-md-4">
+                            <label for="c_tipo_plan_pago">Tipo Plan</label>
+                            <div class="input-group">
+                                <input name='c_tipo_plan_pago' type="text" class="form-control input-sm input-cod-short limpiar" id="c_tipo_plan_pago">
+                                <input name='d_tipo_plan_pago' type="text" class="form-control input-sm input-desc-long" id="d_tipo_plan_pago" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_c_tipo_plan_pago" name='lupa_c_tipo_plan_pago'>
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="n_plan_pago">N° Plan</label>
+                            <div class="input-group" id="div_input_objeto">
+                                <input name='n_plan_pago' type="text" class="form-control input-sm" id="n_plan_pago" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_n_plan_pago" name='lupa_n_plan_pago'>
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="c_tributo">Tributo</label>
+                            <div class="input-group">
+                                <input name='c_tributo' type="text" class="form-control input-sm input-cod-short limpiar" id="c_tributo">
+                                <input name='d_tributo' type="text" class="form-control input-sm input-desc-long" id="d_tributo" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_c_tributo" name='lupa_c_tributo'>
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="c_tipo_imponible">Tipo Imponible</label>
+                            <div class="input-group">
+                                <input name='c_tipo_imponible' type="text" class="form-control input-sm input-cod-short limpiar" id="c_tipo_imponible" readonly>
+                                <input name='d_tipo_imponible' type="text" class="form-control input-sm input-desc-long" id="d_tipo_imponible" readonly>
+                                <!-- <span class="input-group-addon btn_lupa" id="lupa_c_tipo_imponible" name='lupa_c_tipo_imponible'>
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </span> -->
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="d_objeto">Objeto</label>
+                            <div class="input-group" id="div_input_objeto">
+                                <input name='d_objeto' type="text" class="form-control input-sm" id="d_objeto" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_d_objeto" name='lupa_d_objeto'>
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class='row-search text-center'>
+                        <button class="btn-sm btn-primary" type="button" id="btn_consultar"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Consultar</button>
+                        <button class="btn-sm btn_limpiar" type="button" id="btn_limpiar"></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id='div_planes_grid'>
+    <table id='planes_grid' class='scroll' cellpadding='0' cellspacing='0'></table>
+    <div id='planes_grid_pager' class='scroll' style='text-align: center;'></div>
+</div>
+<br>
+<div class='row-search text-center'>
+    <button class="btn-sm btn-primary" type="button" id="btn_const_plan"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Const. Plan</button>
+    <button class="btn-sm btn-primary" type="button" id="btn_honorarios"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Honorarios</button>
+    <button class="btn-sm btn-primary" type="button" id="btn_emitir_chequera"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Emitir Chequera</button>
+    <button class="btn-sm btn-primary" type="button" id="btn_contrato"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Contrato</button>
+    <button class="btn-sm btn-primary" type="button" id="btn_const_cad"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Const. de Cad</button>
+    <button class="btn-sm btn-primary" type="button" id="btn_contrato_pdf"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Contrato PDF</button>
+</div>
+<br>

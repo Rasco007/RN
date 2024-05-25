@@ -1,0 +1,258 @@
+<style>
+    #ui-datepicker-div {
+        z-index: 11000 !important;
+        position: absolute !important;
+    }
+    .ui-autocomplete {
+        z-index: 15000 !important;
+    }
+</style>
+
+<div class="modal fade" id="modal_reincorporacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="modal_reincorporacion_title">Nuevos datos para la Reincorporación</h5>
+            </div>
+            <div class="modal-body">
+                <form id='frm_reincorporacion'>
+                    <div class="row">
+                        <input name='c_motivo_baja' id="c_motivo_baja" style="display: none">
+                        <input name='c_motivo_cese_prov' id="c_motivo_cese_prov" style="display: none">
+                        <input name='c_grupo' id="c_grupo" style="display: none">
+                        <input name='f_vig_hasta' id="f_vig_hasta" style="display: none">
+                        <input name='f_cese_prov' id="f_cese_prov" style="display: none">
+                        <input name='d_objeto_hecho' id="d_objeto_hecho" style="display: none">
+                        <input name='f_vig_desde' id="f_vig_desde" style="display: none">
+                        <input name='n_tabla_mot_cese' id="n_tabla_mot_cese" style="display: none">
+                        <input name='n_tabla_mot_baja' id="n_tabla_mot_baja" style="display: none">
+                        <input name='n_tabla_mot_alta' id="n_tabla_mot_alta" style="display: none">
+                        <div class="form-group col-md-4" id="div_motivo_alta">
+                            <label for="d_motivo_alta">Motivo de Alta o Reincorporación:</label>
+                            <div class="input-group" id="div_input_motivo_alta">
+                                <input type="text" class="form-control input-sm input-cod-short limpiar" id="c_motivo_alta" style='text-align:center;'>
+                                <input type="text" class="form-control input-sm input-desc-long limpiar" id="d_motivo_alta" readonly>
+                                <input type="text" class="form-control input-sm input-cod-short limpiar" id="n_tabla_motivo" style='display: none'>
+                                <span class="input-group-addon btn_lupa" id="lupa_motivo_alta">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-2" id="div_f_vigencia_desde">
+                            <label for="f_desde">Vigencia Desde:</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm datepicker text-center limpiar" name="f_desde" id="f_desde" placeholder="DD/MM/AAAA" maxlength="10">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label for="d_delegacion">Prov/Oficina:</label>
+                            <div class="input-group" id="div_input_delegacion">
+                                <input type="text" class="form-control input-sm input-cod-short limpiar" id="c_delegacion" style='text-align:center;'>
+                                <input type="text" class="form-control input-sm input-desc-long limpiar" id="d_delegacion" readonly>
+                                <input type="text" class="form-control input-sm input-cod-short limpiar" id="n_tabla_delegacion" style='display: none'>
+                                <span class="input-group-addon btn_lupa" id="lupa_delegacion">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-5" id="div_fmcamod">
+                            <label for="d_fmcamod">FMCAMOD/MTM:</label>
+                            <div class="input-group" id="div_input">
+                                <input type="text" class="form-control input-sm input-cod-short limpiar" id="c_fmcamod" readonly style='text-align:center;'>
+                                <input type="text" class="form-control input-sm input-desc-long limpiar" id="d_fmcamod" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_fmcamod">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4" id="div_observaciones">
+                            <label for="d_observaciones">Observaciones:</label>
+                            <input name='d_observaciones' class="form-control input-sm" id="d_observaciones" readonly>
+                        </div>
+                        <div class="form-group col-md-2" id="div_guarda_habitual">
+                            <label for="c_guarda_habitual">Guarda Habitual</label>
+                            <select id="c_guarda_habitual" name="c_guarda_habitual" class="limpiar">
+                                <option value="X"></option>
+                                <option value="GH">S</option>
+                                <option value="N">N</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="button" class="btn-sm btn-consulta" id="btn_grabar">GUARDAR <span class="glyphicon glyphicon-save" aria-hidden="true"></span></button>
+                    <button class="btn-sm btn-consulta" type="button" id="btn_otro_contrib" disabled> Otro Contribuyente</button>
+                    <button type="button" class="btn-sm btn-consulta" data-dismiss="modal">Volver</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal_contribuyente" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="modal_contribuyente_title">Datos del Contribuyente</h5>
+            </div>
+            <div class="modal-body">
+                <form id='frm_contrib'>
+                    <div class="row">
+                        <input name='id_otro_contribuyente' id="id_otro_contribuyente" style="display: none">
+                        <input name='n_tabla_tipo_domi' id="n_tabla_tipo_domi" style="display: none">
+                        <div class="form-group col-md-2" id="div_cuit" style="margin-left: 4%;">
+                            <label for="n_cuit_otro_cont">N° de Cuit:</label>
+                            <input name='n_cuit_otro_cont' class="form-control input-sm" id="n_cuit_otro_cont" maxlength="15">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label for="d_denominacion_otro_cont">Nombre y Apellido/Razón Social:</label>
+                            <input type="text" class="form-control input-sm mayusculas" id="d_denominacion_otro_cont">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="d_tipo_documento_otro_cont">Tipo Documento:</label>
+                            <div class="input-group" id="div_input_tipo_documento">
+                                <input type="text" class="form-control input-sm input-cod-short" id="c_tipo_documento_otro_cont">
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_tipo_documento_otro_cont" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_tipo_doc_contrib">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-2" id="div_n_documento">
+                            <label for="n_documento_otro_cont">Documento:</label>
+                            <input name='n_documento_otro_cont' class="form-control input-sm numerico" id="n_documento_otro_cont" maxlength="10">
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-4 col-md-offset-2">
+                            <label for="d_tipo_domicilio_otro_cont">Tipo Domicilio:</label>
+                            <div class="input-group" id="div_input_domicilio">
+                                <input type="text" class="form-control input-sm input-cod-short" id="c_domicilio_otro_cont" style='text-align:center;'>
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_tipo_domicilio_otro_cont" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_domicilio">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="d_domicilio_otro_cont">Domicilio:</label>
+                            <input name='d_domicilio_otro_cont' class="form-control input-sm" id="d_domicilio_otro_cont" readonly>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type='button' id='btn_con_cuit' class='btn-sm btn-consulta'>Nuevo Contribuyente con CUIT</button>
+                    <button type='button' id='btn_sin_cuit' class='btn-sm btn-consulta'>Nuevo Contribuyente sin CUIT</button>
+                    <button type='button' id='btn_legajo_contribuyente' class='btn-sm btn-consulta'>Legajo Contribuyente</button>
+                    <button type="button" class="btn-sm btn-consulta" data-dismiss="modal">Volver</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal_codigo_automotor" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="modal_codigo_title">Código del Automotor</h5>
+            </div>
+            <div class="modal-body">
+                <form id='frm_codigo'>
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="marca">Marca:</label>
+                            <div class="input-group" id="div_input_marca">
+                                <input type="text" class="form-control input-sm validate[required] mayusculas" id="marca" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_marca">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="mtm">MTM:</label>
+                            <div class="input-group" id="div_input_mtm">
+                                <input type="text" class="form-control input-sm validate[required]" id="mtm" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_mtm">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label for="d_descripcion">Mod/Desc:</label>
+                            <input type="text" class="form-control input-sm validate[required]" id="d_descripcion" readonly>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type='button' id='btn_cod_aut' class='btn-sm btn-consulta'>Aceptar</button>
+                    <button type="button" class="btn-sm btn-consulta" data-dismiss="modal">Volver</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function(){
+        $('#modal_reincorporacion').on('shown.bs.modal', function (e) {
+            if($('#id_contribuyente').val()) cargar_datos_automotor();
+            if($('#c_motivo_alta').val() == 34) $('#btn_otro_contrib').attr('disabled', false);
+            else $('#btn_otro_contrib').attr('disabled', true);
+        });
+
+        $('#modal_reincorporacion').on('hidden.bs.modal', function (e) {
+            $('#frm_reincorporacion .limpiar').val(null).validationEngine('hideAll');
+            $('#frm_contrib :input').val(null).validationEngine('hideAll');
+            $('#c_motivo_alta,#c_delegacion').unbind('blur');
+        });
+
+        $('#modal_codigo_automotor').on('hidden.bs.modal', function (e) {
+            $('#frm_codigo :input').val(null).validationEngine('hideAll');
+        });
+
+        $('#modal_contribuyente').on('hidden.bs.modal', function (e) {
+            $('#c_tipo_documento_otro_cont,#c_domicilio_otro_cont').unbind('blur');
+        });
+
+        $('.datepicker').datepicker({
+            dateFormat:'dd/mm/yy',
+            changeMonth:true,
+            changeYear:true,
+            dayNamesMin:['D', 'L', 'M', 'M', 'J', 'V', 'S'],
+            monthNamesShort: ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'],
+            monthNames: ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre']
+        }).mask("99/99/9999").change(function () {
+            if ($(this).val() && $(this).val().length != 10){
+                mostrar_validacion("El Formato de la Fecha ingresada no es válido.");
+                $(this).val(null);
+            }
+        });
+    });
+</script>

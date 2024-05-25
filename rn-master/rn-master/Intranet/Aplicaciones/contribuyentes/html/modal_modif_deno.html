@@ -1,0 +1,28 @@
+<div class="modal fade" id="modal_modif_deno" tabindex="-1" role="dialog" aria-labelledby="modif_denoLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="modif_denoLabel">Cambio de Denominación / Razón Social</h5>
+            </div>
+            <div class="modal-body">
+                <form id='frm_denominacion'>
+                    <div class="row">
+                        <div class="form-group col-md-8">
+                            <label for="d_denominacion_new">Denominación / Razón Social (*)</label>
+                            <input name='d_denominacion_new' type="text" class="mayusculas form-control input-sm validate[required]" id="d_denominacion_new">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="button" class="btn btn-secondary" id="btn_volver_modif_deno" data-dismiss="modal">Volver</button>
+                    <button type="button" class="btn btn-secondary" id="btn_guardar_denominacion"><span class="glyphicon glyphicon-save" aria-hidden="true"></span> Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

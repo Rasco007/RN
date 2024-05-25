@@ -1,0 +1,55 @@
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading" style="padding-left: 1%;text-transform: none;">Datos para Informe de Deuda</div>
+            <div class="panel-body">
+                <form id='frm_busqueda' >
+                    <div class="form-group col-md">
+
+                        <div class="form-group col-md-6" style="margin-left: 33%;">
+                            <label for="dominio">Dominio (*)</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm text-center limpiar mayusculas" name="dominio" id="dominio">
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-6" style="margin-left: -33%;">
+                        <label for="dominio_viejo">Dominio anterior</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm text-center limpiar" name="dominio_viejo" id="dominio_viejo">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group col-md">
+
+                        <div class="form-group col-md-6" style="margin-left: 33%;">
+                        <label for="fecha">F. Baja (*)</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm datepicker text-center limpiar" name="fecha" id="fecha" placeholder="(DD/MM/AAAA)">
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-6" style="margin-left: -33%;">
+                            <label for="n_cert_baja">Nro. Certificado de baja (*)</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm text-center limpiar" name="n_cert_baja" id="n_cert_baja">
+                            </div>
+                        </div>
+                    </div>
+
+
+                </form>
+             </div>  
+                </div>
+                
+                <div class="row-search text-center" style="text-align: center;">
+                    <button type='button' class="btn-sm btn-primary" id='btn_imprimir'><span class="glyphicon glyphicon-print" aria-hidden="true"></span> Imprimir certificado</button>
+                    <button type='button' id='btn_limpiar' name='btn_limpiar' class="btn-sm btn_limpiar"></button>
+                </div>
+                
+            </div>
+
+</div>
+           

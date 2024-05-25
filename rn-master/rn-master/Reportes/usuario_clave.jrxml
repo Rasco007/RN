@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.5.1.final using JasperReports Library version 6.5.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="usuario_clave1" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7d76a765-a2b9-4762-97a5-76093a49d811">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="ireport.jasperserver.reportUnit" value="/reports/FRMWK/usuario_clave"/>
+	<property name="ireport.jasperserver.url" value="http://10.10.144.238:8123/jasperserver/"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="FRMWK"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="ireport.jasperserver.user" value="jasperadmin"/>
+	<property name="ireport.jasperserver.report.resource" value="/reports/FRMWK/usuario_clave_files/usuario_clave_"/>
+	<parameter name="p_id_sesion" class="java.lang.Integer"/>
+	<parameter name="p_titulo" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["USUARIO Y CLAVE"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String">
+		<defaultValueExpression><![CDATA["repo:"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_EXT" class="java.lang.String">
+		<defaultValueExpression><![CDATA["jrxml"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT nvl((select d_denominacion from v_rel_persona
+	where id_rel_persona = u.id_rel_persona),u.d_denominacion) d_ape_nom,
+       (select n_documento from v_rel_persona
+	where id_rel_persona = u.id_rel_persona) d_tipo_nro_doc,
+       u.c_usuario usuario,
+       fun_obtiene_param($P{p_id_sesion},'p_clave') d_clave
+  FROM usuarios u
+ WHERE u.c_usuario = fun_obtiene_param($P{p_id_sesion},'p_c_usuario')]]>
+	</queryString>
+	<field name="D_APE_NOM" class="java.lang.String"/>
+	<field name="D_TIPO_NRO_DOC" class="java.lang.String"/>
+	<field name="USUARIO" class="java.lang.String"/>
+	<field name="D_CLAVE" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="55" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="555" height="55" uuid="bf1d2634-a98e-4962-823e-af95790e7063"/>
+				<subreportParameter name="p_titulo">
+					<subreportParameterExpression><![CDATA[$P{p_titulo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "header."+$P{SUBREPORT_EXT}]]></subreportExpression>
+			</subreport>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="177" splitType="Stretch">
+			<textField>
+				<reportElement x="28" y="40" width="500" height="62" uuid="89a74f77-9273-45c7-ae46-55b40c1e6ddc"/>
+				<textElement textAlignment="Justified">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Por la presente se deja constancia que " + (($F{D_APE_NOM} != null)?$F{D_APE_NOM}:"") +
+", " + (($F{D_TIPO_NRO_DOC} != null)?$F{D_TIPO_NRO_DOC}:"") + " ha solicitado Usuario y Clave de Acceso " +
+"Personal al portal del Framework."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="88" y="122" width="273" height="20" uuid="1c4e6ce5-ddce-4d04-8e51-299d5d97f982"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[(($F{USUARIO} != null)?$F{USUARIO}:"")]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="28" y="122" width="60" height="20" uuid="5af49daa-0afe-4114-8246-248d83f4df3e"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Usuario:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="88" y="142" width="273" height="20" uuid="055c91e6-35cd-4f14-8e80-8a022fea6e10"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[(($F{D_CLAVE} != null)?$F{D_CLAVE}:"")]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="28" y="142" width="60" height="20" uuid="b0266b86-daeb-4da9-b49a-d365f5590027"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Clave:]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

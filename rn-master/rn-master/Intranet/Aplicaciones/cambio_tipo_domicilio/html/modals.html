@@ -1,0 +1,122 @@
+<div class="modal fade" id="domicilio_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="domi_title">Domicilio</h5>
+            </div>
+            <div class="modal-body">
+                <form id="frm_domicilio">
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="domi_d_calle">Calle:</label>
+                            <input type="text" class="form-control input-sm" id="domi_d_calle" readonly>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="domi_n_numero">Número:</label>
+                            <input type="text" class="form-control input-sm" id="domi_n_numero" readonly>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="domi_monoblock">Monoblock:</label>
+                            <input type="text" class="form-control input-sm" id="domi_monoblock" readonly>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="domi_puerta">Puerta:</label>
+                            <input type="text" class="form-control input-sm" id="domi_puerta" readonly>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-2">
+                            <label for="domi_piso">Piso:</label>
+                            <input type="text" class="form-control input-sm" id="domi_piso" readonly>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="domi_manzana">Manzana:</label>
+                            <input type="text" class="form-control input-sm" id="domi_manzana" readonly>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="domi_depto">Depto.:</label>
+                            <input type="text" class="form-control input-sm" id="domi_depto" readonly>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="domi_oficina">Oficina:</label>
+                            <input type="text" class="form-control input-sm" id="domi_oficina" readonly>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="domi_d_barrio">Barrio:</label>
+                            <div class="input-group col-md-12">
+                                <input type="text" class="form-control input-sm input-cod-short" id="domi_c_barrio" readonly>
+                                <input type="text" class="form-control input-sm input-desc-long" id="domi_d_barrio" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="domi_d_localidad">Localidad:</label>
+                            <div class="input-group col-md-12">
+                                <input type="text" class="form-control input-sm input-cod-short" id="domi_c_localidad" readonly>
+                                <input type="text" class="form-control input-sm input-desc-long" id="domi_d_localidad" readonly>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="domi_d_departamento">Departamento:</label>
+                            <div class="input-group col-md-12">
+                                <input type="text" class="form-control input-sm input-cod-short" id="domi_c_departamento" readonly>
+                                <input type="text" class="form-control input-sm input-desc-long" id="domi_d_departamento" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="domi_d_provincia">Provincia:</label>
+                            <div class="input-group col-md-12">
+                                <input type="text" class="form-control input-sm input-cod-short" id="domi_c_provincia" readonly>
+                                <input type="text" class="form-control input-sm input-desc-long" id="domi_d_provincia" readonly>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="domi_codpos">Cod. Postal:</label>
+                            <input type="text" class="form-control input-sm" id="domi_codpos" readonly>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="domi_useralta">Usuario Alta:</label>
+                            <input type="text" class="form-control input-sm" id="domi_useralta" readonly>
+                        </div>
+                        <div class="form-group col-md-4 col-md-offset-2">
+                            <label for="domi_noficina">Nro. Oficina:</label>
+                            <input type="text" class="form-control input-sm" id="domi_noficina" readonly>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="domi_usermodif">Usuario Última Mod.:</label>
+                            <input type="text" class="form-control input-sm" id="domi_usermodif" readonly>
+                        </div>
+                        <div class="form-group col-md-4 col-md-offset-2">
+                            <label for="domi_fmodif">Fecha Última Mod.:</label>
+                            <input type="text" class="form-control input-sm" id="domi_fmodif" readonly>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $('#domicilio_modal').on('hidden.bs.modal', function (e) {
+            $('#frm_domicilio :input').val(null);
+        });
+    });
+</script>

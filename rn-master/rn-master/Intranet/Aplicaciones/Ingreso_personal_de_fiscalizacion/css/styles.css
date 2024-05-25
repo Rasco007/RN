@@ -1,0 +1,10 @@
+.grupo{
+    background-color: rgb(227, 153, 17)  !important;
+}
+.modal-dialog .modal_grilla_2{
+    width: 80%;
+}
+#btn_baja{
+    border: 1px solid black;
+    border-top: 1px solid black !important;
+}

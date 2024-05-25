@@ -1,0 +1,46 @@
+<div class="modal fade" id="modal_ddjj_no_presentadas" tabindex="-1" role="dialog" aria-labelledby="ddjj_no_presentadasLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="ddjj_no_presentadasLabel">DDJJ No Presentadas</h5>
+            </div>
+            <div class="modal-body">
+                <table id='ddjj_no_presentadas_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+                <div id='ddjj_no_presentadas_grid_pager' class='scroll' style='text-align:center;'></div>
+
+                <form id="form_ddjj_no_presentadas">
+                    <div class="row modal_row">
+                        <div class="col-md-offset-1 col-md-5">
+                            <input type="text" class="form-control input-sm mayusculas" id="d_descrip" readonly>
+                        </div>
+                        <div class="col-md-5">
+                            <input type="text" class="form-control input-sm mayusculas" id="d_concepto" readonly>
+                        </div>
+                    </div>
+                    <div class="row modal_row">
+                        <div class="form-group col-md-offset-2 col-md-3">
+                            <label for="chk_int_no_pres">Intimaci&oacute;n:</label>
+                            <input type="checkbox" id="chk_int_no_pres" class="modal_chk" disabled >
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="chk_boleta_no_pres">Boleta de Deuda:</label>
+                            <input type="checkbox" id="chk_boleta_no_pres" class="modal_chk" disabled >
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="chk_gestion_no_pres">Gesti&oacute;n Judicial:</label>
+                            <input type="checkbox" id="chk_gestion_no_pres" class="modal_chk" disabled >
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Volver</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

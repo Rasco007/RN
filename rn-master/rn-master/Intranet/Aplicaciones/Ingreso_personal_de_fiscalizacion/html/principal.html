@@ -1,0 +1,114 @@
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading">Personal de Fiscalizaci&oacute;n</div>
+            <div class="panel-body">
+                <form id='frm_busqueda'>
+                    <div class="row">
+                        
+                        <div class="form-group col-md-3">
+                            <label for="d_denominacion_filtro">Nombre</label>
+                            <div class="input-group" id="div_input_nombre">
+                                <input name='d_denominacion_filtro' type="text" class="form-control input-sm mayusculas" id="d_denominacion_filtro">
+                                <span class="input-group-addon" id="mascara_lupa_d_denominacion">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon" id="lupa_d_denominacion">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-3 ">
+                            <label for="c_tipo_personal_filtro">Tipo Personal</label>
+                            <div class="input-group">
+                                <input name='c_tipo_personal_filtro' type="text" class="form-control input-sm input-cod-short" id="c_tipo_personal_filtro" style="text-align: right;">
+                                <input name='d_tipo_personal_filtro' type="text" class="form-control input-sm input-desc-long" id="d_tipo_personal_filtro" readonly>
+                                <span class="input-group-addon btn_lupa" id="mascara_lupa_c_tipo_personal">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon btn_lupa" id="lupa_c_tipo_personal">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-2 ">
+                            <label for="c_sector_fisca_filtro">Sector de origen</label>
+                            <div class="input-group">
+                                <input name='c_sector_fisca_filtro' type="text" class="form-control input-sm input-cod-short" id="c_sector_fisca_filtro" style="text-align: right;">
+                                <input name='d_sector_fisca_filtro' type="text" class="form-control input-sm input-desc-long" id="d_sector_fisca" readonly>
+                                <span class="input-group-addon btn_lupa" id="mascara_lupa_c_sector">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon btn_lupa" id="lupa_c_sector">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-2 ">
+                            <div id="div_f_baja" style="padding-left: 1%;">
+                                
+                                <label>F. de baja</label>
+                                <input type="text" class="form-control datepicker"
+                                placeholder="(DD/MM/AAAA)"  id="f_baja_filtro">
+                                                        </div>
+                        </div>
+                        <div class="form-group col-md-2 ">
+                            <div id="div_d_usuario" style="padding-left: 1%;">
+                                <label>Usuario de la base</label>
+                                <input name='d_usuario_filtro' id='d_usuario_filtro' type="text" class="form-control input-sm" style="text-align: center;"  >
+                            </div>
+                        </div>
+                       
+                    </div>
+
+                    <div class="row">
+                        
+                        <div class='row-search text-center' style="margin-top: 2%">
+                            <button type='button' id='btn_buscar' name='btn_buscar' class="btn-sm btn_buscar"></button>
+                            <button class="btn-sm btn_limpiar" type="button" id="btn_limpiar"></button>
+                        </div>
+                    </div>
+                        
+                    
+                </form>
+                <div id='gridWrapper' >
+                    <div style="margin-top: 10px;">
+                        <table id='main_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+                        <div id='main_grid_pager' class='scroll' style='text-align:center;'></div>
+                    </div>
+                    <br/>
+            
+                </div>
+
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="rechazos_modal" tabindex="-1" role="dialog" aria-labelledby="rechazos_title" aria-hidden="true" data-backdrop="false" style="z-index: 960; top:50px ;">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="rechazos_title"></h5>
+            </div>
+            <div class="modal-body">
+                <div id='rechazos_div' style='width:850px;'>
+                    <table id='rechazos_grid' class='scroll' cellpadding='0' cellspacing='0'></table>
+                    <div id='rechazos_grid_pager' class='scroll' style='text-align: center;'></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btn_aceptar_rechazos" class="btn btn-primary" data-dismiss="modal">Aceptar</button>
+            </div>
+        </div>
+    </div>
+</div>

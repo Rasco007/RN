@@ -1,0 +1,45 @@
+<div class="modal fade" id="modal_chequera" tabindex="-1" role="dialog"
+     aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="exampleModalLiveLabel">Cuotas a Emitir</h5>
+            </div>
+            <div class="modal-body">
+                <form id="form_chequera">
+                    <div class="row form-group" style="justify-content: center;display: flex;flex-direction: column;max-width: 80%;margin: 0 auto;gap: 5px;">
+                        <div class="col-md-12" style="margin-top: 10px">
+                            <div class="row col-md-6 form-group">
+                                <label for="n_cuota_desde" class="control-label">Desde (*)</label>
+                                <div class="input-group">
+                                    <input type="text" id="n_cuota_desde" placeholder="aaaa" maxlength="4" autocomplete="off"
+                                           class="form-control input-sm validate[required]">
+                                </div>
+                            </div>
+                            <div class="row col-md-6 form-group" style="float: right;">
+                                <label for="n_cuota_hasta" class="control-label">Hasta (*)</label>
+                                <div class="input-group">
+                                    <input type="text" id="n_cuota_hasta" placeholder="aaaa" maxlength="4" autocomplete="off"
+                                           class="form-control input-sm validate[required]">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="button" class="btn btn-sm" id="btn_emitir"><span
+                            class="glyphicon" aria-hidden="true"></span> Emitir
+                    </button>
+                    <button type="button" class="btn btn-sm" id="btn_volver"><span
+                            class="glyphicon" aria-hidden="true"></span> Volver
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

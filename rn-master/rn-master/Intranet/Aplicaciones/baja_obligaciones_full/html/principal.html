@@ -1,0 +1,142 @@
+<div class='titlebar'>
+    <span class="ui-jqgrid-title">Eliminación de Obligaciones</span>
+</div>
+
+    <form id='frm_baja_obligaciones_full'>
+        <div id="div_search" class="search panel-body">
+            <div class='row'>
+                <div class="form-group col-md-4">
+                    <label for="c_tributo">Tributo (*)</label>
+                    <div class="input-group" id="div_input_tributo">
+                        <input type="text" class="form-control input-sm input-cod-short numero validate[required]" id="c_tributo">
+                        <input type="text" class="form-control input-sm input-desc-long" readonly id="d_tributo">
+                        <span class="input-group-addon btn_lupa" id="lupa_c_tributo">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="c_concepto">Concepto (*)</label>
+                    <div class="input-group" id="div_input_concepto">
+                        <input type="text" class="form-control input-sm input-cod-short numero validate[required]" id="c_concepto">
+                        <input type="text" class="form-control input-sm input-desc-long" readonly id="d_concepto">
+                        <span class="input-group-addon btn_lupa" id="lupa_c_concepto">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="f_periodo_desde">Posición Fiscal Desde (*)</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control input-sm text-center validate[required]" id="f_periodo_desde" name="f_periodo_desde" placeholder="AAAA/MM" maxlength="7">
+                    </div>
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="f_periodo_hasta">Posición Fiscal Hasta</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control input-sm text-center" id="f_periodo_hasta" name="f_periodo_hasta" placeholder="AAAA/MM" maxlength="7">
+                    </div>
+                </div>
+            </div>
+            <div class='row'>
+
+            </div>
+            <br>
+        </div>
+        <div class='titlebar'>
+            <span class="ui-jqgrid-title">Datos del Contribuyente</span>
+        </div>
+        <div id="div_search2" class="search panel-body">
+            <div class='row'>
+                <div class="form-group col-md-2">
+                    <div id="div_cuit">
+                        <label for="n_cuit">CUIT (*)</label>
+                        <input name='id_contribuyente' type="hidden" class="form-control input-sm text-right" id="id_contribuyente">
+                        <input type="text" class="form-control input-sm text-right validate[required,custom[validaCuit]]" maxlength='13' id="n_cuit">
+                    </div>
+                </div>
+
+                <div class="form-group col-md-3">
+                    <label for="nombre">Apellido y Nombre / Razón Social (*)</label>
+                    <div class="input-group" id="div_nombre">
+                        <input name='nombre' type="text" class="mayusculas form-control input-sm validate[required]" id="nombre">
+                        <span class="input-group-addon" id="mascara_lupa_nombre">
+                            <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                        </span>
+                        <span class="input-group-addon btn_lupa" id="lupa_nombre">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        </span>
+
+                    </div>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="c_documento">Tipo Documento</label>
+                    <div class="input-group" id="div_input_documento">
+                        <input name='c_documento' type="text" class="form-control input-sm input-cod-short" id="c_documento" >
+                        <input name='d_documento' type="text" class="form-control input-sm input-desc-long" id="d_documento" readonly>
+                        <span class="input-group-addon btn_lupa" id="lupa_c_documento">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="documento">Nro. Documento</label>
+                    <input name='documento' maxlength='11' type="text" class="form-control input-sm text-right" id="documento">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="obj_hecho">Objeto/Hecho</label>
+                    <div class="input-group" id="div_input_obj_hecho">
+                        <input name='c_tipo_imponible' type="hidden" class="form-control input-sm input-cod-short" id="c_tipo_imponible" >
+
+                        <input type="text" class="form-control input-sm mayusculas" id="obj_hecho">
+                        <span class="input-group-addon" id="mascara_lupa_obj_hecho">
+                            <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                        </span>
+                        <span class="input-group-addon btn_lupa" id="lupa_obj_hecho">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        </span>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class='row text-center' style = 'margin-top:25px;'>
+                <button type='button' id='btn_eliminar' class="ui-button ui-corner-all ui-widget">Eliminar</button>
+                <button type='button' id='btn_cancelar' class="ui-button ui-corner-all ui-widget">Cancelar</button>
+            </div>
+        </div>
+    </form>
+
+
+<div class="modal fade" id="oblig_encontradas_modal" tabindex="-1" role="dialog" aria-labelledby="oblig_encontradas_title" aria-hidden="true" data-backdrop="false" style="z-index: 960; top:50px;">
+    <div class="modal-dialog modal-lg" role="document" style="width: 40%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="oblig_encontradas_title"></h5>
+            </div>
+            <div class="modal-body">
+                <div id='oblig_encontradas_div'>
+
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>ID OBLIGACION</th>
+                            <th>BOLETA EMITIDA</th>
+                        </tr>
+                        </thead>
+                        <tbody id="tabla_oblig_encontradas"></tbody>
+                    </table>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btn_aceptar_borrar" class="btn btn-primary" data-dismiss="modal">Borrar</button>
+                <button type="button" id="btn_cancelar_borrar" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

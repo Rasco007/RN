@@ -1,0 +1,39 @@
+#chk_convocatoria{
+    margin: 4px 0px 0px 3px;
+}
+
+#div_chk_convocatoria{
+    margin-top: 18px;
+    width: 13%;
+}
+
+#div_verif_dom, #div_verif_dom_ant{
+    width: 29px;
+    padding: 0px !important;
+}
+
+#div_bttns{
+    padding: 0px;
+}
+
+#div_origen{
+    width: 13%;
+}
+
+#div_cilindrada{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+#div_patente, #div_patente_nueva, #div_patente_vieja, #div_patente_vieja_nueva{
+    width: 16%;
+}
+
+#div_bttn_cambiar_dominio{
+    margin-top: 15px;
+    text-align: center;
+}
+
+.input-cod-short{
+    text-align: center;
+}

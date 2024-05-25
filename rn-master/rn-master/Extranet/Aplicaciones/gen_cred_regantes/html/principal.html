@@ -1,0 +1,199 @@
+<!--DIV BUSQUEDA-->
+<div id="div_filter" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true" style="">
+            <div class="panel-heading">Determinación de Contribuyente / Partida</div>
+            <div class="panel-body">
+                <form id='frm_search'>
+                    <div class="row filtros_consorcio">
+                        <div class="form-group col-md-4">
+                            <label for="c_organismo">Consorcio</label>
+                            <div id="div_consorcio" class="input-group">
+                                <input type='text' id='c_organismo' name='c_organismo' class='form-control input-sm input-cod-short mayusculas limpiar'/>
+                                <input type='text' id='d_organismo' name='d_organismo' class='form-control input-sm input-desc-long' readonly="true"/>
+                                <span class="input-group-addon btn_lupa" id="btn_lupa_consorcio" name='btn_lupa_consorcio'>
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="c_region">Región</label>
+                            <div id="div_region" class="input-group">
+                                <input type='text' id='c_region' name='c_region' class='form-control input-sm input-cod-short mayusculas limpiar'/>
+                                <input type='text' id='d_region' name='d_region' class='form-control input-sm input-desc-long' readonly="true" />
+                                <span class="input-group-addon btn_lupa" id="btn_lupa_region" name='btn_lupa_region'>
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="c_area">Área</label>
+                            <div id="div_area" class="input-group">
+                                <input type='text' id='c_area' name='c_area' class='form-control input-sm input-cod-short mayusculas limpiar'/>
+                                <input type='text' id='d_area' name='d_area' class='form-control input-sm input-desc-long' readonly="true" />
+                                <span class="input-group-addon btn_lupa" id="btn_lupa_area" name='btn_lupa_area'>
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row filtros_contribuyente">
+                        <div class="form-group col-md-4">
+                            <label for="n_cuit">CUIT (*)</label>
+                            <input type="text" class="form-control input-sm text-right validate[required] limpiar" id="n_cuit">
+                            <input type="hidden" class="form-control input-sm text-right validate[required] limpiar" id="id_contribuyente">
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="d_denominacion" class="control-label">Denominación (*)</label>
+                            <input type="text" class="form-control input-sm mayusculas validate[required] limpiar" id="d_denominacion">
+                        </div>
+
+                        <div class="col-md-2">
+                            <label for="n_regante">Número de Regante / Parcela</label>
+                            <div id="div_regante" class="input-group">
+                                <input type='text' id='n_regante' name='n_regante' class='form-control input-sm mayusculas' readonly="true" disabled="true" />
+                                <span class="input-group-addon btn_lupa" id="btn_lupa_regante" name='btn_lupa_regante'>
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-2">
+                            <label for="n_partida">Partida (*)</label>
+                            <div id="div_partida" class="input-group">
+                                <input type='text' id='n_partida' name='n_partida' class='form-control input-sm mayusculas validate[required,custom[onlyIntNumber]]' readonly/>
+                                <span class="input-group-addon btn_lupa" id="btn_lupa_partida" name='btn_lupa_partida'>
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-1">
+                            <label for="departamento">Dep.</label>
+                            <input type='text' id='departamento' name='departamento' class='form-control input-sm mayusculas nomen limpiar'/>
+                        </div>
+                        <div class="form-group col-md-1">
+                            <label for="circunscripcion">Circ.</label>
+                            <input type='text' id='circunscripcion' name='circunscripcion' class='form-control input-sm mayusculas nomen limpiar'/>
+                        </div>
+                        <div class="form-group col-md-1">
+                            <label for="seccion">Secc.</label>
+                            <input type='text' id='seccion' name='seccion' class='form-control input-sm mayusculas nomen limpiar'/>
+                        </div>
+                        <div class="form-group col-md-1">
+                            <label for="u_caracteristica">UC</label>
+                            <input type='text' id='u_caracteristica' name='u_caracteristica' class='form-control input-sm mayusculas nomen limpiar'/>
+                        </div>
+                        <div class="form-group col-md-1">
+                            <label for="parcela">Parc.</label>
+                            <input type='text' id='parcela' name='parcela' class='form-control input-sm mayusculas nomen limpiar'/>
+                        </div>
+                        <div class="form-group col-md-1">
+                            <label for="u_funcional">UF</label>
+                            <input type='text' id='u_funcional' name='u_funcional' class='form-control input-sm mayusculas nomen limpiar'/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#credito_search" aria-expanded="true" aria-controls="#credito_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="credito_search" aria-expanded="true" style="">
+            <div class="panel-heading">Determinación de Crédito</div>
+            <div class="panel-body">
+                <form id='frm_consulta'>
+                    <div class="row">
+                        <div class="form-group col-md-2">
+                            <label for="i_credito">Monto del Crédito (*)</label>
+                            <input type="text" class="form-control input-sm text-right validate[required,custom[validaImporte]] limpiar" id="i_credito" name="i_credito">
+                        </div>
+						
+						<div class="col-md-2">
+                            <label for="c_tipo_concepto">Tipo concepto (*)</label>
+                            <div id="div_regante" class="input-group">
+                                <input type='text' id='c_tipo_concepto' name='c_tipo_concepto' class='form-control input-sm input-cod-short mayusculas limpiar validate[required]'/>
+                                <input type='text' id='d_tipo_concepto' name='d_tipo_concepto' class='form-control input-sm input-desc-long validate[required]' readonly="true" />
+                                <span class="input-group-addon btn_lupa" id="btn_lupa_tipo_concepto" name='btn_lupa_tipo_concepto'>
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-8">
+                            <label for="d_observaciones">Observaciones</label>
+                            <input type="text" class="form-control input-sm text-left limpiar" id="d_observaciones" name="d_observaciones">
+                        </div>
+                    </div>
+
+                    <div class='row text-center'>
+                        <br>
+                        <button type="button" class="btn" id="btn_generar_credito"><span class="glyphicon glyphicon-check" aria-hidden="true"></span> Generar Crédito</button>
+                        <button type='button' class="btn btn_limpiar" id='btn_limpiar'></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="div_obligaciones" hidden>
+    <!--GRILLA PRINCIPAL-->
+    <table id='main_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+    <div id='main_grid_pager' class='scroll'></div>
+    <br>
+    <div>
+        <b>Nota:</b> Haga doble click sobre las filas que desea agregar/quitar para la aplicación del crédito.
+    </div>
+    <br>
+        <div class="col-md-12">
+            <div class="form-group col-md-3" style="float: right; text-align: right;">
+                <label for="i_credito_disponible">Crédito Disponible</label>
+                <input type="text" class="input-sm text-right i_credito" id="i_credito_disponible" placeholder="0" disabled>
+            </div>
+            <div class="form-group col-md-3" style="float: right; text-align: right;">
+                <label for="i_saldo_seleccionado">Saldo Seleccionado</label>
+                <input type="text" class="input-sm text-right i_credito" id="i_saldo_seleccionado" placeholder="0" disabled>
+            </div>
+            <div class="form-group col-md-3" style="float: right; text-align: right;">
+                <label for="i_credito_aplicable">Crédito a Aplicar</label>
+                <input type="text" class="input-sm text-right i_credito" id="i_credito_aplicable" placeholder="0" disabled>
+            </div>
+        </div>
+    <br>
+    <center>
+        <button type='button' class="btn btn-primary" id='btn_aplicar_credito'>Aplicar Crédito</button>
+    </center>
+</div>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="listado_creditos" data-keyboard="false" data-backdrop="false">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content col-md-12" >
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">Listado de créditos</h4>
+			</div>
+			<div class="modal-body">
+				<table id='creditos_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+				<div id='creditos_grid_pager' class='scroll'></div>
+				<div class="modal-footer">
+					<b>Nota:</b> Haga doble click sobre el crédito que desea seleccionar.
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

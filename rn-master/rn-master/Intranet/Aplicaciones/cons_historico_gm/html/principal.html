@@ -1,0 +1,67 @@
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading">Consulta histórico GM</div>
+            <div class="panel-body">
+                <form id='frm_consulta' style="margin-top: 5px;">
+                    <div class="row">
+                        <div class="form-group col-md-2 ">
+                            <label for="objeto">Objeto</label>
+                            <input name='objeto' type="text" id="objeto" class="form-control input-sm alfanumerico mayusculas">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="cd_mov_hist">CD Mov Hist</label>
+                            <input name='cd_mov_hist' type="text" id="cd_mov_hist" class="form-control input-sm alfanumerico mayusculas">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="dt_mov_hist_audit">DT Mov Hist Audit</label>
+                            <input name='dt_mov_hist_audit' type="text" id="dt_mov_hist_audit" class="form-control input-sm text-right numerico">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="dt_mov_audit">DT Mov Audit</label>
+                            <input name='dt_mov_audit' type="text" id="dt_mov_audit" class="form-control input-sm text-right numerico">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="tm_mov_audit">TM Mov Audit</label>
+                            <input name='tm_mov_audit' type="text" id="tm_mov_audit" class="form-control input-sm text-right numerico">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="cd_docu_ref">CD Docu Ref</label>
+                            <input name='cd_docu_ref' type="text" id="cd_docu_ref" class="form-control input-sm alfanumerico mayusculas">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-2">
+                            <label for="provincia">Prov</label>
+                            <input name='provincia' type="text" id="provincia" class="form-control input-sm alfanumerico mayusculas">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="oficina">Ofic</label>
+                            <input name='oficina' type="text" id="oficina" class="form-control input-sm  alfanumerico mayusculas">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="cd_user_audit">CD User Audit</label>
+                            <input name='cd_user_audit' type="text" id="cd_user_audit" class="form-control input-sm alfanumerico mayusculas">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="cd_prog_audit">CD Prog Audit</label>
+                            <input name='cd_prog_audit' type="text" id="cd_prog_audit" class="form-control input-sm alfanumerico mayusculas">
+                        </div>
+                        <div class="form-group col-md-3" id="div_botones" style="margin-top: 15px;">
+                            <button type='button' id='btn_buscar' name='btn_buscar' class="btn-sm btn_buscar"></button>
+                            <button type='button' id='btn_limpiar' name='btn_limpiar' class="btn-sm btn_limpiar"></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="contenedor_grilla"  style="display:none">
+    <table id='d_historicos_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+    <div id="d_historicos_grid_pager" class='scroll' style='text-align:center;'></div>
+</div>

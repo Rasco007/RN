@@ -1,0 +1,130 @@
+<!--DIV BUSQUEDA-->
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true" style="">
+            <div class="panel-heading">Determinación de Crédito</div>
+            <div class="panel-body">
+                <form id='frm_consulta'>
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="n_cuit">CUIT</label>
+                            <input type="text" class="form-control input-sm text-right validate[required] limpiar" id="n_cuit">
+                            <input type="hidden" class="form-control input-sm text-right validate[required] limpiar" id="id_contribuyente">
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="d_denominacion" class="control-label">Denominación</label>
+                            <input type="text" class="form-control input-sm mayusculas validate[required] limpiar" id="d_denominacion">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="c_tributo">Tributo</label>
+                            <div id="div_tributo" class="input-group">
+                                <input type='text' id='c_tributo' name='c_tributo' class='form-control input-sm input-cod-short numero validate[required] limpiar'/>
+                                <input type='text' id='d_tributo' name='d_tributo' class='form-control input-sm input-desc-long' readonly="true"/>
+                                <span class="input-group-addon btn_lupa" id="btn_lupa_tributo" name='btn_lupa_tributo'>
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="d_objeto_hecho">Objeto</label>
+                            <div id="div_objeto" class="input-group">
+                                <input type='text' id='d_objeto_hecho' name='d_objeto_hecho' class='form-control input-sm mayusculas validate[required] limpiar'/>
+                                    <span class="input-group-addon btn_lupa" id="btn_lupa_objeto" name='btn_lupa_objeto'>
+                                        <span class="glyphicon glyphicon-search"></span>
+                                    </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class='row text-center'>
+                        <button type="button" class="btn btn_buscar" id="btn_buscar"></button>
+                        <button type='button' class="btn btn_limpiar" id='btn_limpiar'></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="div_obligaciones" hidden>
+    <!--GRILLA PRINCIPAL-->
+    <table id='main_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+    <div id='main_grid_pager' class='scroll' style='text-align:center;'></div>
+    <br>
+    <div>
+        <b><u>Nota:</u></b> Haga doble click sobre la obligación que desea editar para la aplicación del crédito.
+    </div>
+    <br>
+    <div id="div_search2" class="panel-search">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Aplicar a:</div>
+            <div class="panel-body">
+                <form id='frm_datos_destino'>
+                    <!--<div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="n_cuit_destino">CUIT</label>
+                            <input type="text" class="form-control input-sm text-right validate[required] limpiar" id="n_cuit_destino">
+                            <input type="hidden" class="form-control input-sm text-right validate[required] limpiar" id="id_contribuyente_destino">
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="d_denominacion_destino" class="control-label">Denominación</label>
+                            <input type="text" class="form-control input-sm mayusculas validate[required] limpiar" id="d_denominacion_destino">
+                        </div>
+                    </div>-->
+                    <div class="row">
+                        <div class="form-group col-md-2">
+                            <label for="n_cuit_destino">CUIT Destino</label>
+                            <input type="text" class="form-control input-sm text-right limpiar" id="n_cuit_destino">
+                            <input type="hidden" class="form-control input-sm text-right limpiar" id="id_contribuyente_destino">
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="d_denominacion_destino" class="control-label">Denominación Destino</label>
+                            <input type="text" class="form-control input-sm mayusculas limpiar" id="d_denominacion_destino">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="c_tributo">Tributo Destino</label>
+                            <div id="div_tributo_destino" class="input-group">
+                                <input type='text' id='c_tributo_destino' name='c_tributo_destino' class='form-control input-sm input-cod-short numero validate[required]'/>
+                                <input type='text' id='d_tributo_destino' name='d_tributo_destino' class='form-control input-sm input-desc-long' readonly="true"/>
+                                <span class="input-group-addon btn_lupa" id="btn_lupa_tributo_destino" name='btn_lupa_tributo_destino'>
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4 hidden">
+                            <label for="c_tipo_imponible_destino">Tipo Imponible Destino</label>
+                            <input type='text' id='c_tipo_imponible_destino' name='c_tipo_imponible_destino' class='form-control input-sm mayusculas validate[required]'/>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="d_objeto_hecho_destino">Objeto Destino</label>
+                            <div id="div_objeto_destino" class="input-group">
+                                <input type='text' id='d_objeto_hecho_destino' name='d_objeto_hecho_destino' class='form-control input-sm mayusculas validate[required]' readonly="true"/>
+                                <span class="input-group-addon btn_lupa" id="btn_lupa_objeto_destino" name='btn_lupa_objeto_destino'>
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-11">
+                            <label for="d_observaciones">Resolución</label>
+                            <textarea type='text' id='d_observaciones' name='d_observaciones' class='form-control input-sm mayusculas' style="max-width: 900px;" /></textarea>
+                        </div>
+                    </div>
+                    <br>
+                    <div class='row text-center'>
+                        <button type='button' class="btn btn-primary" id='btn_generar_credito'>Generar Nota de Crédito</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

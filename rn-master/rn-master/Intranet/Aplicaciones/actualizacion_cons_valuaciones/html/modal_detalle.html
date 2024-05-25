@@ -1,0 +1,29 @@
+<div class="modal fade" id="modal_detalle" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title">Detalle de autos</h5>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <table id='detail_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+                    <div id='detail_grid_pager' class='scroll' style='text-align:center;'></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div style="display: flex; justify-content: center; gap: 35%">
+                    <div class="form-inline">
+                        <label for="cantidad" class="control-label">Cantidad</label>
+                        <div class="input-group">
+                            <input type='text' id='cantidad' name='cantidad' class='form-control input-sm' style="text-align: right" readonly="true"/>
+                        </div>
+                    </div>
+                    <button type='button' class="btn-sm btn_volver" id='btn_volver'>Volver</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

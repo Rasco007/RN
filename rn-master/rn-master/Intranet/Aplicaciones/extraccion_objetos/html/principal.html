@@ -1,0 +1,78 @@
+<!--DIV BUSQUEDA-->
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true" style="">
+            <div class="panel-heading">B&uacute;squeda</div>
+            <div class="panel-body">
+                <form id='frm_consulta'>
+                    <div class="form-group" style="display: flex; justify-content: center;">
+                        <div class="col-md-5">
+                            <label for="n_boleta" class="control-label">Nro. Bol. Deuda Juicio</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm" id="n_boleta" readonly="true">
+                                <span class="input-group-addon btn_lupa" id="lupa_boleta">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <label for="n_expte" class="control-label">Expte. Conc/Quiebra</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm" id="n_expte" readonly="true">
+                                <span class="input-group-addon btn_lupa" id="lupa_expte">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group" style="display: flex; justify-content: center;">
+                        <div class="col-md-5">
+                            <label for="d_tributo" class="control-label">Tributo</label>
+                            <div class="input-group">
+                                <input type='text' id='c_tributo' name='c_tributo'
+                                       class='form-control input-sm input-cod-short validate[required]'/>
+                                <input type='text' id='d_tributo' name='d_tributo'
+                                       class='form-control input-sm input-desc-long validate[required]' readonly="true"/>
+                                <span class="input-group-addon btn_lupa" id="lupa_tributo">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <label for="n_objeto" class="control-label">Objeto</label>
+                            <div class="input-group">
+                                <input type='text' id='n_objeto' name='n_objeto'
+                                       class='form-control input-sm' readonly="true"/>
+                                <span class="input-group-addon btn_lupa" id="lupa_objeto">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row form-group">
+                        <div class="text-center">
+                            <button type='button' class="btn-sm btn_buscar" id='btn_buscar'></button>
+                            <button type='button' class="btn-sm btn_limpiar" id='btn_limpiar'></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--GRILLA PRINCIPAL-->
+<div id="seccion_1">
+    <table id='main_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+    <div id='main_grid_pager' class='scroll' style='text-align:center;'></div>
+    <br>
+    <div id="div_botones">
+        <div class="text-center" style="display: flex; justify-content: space-evenly;">
+            <button type='button' class="btn btn-sm" id='btn_extraer'><span aria-hidden="true"></span>Extraer Objeto</button>
+        </div>
+    </div>
+</div>

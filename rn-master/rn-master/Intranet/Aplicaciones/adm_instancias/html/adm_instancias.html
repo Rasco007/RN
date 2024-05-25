@@ -1,0 +1,68 @@
+<!--DIV BUSQUEDA-->
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true" style="">
+            <div class="panel-heading">B&uacute;squeda</div>
+            <div class="panel-body">
+                <form id='frm_consulta'>
+
+                    <div class="row">
+                                                
+                        <div class="form-group col-md-2">
+                            <label for="n_inspeccion">Nro. Inspección</label>
+                            <input type="text" class="form-control input-sm text-right validate[custom[onlyIntNumber]] limpiar" name="n_inspeccion" id="n_inspeccion" maxlength="10">
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="n_expediente">Expediente</label>
+                            <input type="text" class="form-control input-sm text-right limpiar" name="n_expediente" id="n_expediente" maxlength="12">
+                        </div>
+                        
+                        <div class="form-group col-md-2">
+                            <label for="n_anio_expediente">Año Expediente</label>
+                            <input type="text" class="form-control input-sm text-right validate[custom[onlyIntNumber]]" name="n_anio_expediente" id="n_anio_expediente">
+                        </div>
+    
+                        <div class="form-group col-md-2">
+                            <label for="n_cuit">CUIT</label>
+                            <input type="text" class="form-control input-sm text-right validate[custom[validaCuit]] limpiar" name="n_cuit" id="n_cuit">
+                            <input type="text" class="limpiar" id="id_contribuyente" hidden>
+                        </div>
+                        
+                        <div class="form-group col-md-4">
+                            <label for="d_denominacion">Denominación</label>
+                            <input type="text" class="form-control input-sm text-left mayusculas limpiar" name="d_denominacion" id="d_denominacion">
+                        </div>
+
+                    </div>
+                    
+                    <div class='row text-center'>
+                        <button type='button' class="btn-sm btn_buscar" id='btn_buscar'></button>
+                        <button type='button' class="btn-sm btn_limpiar" id='btn_limpiar'></button>    
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="div_grillas" hidden>
+    <!--GRILLA PRINCIPAL-->
+    <table id='main_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+    <div id='main_grid_pager' class='scroll' style='text-align:center;'></div>
+    <br>
+
+    <!-- GRILLA SECUNDARIA -->
+    <table id='second_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+    <div id='second_grid_pager' class='scroll' style='text-align:center;'></div>
+    <div class="col-md-6" id="aviso_consulta">
+        <span class="label label-danger">*Realice doble click sobre una Instancia de Carga para consultar la Liquidación.</span>
+    </div>
+    <br>
+    <div class='row text-center'>
+        <button type='button' class="btn-danger btn-sm" id='btn_allanamiento' style="display: none">Allanamiento / Determ Oficio</button>
+        <!--<button type='button' class="btn" id='btn_imprimir_f109'>Imprimir F109</button> -->
+    </div>
+</div>

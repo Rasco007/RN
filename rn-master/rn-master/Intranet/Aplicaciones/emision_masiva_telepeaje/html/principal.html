@@ -1,0 +1,83 @@
+<style>
+    .margin_labels{
+        margin-left:30% !important;
+    }
+</style>
+
+<!--DIV BUSQUEDA-->
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading">Emisión Masiva de Boletas</div>
+            <div class="panel-body">
+                <form id='frm_consulta'>
+                    <div class="row form-group">
+                        <div class="col-md-4">
+                                
+                            <input type="hidden" id="filtro_c_tipo_imp" value="<?=$tributo[0]['C_TIPO_IMPONIBLE']?>">
+                            <label for="filtro_d_tributo" class="control-label">Tributo (*)</label>
+                            <input type="text" class="form-control input-sm validate[required]" id="filtro_d_tributo" value="<?=$tributo[0]['D_DESCRIP']?>" readonly>
+                        </div>
+                        <div class="col-md-4">
+                           <label for="d_concepto" class="control-label">Concepto (*)</label>
+                            <input type="text" class="form-control input-sm validate[required]" id="d_concepto" value="<?=$tributo[0]['D_CONCEPTO']?>" readonly>
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-md-2">
+                            <label for="filtro_periodo" class="control-label">Periodo (*)</label>
+                            <input type="text" class="form-control input-sm text-center validate[required]" id="filtro_periodo" name="filtro_periodo" placeholder="AAAAMM">
+                        </div>                  
+                        <div class="col-md-2">
+                            <label for="filtro_cuota" class="control-label">Cuota (*)</label>                        
+                            <input type="text" class="form-control input-sm text-center validate[required]" id="filtro_cuota" name="filtro_cuota">
+                        </div>
+                        <div class="col-md-2">
+                            <label for="f_vto_pago" class="control-label">1er Vencimiento</label>                        
+                            <input type="text" class="form-control input-sm text-center" id="f_vto_pago" readonly>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="f_vto_pago_2" class="control-label">2do Vencimiento</label>                        
+                            <input type="text" class="form-control input-sm text-center" id="f_vto_pago_2" readonly>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-8">
+                            <span><b>*Atención: Esta aplicación se utiliza para emitir las boletas de aquellos automotores con contribuyente y mail verificado que no estan registrados en el IMPUESTO AUTOMOTOR.</b></span>
+                        </div>
+                    </div>
+                    <br>
+                    <center class="row">                       
+                        <button type='button' class="btn btn-sm" id='btn_emitir'><span class="glyphicon glyphicon-print" aria-hidden="true"></span> Emitir</button>
+                        <button type='button' class="btn btn-sm btn_limpiar" id='btn_limpiar'></button>
+                    </center>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Grilla de Errores -->
+<div class="modal fade" id="modal_errores" tabindex="-1" role="dialog" aria-labelledby="erroresLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="erroresLabel">Errores</h5>
+            </div>
+            <div class="modal-body">
+                <!--GRILLA ERRORES-->
+                <table id='grid_errores' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+                <div id='grid_errores_pager' class='scroll' style='text-align:center;'></div>
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

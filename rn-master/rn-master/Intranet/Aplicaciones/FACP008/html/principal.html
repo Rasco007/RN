@@ -1,0 +1,261 @@
+<div id="div_filtros" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading">Plan de Pago</div>
+            <div class="panel-body">
+                <form action="" id="frm_filtros">
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                            <label for="n_plan_pago">Nro. Plan de Pago</label>
+                            <div class="input-group">
+                                <input name='n_plan_pago' type="text" class="form-control input-sm mayusculas numerico" id="n_plan_pago" style="text-align: right;">
+                                <span class="input-group-addon" id="mascara_lupa_n_plan_pago">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon" id="lupa_n_plan_pago">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="c_tipo_plan_pago">Tipo Plan Pago</label>
+                            <input type="text" class="form-control input-sm numerico" id="c_tipo_plan_pago" style="text-align: right">
+                        </div>
+
+                        <div class="form-group col-md-2">        
+                            <label for="n_cuit">CUIT</label>
+                            <input type="text" class="form-control input-sm numerico" id="n_cuit" style="text-align: right">
+                            <input type="hidden" id="id_contribuyente"> 
+                            <input type="hidden" id="c_tributo"> 
+                            <input type="hidden" id="operacion"> 
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="d_denominacion">Denominación</label>
+                            <div class="input-group">
+                                <input name='d_denominacion' type="text" class="form-control input-sm mayusculas" id="d_denominacion">
+                                <span class="input-group-addon" id="mascara_lupa_d_denominacion">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon" id="lupa_d_denominacion">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                            <label for="c_tipo_doc">Tipo de Documento</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm input-cod-short text-input mayusculas numerico" id="c_tipo_doc" style="text-align: center">
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_tipo_doc" readonly>
+                                <span class="input-group-addon" id="mascara_lupa_tipo_doc">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon btn_lupa" id="lupa_tipo_doc">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>       
+                        </div>
+                        
+                        <div class="form-group col-md-2">
+                            <label for="n_documento">Documento</label>
+                            <input type="text" class="form-control input-sm numerico" id="n_documento" style="text-align: right">
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="c_tipo_imp">Tipo Imponible</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm input-cod-short text-input mayusculas numerico" id="c_tipo_imp" style="text-align: center">
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_tipo_imp" readonly>
+                                <span class="input-group-addon" id="mascara_lupa_tipo_imp">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon btn_lupa" id="lupa_tipo_imp">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>       
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="d_objeto_hecho_2">Objeto / Hecho</label>
+                            <div class="input-group" id="div_input_denominacion">
+                                <input name='d_objeto_hecho_2' type="text" class="form-control input-sm mayusculas" id="d_objeto_hecho_2" style="text-align: right;">
+                                <span class="input-group-addon" id="mascara_lupa_d_objeto_hecho_2">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon" id="lupa_d_objeto_hecho_2">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class='row text-center' style = 'margin-top:10px;'>
+                        <button type='button' id='btn_honorarios' class="ui-button ui-corner-all ui-widget" style="height: 28px; margin-bottom: 3px; margin-left: 2%;">Honorarios</button>
+                        <button type='button' id='btn_aviso_caducidad' class="ui-button ui-corner-all ui-widget" style="height: 28px; margin-bottom: 3px; margin-left: 2%;">Aviso de Caduc.</button>
+                        <button type='button' id='btn_const_caducidad' class="ui-button ui-corner-all ui-widget" style="height: 28px; margin-bottom: 3px; margin-left: 2%;">Const. de Caduc.</button>
+                        <button type='button' id='btn_buscar' name='btn_buscar' class="btn-sm btn_buscar" style="height: 28px; margin-bottom: 3px; margin-left: 2%;"></button>
+                        <button type='button' id='btn_limpiar' name='btn_limpiar' class="btn-sm btn_limpiar" style="height: 28px; margin-bottom: 3px; margin-left: 2%;"></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id='tabs_grid'>
+    <ul class='nav nav-tabs'>
+        <li class='nav-item active' id="etiqueta_tab_resumen">
+            <a href='#tab_resumen' data-toggle='tab' role='tab' data-grid='resumen_grid' id="btn_tab_resumen">Resumen</a>
+        </li>
+        <li class='nav-item tab-deshabilitado' id="etiqueta_tab_detalle">
+            <a href='#tab_detalle' role='tab' data-grid='detalle_grid' id="btn_tab_detalle">Detalle</a>
+        </li>
+        <li class='nav-item tab-deshabilitado' id="etiqueta_tab_cuotas">
+            <a href='#tab_cuotas' role='tab' data-grid='cuotas_grid' id="btn_tab_cuotas">Cuotas</a>
+        </li>
+    </ul>
+    <div class='tab-content'>
+        <div id='tab_resumen' class='tab-pane fade active in' role='tabpanel'>
+            <div>
+                <table id="resumen_grid" class="scroll" cellpadding="0" cellspacing="0">
+                    <tr><td>&nbsp;</td></tr>
+                </table>
+                <div id="resumen_grid_pager" class="scroll" style="text-align:center;"></div>
+            </div>
+        </div>
+        <div id='tab_detalle' class='tab-pane fade' role='tabpanel'>
+            <div>
+                <table id="detalle_grid" class="scroll" cellpadding="0" cellspacing="0">
+                    <tr><td>&nbsp;</td></tr>
+                </table>
+                <div id="detalle_grid_pager" class="scroll" style="text-align:center;"></div>
+            </div>
+        </div>
+        <div id='tab_cuotas' class='tab-pane fade' role='tabpanel'>
+            <div>
+                <table id="cuotas_grid" class="scroll" cellpadding="0" cellspacing="0">
+                    <tr><td>&nbsp;</td></tr>
+                </table>
+                <div id="cuotas_grid_pager" class="scroll" style="text-align:center;"></div>
+
+                <div class="row" style="margin-top:1%">
+                    <div class="form-group col-md-6 col-md-offset-8">       
+                        <div class="row">
+                            <div class="form-group col-md-2">
+                                <label for="i_total_saldo">Total</label>
+                                <input type="text" class="form-control input-sm numerico" id="i_total_saldo" style="text-align: right" readonly>
+                            </div>
+                            <div class="form-group col-md-8" style="margin-top: 3.25%">
+                                <span id="membrete_pie" style="font-weight: bold; color: red;"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Modal Honorarios-->
+<div class="modal fade" id="honorarios_modal" tabindex="-1" role="dialog" aria-labelledby="honorarios_title" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="honorarios_title">Datos de Honorarios</h5>
+            </div>
+            <div class="modal-body">
+                <div id="div_datos_gral">
+                    <table id="honorarios_grid" class="scroll" cellpadding="0" cellspacing="0">
+                        <tr><td>&nbsp;</td></tr>
+                    </table>
+                    <div id="honorarios_grid_pager" class="scroll" style="text-align:center;"></div>
+                </div>
+
+                <div id="div_repr_contrib" class="panel-search">
+                    <div class="panel panel-primary">
+                        <div class="collapse in" id="collapse_search_2" aria-expanded="true">
+                            <div class="panel-heading" style="padding-left: 1.5%">Representante del Contribuyente</div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label for="d_denominacion_rc">Apellido y Nombre</label>
+                                        <input name='d_denominacion_rc' type="text" class="form-control input-sm mayusculas" id="d_denominacion_rc" readonly>
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="d_caracter_rc">En su carácter de:</label>
+                                        <input name='d_caracter_rc' type="text" class="form-control input-sm mayusculas" id="d_caracter_rc" readonly>
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="d_acredita_rc">Acredita con:</label>
+                                        <input name='d_acredita_rc' type="text" class="form-control input-sm mayusculas" id="d_acredita_rc" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="div_planes_relacionados">
+                    <table id="relacionados_grid" class="scroll" cellpadding="0" cellspacing="0">
+                        <tr><td>&nbsp;</td></tr>
+                    </table>
+                    <div id="relacionados_grid_pager" class="scroll" style="text-align:center;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Modal Modificacion-->
+<div class="modal fade" id="modificacion_modal" tabindex="-1" role="dialog" aria-labelledby="modificacion_title" aria-hidden="true" >
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="modificacion_title">Modificación</h5>
+            </div>
+            <div class="modal-body">
+                <div class="row" style="margin-bottom: 15px;">
+                    <div class="form-group col-md-3">
+                        <label for="f_caducidad">F. Finalización (*)</label>
+                        <input name='f_caducidad' type="text" class="form-control input-sm mayusculas datepicker" id="f_caducidad" style="text-align: center;">
+                    </div>
+                    <div class="form-group col-md-7">
+                        <label for="c_caducidad">Motivo Finalización (*)</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control input-sm input-cod-short text-input mayusculas" id="c_caducidad" style="text-align: center">
+                            <input type="text" class="form-control input-sm input-desc-long" id="d_caducidad" readonly>
+                            <span class="input-group-addon" id="mascara_lupa_caducidad">
+                                                <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                            </span>
+                            <span class="input-group-addon btn_lupa" id="lupa_caducidad">
+                                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                            </span>
+                        </div>
+                    </div>
+                    <div class="col-md-2" style="margin-top: 2.1%">
+                        <button type='button' id='btn_limpiar_modif' name='btn_limpiar' class="btn-sm btn_limpiar"></button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btn_guardar_modif" class="btn btn-secondary" data-dismiss="modal">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+

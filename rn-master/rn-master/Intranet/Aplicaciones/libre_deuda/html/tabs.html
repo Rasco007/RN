@@ -1,0 +1,49 @@
+<div id='general' hidden>
+	<div id='tabs'>  
+		<ul class='nav nav-wizard'>
+			<li data-grid='grid_obligaciones' class='active'><a href='#tab_obligaciones' id='1' data-toggle='tab'>Obligaciones</a></li>
+			<li data-grid='grid_gest_judicial'><a href='#tab_gest_judicial' id='2' data-toggle='tab'>Gestión Judicial</a></li>
+			<li><a href='#tab_certificado' id='3' data-toggle='tab'>Certificado</a></li>
+		</ul>
+		<div class='tab-content' id='tabs'>
+			<div role='tabpanel' class='tab-pane fade in active form-group' id='tab_obligaciones'>
+				<div id='div_grid_obligaciones' style='width:100%;'>
+					<table id='grid_obligaciones' class='scroll' cellpadding='0' cellspacing='0'></table>
+					<div id='grid_obligaciones_pager' class='scroll' style='text-align: center;'></div>
+				</div>
+			</div>
+
+			<div role='tabpanel' class='tab-pane fade in form-group' id='tab_gest_judicial'>
+				<div id='div_grid_gest_judicial' style='width:100%;'>
+					<table id='grid_gest_judicial' class='scroll' cellpadding='0' cellspacing='0'></table>
+					<div id='grid_gest_judicial_pager' class='scroll' style='text-align: center;'></div>
+				</div>
+			</div>
+
+			<div role='tabpanel' class='tab-pane fade in form-group' id='tab_certificado'>
+				<form id='frm_tabs'>
+	                <div class="row">
+	                	<div class="form-group col-md-12">
+                            <label for="d_mensajes">Mensajes</label>
+                            <textarea id="d_mensajes" class="form-control" rows="4"></textarea>
+                        </div>
+	                </div>
+	                <div class="row">
+	                	<div class="form-group col-md-12">
+                            <label for="d_observaciones">Observaciones</label>
+                            <textarea id="d_observaciones" class="form-control"></textarea>
+                        </div>
+	                </div>
+                	<br>
+	                <div class="row">
+	                	<center>
+                        	<button class="btn-sm btn-primary" type="button" id="btn_emitir_certif" style='margin-right:20px';>Emitir Certificado</button>
+                        	<button class="btn-sm btn-primary" type="button" id="btn_emitir_incons">Emitir Inconsistencias</button>
+	                	</center>
+                    </div>
+	                </div>
+	            </form>
+			</div>
+		</div>
+	</div>
+</div>

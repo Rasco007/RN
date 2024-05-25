@@ -1,0 +1,66 @@
+<!--DIV BUSQUEDA-->
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true" style="">
+            <div class="panel-heading">B&uacute;squeda</div>
+            <div class="panel-body">
+                <form id='frm_consulta'>
+                    <div class="row form-group">
+                        <div class="col-md-2">
+                            <label for="n_cuit" class="control-label">CUIT</label>
+                            <input type="text" class="form-control input-sm text-center" id="n_cuit" placeholder="">
+                            <input type="hidden" class="form-control input-sm text-center" id="id_contribuyente" placeholder="">
+                        </div>
+                        <div class="col-md-9">
+                            <label for="d_denominacion" class="control-label">Denominación</label>
+                            <input type="text" class="form-control input-sm" id="d_denominacion" placeholder="">
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-md-3">
+                            <label for="d_expediente" class="control-label">Expediente/Año</label>
+                            <div class="input-group">
+                                <input name='d_expediente' id='d_expediente' type='text' class='form-control input-sm' maxlength="12"/>
+                                <div class="input-group-addon">/</div>
+                                <input name='d_anio_exp' id='d_anio_exp' type='text' class='form-control input-sm' style="width:50% !important;"/>
+                            </div>
+                        </div>
+
+                        <div class="col-md-7 text-center" style="margin: 20px;">
+                            <button type='button' class="btn-sm btn_buscar" id='btn_buscar'></button>
+                            <button type='button' class="btn-sm btn_limpiar" id='btn_limpiar'></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--GRILLA PRINCIPAL-->
+<div id="seccion_1">
+    <table id='main_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+    <div id='main_grid_pager' class='scroll' style='text-align:center;'></div>
+    <br>
+    <div class="text-center">
+        <button type='button' class="btn btn-sm" id='btn_ver_detalle' ><span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span> Ver Detalle</button>
+    </div>
+</div>
+
+<div id="seccion_2" style="display: none">
+    <div class="text-center">
+        <button type='button' class="btn btn-sm" id='btn_ocultar_detalle' ><span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span> Ocultar Detalle</button>
+    </div>
+    <br>
+    <table id='detail_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+    <div id='detail_grid_pager' class='scroll' style='text-align:center;'></div>
+    <br>
+
+   <!-- <div class="text-center">
+        <button type='button' class="btn btn-sm" id='btn_fin_carga' >Finalizar Carga</button>
+    </div> -->
+</div>

@@ -1,0 +1,123 @@
+<div id="div_filtros" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading" id="titulo">Datos Contribuyente AFIP</div>
+            <div class="panel-body">
+                <form action="" id="frm_filtros">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label for="n_cuit">CUIT</label>
+                            <input type="text" class="form-control input-sm numerico" id="n_cuit" style="text-align: right">
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="d_denominacion">Razón</label>
+                            <div class="input-group">
+                                <input name='d_denominacion' type="text" class="form-control input-sm mayusculas" id="d_denominacion">
+                                <input type="hidden" id="id_contribuyente">
+                                <span class="input-group-addon" id="mascara_lupa_d_denominacion">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon" id="lupa_d_denominacion">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-2">
+                            <label for="n_cuit_reemp">CUIT Reemp.</label>
+                            <input type="text" class="form-control input-sm" id="n_cuit_reemp" style="text-align: right" readonly>
+                        </div>
+
+                        <div class="form-group col-md-2" style="margin: 1.25% 0 0 0">
+                            <button type='button' id='btn_buscar' name='btn_buscar' class="btn-sm btn_buscar"></button>
+                            <button type='button' id='btn_limpiar' name='btn_limpiar' class="btn-sm btn_limpiar" style="margin-left: 3%;"></button>
+                        </div>
+                    </div>
+
+                    <div class="row" style="margin-top: 2%; margin-left: 1%;">
+                        <button type="button" id="btn_iva" class="btn btn-secondary" disabled>IVA (F730-F810)</button>
+                        <button type="button" id="btn_empleadores" class="btn btn-secondary" disabled>Empleadores (F931)</button>
+                        <button type="button" id="btn_ganancias_pf" class="btn btn-secondary" disabled>Ganancia PF (F711)</button>
+                        <button type="button" id="btn_ganancias_soc" class="btn btn-secondary" disabled>Ganancia Soc. (F713)</button>
+                        <button type="button" id="btn_iva_web" class="btn btn-secondary" disabled>IVA WEB (F2002 I)</button>
+                        <button type="button" id="btn_iva_web_ii" class="btn btn-secondary" disabled>IVA WEB (F2002 II)</button>
+                        <button type="button" id="btn_iva_simp" class="btn btn-secondary" disabled>IVA Simpl. (F2082)</button>
+                        <button type="button" id="btn_libro_iva" class="btn btn-secondary" disabled>Libro IVA (F2083)</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="bloque_iva" hidden>
+    <table id="iva_grid" class="scroll" cellpadding="0" cellspacing="0">
+        <tr><td>&nbsp;</td></tr>
+    </table>
+    <div id="iva_grid_pager" class="scroll" style="text-align:center;"></div>
+</div>
+
+<div id="bloque_empleadores" hidden>
+    <table id="empleadores_grid" class="scroll" cellpadding="0" cellspacing="0">
+        <tr><td>&nbsp;</td></tr>
+    </table>
+    <div id="empleadores_grid_pager" class="scroll" style="text-align:center;"></div>
+</div>
+
+<div id="bloque_ganancias_pf" hidden>
+    <table id="ganancias_pf_grid" class="scroll" cellpadding="0" cellspacing="0">
+        <tr><td>&nbsp;</td></tr>
+    </table>
+    <div id="ganancias_pf_grid_pager" class="scroll" style="text-align:center;"></div>
+</div>
+
+<div id="bloque_ganancias_soc" hidden>
+    <table id="ganancias_soc_grid" class="scroll" cellpadding="0" cellspacing="0">
+        <tr><td>&nbsp;</td></tr>
+    </table>
+    <div id="ganancias_soc_grid_pager" class="scroll" style="text-align:center;"></div>
+</div>
+
+<div id="bloque_iva_web" hidden>
+    <table id="iva_web_grid" class="scroll" cellpadding="0" cellspacing="0">
+        <tr><td>&nbsp;</td></tr>
+    </table>
+    <div id="iva_web_grid_pager" class="scroll" style="text-align:center;"></div>
+</div>
+
+<div id="bloque_iva_web_ii" hidden>
+    <table id="iva_web_ii_grid" class="scroll" cellpadding="0" cellspacing="0">
+        <tr><td>&nbsp;</td></tr>
+    </table>
+    <div id="iva_web_ii_grid_pager" class="scroll" style="text-align:center;"></div>
+</div>
+
+<div id="bloque_iva_simp" hidden>
+    <table id="iva_simp_grid" class="scroll" cellpadding="0" cellspacing="0">
+        <tr><td>&nbsp;</td></tr>
+    </table>
+    <div id="iva_simp_grid_pager" class="scroll" style="text-align:center;"></div>
+</div>
+
+<div id="bloque_libro_iva" hidden>
+    <table id="libro_iva_grid" class="scroll" cellpadding="0" cellspacing="0">
+        <tr><td>&nbsp;</td></tr>
+    </table>
+    <div id="libro_iva_grid_pager" class="scroll" style="text-align:center;"></div>
+</div>
+
+<div id="bloque_btns" style="margin-top: 1%; margin-left: 1%;" hidden>
+    <div class="col-md-6 text-left" style="padding-left: 0;">
+        <button type="button" id="btn_legajo_siat" class="btn btn-secondary" disabled>Legajo SIAT</button>
+        <button type="button" id="btn_padron_afip" class="btn btn-secondary" disabled>Padrón AFIP</button>
+    </div>
+    <div class="col-md-6 text-right">
+        <button type="button" style="display: none;margin-right: 20%;" id="btn_volver" class="btn btn-secondary">Volver</button>
+        <button type="button" id="btn_exportar_excel" class="btn btn-secondary" disabled>Exportar a Excel</button>
+        <button type="button" id="btn_exportar_todo" class="btn btn-secondary" disabled>Exportar todo a Excel</button>
+    </div>
+</div>

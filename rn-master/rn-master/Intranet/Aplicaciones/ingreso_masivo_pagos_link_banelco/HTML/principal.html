@@ -1,0 +1,74 @@
+<div class='titlebar'>
+    <span class="ui-jqgrid-title">Incorporación Masiva de Pagos</span>
+</div>
+
+<div>
+    <form id="form_consulta_proceso">
+        <div class="row">
+            <div class="form-group col-md-2 col-md-offset-2">
+                <label for="d_descrip_banco">Entidad(*):</label>
+                <div class="input-group">
+                    <input type="text" class="form-control input-sm input-cod-short validate[required] text-input" id="c_banco">
+                    <input type="text" class="form-control input-sm input-desc-long" id="d_descrip_banco" readonly>
+                    <span class="input-group-addon btn_lupa" id="lupa_entidad">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    </span>
+                </div>       
+            </div>
+
+            <div class="form-group col-md-2">        
+                <label for="f_remesa">Fecha de Acreditación(*):</label>
+                <input type="text" class="form-control datepicker validate[required] input-sm" id="f_remesa" style="text-align: center;">
+            </div>
+
+            <div class="form-group col-md-2">        
+                <label for="n_remesa">Número de Remesa:</label>
+                <input type="text" class="form-control input-sm" id="n_remesa" readonly>
+            </div>
+
+            <div class="form-group col-md-2">
+                <label for="ruta_archivo_recibido">Path(*):</label>
+                <div class="input-group" id="div_input_archivo_recibido">
+                    <input type='file' id='path_arch_recibido' name='d_path_arch_recibido' style='display:none' class="validate[required] input-sm" onchange='actualizar_input()'>
+                    <input name='ruta_archivo_recibido' id='ruta_archivo_recibido' type='text' class="form-control input-sm" readonly>
+                    <span class="input-group-btn " id="div_span_archivo_recibido">
+                        <button class="btn-sm btn-default" type="button" id='examinar_recibido'><span class="glyphicon glyphicon-upload" aria-hidden="true"></span></button>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="form-group col-md-8 col-md-offset-2">
+                <label for="d_estado">Estado del Proceso:</label>
+                <input type="text" class="form-control input-sm" id="d_estado" readonly>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-md-2 col-md-offset-3">        
+                <label for="d_pagos_tot">Total de Registros:</label>
+                <input type="text" class="form-control input-sm" id="d_pagos_tot" readonly>
+            </div>
+
+            <div class="form-group col-md-2">        
+                <label for="d_pagos_ok">Registros Correctos:</label>
+                <input type="text" class="form-control input-sm" id="d_pagos_ok" readonly>
+            </div>
+
+            <div class="form-group col-md-2">        
+                <label for="d_pagos_err">Registros Erróneos:</label>
+                <input type="text" class="form-control input-sm" id="d_pagos_err" readonly>
+            </div>
+        </div>
+
+
+        <div class='row text-center' style = 'margin-top:10px;'>
+            <button type='button' id='btn_procesar' class="ui-button ui-corner-all ui-widget">Procesar</button>
+            <button type='button' id='btn_limpiar' class="ui-button ui-corner-all ui-widget">Limpiar</button>
+        </div>
+        
+        
+    </form>
+</div>

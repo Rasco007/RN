@@ -1,0 +1,68 @@
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading">Datos del Contribuyente Erróneo</div>
+            <div class="panel-body">
+                <form id='frm_consulta' style="margin-top: 5px;">
+                    <div class="row">
+                        <div class="form-group col-md-2">
+                            <label for="n_cuit">CUIT Contribuyente:</label>
+                            <input name='n_cuit_mask' id='n_cuit' type='text' class='form-control input-sm text-right' />
+                            <input name='id_contribuyente' id='id_contribuyente' type='hidden' class='sr-only'/>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="d_denominacion">Denominaci&oacute;n Contribuyente:</label>
+                            <input type="text" class="form-control input-sm mayusculas" id="d_denominacion">
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="d_tipo_documento">Tipo Documento:</label>
+                            <div class="input-group" id="div_input_tipo_documento">
+                                <input type="text" class="form-control mayusculas input-sm input-cod-short" id="c_tipo_documento">
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_tipo_documento" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_c_tipo_documento">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                    </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="n_documento">N&uacute;mero de Documento:</label>
+                            <input type="text" class="form-control input-sm text-right" id="n_documento" disabled="disabled">
+                        </div>
+
+                    </div>
+
+                    <div class="row text-center">
+                        <div class="form-group col-md-12" style="margin-top: 15px;">
+                            <button type='button' id='btn_limpiar' name='btn_limpiar' class="btn-sm btn_limpiar"></button>
+                            <button class="btn-sm btn-primary" type="button" id="btn_datos_contrib" disabled="disabled"><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span> Datos Contribuyente</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-primary">
+    <div id="panel_cuit" class="panel-heading"> Nuevo CUIT </div>
+    <div class="panel-body">
+        <form class="form-horizontal" id="frm_cuit">
+            <div class="form-group">
+                <label for="new_cuit" class="col-md-5 control-label">CUIT:</label>
+                <div class="col-md-2">
+                    <input type="text" class="form-control input-sm text-center validate[required]" id="new_cuit" disabled="disabled">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="row text-center">
+    <button type='button' id='btn_procesar' name='btn_procesar' class="btn btn-sm" style="display: none">Procesar</button>
+</div>
