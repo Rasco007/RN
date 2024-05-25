@@ -1,0 +1,56 @@
+.panel-body {
+    border: 0px solid transparent!important;
+    border-color: #ccc!important;
+    border-radius: 0px!important;
+    background-color: #e9edf3;;
+    padding-top: 1px !important;
+    padding-bottom: 1px !important;
+
+}
+
+.btn {padding: 2px 2px; height: auto; line-height: 2px; font-size: 12px;}
+
+panel-heading {
+    position: relative;
+    padding-left: 1px;
+    height: 15px;
+}
+
+.panel-primary .panel-heading {
+    background-color: var(--colorPrimerNivel);
+    border-radius: 0px;
+    line-height: 20px;
+    font-size: 12px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+
+.page-content .page-title {
+    margin: 0px 0px 0px;
+    font-size: 18px;
+}
+
+.page-container-bg-solid .page-bar .page-breadcrumb, .page-content-white .page-bar .page-breadcrumb {
+    padding-bottom: 1px;
+    padding-top: 1px;
+}
+
+#main.row {margin: 0px 0px 0px 0px !important;}
+
+.row {margin: 0px 0px 0px 0px !important;}
+
+.panel-search .panel-primary > a.btn {
+    height: auto;
+    background-color: var(--colorPrimerNivel);;
+    padding: 1px 1px;
+    right: 0px;
+}
+
+.ui-jqgrid {
+    border: 0px solid #ddd;
+    border-radius: 0px;
+}
+
+.form-group {
+    margin-bottom: 1px !important;
+}

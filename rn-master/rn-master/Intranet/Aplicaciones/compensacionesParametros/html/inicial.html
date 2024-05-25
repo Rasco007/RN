@@ -1,0 +1,31 @@
+<div  class="panel-body">
+
+    <form id='frm_consulta' style="margin-top: 5px;">
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label for="d_tributo">Tributo:</label>
+                <div class="input-group" id="div_input_tributo">
+                    <input type="text" class="form-control input-sm input-cod-short" id="ctributo" >
+                    <input type="text" class="form-control input-sm input-desc-long" id="dtributo" readonly>
+                    <span class="input-group-addon btn_lupa" id="lupa_c_tributo1">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group col-md-5" style="margin-top: 15px;">
+            <button type='button' id='btn_buscar' name='btn_buscar' class="btn-sm btn_buscar"></button>
+            <button type='button' id='btn_limpiar' name='btn_limpiar' class="btn-sm btn_limpiar"></button>
+        </div>
+
+    </form>
+</div>
+<div id='gridMain' >
+    <table id='main_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+    <div id='main_grid_pager' class='scroll' style='text-align:center;'></div>
+</div>
+<br/>
+<div id='gridDetalle' >
+    <table id='detalle_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+    <div id='detalle_grid_pager' class='scroll' style='text-align:center;'></div>
+</div>

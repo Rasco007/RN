@@ -1,0 +1,66 @@
+<div class="modal fade" id="pago_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="bono_title">Pagos</h5>
+            </div>
+            <div class="modal-body">
+                <div id="div_grid">
+                    <table id='detalle_pagos_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+                    <div id='detalle_pagos_grid_pager' class='scroll' style='text-align:center;'></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="input-group">
+                    <label for="tot_importe">Total:</label>
+                    <input type="text" readonly class="form-control input-sm text-right validate[required,custom[number]]" id="tot_importe">
+                </div>
+            </div>
+            <div class="div-volver">
+                <button type="button" class="btn btn-secondary btn-modal" data-dismiss="modal">Volver</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="procesar_modal"  role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="procesar_title">Procesar</h5>
+            </div>
+            <div class="modal-body">
+                <form id="frm_fecha_a">
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label for="f_acreditacion">Fecha de Acreditación (*):</label>
+                            <div class="input-group f_input">
+                                <input type="text"
+                                    class="form-control input-md datepicker text-center validate[required,custom[validaFecha]]"
+                                    name="f_acreditacion" id="f_acreditacion" placeholder="(DD/MM/AAAA)" maxlength="10"
+                                    autocomplete="off" style="text-align: center;">
+                                <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="button" class="btn btn-primary" id="btn_gen_pagos">Procesar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

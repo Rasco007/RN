@@ -1,0 +1,164 @@
+<style>
+    #frm_compensacion .form-group{
+        padding-left: 2px !important;
+        padding-right: 2px !important;
+    }
+    #modal_compensacion .modal-body{
+        padding-left: 30px !important;
+        padding-right: 30px !important;
+    }
+    legend{
+        font-size: 17px;
+    }
+</style>
+
+<div class="modal fade" id="modal_compensacion" tabindex="-1" role="dialog" aria-labelledby="compensacionLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="compensacionLabel">Detalle de la Compensación</h5>
+            </div>
+            <div class="modal-body">
+                <form id='frm_compensacion'>
+                    <fieldset>
+                        <legend>Obligacion Origen</legend>
+                        <div class="row" id="obligacion_origen">
+                            <div class="form-group col-md-2">
+                                <label for="id_obligacion_ori">Obligacion</label>
+                                <input type="text" class="form-control input-sm text-right" name="id_obligacion_ori" id="id_obligacion_ori" readonly>
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="c_tributo_ori">Tributo</label>
+                                <div id="div_tributo_ori" class="input-group" style="width: 100% !important;">
+                                    <input type='text' id='c_tributo_ori' name='c_tributo_ori' class='form-control input-sm input-cod-short' readonly/>
+                                    <input type='text' id='d_tributo_ori' name='d_tributo_ori' class='form-control input-sm input-desc-long' readonly/>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-2">
+                                <label for="n_posicion_fiscal_ori">Pos. Fiscal</label>
+                                <input type="text" class="form-control input-sm text-center" name="n_posicion_fiscal_ori" id="n_posicion_fiscal_ori" readonly>
+                            </div>
+
+                            <div class="form-group col-md-1">
+                                <label for="n_cuota_ori">Cuota</label>
+                                <input type='text' id='n_cuota_ori' name='n_cuota_ori' class='form-control input-sm text-center' readonly/>
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="c_concepto_mov_ori">Concepto del Movimiento</label>
+                                <div id="div_concepto_ori" class="input-group" style="width: 100% !important;">
+                                    <input type='text' id='c_concepto_mov_ori' name='c_concepto_mov_ori' class='form-control input-sm input-cod-short' readonly/>
+                                    <input type='text' id='d_concepto_mov_ori' name='d_concepto_mov_ori' class='form-control input-sm input-desc-long' readonly/>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-2">
+                                <label for="d_objeto_hecho_ori">Objeto</label>
+                                <input type="text" class="form-control input-sm" name="d_objeto_hecho_ori" id="d_objeto_hecho_ori" readonly>
+                            </div>
+
+                            <div class="form-group col-md-2">
+                                <label for="f_vto_pago_ori">F. Vto. Pago</label>
+                                <input type="text" class="form-control input-sm text-center" name="f_vto_pago_ori" id="f_vto_pago_ori" readonly>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <br>
+                    <fieldset>
+                        <legend>Obligacion Destino</legend>
+                        <div class="row" id="obligacion_destino">
+                            <div class="form-group col-md-2">
+                                <label for="id_obligacion_dest">Obligacion</label>
+                                <input type="text" class="form-control input-sm text-right" name="id_obligacion_dest" id="id_obligacion_dest" readonly>
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="c_tributo_dest">Tributo</label>
+                                <div id="div_tipo_doc_dest" class="input-group" style="width: 100% !important;">
+                                    <input type='text' id='c_tributo_dest' name='c_tributo_dest' class='form-control input-sm input-cod-short' readonly/>
+                                    <input type='text' id='d_tributo_dest' name='d_tributo_dest' class='form-control input-sm input-desc-long' readonly/>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-2">
+                                <label for="n_posicion_fiscal_dest">Pos. Fiscal</label>
+                                <input type="text" class="form-control input-sm text-center" name="n_posicion_fiscal_dest" id="n_posicion_fiscal_dest" readonly>
+                            </div>
+
+                            <div class="form-group col-md-1">
+                                <label for="n_cuota_dest">Cuota</label>
+                                <input type='text' id='n_cuota_dest' name='n_cuota_dest' class='form-control input-sm text-center' readonly/>
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="c_concepto_mov_dest">Concepto del Movimiento</label>
+                                <div id="div_tipo_doc_dest" class="input-group" style="width: 100% !important;">
+                                    <input type='text' id='c_concepto_mov_dest' name='c_concepto_mov_dest' class='form-control input-sm input-cod-short' readonly/>
+                                    <input type='text' id='d_concepto_mov_dest' name='d_concepto_mov_dest' class='form-control input-sm input-desc-long' readonly/>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-2">
+                                <label for="d_objeto_hecho_dest">Objeto</label>
+                                <input type="text" class="form-control input-sm" name="d_objeto_hecho_dest" id="d_objeto_hecho_dest" readonly>
+                            </div>
+
+                            <div class="form-group col-md-2">
+                                <label for="f_vto_pago_dest">F. Vto. Pago</label>
+                                <input type="text" class="form-control input-sm text-center" name="f_vto_pago_dest" id="f_vto_pago_dest" readonly>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <br>
+                    <fieldset>
+                        <legend>Compensación</legend>
+                        <div class="row" id="compensacion_detalle">
+                            <div class="form-group col-md-2">
+                                <label for="f_compensacion_comp">Fecha</label>
+                                <input type="text" class="form-control input-sm text-center" name="f_compensacion_comp" id="f_compensacion_comp" readonly>
+                            </div>
+
+                            <div class="form-group col-md-2">
+                                <label for="i_compensacion_comp">Importe</label>
+                                <input type="text" class="form-control input-sm text-right" name="i_compensacion_comp" id="i_compensacion_comp" readonly>
+                            </div>
+
+                            <div class="form-group col-md-2">
+                                <label for="i_interes_comp">Interés</label>
+                                <input type='text' id='i_interes_comp' name='i_interes_comp' class='form-control input-sm text-right' readonly/>
+                            </div>
+
+                            <div class="form-group col-md-2">
+                                <label for="f_alta_comp">Fecha de Alta</label>
+                                <input type="text" class="form-control input-sm text-center" name="f_alta_comp" id="f_alta_comp" readonly>
+                            </div>
+
+                            <div class="form-group col-md-2">
+                                <label for="c_usuario_comp">Usuario</label>
+                                <input type="text" class="form-control input-sm" name="c_usuario_comp" id="c_usuario_comp" readonly>
+                            </div>
+                        </div>
+
+                        <div class="row" id="compensacion_detalle">
+                            <div class="form-group col-md-10">
+                                <label for="d_observaciones_comp">Observaciones</label>
+                                <textarea type='text' id='d_observaciones_comp' name='d_observaciones_comp' class='form-control input-sm' rows="4" cols="12" readonly/></textarea>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="button" class="btn btn-secondary" id="btn_volver_compensacion" data-dismiss="modal">Volver</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,74 @@
+<style>
+    .mensaje {
+        color: red;
+        font-size: 85%;
+        font-weight: 700;
+    }
+
+    h2 {
+        font-size: 25px;
+    }
+</style>
+<!-- Modal Confirmación de Multa -->
+<div class="modal fade" id="modal_comprar_pase" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="exampleModalLiveLabel">Comprar Pase</h5>
+            </div>
+            <div class="modal-body">
+                <form id="form_modal_comprar">
+                    <div class="row">
+                        <div class="form-group col-md-4 col-md-offset-4">
+                            <label class="control-label" for="d_dominio">Dominio (*)</label>
+                            <input type="hidden" class="form-control input-sm" id="c_clase_aut">
+                            <input type="text" class="form-control input-sm text-left validate[required] dominio"
+                                   name="d_dominio" id="d_dominio" style="text-align: center;">
+                        </div>
+                    </div>
+                    <div class="row" id="div_si_tipo_aut" style="display: none">
+                        <div class="form-group col-md-4 col-md-offset-4">
+                            <label class="control-label" for="si_tipo_aut">Tipo de Automotor (*)</label>
+                            <input type="text" class="form-control input-sm text-center validate[required]" id="si_tipo_aut" disabled>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-4 col-md-offset-4" id="div_radio_buttons">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <h2 id="campo_importe" style="display: none"></h2>
+                        </div>
+                        <div class="col-md-12 text-center">
+                            <br>
+                            <span class="mensaje">(*) La vigencia del pase mensual será de 1 mes a partir de la fecha de pago.</span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type='button' class="btn btn-sm" id='btn_modal_comprar' style="display: none"><span class="glyphicon glyphicon-check" aria-hidden="true"></span> Comprar</button>
+                    <button type='button' class="btn btn-sm" id='btn_modal_cancelar' data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span> Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+   $(document).ready(function() {
+       $('#modal_comprar_pase').on('hidden.bs.modal', function (e) {
+           $('#form_modal_comprar :input').val(null);
+           $('#d_dominio').attr('disabled',false);
+           $('#campo_importe').val(null);
+           $('#campo_importe').text(null);
+           $('#div_radio_buttons').empty();
+           $('#frm_tipos_aut, #div_si_tipo_aut, #campo_importe, #btn_modal_comprar').hide();
+       });
+    });
+</script>

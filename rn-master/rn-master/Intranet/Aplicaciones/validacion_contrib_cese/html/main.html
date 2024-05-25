@@ -1,0 +1,130 @@
+<div class='titlebar'>
+    <span class="ui-jqgrid-title">Contribuyente</span>
+</div>
+<div id="div_search" class="search panel-body">
+    
+    <form id='frm_ddjj'>
+            <div class="row">
+                
+                <div class="form-group col-md-2">
+                    <label>CUIT</label>
+                    <div id="div_input_cuit" class="input-group" >
+                        <input name='n_cuit' id='n_cuit' type="text" class="form-control input-sm text-right validate[required,custom[validaCuit]]" maxlength='14' >
+                        <input name='id_contribuyente' type="hidden" class="form-control input-sm text-right" id="id_contribuyente">
+                    </div>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label for="d_denominacion">Denominaci&oacute;n</label>
+                    <div class="input-group" id="div_input_d_denominacion">
+                        <input name='d_denominacion' type="text" class="form-control input-sm mayusculas" id="d_denominacion" >
+                        <span class="input-group-addon" id="mascara_lupa_d_denominacion">
+                            <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                        </span>
+                        <span class="input-group-addon btn_lupa" id="lupa_d_denominacion">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        </span>
+                    </div>
+                </div>
+    
+                <div class="form-group col-md-3">
+                    <label for="c_tipo_documento">Tipo de Documento</label>
+                    <div class="input-group">
+                        <input name='c_tipo_documento' type="text" class="form-control input-sm input-cod-short" id="c_tipo_documento" readonly>
+                        <input name='d_tipo_documento' type="text" class="form-control input-sm input-desc-long" id="d_tipo_documento" readonly>
+                        <span class="input-group-addon btn_lupa hidden" id="lupa_c_tipo_documento">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    </span>
+                    </div>
+                </div>
+                
+                <div class="form-group col-md-3">
+                    <label for="n_documento">Nro. Documento</label>
+                    <div class="input-group" style="width: 100%;">
+                        <input name='n_documento' type="text" class="form-control input-sm numerico" id="n_documento" readonly>
+                    </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-md-3 hidden">
+                    <label for="c_tipo_imponible">Tipo Imponible</label>
+                    <div class="input-group" id="div_input_tipo_imponible">
+                        <input name='c_tipo_imponible' type="text" class="form-control input-sm input-cod-short numerico" id="c_tipo_imponible" readonly>
+                        <input name='d_tipo_imponible' type="text" class="form-control input-sm input-desc-long" id="d_tipo_imponible" readonly>
+                        <span class="input-group-addon" id="mascara_lupa_c_tipo_imponible">
+                            <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                    </span>
+                        <span class="input-group-addon btn_lupa hidden" id="lupa_c_tipo_imponible">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    </span>
+                    </div>
+                </div>
+
+                <div class="form-group col-md-3" >
+                    <label for="c_tributo">Tributo</label>
+                    <div class="input-group" id="div_input_tributo">
+                        <input name='c_tributo' type="text" class="form-control input-sm input-cod-short numerico" id="c_tributo">
+                        <input name='d_tributo' type="text" class="form-control input-sm input-desc-long" id="d_tributo" readonly>
+                        <!-- <span class="input-group-addon" id="mascara_lupa_c_tributo">
+                            <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                        </span> -->
+                        <span class="input-group-addon btn_lupa " id="lupa_c_tributo">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group col-md-3">
+                    <label for="d_objeto_hecho">Nro. de Objeto/Hecho</label>
+                    <div class="input-group" id="div_input_objeto">
+                        <input type="text" class="form-control input-sm mayusculas" id="d_objeto_hecho" name="d_objeto_hecho">
+                        <span class="input-group-addon" id="mascara_lupa_d_objeto_hecho">
+                            <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                        </span>
+                        <span class="input-group-addon btn_lupa"  id="lupa_d_objeto_hecho">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group col-md-2">
+                    <label for="f_vig_desde">F. Vig. Desde</label>
+                    <div class="input-group" style="width: 100%;">
+                        <input type="text" style="width: 100%;" class="input-sm datepicker text-center limpiar validate[required]" name="f_vig_desde" id="f_vig_desde" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off">
+                    </div>
+                </div>
+
+                <div class="form-group col-md-2">
+                    <label for="f_vig_hasta">Validar al</label>
+                    <div class="input-group" style="width: 100%;">
+                        <input type="text" style="width: 100%;" class="input-sm datepicker text-center limpiar validate[required]" name="f_vig_hasta" id="f_vig_hasta" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off">
+                    </div>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="form-group col-md-12" style="margin-top: 15px;">
+                    <button class="btn-sm btn-primary btn_buscar" type="button" id="btn_buscar"></button>
+                    <button class="btn-sm btn-primary btn_limpiar" style="margin: 0 2%;" type="button" id="btn_limpiar"></button>
+                    <button class="btn-sm btn-primary" type="button" id="btn_verificar">Verificar</button>
+                </div>
+            </div>
+    </form>
+</div>
+<div id="div_inscripciones_grid">
+    <table id='inscripciones_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+    <div id='inscripciones_grid_pager' class='scroll' style='text-align:center;'></div>
+</div>
+<div id="div_comercios">
+    <table id='comercios_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+    <div id='comercios_grid_pager' class='scroll' style='text-align:center;'></div>
+</div>
+<div id="div_actividades">
+    <table id='actividades_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+    <div id='actividades_grid_pager' class='scroll' style='text-align:center;'></div>
+</div>
+<div id="div_jurisdicciones">
+    <table id='jurisdicciones_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+    <div id='jurisdicciones_grid_pager' class='scroll' style='text-align:center;'></div>
+</div>

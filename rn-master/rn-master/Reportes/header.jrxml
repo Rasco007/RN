@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="header" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="8eee3bfa-36bc-44fd-abc8-dd84c8eb7a6e">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<template><![CDATA[$P{STYLE_DIR}+"Estilos_Arial.jrtx"]]></template>
+	<parameter name="p_titulo" class="java.lang.String"/>
+	<parameter name="STYLE_DIR" class="java.lang.String">
+		<defaultValueExpression><![CDATA["repo:"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select  i.b_imagen
+from imagenes  i
+where i.c_imagen = 'LOGO_REPORTES']]>
+	</queryString>
+	<field name="B_IMAGEN" class="java.awt.Image"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="109" splitType="Stretch">
+			<rectangle radius="10">
+				<reportElement positionType="Float" x="21" y="80" width="513" height="25" backcolor="#CCCCCC" uuid="c52d602d-f46b-44fb-b7a7-bfecbccc98b1"/>
+				<graphicElement>
+					<pen lineWidth="1.25"/>
+				</graphicElement>
+			</rectangle>
+			<textField>
+				<reportElement x="33" y="80" width="488" height="25" uuid="4fe68543-18bf-4e43-8817-5aa1361186b1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{p_titulo}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="21" y="0" width="191" height="90" uuid="30efd173-1a06-4ad3-b5b5-5e857399eb5f"/>
+				<imageExpression><![CDATA[$F{B_IMAGEN}]]></imageExpression>
+			</image>
+		</band>
+	</pageHeader>
+</jasperReport>

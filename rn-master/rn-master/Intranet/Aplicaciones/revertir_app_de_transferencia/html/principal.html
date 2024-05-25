@@ -1,0 +1,84 @@
+<div class='titlebar'>
+    <span class="ui-jqgrid-title">Incorporación Masiva de Pagos y DDJJ del S.I.L.</span>
+</div>
+<div id="div_search" class="search panel-body">
+    <form id='frm_revertir_app_de_transferencia'>
+        <div class='titlebar'>
+            <span class="ui-jqgrid-title">Datos Transferencia</span>
+        </div>
+        <br>
+
+        <div class='row'>
+            <div class="form-group col-md-2">
+                <label for="n_transfer">Número de Transferencia (*):</label>
+                <div class="input-group" id="div_n_transfer">
+                    <input name='id_transfer' type="hidden" class="form-control input-sm text-right" id="id_transfer">
+                    <input type="text" class="form-control input-sm text-right validate[required,custom[onlyIntNumber]]" id="n_transfer">
+                    <span class="input-group-addon btn_lupa" id="lupa_n_transfer">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    </span>
+                </div>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="f_transfer">Fecha:</label>
+                <input type="text" class="form-control input-sm text-center" id="f_transfer" name="f_transfer" readonly>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="c_bono">Bonos:</label>
+                <div class="input-group col-md-12" id="div_input_bono">
+                    <input type="text" class="form-control input-sm input-cod-short" id="c_bono" readonly>
+                    <input type="text" class="form-control input-sm input-desc-long" readonly id="d_bono" readonly>
+                </div>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="c_especie">Especie:</label>
+                <input type="text" class="form-control input-sm" id="c_especie" readonly>
+            </div>
+        </div>
+        <br>
+        <div class='titlebar'>
+            <span class="ui-jqgrid-title">Datos Comprobante</span>
+        </div>
+        <br>
+        <div class='row'>
+            <div class="form-group col-md-2">
+                <label for="n_comprobante">Número de Comprobante (*):</label>
+                <div class="input-group" id="div_n_comprobante">
+                    <input type="text" class="form-control input-sm text-right validate[required,custom[onlyIntNumber]]" id="n_comprobante">
+                    <span class="input-group-addon btn_lupa" id="lupa_n_comprobante">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    </span>
+                </div>
+            </div>
+
+            <div class="form-group col-md-2">
+                <label for="d_t_comprobante">Tipo de Comprobante:</label>
+                <input type="text" class="form-control input-sm" id="d_t_comprobante" readonly>
+            </div>
+
+            <div class="form-group col-md-2">
+                <label for="f_imputacion">Fecha:</label>
+                <input type="text" class="form-control input-sm text-center" id="f_imputacion" name="f_imputacion" readonly>
+            </div>
+
+            <div class="form-group col-md-2">
+                <label for="i_pesos_imputados">Pesos Imputados:</label>
+                <input type="text" class="form-control input-sm text-right" id="i_pesos_imputados" name="i_pesos_imputados" readonly>
+            </div>
+
+            <div class="form-group col-md-2">
+                <label for="i_bonos_imputados">Bonos Imputados:</label>
+                <input type="text" class="form-control input-sm text-right" id="i_bonos_imputados" name="i_bonos_imputados" readonly>
+            </div>
+
+            <div class="form-group col-md-2" style="margin-top: 1%;">
+                <button type='button' id='btn_revertir' class="ui-button ui-corner-all ui-widget">Revertir</button>
+                <button type='button' id='btn_cancelar' class="ui-button ui-corner-all ui-widget">Cancelar</button>
+            </div>
+        </div>
+    </form>
+
+</div>
+
+
+

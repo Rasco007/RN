@@ -1,0 +1,13 @@
+
+
+.col-md-3{
+    padding-left:10px;
+    padding-right: 10px;
+}
+.panel{
+    border: 1px solid gainsboro ;
+    margin-bottom: 1%;
+}
+.disabledTab {
+    pointer-events: none;
+}

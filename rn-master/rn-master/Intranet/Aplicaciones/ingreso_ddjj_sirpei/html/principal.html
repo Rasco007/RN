@@ -1,0 +1,83 @@
+<div id="div_filtros" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading" id="titulo">Incorporación Archivo con DDJJ de Percepciones - Módulo SIRPEI</div>
+            <div class="panel-body">
+                <form action="" id="frm_filtros">
+                    <div class="row">
+                        <input type="hidden" id="var">
+                        <input type="hidden" id="n_id_disco">
+                        <input type="hidden" id="id_sesion">
+                        <input type="hidden" id="pos_fiscal">
+                        <div class="form-group col-md-8 col-md-offset-2">
+                            <label for="ruta_archivo_recibido">Path y Nombre del Archivo</label>
+                            <div class="input-group" id="div_input_archivo_recibido">
+                                <input type='file' id='path_arch_recibido' name='d_path_arch_recibido' style='display:none' class="input-sm" onchange='actualizar_input()'>
+                                <input name='ruta_archivo_recibido' id='ruta_archivo_recibido' type='text' class="form-control input-sm" readonly>
+                                <span class="input-group-btn " id="div_span_archivo_recibido">
+                                    <button class="btn-sm btn-default" type="button" id='examinar_recibido'><span class="glyphicon glyphicon-upload" aria-hidden="true"></span></button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2">
+                            <table id="fechas_grid" class="scroll" cellpadding="0" cellspacing="0">
+                                <tr><td>&nbsp;</td></tr>
+                            </table>
+                            <div id="fechas_grid_pager" class="scroll" style="text-align:center;"></div>
+                        </div>
+                    </div>
+
+                    <div class="row" style="margin-top: 1%;">
+                        <div class="col-md-2 col-md-offset-2">
+                            <label for="f_presentacion">Fecha de Presentación</label>
+                            <input type="text" class="form-control input-sm datepicker" id="f_presentacion" style="text-align: center" disabled>
+                        </div>
+
+                        <div class="col-md-3" style="margin-top: 1.37%;">
+                            <button type='button' id='btn_limpiar' name='btn_limpiar' class="btn-sm btn_limpiar"></button>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2">
+                            <label for="d_agente">Agente de Percepción</label>
+                            <input type="hidden" id="n_agente">
+                            <input type="hidden" id="n_agente_c">
+                            <input type="text" class="form-control input-sm" id="d_agente" readonly>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2">
+                            <label for="">Cantidad de Registros Procesados</label>
+                            <div class="input-group" style="width: 100%;">
+                                <input type="text" class="form-control input-sm text-input numerico" id="cant_reg" style="text-align: right; width: 12%;" readonly>
+                                <input type="text" class="form-control input-sm numerico text-center" id="secuencia" style="text-align: right; width: 8%;" readonly>
+                                <input type="text" class="form-control input-sm text-input mayusculas" id="d_denominacion" style="width: 80%;" readonly>
+                            </div>   
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2">
+                            <label for="estado">Estado de Finalización</label>
+                            <input type="text" class="form-control input-sm" id="estado" readonly>
+                        </div>
+                    </div>
+
+                    <div class="row text-center" style="margin-top: 2%;">
+                        <button type="button" id="btn_explorar" class="btn btn-secondary">Explorar</button>
+                        <button type="button" id="btn_procesar" class="btn btn-secondary" style="margin-left: 1%;" disabled>Procesar</button>
+                        <button type="button" id="btn_corregir" class="btn btn-secondary" style="margin-left: 1%;" disabled>Corregir Errores</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

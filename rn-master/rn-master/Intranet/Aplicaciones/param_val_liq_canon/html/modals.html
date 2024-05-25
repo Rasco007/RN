@@ -1,0 +1,165 @@
+<style>
+    #ui-datepicker-div {
+        z-index: 11000 !important;
+        position: absolute !important;
+    }
+</style>
+
+<!-- Modal Form grilla -->
+<div class="modal fade" id="modal_abm_liq" tabindex="-1" role="dialog" aria-labelledby="abm_liqLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="abm_liqLabel"></h5>
+            </div>
+            <div class="modal-body">
+                <form id="frm_abm_liq">
+                    <div class='row' id="row_id_liq_riego" hidden>
+                        <div class="form-group col-md-11">
+                            <label for="id_liq_riego" class="col-md-4">id_liq_riego</label>
+                            <input type="text" class="form-control input-sm formElement validate[custom[validaImporte],maxSize[22]]" id="id_liq_riego" name="id_liq_riego" readonly>
+                        </div>
+                    </div>
+                    
+                    <div class='row' id="row_organismo">
+                        <div class="form-group col-md-11">
+                            <label for="c_organismo" class="col-md-4">Consorcio (*)</label>
+                            <div id="div_c_organismo" class="input-group col-md-8">
+                                <input type='text' id='c_organismo' name='c_organismo' class='form-control input-sm formElement hidden mayusculas validate[required]'/>
+                                <input type='text' id='d_organismo' name='d_organismo' class='form-control input-sm formElement mayusculas validate[required]' readonly/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class='row' id="row_ente" hidden>
+                        <div class="form-group col-md-11">
+                            <label for="c_ente" class="col-md-4">c_ente (*)</label>
+                            <input type="text" class="form-control input-sm formElement validate[required] mayusculas hidden" id="c_ente" name="c_ente" readonly>
+                        </div>
+                    </div>
+
+                    <div class='row' id="row_concepto">
+                        <div class="form-group col-md-11">
+                            <label for="c_concepto" class="col-md-4">Concepto (*)</label>
+                            <div id="div_c_concepto" class="input-group">
+                                <input type='text' id='c_concepto' name='c_concepto' class='form-control input-sm formElement hidden mayusculas validate[required]'/>
+                                <input type='text' id='d_concepto' name='d_concepto' class='form-control input-sm formElement mayusculas validate[required]' readonly/>
+                                <span class="input-group-addon btn_lupa" id="btn_lupa_concepto" name='btn_lupa_concepto'>
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                   <div class='row' id="row_region">
+                        <div class="form-group col-md-11">
+                            <label for="c_region" class="col-md-4">Región (*)</label>
+                            <div id="div_c_region" class="input-group">
+                                <input type='text' id='c_region' name='c_region' class='form-control input-sm formElement hidden mayusculas validate[required]'/>
+                                <input type='text' id='d_region' name='d_region' class='form-control input-sm formElement mayusculas validate[required]' readonly/>
+                                <span class="input-group-addon btn_lupa" id="btn_lupa_region" name='btn_lupa_region'>
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class='row' id="row_area">
+                        <div class="form-group col-md-11">
+                            <label for="c_area" class="col-md-4">Área (*)</label>
+                            <div id="div_c_area" class="input-group">
+                                <input type='text' id='c_area' name='c_area' class='form-control input-sm formElement hidden mayusculas validate[required]'/>
+                                <input type='text' id='d_area' name='d_area' class='form-control input-sm formElement mayusculas validate[required]' readonly/>
+                                <span class="input-group-addon btn_lupa" id="btn_lupa_area" name='btn_lupa_area'>
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class='row' id="row_f_vig_desde">
+                        <div class="form-group col-md-11">
+                            <label for="f_vig_desde" class="col-md-4">Fecha Vigencia Desde (*)</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm formElement datepicker text-center validate[required]" name="f_vig_desde" id="f_vig_desde" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class='row' id="row_f_vig_hasta">
+                        <div class="form-group col-md-11">
+                            <label for="f_vig_hasta" class="col-md-4">Fecha Vigencia Hasta</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm formElement datepicker text-center" name="f_vig_hasta" id="f_vig_hasta" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class='row' id="row_hectarea_dsd">
+                        <div class="form-group col-md-11">
+                            <label for="n_hectarea_dsd" class="col-md-4">Rango de Hectareas Desde</label>
+                            <input type="text" class="input-sm formElement text-right col-md-8 validate[custom[onlyIntNumber]]" id="n_hectarea_dsd" name="n_hectarea_dsd">
+                        </div>
+                    </div>
+                    
+                    <div class='row' id="row_hectarea_hst">
+                        <div class="form-group col-md-11">
+                            <label for="n_hectarea_hst" class="col-md-4">Rango de Hectareas Hasta</label>
+                            <input type="text" class="input-sm formElement text-right col-md-8 validate[custom[onlyIntNumber]]" id="n_hectarea_hst" name="n_hectarea_hst">
+                        </div>
+                    </div>
+                    
+                    <div class='row' id="row_alicuota">
+                        <div class="form-group col-md-11">
+                            <label for="n_alicuota" class="col-md-4">Valor por Hectárea</label>
+                            <input type="text" class="input-sm formElement text-right col-md-8 validate[maxSize[23]] mascara_numero" id="n_alicuota" name="n_alicuota">
+                        </div>
+                    </div>
+                    
+                    <div class='row' id="row_val_fijo">
+                        <div class="form-group col-md-11">
+                            <label for="n_val_fijo" class="col-md-4">Importe Fijo</label>
+                            <input type="text" class="input-sm formElement text-right col-md-8 validate[maxSize[18]] mascara_importe" id="n_val_fijo" name="n_val_fijo">
+                        </div>
+                    </div>
+
+                    <div class='row' id="row_p_bonificacion">
+                        <div class="form-group col-md-11">
+                            <label for="p_bonificacion" class="col-md-4">Porcentaje de Bonificación</label>
+                            <input type="text" class="input-sm formElement text-right col-md-8 validate[maxSize[9]] mascara_importe" id="p_bonificacion" name="p_bonificacion">
+                        </div>
+                    </div>
+                    
+                    <div class='row' id="row_actividad">
+                        <div class="form-group col-md-11">
+                            <label for="c_actividad" class="col-md-4">Actividad (*)</label>
+                            <div id="div_c_actividad" class="input-group">
+                                <input type='text' id='c_actividad' name='c_actividad' class='form-control input-sm formElement hidden mayusculas'/>
+                                <input type='text' id='d_actividad' name='d_actividad' class='form-control input-sm formElement mayusculas' readonly/>
+                                <span class="input-group-addon btn_lupa" id="btn_lupa_actividad" name='btn_lupa_actividad'>
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="button" class="btn btn-primary" id="btn_aceptar_operacion">GUARDAR <span class="glyphicon glyphicon-save" aria-hidden="true"></span></button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">CANCELAR</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

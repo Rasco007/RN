@@ -1,0 +1,134 @@
+<div class="modal fade" id="deuda_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+            <div class="row modal-row">
+
+                <div class="form-group col-md-2 col-md-offset-1">
+                    <label id ="label_expediente" for="expediente">Expediente:</label>
+                    <input readonly name='expediente' maxlength='11' type="text" class="form-control input-sm" id="expediente">
+                </div>
+
+                <div class="form-group col-md-3">
+                    <label for="f_vencimiento">Fecha Vencimiento:</label>
+                    <input readonly name='f_vencimiento' maxlength='11' type="text" class="form-control input-sm" id="f_vencimiento">
+                </div>
+
+                <div class="form-group col-md-3">
+                    <label for="f_actualiza">Fecha Actualización:</label>
+                    <input readonly name='f_actualiza' maxlength='11' type="text" class="form-control input-sm" id="f_actualiza">
+                </div>
+
+                <div class="form-group btn-deuda col-md-3" id="marcar_todas">
+                    <label for="marcar_todas" style='padding-top:2px; padding-right: 4px;'>Marcar Todas</label>
+                    <input type="checkbox" id="chk_marcar_todas" name="marcar_todas"></input>
+                </div>
+
+            </div>
+                <div id="div_grid">
+                    <table id='detalle_deuda_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+                    <div id='detalle_deuda_grid_pager' class='scroll' style='text-align:center;'></div>
+                </div>
+            </div>
+            <div class="my-modal-footer">
+                <div class="tot-group input-group">
+                    <label for="tot_pagado">Total Importe:</label>
+                    <input type="text" readonly class="form-control input-sm text-right validate[required,custom[number]]" id="tot_importe">
+                </div>
+                <div class="tot-group input-group">
+                    <label for="tot_pagado">Total Interés:</label>
+                    <input type="text" readonly class="form-control input-sm text-right validate[required,custom[number]]" id="tot_interes">
+                </div>
+                <div class="tot-group input-group">
+                    <label for="tot_reca">Total Actualizado:</label>
+                    <input type="text" readonly class="form-control input-sm text-right validate[required,custom[number]]" id="tot_actualiza">
+                </div>
+                <div class="tot-group input-group">
+                    <label for="tot_intereses">Total a Pagar:</label>
+                    <input type="text" readonly class="form-control input-sm text-right validate[required,custom[number]]" id="tot_pagar">
+                </div>
+            </div>
+            <div class="row modal-row">
+
+                <div class="form-group col-md-2 col-md-offset-1 dinero_pagar">
+                    <label for="dinero_pagar">Dinero para Pagar:</label>
+                    <input name='dinero_pagar'  style="text-align: right;"  type="text" class="form-control input-sm" id="dinero_pagar">
+                </div>
+
+                <div class="form-group btn-deuda col-md-2">
+                    <button type="button" class="btn-sm btn-primary" id="btn_limpiar_modal">Limpiar</button>
+                </div>
+
+                <div class="form-group btn-deuda col-md-3">
+                    <button type="button" class="btn-sm btn-primary" id="btn_distribuir">Distribuir Dinero</button>
+                </div>
+
+                <div class="form-group col-md-2">
+                    <label for="restante">Restante:</label>
+                    <input readonly name='restante' style="text-align: right;"  type="text" class="form-control input-sm" id="restante">
+                </div>
+
+
+            </div>
+            <div class="div-volver">
+                <button type="button" class="btn btn-secondary btn-modal" data-dismiss="modal">Volver</button>
+                <button type="button" class="btn btn-secondary btn-modal" id="btn_modif_fecha">Modificar Fecha</button>
+                <button type="button" class="btn btn-secondary btn-modal" id="btn_emitir_y_pagar" >Emitir y Pagar</button>
+                <button type="button" class="btn btn-secondary btn-modal" id="btn_emitir">Emitir</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modif_f_modal" tabindex="" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="frm_fecha_a">
+                    <div class="row modal-row">
+                        <div class="col-md-10 col-md-offset-1 form-group">
+                            <label for="modif_f_vencimiento">Fecha Vencimiento:</label>
+                            <div class="input-group f_input"> 
+                                <input name='modif_f_vencimiento' type="text" class="form-control input-md datepicker " maxlength="10"
+                                autocomplete="off" style="text-align: center;" id="modif_f_vencimiento">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>   
+                    <div class="row modal-row">
+                        <div class="col-md-10 col-md-offset-1 form-group">
+                            <label for="modif_f_actualiza">Fecha Actualización:</label>
+                            <div class="input-group f_input">
+                                <input name='modif_f_actualiza' type="text" class="form-control input-md datepicker" maxlength="10"
+                                autocomplete="off" style="text-align: center;" id="modif_f_actualiza">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>   
+                    <div class="row modal-row">
+                        <div class="form-group col-md-10 col-md-offset-1" style="text-align: center;">
+                            <button type="button" class="btn btn-secondary btn-modal" id="btn_aceptar">Aceptar</button>
+                            <button type="button" class="btn btn-secondary btn-modal" id="btn_hoy">Hoy</button>
+                            <button type="button" class="btn btn-secondary btn-modal" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </form>   
+            </div>    
+        </div>
+    </div>
+</div>

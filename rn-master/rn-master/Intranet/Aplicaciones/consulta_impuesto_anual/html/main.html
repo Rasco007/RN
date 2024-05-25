@@ -1,0 +1,99 @@
+<div id="div_search" class="panel-search" style="display: none;">
+    <div class="panel panel-primary">
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading">Consulta de impuesto anual</div>
+            <div class="panel-body">
+                <form id='frm_busqueda'>
+                    <div class="row">
+
+                        <div class="form-group col-md-2">
+                            <label for="anio">Año Fiscal</label>
+                            <input type="text"  id="anio" class='form-control limpiar text-right input-sm' >
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="n_mes_fiscal">Mes Fiscal</label>
+                            <input type="text"  id="n_mes_fiscal" class='form-control limpiar text-right input-sm' >
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="grupo_filtro">Grupo</label>
+                            <div id="div_grupo_filtro" style="padding-left: 1%;"  class="input-group">
+                                <input name='c_grupo_filtro' type="text" class="form-control limpiar input-sm input-cod-short mayusculas text-center" id="c_grupo_filtro" >
+                                <input name='d_grupo_filtro' type="text" class="form-control limpiar input-sm input-desc-long" id="d_grupo_filtro" readonly>
+                                    <span class="input-group-addon btn_lupa" id="lupa_grupo_filtro">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                    </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="moneda">Moneda</label>
+                            <div id="div_moneda" style="padding-left: 1%;"  class="input-group">
+                                <input name='c_moneda' type="text" class="form-control limpiar input-sm input-cod-short" id="c_moneda" >
+                                <input name='d_moneda' type="text" class="form-control input-sm limpiar input-desc-long" id="d_moneda" readonly>
+                                    <span class="input-group-addon btn_lupa" id="lupa_moneda">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                    </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="n_modelo_año_desde">Modelo año desde </label>
+                            <input type="text"  id="n_modelo_año_desde" class='form-control limpiar text-right input-sm' >
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="n_modelo_año_hasta">Modelo año hasta</label>
+                            <input type="text"  id="n_modelo_año_hasta" class='form-control limpiar text-right input-sm' >
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="n_peso_cilindrada_desde">Peso cilindrada desde </label>
+                            <input type="text"  id="n_peso_cilindrada_desde" class='form-control limpiar text-right input-sm' >
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="n_peso_cilindrada_hasta">Peso cilindrada hasta</label>
+                            <input type="text"  id="n_peso_cilindrada_hasta" class='form-control limpiar text-right input-sm' >
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="n_impuesto_anual">Impuesto anual</label>
+                            <input type="text"  id="n_impuesto_anual" class='form-control limpiar text-right input-sm' >
+                        </div>
+                        
+
+                        <div class="form-group col-md-3" style="margin-top:17px">
+                        <button class="btn-sm btn-primary" type="button" id="btn_consultar"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Buscar</button>
+                        <button class="btn-sm btn_limpiar" type="button" id="btn_limpiar"></button>
+                    </div>
+
+                    </div>
+                        
+
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="gridWrapper" class="row" style="display: none;">
+
+    <div class='detalle'>
+        <table id='grid_impuesto_anual' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+        <div id='grid_impuesto_anual_pager' class='scroll' style='text-align:center;'></div>
+    </div>
+
+</div>
+
+<div id="gridWrapperMain" class="row" style="display: none;">
+
+    <div class='detalle'>
+        <table id='main_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+        <div id='main_grid_pager' class='scroll' style='text-align:center;'></div>
+    </div>
+
+</div>

@@ -1,0 +1,144 @@
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading" style="text-transform: none; padding-left: 1%;">Datos Adicionales de Gestión Judicial</div>
+            <div class="panel-body">
+                <form id='frm_busqueda'>
+
+                    <div class="form-group col-md-2">
+                        <label for="boleta_deuda">Boleta de Deuda (*)</label>
+                        <input name='boleta_deuda' type="text" class="mayusculas form-control input-sm validate[required] text-right" id="boleta_deuda">
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label for="d_denominacion">Contribuyente</label>
+                        <input name='d_denominacion' type="text" class="mayusculas form-control input-sm validate[required]" id="d_denominacion" disabled>
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <label for="c_expediente_judicial">Exp.Judicial</label>
+                        <input name='c_expediente_judicial' type="text" class="mayusculas form-control input-sm validate[required] text-right" id="c_expediente_judicial">
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <label for="c_expediente_adm">Exp.Administrativo</label>
+                        <input name='c_expediente_adm' type="text" class="mayusculas form-control input-sm validate[required] text-right" id="c_expediente_adm">
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label for="cuit_repres_fiscal">CUIT Repres.Fiscal</label>
+                        <div class="input-group" id="div_repres_fiscal">
+                            <input name='cuit_repres_fiscal' type="text" class="form-control input-sm input-cod-long" id="cuit_repres_fiscal" >
+                            <input name='deno_repres_fiscal' type="text" class="form-control input-sm input-desc-short" style="width: 71% !important;" id="deno_repres_fiscal" readonly>
+                            <span class="input-group-addon" id="mascara_lupa_representante">
+                                <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                            </span>
+                            <span class="input-group-addon btn_lupa" id="lupa_representante">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </span>
+                        </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label for="cuit_patrocinante">CUIT Patrocinante</label>
+                        <div class="input-group" id="div_patrocinante">
+                            <input name='cuit_patrocinante' type="text" class="form-control input-sm input-cod-long" id="cuit_patrocinante">
+                            <input name='deno_patrocinante' type="text" class="form-control input-sm input-desc-short" style="width: 71% !important;" id="deno_patrocinante" readonly>
+                            <span class="input-group-addon" id="mascara_lupa_patrocinante">
+                                <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                            </span>
+                            <span class="input-group-addon btn_lupa" id="lupa_patrocinante">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </span>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group col-md-4">
+                        <label for="juzgado">Juzgado</label>
+                        <input name='juzgado' type="text" class="mayusculas form-control input-sm validate[required] text-left" id="juzgado">
+                    </div>
+
+                    <div class="form-group col-md-3 ">
+                        <label for="circunscripcion">Circunscripción</label>
+                        <input name='circunscripcion' type="text" class="mayusculas form-control input-sm validate[required] text-left" id="circunscripcion">
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label for="f_embargo">F. de Embargo</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control input-sm datepicker text-center limpiar" name="f_embargo" id="f_embargo" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off" >
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label for="f_subasta">F. de Subasta</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control input-sm datepicker text-center limpiar" name="f_subasta" id="f_subasta" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off" >
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <label for="mail">E-mail</label>
+                        <input name='mail' type="text" class="mayusculas form-control input-sm validate[required] text-left" id="mail" disabled>
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label for="tel">Teléfonos</label>
+                        <input name='tel' type="text" class="mayusculas form-control input-sm validate[required] text-right" id="tel" disabled>
+                    </div>
+
+                    <div class="form-group col-md-12">
+                        <div class='row-search text-center' style="margin-top: 1%;">
+                            <button type='button' id='btn_consultar' name='btn_consultar' class="btn-sm btn_buscar"></button>
+                            <button class="btn-sm btn_limpiar" type="button" id="btn_limpiar"></button>
+                            <button class="btn-sm btn-primary" type="button" id="btn_update" disabled><span class="glyphicon glyphicon-edit" aria-hidden="true"></span >Actualizar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="div_buttons" class="panel-search">
+    <div class="panel panel-primary">
+        <div class="collapse in" id="collapse_buttons" aria-expanded="true">
+            <div class="panel-heading" style="text-transform: none; padding-left: 1%;">Datos Relacionados a Instancias de Gestión Judicial</div>
+            <div class="panel-body">
+                <form id='frm_buttons'>
+
+                    <div class="form-group col-md-3">
+                        <label for="f_resolucion">F. de Resolución</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control input-sm datepicker text-center limpiar" name="f_resolucion" id="f_resolucion" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off">
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label for="resolucion">Resolución</label>
+                        <input name='resolucion' type="text" class="mayusculas form-control input-sm validate[required] text-right" id="resolucion">
+                    </div>
+                    
+                    <div class="form-group col-md-5">
+                        <label>Observaciones</label>
+                        <textarea id="observaciones_anulacion" rows="1" cols="50" class='form-control input-sm' style="height: 7rem !important;"></textarea>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>

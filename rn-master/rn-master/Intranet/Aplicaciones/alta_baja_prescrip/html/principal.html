@@ -1,0 +1,134 @@
+<!--DIV BUSQUEDA-->
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading">B&uacute;squeda</div>
+            <div class="panel-body">
+                <form id='frm_consulta' style="margin-top: 5px;">
+                    <div class="row">
+                        <div class="form-group col-md-2 col-md-offset-1">
+                            <label for="n_cuit">CUIT:</label>
+                            <input name='n_cuit' id='n_cuit' type='text' class='form-control input-sm text-right' />
+                            <input name='id_contribuyente' id='id_contribuyente' type='hidden' class='sr-only'/>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="d_denominacion">Denominaci&oacute;n:</label>
+                            <input type="text" class="form-control input-sm mayusculas" id="d_denominacion">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-3 col-md-offset-1">
+                            <label for="d_tipo_imponible">Tipo Imponible:</label>
+                            <div class="input-group" id="div_input_tipo_imponible">
+                                <input type="text" class="form-control input-sm input-cod-short validate[required]" id="c_tipo_imponible" >
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_tipo_imponible" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_c_tipo_imponible">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="d_tributo">Tributo:</label>
+                            <div class="input-group" id="div_input_tributo">
+                                <input type="text" class="form-control input-sm input-cod-short validate[required]" id="c_tributo" >
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_tributo" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_c_tributo">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="d_objeto_hecho">Objeto/Hecho:</label>
+                            <div class="input-group" id="div_input_obj_hecho">
+                                <input type="text" class="form-control input-sm mayusculas validate[required]" id="d_objeto_hecho">
+                                <span class="input-group-addon btn_lupa" id="lupa_d_objeto_hecho">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-2 col-md-offset-1" id="div_col_pos_fiscal_desde">
+                            <div class="input-group" id="div_input_pos_fiscal_desde">
+                                <label for="n_pos_fiscal_desde">Pos. Fis.-Cuota Desde:</label>
+                                <input type="text" class="form-control input-sm input-range-left" id="n_pos_fiscal_desde" placeholder="aaaa/mm" maxlength=6>
+                                <input type="text" class="form-control input-sm input-range-right" id="cuota_desde" placeholder="nn" maxlength=2>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-2" id="div_col_pos_fiscal_hasta">
+                            <div class="input-group" id="div_input_pos_fiscal_hasta">
+                                <label for="n_pos_fiscal_hasta">Pos. Fis.-Cuota Hasta:</label>
+                                <input type="text" class="form-control input-sm input-range-left" id="n_pos_fiscal_hasta" placeholder="aaaa/mm" maxlength=6>
+                                <input type="text" class="form-control input-sm input-range-right" id="cuota_hasta"  placeholder="nn" maxlength=2>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group col-md-5 text-center" style="margin-top: 15px;">
+                            <button type='button' id='btn_buscar' name='btn_buscar' class="btn btn_buscar"></button>
+                            <button type='button' id='btn_limpiar' name='btn_limpiar' class="btn btn_limpiar"></button>
+                        </div>
+
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--GRILLA PRINCIPAL-->
+<table id='main_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+<div id='main_grid_pager' class='scroll' style='text-align:center;'></div>
+<br>
+<div class="col-md-3">
+    <button id="ref_jui_insp" type="button" class="btn-lg" style="border-radius: 3px; background-color: yellow">
+    </button>
+    <label for="ref_jui_insp" style="position: inherit;top: 3px;">En Juicio o Inspección</label>
+</div>
+<div class="col-md-6 text-center">
+    <button type='button' class="btn btn-sm" id='btn_procesar'> Procesar</button>
+</div>
+
+<!-- Modal Confirmación de Multa -->
+<div class="modal fade" id="modal_f_prescrip" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="exampleModalLiveLabel">Modificar Fecha Prescripción</h5>
+            </div>
+            <div class="modal-body">
+                <form id="form_modal_f_prescrip">
+                    <div class="form-group">
+                        <label for="f_prescrip">Fecha Prescripción (*)</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="hidden" id="modal_id_obligacion">
+                        <input type="hidden" id="modal_id_sesion">
+                        <div class="input-group">
+                            <input type="text" class="form-control input-sm datepicker text-center validate[required] input_fecha" name="f_prescrip" id="f_prescrip" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off" style="text-align: center;">
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="button" class="btn btn-sm" id="btn_modal_aceptar"> Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

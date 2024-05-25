@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SR369" language="groovy" pageWidth="595" pageHeight="842" columnWidth="517" leftMargin="36" rightMargin="42" topMargin="42" bottomMargin="20" uuid="f8f87f0e-f13a-492e-81dc-83d2aa736441">
+	<property name="ireport.zoom" value="1.6105100000000008"/>
+	<property name="ireport.x" value="279"/>
+	<property name="ireport.y" value="212"/>
+	<template><![CDATA[$P{STYLE_DIR}+"Estilos_MHP.jrtx"]]></template>
+	<parameter name="p_nombre_report" class="java.lang.String"/>
+	<parameter name="p_usuario" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String">
+		<defaultValueExpression><![CDATA["repo:"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_EXT" class="java.lang.String">
+		<defaultValueExpression><![CDATA["jrxml"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="STYLE_DIR" class="java.lang.String">
+		<defaultValueExpression><![CDATA["repo:"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="p_titulo" class="java.lang.String"/>
+	<parameter name="id_contribuyente" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="id_documentacion" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="c_clave" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="c_usuario" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select (select img.c_img from imagenes img where img.c_codigo = 'ESC_MISIONES_REPO') as c_img,
+       ('Posadas, Misiones, '||trim(to_char(sysdate, 'DD'))||' de '||trim(to_char(sysdate, 'Month'))||' de '||trim(to_char(sysdate, 'YYYY'))) d_fecha_altual,
+       (select decode (fun_cuit_ficticio (con.n_cuit), 'FALSE', fun_formato_cuit (con.n_cuit), 'TRUE', null) n_cuit from contribuyentes con
+         where id_contribuyente = $P{id_contribuyente}) n_cuit,
+       (select d_denominacion d_razon_social from contribuyentes con where id_contribuyente = $P{id_contribuyente}) d_razon_social
+  from dual]]>
+	</queryString>
+	<field name="C_IMG" class="java.awt.Image"/>
+	<field name="D_FECHA_ALTUAL" class="java.lang.String"/>
+	<field name="N_CUIT" class="java.lang.String"/>
+	<field name="D_RAZON_SOCIAL" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="105" splitType="Stretch">
+			<image>
+				<reportElement uuid="49b458d6-8e1d-4de1-a55c-ad15f7451147" x="26" y="0" width="53" height="51"/>
+				<imageExpression><![CDATA[$F{C_IMG}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement uuid="7d18bb2a-8215-48e1-9f9e-66ebd0e1531d" x="314" y="30" width="203" height="11"/>
+				<textElement textAlignment="Right">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{D_FECHA_ALTUAL}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="424" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="c473b78f-c51e-4f56-a004-ff4a853b92b0" x="0" y="0" width="517" height="424"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="c33d03e8-7567-4e79-849c-fd16d891279d" x="0" y="5" width="517" height="25"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NUEVA CLAVE DE ACCESO]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="f1fa255f-5e37-4da6-8855-5dde1de7256f" x="5" y="122" width="507" height="20"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Por la presente se deja constancia que <style isBold=\"true\">"+$F{C_CODIGO}+" - "+$F{D_DENOMINACION}+"</style>, ha solicitado Usuario y Clave de Acceso Personal al $P{P_SISTEMA}."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="107157be-1e2a-4a5e-a31e-f7999d9e2a69" x="5" y="192" width="232" height="11"/>
+				<textElement>
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Clave de Acceso: "+$P{c_clave}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="a343d5f7-e6d6-4238-941e-d61519bbffbb" x="5" y="180" width="232" height="11"/>
+				<textElement markup="none">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Usuario: "+$P{c_usuario}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="44479dc0-615e-4f07-bcc5-4cb9d833f148" x="26" y="279" width="140" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement uuid="19b86208-14c5-42c3-947e-7e8c8bd210c2" x="26" y="281" width="140" height="10"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[SELLO FECHADOR DE RECEPCIÓN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f87cfe24-9452-4f2c-8604-454cc02d3187" x="355" y="269" width="157" height="12"/>
+				<textElement textAlignment="Right">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cr. Miguel Arturo Thomas
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0933d1a9-b44f-4547-b573-ab79bff90d02" x="355" y="279" width="157" height="20"/>
+				<textElement textAlignment="Right">
+					<font fontName="Tahoma" size="8" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Director Provincial de Rentas
+de la Provincia de Misiones]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+</jasperReport>

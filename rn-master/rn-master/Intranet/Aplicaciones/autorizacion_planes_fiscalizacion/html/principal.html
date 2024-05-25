@@ -1,0 +1,155 @@
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading" style="text-transform: none; padding-left: 1%;">Autorización de Planes de Fiscalización</div>
+            <div class="panel-body">
+                <form id='frm_busqueda'>
+                    <div class="row">
+
+                        <div class="form-group col-md-5 ">
+                            <label for="d_plan">Plan de Fiscalización</label>
+                            <div class="input-group" id="div_input_d_plan">
+                                <input name='d_plan' type="text" class="form-control input-sm" id="d_plan">
+
+                                <span class="input-group-addon" id="mascara_lupa_d_plan">
+                                <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon btn_lupa" id="lupa_d_plan">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+
+                            </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="anio">Año</label>
+                            <div class="input-group" id="div_input_anio">
+                                <input name='anio' type="text" class="form-control input-sm" id="anio" maxlength="4" onkeypress="return soloNumeros(event)">
+
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-5">
+                            <label for="d_observac">Observación</label>
+                            <div class="" id="div_input_d_observac">
+                                <input name='d_observac' type="text" class="form-control input-sm" id="d_observac">
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="form-group col-md-3" style="width: 18%;">
+                            <label for="n_inspectores_est">Total de Inspectores estimados</label>
+                            <div class="input-group">
+                                <input name='n_inspectores_est' type="text" class="form-control input-sm" id="n_inspectores_est" onkeypress="return soloNumeros(event)">
+
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-3" style="width: 18%;">
+                            <label for="n_horas_est">Total de Horas estimadas</label>
+                            <div class="input-group">
+                                <input name='n_horas_est' type="text" class="form-control input-sm" id="n_horas_est" onkeypress="return soloNumeros(event)">
+
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-3" style="width: 24%;">
+                            <label for="f_de_aprobacion">F. de Aprobación</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm datepicker text-center limpiar" name="f_de_aprobacion" id="f_de_aprobacion" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off">
+                            </div>
+                        </div>
+
+
+                        <div class="form-group col-md-3" style="width: 40%;">
+                            <div class='row-search text-center' style="margin-top: 3%; float: right;width: 40%;">
+                                <button class="btn-sm btn-primary" type="button" style="margin-right: 3%;" id="btn_buscar"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Buscar</button>
+                                <button class="btn-sm btn_limpiar" type="button" id="btn_limpiar"></button>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id='gridWrapper'>
+    <div>
+        <table id='main_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+        <div id='main_grid_pager' class='scroll' style='text-align:center;'></div>
+    </div>
+</div>
+<div id='gridWrapperDetalle' style="margin-top: 10px;">
+    <div id='detalle'>
+        <table id='detalles_grid' class='scroll' cellpadding='0' cellspacing='0'>
+            <tr>
+                <td>&nbsp;</td>
+            </tr>
+        </table>
+        <div id='detalles_grid_pager' class='scroll' style='text-align:center;'></div>
+    </div>
+</div>
+
+<div id="div-totales">
+    <div class="tot-group input-group col-md-1" style="margin-left: 64%; width: 11%;">
+        <label for="tot_horas_est">Total Horas Estimadas:</label>
+        <input type="text" readonly="" class="form-control input-sm text-right" id="tot_horas_est">
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="modal fade" id="rechazos_modal" tabindex="-1" role="dialog" aria-labelledby="rechazos_title" aria-hidden="true" data-backdrop="false" style="z-index: 960; top:50px ;">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="rechazos_title"></h5>
+            </div>
+            <div class="modal-body">
+                <div id='rechazos_div' style='width:850px;'>
+                    <table id='rechazos_grid' class='scroll' cellpadding='0' cellspacing='0'></table>
+                    <div id='rechazos_grid_pager' class='scroll' style='text-align: center;'></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btn_aceptar_rechazos" class="btn btn-primary" data-dismiss="modal">Aceptar</button>
+            </div>
+        </div>
+    </div>
+</div>

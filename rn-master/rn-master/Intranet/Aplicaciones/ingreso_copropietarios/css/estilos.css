@@ -1,0 +1,50 @@
+#div_objeto_hecho .lupa_oculta {
+    width: 100% !important;
+}
+
+#div_objeto_hecho .lupa_oculta input{
+    border-bottom-right-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+#form_modificacion_datos .input-group{
+    display: inline-table !important;
+    width: 400px;
+    float: right;
+}
+
+#form_modificacion_datos .lupa_oculta{
+    width: 400px;
+    display: inline-block;
+    float: right;
+}
+
+#form_modificacion_datos #n_documento, #form_modificacion_datos #p_participacion, #form_modificacion_datos #d_respon{
+    display: inline;
+    width: 400px;
+    float: right;
+}
+
+#form_modificacion_datos .form-group input{
+    height: 23px;
+}
+
+#form_modificacion_datos .form-group label{
+    padding-top: 4px;
+}
+
+#form_modificacion_datos input{
+    font-size: 13px;
+}
+
+#modificacion_datos .modal-content{
+    width: 550px;
+}
+
+#modificacion_datos .modal-header{
+    height: 45px;
+}
+
+#div_lupa, #ui-datepicker-div{
+    z-index: 10053 !important;
+}

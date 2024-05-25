@@ -1,0 +1,823 @@
+<div id="div_search" class="panel-search">
+	<div class="panel panel-primary">
+		<a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+			<span class="glyphicon"></span>
+		</a>
+		<div class="collapse in" id="collapse_search" aria-expanded="true">
+			<div class="panel-heading">Datos del Trámite</div>
+			<div class="panel-body">
+				<form id='frm_consulta_tramites_cuit' style="margin-top: 5px;">
+					<div class="row">
+						<input name='id_contribuyente' type="hidden" class="form-control input-sm text-right" id="id_contribuyente">
+						<div class="form-group col-md-1" style="width: 10%;">
+							<label for="id_transaccion">Transacción (*)</label>
+							<input name='id_transaccion' id='id_transaccion' type='text' class='form-control input-sm text-right' onkeypress="return soloNumeros(event)" />
+						</div>
+						<div class="form-group col-md-4" style="width: 31%;">
+							<label for="d_tipotransacc">Tipo Transacción (*)</label>
+							<div class="input-group" id="div_input_tributo" style="width: 100%;">
+								<input type="text" class="form-control input-sm input-cod-short numero" id="id_tipotransacc" onkeypress="return soloNumeros(event)">
+								<input type="text" class="form-control input-sm input-desc-long" id="d_tipotransacc" readonly>
+							</div>
+						</div>
+						<div class="form-group col-md-2">
+							<label for="n_tramite">Nro. de Trámite (*)</label>
+							<input name='n_tramite' id='n_tramite' type='text' class='form-control input-sm text-right' onkeypress="return soloNumeros(event)"/>
+						</div>
+						<div class="form-group col-md-3">
+							<label for="d_sistema">Sistema (*)</label>
+							<div class="input-group" id="div_input_sistema">
+								<input type="text" class="form-control input-sm input-cod-short numero" id="id_sistema" onkeypress="return soloNumeros(event)">
+								<input type="text" class="form-control input-sm input-desc-long" id="d_sistema" readonly>
+							</div>
+						</div>
+						<div class="form-group col-md-2">
+							<label for="cuit_transaccion">CUIT (*)</label>
+							<input name='cuit_transaccion' id='cuit_transaccion' type='text' class='form-control input-sm text-right' />
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-md-1" style="width: 13%;">
+							<label for="id_estadotransacc">Estado Transacción</label>
+							<input name='id_estadotransacc' id='id_estadotransacc' type='text' class='form-control input-sm text-right' onkeypress="return soloNumeros(event)"/>
+						</div>
+						<div class="form-group col-md-1" style="width: 12%;">
+							<label for="id_jurisdiccion_sede">Jurisdicción Sede</label>
+							<input name='id_jurisdiccion_sede' id='id_jurisdiccion_sede' type='text' class='form-control input-sm text-right' />
+						</div>
+						<div class="form-group col-md-2" >
+							<label for="fecha_transaccion">F. Transacción</label>
+							<input name='fecha_transaccion' id='fecha_transaccion' type='text' placeholder="(DD/MM/AAAA)" class='form-control input-sm datepicker text-center' />
+						</div>
+						<div class="form-group col-md-2" >
+							<label for="hora_transaccion">Hora Transacción</label>
+							<input name='hora_transaccion' id='hora_transaccion' type='text' class='form-control input-sm text-right' onkeypress="return soloNumeros(event)"/>
+						</div>
+						<div class="form-group col-md-3">
+							<label for="d_resultado_alta">Resultado</label>
+							<div class="input-group" id="div_input_resultado">
+								<input type="text" class="form-control input-sm input-cod-short numero" id="c_resultado_alta" maxlength="3">
+								<input type="text" class="form-control input-sm input-desc-long" id="d_resultado_alta" readonly>
+							</div>
+						</div>
+						<div class="form-group col-md-2" >
+							<label for="f_siat">F. Proceso SIAT</label>
+							<input name='f_siat' id='f_siat' type='text' placeholder="(DD/MM/AAAA)" class='form-control input-sm datepicker text-center' />
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-md-12">
+							<label for="d_error_proceso">Error de Proceso</label>
+							<input name='d_error_proceso' id='d_error_proceso' type='text' class='form-control input-sm' onkeypress="return false;" onpaste="return false;"/>
+						</div>
+					</div>
+					<div class="row">
+						<div class="text-center" style="margin-top: 1%;">
+							<button type="button" class="btn-sm btn-primary" id="btn_consulta"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> CONSULTAR</button>
+							<button type="button" class="btn-sm btn_limpiar" id="btn_limpiar"></button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id='grid_datos_tramite' class="tabla-container" style="margin: -0.5% 0 0.5% 0;">
+	<table id='datos_tramite_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+	<div id='datos_tramite_grid_pager' class='scroll' style='text-align:center;'></div>
+</div>
+
+
+
+<div id='tabs_grid'>
+	<ul class='nav nav-tabs'>
+		<li class='nav-item active' id="etiqueta_tab_resumen">
+			<a href='#tab_resumen' data-toggle='tab' role='tab' data-grid='resumen_grid' id="btn_tab_resumen">datos modificados</a>
+		</li>
+		<li class='nav-item ' id="etiqueta_tab_contrib">
+			<a href='#tab_contrib' role='tab' data-grid='detalle_grid' id="btn_tab_contrib">contribuyente</a>
+		</li>
+		<li class='nav-item ' id="etiqueta_tab_cese">
+			<a href='#tab_cese' role='tab' data-grid='cuotas_grid' id="btn_tab_cese">cese</a>
+		</li>
+		<li class='nav-item ' id="etiqueta_tab_domicilio_fiscal">
+			<a href='#tab_domicilio_fiscal' role='tab' data-grid='cuotas_grid' id="btn_tab_domicilio_fiscal">domicilio fiscal</a>
+		</li>
+		<li class='nav-item ' id="etiqueta_tab_domicilio_ppal">
+			<a href='#tab_domicilio_ppal' role='tab' data-grid='cuotas_grid' id="btn_tab_domicilio_ppal">domicilio principal</a>
+		</li>
+		<li class='nav-item ' id="etiqueta_tab_nat_jur">
+			<a href='#tab_nat_jur' role='tab' data-grid='cuotas_grid' id="btn_tab_nat_jur">naturaleza juridica</a>
+		</li>
+		<li class='nav-item ' id="etiqueta_tab_uni">
+			<a href='#tab_uni' role='tab' data-grid='cuotas_grid' id="btn_tab_uni">unipersonal</a>
+		</li>
+		<li class='nav-item ' id="etiqueta_tab_ute">
+			<a href='#tab_ute' role='tab' data-grid='cuotas_grid' id="btn_tab_ute">ute</a>
+		</li>
+		<li class='nav-item ' id="etiqueta_tab_resp_soc">
+			<a href='#tab_resp_soc' role='tab' data-grid='cuotas_grid' id="btn_tab_resp_soc">responsable sociedad</a>
+		</li>
+		<li class='nav-item ' id="etiqueta_tab_act">
+			<a href='#tab_act' role='tab' data-grid='cuotas_grid' id="btn_tab_act">actividades</a>
+		</li>
+		<li class='nav-item ' id="etiqueta_tab_juris">
+			<a href='#tab_juris' role='tab' data-grid='cuotas_grid' id="btn_tab_juris">jurisdicciones</a>
+		</li>
+	</ul>
+	<div class='tab-content'>
+		<div id='tab_resumen' class='tab-pane fade active in' role='tabpanel'>
+			<div>
+				<div id='datos'>
+					<table id='datos_grid' class='scroll' cellpadding='0' cellspacing='0'>
+						<tr>
+							<td>&nbsp;</td>
+						</tr>
+					</table>
+					<div id='datos_grid_pager' class='scroll' style='text-align:center;'></div>
+				</div>
+			</div>
+		</div>
+		<div id='tab_contrib' class='tab-pane fade' role='tabpanel'>
+			<div>
+				<form id='frm_datos_contrib'>
+				<div id='frm_datos_contrib_div'>
+					<div class='row'>
+						<div class='form-group col-md-2'>
+							<label for='n_cuit'>CUIT</label>
+							<input type='text' class='form-control input-sm text-right' name='n_cuit' id='n_cuit' >
+							</div>
+						<div class='form-group col-md-2'>
+							<label for='nro_inscripcion_ib'>Nro. Inscripción IB</label>
+							<input type='text' class='form-control input-sm text-right' name='nro_inscripcion_ib' id='nro_inscripcion_ib' >
+							</div>
+						<div class='form-group col-md-2'>
+							<label></label>
+							<div class='input-group'>
+								<button type='button' id='btn_legajo_contrib' class='btn btn-primary'>Legajo Contribuyente</button>
+								</div>
+							</div>
+						</div>
+					<div class='row'>
+						<div class='form-group col-md-3'>
+							<label for='razon_social'>Razón Social</label>
+							<input type='text' class='form-control input-sm ' name='razon_social' id='razon_social' >
+							</div>
+						<div class='form-group col-md-3'>
+							<label for='nombre_fantasia'>Nombre de Fantasía</label>
+							<input type='text' class='form-control input-sm ' name='nombre_fantasia' id='nombre_fantasia' >
+							</div>
+						<div class='form-group col-md-2'>
+							<label for='nombre'>Nombre</label>
+							<input type='text' class='form-control input-sm ' name='nombre' id='nombre' >
+							</div>
+						<div class='form-group col-md-2'>
+							<label for='apellido'>Apellido</label>
+							<input type='text' class='form-control input-sm ' name='apellido' id='apellido' >
+							</div>
+						<div class='form-group col-md-2'>
+							<label for='marca_sicom'>Marca de SICOM</label>
+							<input type='text' class='form-control input-sm' name='marca_sicom' id='marca_sicom' >
+							</div>
+						</div>
+					<div class='row'>
+						<div class='form-group col-md-2'>
+							<label for='f_dec_gran_contribuyente'>F. Dec. Gran Contribuyente</label>
+							<input type='text' class='form-control input-sm text-right' name='f_dec_gran_contribuyente' id='f_dec_gran_contribuyente' >
+							</div>
+						<div class='form-group col-md-2'>
+							<label for='f_baja'>F. Baja</label>
+							<input type='text' class='form-control input-sm text-right' name='f_baja' id='f_baja' >
+							</div>
+						<div class='form-group col-md-4'>
+							<label for='motivo_baja'>Motivo de Baja</label>
+							<input type='text' class='form-control input-sm ' name='motivo_baja' id='motivo_baja' >
+							</div>
+						<div class='form-group col-md-4'>
+							<label for='email'>EMAIL</label>
+							<input type='text' class='form-control input-sm ' name='email' id='email' >
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div id='tab_cese' class='tab-pane fade' role='tabpanel'>
+			<div>
+				<form id='frm_datos_cese'>
+				<div id='frm_datos_cese_div'>
+					<div class='row'>
+						<div class='form-group col-md-4'>
+							<label for='f_cese'>F. Cese</label>
+							<input type='text' class='form-control input-sm text-right' name='f_cese' id='f_cese' >
+							</div>
+						<div class='form-group col-md-4'>
+							<label for='f_reingreso_cese'>F. Reingreso Cese</label>
+							<input type='text' class='form-control input-sm text-right' name='f_reingreso_cese' id='f_reingreso_cese' >
+							</div>
+						<div id='tipo_cese_div' class='form-group col-md-4'>
+							<label for='c_tipo_cese'>Tipo Cese</label>
+							<div id='div_categoria' class='input-group' style='width: 100%;'>
+								<input name='c_tipo_cese' id='c_tipo_cese' type='text' class='form-control input-sm input-cod-short validate[required]' >
+								<input name='d_tipo_cese' id='d_tipo_cese' type='text' class='form-control input-sm input-desc-long validate[required]'  readonly >
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div id='tab_domicilio_fiscal' class='tab-pane fade' role='tabpanel'>
+			<div>
+				<form id='frm_datos_domicilio_fiscal'>
+				<div id='frm_datos_domicilio_fiscal_div'>
+					<div class='row'>
+						<div class='form-group col-md-2'>
+							<label for='partido_fiscal'>Partido</label>
+							<input type='text' class='form-control input-sm ' name='partido_fiscal' id='partido_fiscal' >
+							</div>
+						<div class='form-group col-md-2'>
+							<label for='localidad_fiscal'>Localidad</label>
+							<input type='text' class='form-control input-sm ' name='localidad_fiscal' id='localidad_fiscal' >
+							</div>
+						<div class='form-group col-md-2'>
+							<label for='calle_fiscal'>Calle</label>
+							<input type='text' class='form-control input-sm ' name='calle_fiscal' id='calle_fiscal' >
+							</div>
+						<div class='form-group col-md-2'>
+							<label for='nro_puerta_fiscal'>Nro. Puerta</label>
+							<input type='text' class='form-control input-sm text-right' name='nro_puerta_fiscal' id='nro_puerta_fiscal' >
+							</div>
+						<div class='form-group col-md-1'>
+							<label for='ruta_fiscal'>Ruta</label>
+							<input type='text' class='form-control input-sm text-right' name='ruta_fiscal' id='ruta_fiscal' >
+							</div>
+						<div class='form-group col-md-1'>
+							<label for='km_ruta_fiscal'>Km Ruta</label>
+							<input type='text' class='form-control input-sm text-right' name='km_ruta_fiscal' id='km_ruta_fiscal' >
+							</div>
+						<div class='form-group col-md-1'>
+							<label for='torre_fiscal'>Torre</label>
+							<input type='text' class='form-control input-sm text-right' name='torre_fiscal' id='torre_fiscal' >
+							</div>
+						<div class='form-group col-md-1'>
+							<label for='piso_fiscal'>Piso</label>
+							<input type='text' class='form-control input-sm text-right' name='piso_fiscal' id='piso_fiscal' >
+							</div>
+						</div>
+					<div class='row'>
+						<div class='form-group col-md-6'>
+							<label for='entre_calles_fiscal'>Entre Calles</label>
+							<input type='text' class='form-control input-sm ' name='entre_calles_fiscal' id='entre_calles_fiscal' >
+							</div>
+						<div class='form-group col-md-2'>
+							<label for='oficina_fiscal'>Oficina</label>
+							<input type='text' class='form-control input-sm text-right' name='oficina_fiscal' id='oficina_fiscal' >
+							</div>
+						<div class='form-group col-md-2'>
+							<label for='manzana_fiscal'>Manzana</label>
+							<input type='text' class='form-control input-sm text-right' name='manzana_fiscal' id='manzana_fiscal' >
+							</div>
+						<div class='form-group col-md-2'>
+							<label for='telefono_fiscal'>Teléfono</label>
+							<input type='text' class='form-control input-sm text-right' name='telefono_fiscal' id='telefono_fiscal' >
+							</div>
+						</div>
+					<div class='row'>
+						<div class='form-group col-md-2'>
+							<label for='fax_fiscal'>Fax</label>
+							<input type='text' class='form-control input-sm text-right' name='fax_fiscal' id='fax_fiscal' >
+							</div>
+						<div class='form-group col-md-2'>
+							<label for='c_postal_fiscal'>Código Postal</label>
+							<input type='text' class='form-control input-sm text-right' name='c_postal_fiscal' id='c_postal_fiscal' >
+							</div>
+						<div class='form-group col-md-6'>
+							<label for='email_dom_fiscal'>EMAIL</label>
+							<input type='text' class='form-control input-sm ' name='email_dom_fiscal' id='email_dom_fiscal' >
+							</div>
+						<div class='form-group col-md-2'>
+							<label for='jurisdiccion_fiscal'>Jurisdicción</label>
+							<input type='text' class='form-control input-sm text-right' name='jurisdiccion_fiscal' id='jurisdiccion_fiscal' >
+							</div>
+						</div>
+					<div class='row'>
+						<div class='form-group col-md-12'>
+							<label for='observaciones_fiscal'>Observaciones</label>
+							<input type='text' class='form-control input-sm ' name='observaciones_fiscal' id='observaciones_fiscal' >
+							</div>
+						</div>
+					</div>
+				</form>
+
+			</div>
+		</div>
+		<div id='tab_domicilio_ppal' class='tab-pane fade' role='tabpanel'>
+			<div>
+				<form id='frm_datos_domicilio_ppal'>
+				<div id='frm_datos_domicilio_ppal_div'>
+					<div class='row'>
+						<div class='form-group col-md-2'>
+							<label for='partido_ppal'>Partido</label>
+							<input type='text' class='form-control input-sm ' name='partido_ppal' id='partido_ppal'>
+							</div>
+						<div class='form-group col-md-2'>
+							<label for='localidad_ppal'>Localidad</label>
+							<input type='text' class='form-control input-sm ' name='localidad_ppal' id='localidad_ppal'>
+							</div>
+						<div class='form-group col-md-2'>
+							<label for='calle_ppal'>Calle</label>
+							<input type='text' class='form-control input-sm ' name='calle_ppal' id='calle_ppal'>
+							</div>
+						<div class='form-group col-md-2'>
+							<label for='nro_puerta_ppal'>Nro. Puerta</label>
+							<input type='text' class='form-control input-sm text-right' name='nro_puerta_ppal' id='nro_puerta_ppal'>
+							</div>
+						<div class='form-group col-md-1'>
+							<label for='ruta_ppal'>Ruta</label>
+							<input type='text' class='form-control input-sm text-right' name='ruta_ppal' id='ruta_ppal'>
+							</div>
+						<div class='form-group col-md-1'>
+							<label for='km_ruta_ppal'>Km Ruta</label>
+							<input type='text' class='form-control input-sm text-right' name='km_ruta_ppal' id='km_ruta_ppal'>
+							</div>
+						<div class='form-group col-md-1'>
+							<label for='torre_ppal'>Torre</label>
+							<input type='text' class='form-control input-sm text-right' name='torre_ppal' id='torre_ppal'>
+							</div>
+						<div class='form-group col-md-1'>
+							<label for='piso_ppal'>Piso</label>
+							<input type='text' class='form-control input-sm text-right' name='piso_ppal' id='piso_ppal'>
+							</div>
+						</div>
+					<div class='row'>
+						<div class='form-group col-md-6'>
+							<label for='entre_calles_ppal'>Entre Calles</label>
+							<input type='text' class='form-control input-sm ' name='entre_calles_ppal' id='entre_calles_ppal'>
+							</div>
+						<div class='form-group col-md-2'>
+							<label for='oficina_ppal'>Oficina</label>
+							<input type='text' class='form-control input-sm text-right' name='oficina_ppal' id='oficina_ppal'>
+							</div>
+						<div class='form-group col-md-2'>
+							<label for='manzana_ppal'>Manzana</label>
+							<input type='text' class='form-control input-sm text-right' name='manzana_ppal' id='manzana_ppal'>
+							</div>
+						<div class='form-group col-md-2'>
+							<label for='telefono_ppal'>Teléfono</label>
+							<input type='text' class='form-control input-sm text-right' name='telefono_ppal' id='telefono_ppal'>
+							</div>
+						</div>
+					<div class='row'>
+						<div class='form-group col-md-2'>
+							<label for='fax_ppal'>Fax</label>
+							<input type='text' class='form-control input-sm text-right' name='fax_ppal' id='fax_ppal'>
+							</div>
+						<div class='form-group col-md-2'>
+							<label for='c_postal_ppal'>Código Postal</label>
+							<input type='text' class='form-control input-sm text-right' name='c_postal_ppal' id='c_postal_ppal'>
+							</div>
+						<div class='form-group col-md-6'>
+							<label for='email_dom_ppal'>EMAIL</label>
+							<input type='text' class='form-control input-sm ' name='email_dom_ppal' id='email_dom_ppal'>
+							</div>
+						<div class='form-group col-md-2'>
+							<label for='jurisdiccion_ppal'>Jurisdicción</label>
+							<input type='text' class='form-control input-sm text-right' name='jurisdiccion_ppal' id='jurisdiccion_ppal'>
+							</div>
+						</div>
+					<div class='row'>
+						<div class='form-group col-md-12'>
+							<label for='observaciones_ppal'>Observaciones</label>
+							<input type='text' class='form-control input-sm ' name='observaciones_ppal' id='observaciones_ppal'>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div id='tab_nat_jur' class='tab-pane fade' role='tabpanel'>
+			<div>
+				<form id='frm_datos_naturaleza_jur'>
+				<div id='frm_datos_naturaleza_jur_div'>
+					<div class='row'>
+						<div class='form-group col-md-1'>
+							<label for='id_natjur'>ID Nat. Jur.</label>
+							<input type='text' class='form-control input-sm text-right' name='id_natjur' id='id_natjur' >
+							</div>
+						<div class='form-group col-md-4'>
+							<label for='d_natjur'>Descripción NATJUR</label>
+							<input type='text' class='form-control input-sm ' name='d_natjur' id='d_natjur' >
+							</div>
+						<div class='form-group col-md-1' style='width: 12%;'>
+							<label for='nro_inscrip_igj'>Nro. Inscipción IGJ</label>
+							<input type='text' class='form-control input-sm text-right' name='nro_inscrip_igj' id='nro_inscrip_igj' >
+							</div>
+						<div class='form-group col-md-2'>
+							<label for='f_inscrip_igj'>F. Inscripción IGJ</label>
+							<input type='text' class='form-control input-sm text-right' name='f_inscrip_igj' id='f_inscrip_igj' >
+							</div>
+						<div class='form-group col-md-1' style='width: 12%;'>
+							<label for='durac_anios_igj'>Duración en Años</label>
+							<input type='text' class='form-control input-sm text-right' name='durac_anios_igj' id='durac_anios_igj' >
+							</div>
+						<div class='form-group col-md-2'>
+							<label for='f_cierre_ejercicio'>F. Cierre Ejercicio</label>
+							<input type='text' class='form-control input-sm text-right' name='f_cierre_ejercicio' id='f_cierre_ejercicio' >
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div id='tab_uni' class='tab-pane fade' role='tabpanel'>
+			<div>
+				<form id='frm_datos_uni'>
+				<div id='frm_datos_uni_div'>
+					<div class='row'>
+						<div class='form-group col-md-2'>
+							<label for='apellido_nombre_uni'>Apellido Nombre</label>
+							<input type='text' class='form-control input-sm' name='apellido_nombre_uni' id='apellido_nombre_uni' >
+							</div>
+						<div class='form-group col-md-2'>
+							<label for='apellido_uni'>Apellido</label>
+							<input type='text' class='form-control input-sm' name='apellido_uni' id='apellido_uni' >
+							</div>
+						<div class='form-group col-md-2'>
+							<label for='nombre_uni'>Nombre</label>
+							<input type='text' class='form-control input-sm' name='nombre_uni' id='nombre_uni' >
+							</div>
+						<div class='form-group col-md-2'>
+							<label for='f_nac_uni'>F. Nac.</label>
+							<input type='text' class='form-control input-sm text-right' name='f_nac_uni' id='f_nac_uni' >
+							</div>
+						<div class='form-group col-md-1'>
+							<label for='id_tipo_doc_uni'>Id Tipo Doc.</label>
+							<input type='text' class='form-control input-sm text-right' name='id_tipo_doc_uni' id='id_tipo_doc_uni' >
+							</div>
+						<div class='form-group col-md-3'>
+							<label for='d_tipo_doc_uni'>Tipo Doc. Desc.</label>
+							<input type='text' class='form-control input-sm' name='d_tipo_doc_uni' id='d_tipo_doc_uni' >
+							</div>
+						</div>
+					<div class='row'>
+						<div class='form-group col-md-2'>
+							<label for='nro_doc_uni'>Nro. Doc</label>
+							<input type='text' class='form-control input-sm text-right' name='nro_doc_uni' id='nro_doc_uni' >
+							</div>
+						<div class='form-group col-md-2'>
+							<label for='nacionalidad'>Nacionalidad</label>
+							<input type='text' class='form-control input-sm' name='nacionalidad' id='nacionalidad' >
+							</div>
+						<div class='form-group col-md-3'>
+							<label for='nombre_padre_uni'>Padre</label>
+							<input type='text' class='form-control input-sm' name='nombre_padre_uni' id='nombre_padre_uni' >
+							</div>
+						<div class='form-group col-md-3'>
+							<label for='nombre_madre_uni'>Madre</label>
+							<input type='text' class='form-control input-sm' name='nombre_madre_uni' id='nombre_madre_uni' >
+							</div>
+						<div class='form-group col-md-1'>
+							<label for='sexo_uni'>Sexo</label>
+							<input type='text' class='form-control input-sm' name='sexo_uni' id='sexo_uni' >
+							</div>
+						<div class='form-group col-md-1'>
+							<label for='est_civil_uni'>Estado Civil</label>
+							<input type='text' class='form-control input-sm' name='est_civil_uni' id='est_civil_uni' >
+							</div>
+						</div>
+					<div class='row'>
+						<div class='form-group col-md-2'>
+							<label for='partido_uni'>Partido</label>
+							<input type='text' class='form-control input-sm' name='partido_uni' id='partido_uni' >
+							</div>
+						<div class='form-group col-md-2'>
+							<label for='localidad_uni'>Localidad</label>
+							<input type='text' class='form-control input-sm' name='localidad_uni' id='localidad_uni' >
+							</div>
+						<div class='form-group col-md-2'>
+							<label for='calle_uni'>Calle</label>
+							<input type='text' class='form-control input-sm' name='calle_uni' id='calle_uni' >
+							</div>
+						<div class='form-group col-md-2'>
+							<label for='nro_puerta_uni'>Nro. Puerta</label>
+							<input type='text' class='form-control input-sm text-right' name='nro_puerta_uni' id='nro_puerta_uni' >
+							</div>
+						<div class='form-group col-md-1'>
+							<label for='ruta_uni'>Ruta</label>
+							<input type='text' class='form-control input-sm text-right' name='ruta_uni' id='ruta_uni' >
+							</div>
+						<div class='form-group col-md-1'>
+							<label for='km_ruta_uni'>Km Ruta</label>
+							<input type='text' class='form-control input-sm text-right' name='km_ruta_uni' id='km_ruta_uni' >
+							</div>
+						<div class='form-group col-md-1'>
+							<label for='torre_uni'>Torre</label>
+							<input type='text' class='form-control input-sm text-right' name='torre_uni' id='torre_uni' >
+							</div>
+						<div class='form-group col-md-1'>
+							<label for='piso_uni'>Piso</label>
+							<input type='text' class='form-control input-sm text-right' name='piso_uni' id='piso_uni' >
+							</div>
+						</div>
+					<div class='row'>
+						<div class='form-group col-md-6'>
+							<label for='entre_calles_uni'>Entre Calles</label>
+							<input type='text' class='form-control input-sm ' name='entre_calles_uni' id='entre_calles_uni' >
+							</div>
+						<div class='form-group col-md-2'>
+							<label for='oficina_uni'>Oficina</label>
+							<input type='text' class='form-control input-sm text-right' name='oficina_uni' id='oficina_uni' >
+							</div>
+						<div class='form-group col-md-2'>
+							<label for='manzana_uni'>Manzana</label>
+							<input type='text' class='form-control input-sm text-right' name='manzana_uni' id='manzana_uni' >
+							</div>
+						<div class='form-group col-md-2'>
+							<label for='codigo_postal_uni'>Código Postal</label>
+							<input type='text' class='form-control input-sm text-right' name='codigo_postal_uni' id='codigo_postal_uni' >
+							</div>
+						</div>
+					<div class='row'>
+						<div class='form-group col-md-2'>
+							<label for='telefono_uni'>Teléfono</label>
+							<input type='text' class='form-control input-sm text-right' name='telefono_uni' id='telefono_uni' >
+							</div>
+						<div class='form-group col-md-2'>
+							<label for='fax_uni'>Fax</label>
+							<input type='text' class='form-control input-sm text-right' name='fax_uni' id='fax_uni' >
+							</div>
+						<div class='form-group col-md-2'>
+							<label for='id_jurisdiccion_uni'>Jurisdicción</label>
+							<input type='text' class='form-control input-sm text-right' name='id_jurisdiccion_uni' id='id_jurisdiccion_uni' >
+							</div>
+						<div class='form-group col-md-3'>
+							<label for='email_uni'>Email</label>
+							<input type='text' class='form-control input-sm ' name='email_uni' id='email_uni' >
+							</div>
+						<div class='form-group col-md-3'>
+							<label for='observaciones_uni'>Observaciones</label>
+							<input type='text' class='form-control input-sm ' name='observaciones_uni' id='observaciones_uni' >
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div id='tab_ute' class='tab-pane fade' role='tabpanel'>
+			<div>
+				<form id='frm_datos_ute'>
+				<div id='frm_datos_ute_div'>
+					<div class='row'>
+						<div class='form-group col-md-2'>
+							<label for='cuit_ute'>CUIT UTE</label>
+							<input type='text' class='form-control input-sm text-right' name='cuit_ute' id='cuit_ute' >
+							</div>
+						<div class='form-group col-md-2'>
+							<label for='tipo_integrante_ute'>Tipo Integrante</label>
+							<input type='text' class='form-control input-sm text-right' name='tipo_integrante_ute' id='tipo_integrante_ute' >
+							</div>
+						<div class='form-group col-md-2'>
+							<label for='razon_social_ute'>Razón Social</label>
+							<input type='text' class='form-control input-sm ' name='razon_social_ute' id='razon_social_ute' >
+							</div>
+						<div class='form-group col-md-2'>
+							<label for='nro_inscrip_ib_ute'>Nro. Inscripción</label>
+							<input type='text' class='form-control input-sm text-right' name='nro_inscrip_ib_ute' id='nro_inscrip_ib_ute' >
+							</div>
+						<div class='form-group col-md-2'>
+							<label for='cuit_integrante_ute'>CUIT Int.</label>
+							<input type='text' class='form-control input-sm text-right' name='cuit_integrante_ute' id='cuit_integrante_ute' >
+							</div>
+						<div class='form-group col-md-2'>
+							<label for='partido_ute'>Partido</label>
+							<input type='text' class='form-control input-sm ' name='partido_ute' id='partido_ute' >
+							</div>
+						</div>
+					<div class='row'>
+						<div class='form-group col-md-2'>
+							<label for='localidad_ute'>Localidad</label>
+							<input type='text' class='form-control input-sm ' name='localidad_ute' id='localidad_ute' >
+							</div>
+						<div class='form-group col-md-2'>
+							<label for='calle_ute'>Calle</label>
+							<input type='text' class='form-control input-sm ' name='calle_ute' id='calle_ute' >
+							</div>
+						<div class='form-group col-md-1'>
+							<label for='nro_puerta_ute'>Nro. Puerta</label>
+							<input type='text' class='form-control input-sm text-right' name='nro_puerta_ute' id='nro_puerta_ute' >
+							</div>
+						<div class='form-group col-md-1'>
+							<label for='ruta_ute'>Ruta</label>
+							<input type='text' class='form-control input-sm text-right' name='ruta_ute' id='ruta_ute' >
+							</div>
+						<div class='form-group col-md-1'>
+							<label for='km_ruta_ute'>Km Ruta</label>
+							<input type='text' class='form-control input-sm text-right' name='km_ruta_ute' id='km_ruta_ute' >
+							</div>
+						<div class='form-group col-md-1'>
+							<label for='torre_ute'>Torre</label>
+							<input type='text' class='form-control input-sm text-right' name='torre_ute' id='torre_ute' >
+							</div>
+						<div class='form-group col-md-1'>
+							<label for='piso_ute'>Piso</label>
+							<input type='text' class='form-control input-sm text-right' name='piso_ute' id='piso_ute' >
+							</div>
+						<div class='form-group col-md-3'>
+							<label for='entre_calles_ute'>Entre Calles</label>
+							<input type='text' class='form-control input-sm ' name='entre_calles_ute' id='entre_calles_ute' >
+							</div>
+						</div>
+					<div class='row'>
+						<div class='form-group col-md-2'>
+							<label for='oficina_ute'>Oficina</label>
+							<input type='text' class='form-control input-sm text-right' name='oficina_ute' id='oficina_ute' >
+							</div>
+						<div class='form-group col-md-2'>
+							<label for='manzana_ute'>Manzana</label>
+							<input type='text' class='form-control input-sm text-right' name='manzana_ute' id='manzana_ute' >
+							</div>
+						<div class='form-group col-md-2'>
+							<label for='c_postal_ute'>Código Postal</label>
+							<input type='text' class='form-control input-sm text-right' name='c_postal_ute' id='c_postal_ute' >
+							</div>
+						<div class='form-group col-md-2'>
+							<label for='telefono_ute'>Teléfono</label>
+							<input type='text' class='form-control input-sm text-right' name='telefono_ute' id='telefono_ute' >
+							</div>
+						<div class='form-group col-md-2'>
+							<label for='fax_ute'>Fax</label>
+							<input type='text' class='form-control input-sm text-right' name='fax_ute' id='fax_ute' >
+							</div>
+						<div class='form-group col-md-2'>
+							<label for='id_jurisdiccion_ute'>Jurisdicción</label>
+							<input type='text' class='form-control input-sm text-right' name='id_jurisdiccion_ute' id='id_jurisdiccion_ute' >
+							</div>
+						</div>
+					<div class='row'>
+						<div class='form-group col-md-6'>
+							<label for='email_ute'>EMAIL</label>
+							<input type='text' class='form-control input-sm ' name='email_ute' id='email_ute' >
+							</div>
+						<div class='form-group col-md-6'>
+							<label for='observaciones_ute'>Observaciones</label>
+							<input type='text' class='form-control input-sm ' name='observaciones_ute' id='observaciones_ute' >
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div id='tab_resp_soc' class='tab-pane fade' role='tabpanel'>
+			<div>
+				<form id='frm_datos_resp_soc'>
+				<div id='frm_datos_resp_soc_div'>
+					<div class='row'>
+						<div class='form-group col-md-3' style='width: 23%;'>
+							<label for='apellido_nombre_rs'>Apellido Nombre</label>
+							<input type='text' class='form-control input-sm ' name='apellido_nombre_rs' id='apellido_nombre_rs' >
+							</div>
+						<div class='form-group col-md-2'>
+							<label for='apellido_rs'>Apellido</label>
+							<input type='text' class='form-control input-sm ' name='apellido_rs' id='apellido_rs' >
+							</div>
+						<div class='form-group col-md-2'>
+							<label for='nombre_rs'>Nombre</label>
+							<input type='text' class='form-control input-sm ' name='nombre_rs' id='nombre_rs' >
+							</div>
+						<div class='form-group col-md-1' style='width: 10%;'>
+							<label for='nro_orden_rs'>Nro. de Orden</label>
+							<input type='text' class='form-control input-sm text-right' name='nro_orden_rs' id='nro_orden_rs' >
+							</div>
+						<div class='form-group col-md-1'>
+							<label for='id_tipodoc_rs'>Id Tipo Doc.</label>
+							<input type='text' class='form-control input-sm text-right' name='id_tipodoc_rs' id='id_tipodoc_rs' >
+							</div>
+						<div class='form-group col-md-3'>
+							<label for='d_tipo_doc_rs'>Tipo Doc. Desc.</label>
+							<input type='text' class='form-control input-sm text-right' name='d_tipo_doc_rs' id='d_tipo_doc_rs' >
+							</div>
+						</div>
+					<div class='row'>
+						<div class='form-group col-md-2'>
+							<label for='nro_doc_rs'>Nro. Doc</label>
+							<input type='text' class='form-control input-sm text-right' name='nro_doc_rs' id='nro_doc_rs' >
+							</div>
+						<div class='form-group col-md-2'>
+							<label for='cargo_rs'>Cargo</label>
+							<input type='text' class='form-control input-sm ' name='cargo_rs' id='cargo_rs' >
+							</div>
+						<div class='form-group col-md-2'>
+							<label for='caracter_firma_rs'>Caracter Firma</label>
+							<input type='text' class='form-control input-sm ' name='caracter_firma_rs' id='caracter_firma_rs' >
+							</div>
+						<div class='form-group col-md-2'>
+							<label for='cuit_rs'>CUIT</label>
+							<input type='text' class='form-control input-sm text-right' name='cuit_rs' id='cuit_rs' >
+							</div>
+						<div class='form-group col-md-2'>
+							<label for='partido_rs'>Partido</label>
+							<input type='text' class='form-control input-sm ' name='partido_rs' id='partido_rs' >
+							</div>
+						<div class='form-group col-md-2'>
+							<label for='localidad_rs'>Localidad</label>
+							<input type='text' class='form-control input-sm ' name='localidad_rs' id='localidad_rs' >
+							</div>
+						</div>
+					<div class='row'>
+						<div class='form-group col-md-2'>
+							<label for='calle_rs'>Calle</label>
+							<input type='text' class='form-control input-sm ' name='calle_rs' id='calle_rs' >
+							</div>
+						<div class='form-group col-md-1'>
+							<label for='nro_puerta_rs'>Nro. Puerta</label>
+							<input type='text' class='form-control input-sm text-right' name='nro_puerta_rs' id='nro_puerta_rs' >
+							</div>
+						<div class='form-group col-md-1'>
+							<label for='ruta_rs'>Ruta</label>
+							<input type='text' class='form-control input-sm text-right' name='ruta_rs' id='ruta_rs' >
+							</div>
+						<div class='form-group col-md-1'>
+							<label for='km_ruta_rs'>Km Ruta</label>
+							<input type='text' class='form-control input-sm text-right' name='km_ruta_rs' id='km_ruta_rs' >
+							</div>
+						<div class='form-group col-md-1'>
+							<label for='torre_rs'>Torre</label>
+							<input type='text' class='form-control input-sm text-right' name='torre_rs' id='torre_rs' >
+							</div>
+						<div class='form-group col-md-1'>
+							<label for='piso_rs'>Piso</label>
+							<input type='text' class='form-control input-sm text-right' name='piso_rs' id='piso_rs' >
+							</div>
+						<div class='form-group col-md-5'>
+							<label for='entre_calles_rs'>Entre Calles</label>
+							<input type='text' class='form-control input-sm ' name='entre_calles_rs' id='entre_calles_rs' >
+							</div>
+						</div>
+					<div class='row'>
+						<div class='form-group col-md-1'>
+							<label for='oficina_rs'>Oficina</label>
+							<input type='text' class='form-control input-sm text-right' name='oficina_rs' id='oficina_rs' >
+							</div>
+						<div class='form-group col-md-1'>
+							<label for='manzana_rs'>Manzana</label>
+							<input type='text' class='form-control input-sm text-right' name='manzana_rs' id='manzana_rs' >
+							</div>
+						<div class='form-group col-md-2'>
+							<label for='codigo_postal_rs'>Código Postal</label>
+							<input type='text' class='form-control input-sm text-right' name='codigo_postal_rs' id='codigo_postal_rs' >
+							</div>
+						<div class='form-group col-md-2'>
+							<label for='telefono_rs'>Teléfono</label>
+							<input type='text' class='form-control input-sm text-right' name='telefono_rs' id='telefono_rs' >
+							</div>
+						<div class='form-group col-md-2'>
+							<label for='fax_rs'>Fax</label>
+							<input type='text' class='form-control input-sm text-right' name='fax_rs' id='fax_rs' >
+							</div>
+						<div class='form-group col-md-1'>
+							<label for='id_jurisdiccion_rs'>Jurisdicción</label>
+							<input type='text' class='form-control input-sm text-right' name='id_jurisdiccion_rs' id='id_jurisdiccion_rs' >
+							</div>
+						<div class='form-group col-md-3'>
+							<label for='email_rs'>Email</label>
+							<input type='text' class='form-control input-sm ' name='email_rs' id='email_rs' >
+							</div>
+						</div>
+					<div class='row'>
+						<div class='form-group col-md-12'>
+							<label for='observaciones_rs'>Observaciones</label>
+							<input type='text' class='form-control input-sm ' name='observaciones_rs' id='observaciones_rs' >
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div id='tab_act' class='tab-pane fade' role='tabpanel'>
+			<div>
+				<div id='actividades'>
+					<table id='actividades_grid' class='scroll' cellpadding='0' cellspacing='0'>
+						<tr>
+							<td>&nbsp;</td>
+						</tr>
+					</table>
+					<div id='actividades_grid_pager' class='scroll' style='text-align:center;'></div>
+				</div>
+			</div>
+		</div>
+		<div id='tab_juris' class='tab-pane fade' role='tabpanel'>
+			<div>
+				<div id='jurisdicciones'>
+					<table id='jurisdicciones_grid' class='scroll' cellpadding='0' cellspacing='0'>
+						<tr>
+							<td>&nbsp;</td>
+						</tr>
+					</table>
+					<div id='jurisdicciones_grid_pager' class='scroll' style='text-align:center;'></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

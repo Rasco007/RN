@@ -1,0 +1,20 @@
+
+.form-group{
+    margin-bottom: 15px !important;
+}
+
+#c_verif_dom, #c_verif_dom_ant{
+    width: 35px;
+}
+
+/*.de_baja, #lupa_dominio, #lupa_dominio_ant{
+    display: none;
+}*/
+
+#div_input_motivo_baja, #div_input_motivo_cese{
+    width: 100%;
+}
+
+#d_denominacion{
+    text-align: left;
+}

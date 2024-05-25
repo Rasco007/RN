@@ -1,0 +1,115 @@
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading">Consulta de Movimientos Bancarios</div>
+            <div class="panel-body">
+                <form id='frm_consulta_sifere_movban' style="margin-top: 5px;">
+
+                    <div class="row">
+
+                        <div class="form-group col-md-2 ">
+                            <label for="id_archivo">Nro. Archivo</label>
+                            <input name='id_archivo' id='id_archivo' type='text' class='form-control input-sm text-right numero_entero' />
+                        </div>
+
+                        <div class="form-group col-md-2" >
+                            <label for="c_tipo_registro">Tipo de Registro</label>
+                            <input name='c_tipo_registro' id='c_tipo_registro' type='text' class='form-control input-sm text-right numero_entero' />
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="n_total_debito">Total Débito</label>
+                            <input type="text" name="n_total_debito" class="form-control input-sm numerico mascara_importe" id="n_total_debito">
+                        </div>
+
+                        <div class="form-group col-md-2" >
+                            <label for="f_proceso">F. Proceso</label>
+                            <div class="input-group" style="width: 100%;">
+                                <input type="text" class="form-control input-sm datepicker text-center limpiar" name="f_proceso" id="f_proceso" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off">
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="f_acreditacion">F. Acreditación MB</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm datepicker text-center limpiar" name="f_acreditacion" id="f_acreditacion" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off">
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-2" >
+                            <label for="n_total_credito">Total Crédito</label>
+                            <input type="text" name="n_total_credito" class="form-control input-sm numerico mascara_importe" id="n_total_credito">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-3" >
+                            <label for="c_organismo_recaudador">Organismo Recaudador</label>
+                            <input name='c_organismo_recaudador' id='c_organismo_recaudador' type='text' class='form-control input-sm text-right numero_entero' />
+                        </div>
+
+                        <div class="form-group col-md-3" >
+                            <label for="c_banco_administrador">Banco Administrador</label>
+                            <input name='c_banco_administrador' id='c_banco_administrador' type='text' class='form-control input-sm text-right numero_entero' />
+                        </div>
+
+
+                        <div class="form-group col-md-2" >
+                            <label for="n_cantidad_detalle">Cant. Registros Detalle</label>
+                            <input name='n_cantidad_detalle' id='n_cantidad_detalle' type='text' class='form-control input-sm text-right numero_entero' />
+                        </div>
+
+                        <div class="form-group col-md-2" >
+                            <label for="f_concil_art">F. Conciliación ART</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm datepicker text-center limpiar" name="f_concil_art" id="f_concil_art" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off">
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-2" >
+                            <label for="fecha_acre_art">F. Acreditación ART</label>
+                            <div class="input-group" style="width: 100%;">
+                                <input type="text" class="form-control input-sm datepicker text-center limpiar" name="fecha_acre_art" id="fecha_acre_art" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off">
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class='row-search text-center' >
+                        <button type='button' id='btn_buscar' name='btn_buscar' class="btn-sm btn_buscar"></button>
+                        <button type='button' id='btn_limpiar' name='btn_limpiar' class="btn-sm btn_limpiar"></button>
+                        <button type='button' id='btn_generar_lista' class="btn-sm btn-primary" >GENERAR EXCEL</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id='grid_cabecera_archivo' class="tabla-container">
+    <div>
+        <table id='main_grid_cabecera_archivo' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+        <div id='main_grid_cabecera_archivo_pager' class='scroll' style='text-align:center;'></div>
+    </div>
+    <br/>
+</div>
+
+<div id='grid_detalle_archivo' class="tabla-container">
+    <div>
+        <table id='main_grid_detalle_archivo' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+        <div id='main_grid_detalle_archivo_pager' class='scroll' style='text-align:center;'></div>
+    </div>
+    <br/>
+</div>
+
+<div id='grid_totales_sifere' class="tabla-container">
+    <div>
+        <table id='main_grid_totales_sifere' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+        <div id='main_grid_totales_sifere_pager' class='scroll' style='text-align:center;'></div>
+    </div>
+    <br/>
+</div>
+
+

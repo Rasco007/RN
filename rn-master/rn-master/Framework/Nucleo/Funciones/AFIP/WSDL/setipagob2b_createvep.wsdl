@@ -1,0 +1,1511 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://interoperable.cpvep.model.domain.pago.seti.osiris.afip.gov" xmlns:tns="http://interoperable.cpvep.model.domain.pago.seti.osiris.afip.gov" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	 <wsdl:types>
+
+		  <xs:schema elementFormDefault="qualified" targetNamespace="http://interoperable.cpvep.model.domain.pago.seti.osiris.afip.gov">
+
+			<!-- inicio xsd -->
+
+			   <xs:complexType name="DummyResponseType">
+
+				    <xs:sequence>
+
+					     <xs:element name="appserver" nillable="true" type="xs:string"/>
+
+					     <xs:element name="authserver" nillable="true" type="xs:string"/>
+
+					     <xs:element name="dbserver" nillable="true" type="xs:string"/>
+
+				    </xs:sequence>
+
+			   </xs:complexType>
+
+			   <xs:annotation>
+
+				    <xs:documentation>
+Un CP mas su correspondiente VEP.    </xs:documentation>
+
+			   </xs:annotation>
+
+			   <xs:element name="CPVEP" type="tns:CPVEPType"/>
+
+			   <xs:complexType name="CPVEPType">
+
+				    <xs:sequence>
+
+					     <xs:element minOccurs="0" name="VEP" type="tns:VEPType"/>
+
+					     <xs:element minOccurs="0" name="CP" type="tns:CPType"/>
+
+				    </xs:sequence>
+
+			   </xs:complexType>
+
+			   <xs:complexType name="VEPType">
+
+				    <xs:annotation>
+
+					     <xs:documentation>
+Volante Electronico de Pago     </xs:documentation>
+
+				    </xs:annotation>
+
+				    <xs:sequence>
+
+					     <xs:element minOccurs="0" name="nroVEP">
+
+						      <xs:annotation>
+
+							       <xs:documentation>
+Identificador unico del VEP       </xs:documentation>
+
+						      </xs:annotation>
+
+						      <xs:simpleType>
+
+							       <xs:restriction base="xs:long">
+
+								        <xs:minInclusive value="1"/>
+
+								        <xs:maxInclusive value="999999999999"/>
+
+							       </xs:restriction>
+
+						      </xs:simpleType>
+
+					     </xs:element>
+
+					     <xs:element minOccurs="0" name="fechaHoraCreacion">
+
+						      <xs:annotation>
+
+							       <xs:documentation>
+Fecha-Hora en que se genero el VEP. Formato YYYY-MM-DD HH:MI:SS       </xs:documentation>
+
+						      </xs:annotation>
+
+						      <xs:simpleType>
+
+							       <xs:restriction base="xs:string">
+
+								        <xs:length value="19"/>
+
+							       </xs:restriction>
+
+						      </xs:simpleType>
+
+					     </xs:element>
+
+					     <xs:element minOccurs="0" name="fechaExpiracion">
+
+						      <xs:annotation>
+
+							       <xs:documentation>
+El sitio de pago debe publicar este VEP hasta el ultimo minuto de este dia. Formato YYYY-MM-DD       </xs:documentation>
+
+						      </xs:annotation>
+
+						      <xs:simpleType>
+
+							       <xs:restriction base="xs:string">
+
+								        <xs:length value="10"/>
+
+							       </xs:restriction>
+
+						      </xs:simpleType>
+
+					     </xs:element>
+
+					     <xs:element minOccurs="0" name="fechaVencimiento">
+
+						      <xs:annotation>
+
+							       <xs:documentation>
+Fecha en que el sistema de Debito Directo debe rendir este pago por Osiris Concentrador. Formato YYYY-MM-DD       </xs:documentation>
+
+						      </xs:annotation>
+
+						      <xs:simpleType>
+
+							       <xs:restriction base="xs:string">
+
+								        <xs:length value="10"/>
+
+							       </xs:restriction>
+
+						      </xs:simpleType>
+
+					     </xs:element>
+
+					     <xs:element name="nroFormulario">
+
+						      <xs:annotation>
+
+							       <xs:documentation>
+Uso AFIP       </xs:documentation>
+
+						      </xs:annotation>
+
+						      <xs:simpleType>
+
+							       <xs:restriction base="xs:int">
+
+								        <xs:minInclusive value="1"/>
+
+								        <xs:maxInclusive value="99999"/>
+
+							       </xs:restriction>
+
+						      </xs:simpleType>
+
+					     </xs:element>
+
+					     <xs:element default="AFIP" minOccurs="0" name="orgRecaudDesc">
+
+						      <xs:annotation>
+
+							       <xs:documentation>
+Nombre del organismo oficial de recaudacion. Ej. AFIP, Rentas de la Provincia de Bs As, Rentas de Sta Fe, etc       </xs:documentation>
+
+						      </xs:annotation>
+
+						      <xs:simpleType>
+
+							       <xs:restriction base="xs:string">
+
+								        <xs:maxLength value="60"/>
+
+							       </xs:restriction>
+
+						      </xs:simpleType>
+
+					     </xs:element>
+
+					     <xs:element minOccurs="0" name="codTipoPago">
+
+						      <xs:annotation>
+
+							       <xs:documentation>
+Codificacion del tipo de pago para pago telefonico       </xs:documentation>
+
+						      </xs:annotation>
+
+						      <xs:simpleType>
+
+							       <xs:restriction base="xs:int">
+
+								        <xs:minInclusive value="1"/>
+
+								        <xs:maxInclusive value="9999"/>
+
+							       </xs:restriction>
+
+						      </xs:simpleType>
+
+					     </xs:element>
+
+					     <xs:element minOccurs="0" name="pagoDesc">
+
+						      <xs:simpleType>
+
+							       <xs:restriction base="xs:string">
+
+								        <xs:maxLength value="60"/>
+
+							       </xs:restriction>
+
+						      </xs:simpleType>
+
+					     </xs:element>
+
+					     <xs:element minOccurs="0" name="pagoDescExtracto">
+
+						      <xs:annotation>
+
+							       <xs:documentation>
+Leyenda para extracto bancario o de la tarjeta       </xs:documentation>
+
+						      </xs:annotation>
+
+						      <xs:simpleType>
+
+							       <xs:restriction base="xs:string">
+
+								        <xs:maxLength value="22"/>
+
+							       </xs:restriction>
+
+						      </xs:simpleType>
+
+					     </xs:element>
+
+					     <xs:element minOccurs="0" name="usuarioCUIT">
+
+						      <xs:annotation>
+
+							       <xs:documentation>
+CUIT del usuario que se logoneo al sistema y genero la VEP       </xs:documentation>
+
+						      </xs:annotation>
+
+						      <xs:simpleType>
+
+							       <xs:restriction base="xs:long">
+
+								        <xs:minExclusive value="20000000000"/>
+
+								        <xs:maxExclusive value="34999999999"/>
+
+							       </xs:restriction>
+
+						      </xs:simpleType>
+
+					     </xs:element>
+
+					     <xs:element minOccurs="0" name="autorizanteCUIT">
+
+						      <xs:annotation>
+
+							       <xs:documentation>
+CUIT del contribuyente que autorizo al usuarioCUIT para que presente sus DDJJ.       </xs:documentation>
+
+						      </xs:annotation>
+
+						      <xs:simpleType>
+
+							       <xs:restriction base="xs:long">
+
+								        <xs:minExclusive value="20000000000"/>
+
+								        <xs:maxExclusive value="34999999999"/>
+
+							       </xs:restriction>
+
+						      </xs:simpleType>
+
+					     </xs:element>
+
+					     <xs:element minOccurs="0" name="contribuyenteCUIT">
+
+						      <xs:annotation>
+
+							       <xs:documentation>
+CUIT de la Obligacion a pagar. Debe figurar en el Comprobante de Pago y/o extracto del banco o de la tarjeta       </xs:documentation>
+
+						      </xs:annotation>
+
+						      <xs:simpleType>
+
+							       <xs:restriction base="xs:long">
+
+								        <xs:minExclusive value="20000000000"/>
+
+								        <xs:maxExclusive value="34999999999"/>
+
+							       </xs:restriction>
+
+						      </xs:simpleType>
+
+					     </xs:element>
+
+					     <xs:element default="0" minOccurs="0" name="establecimiento">
+
+						      <xs:annotation>
+
+							       <xs:documentation>
+Por lo general viene en cero. Debe consignarse en el Comprobante de Pago solo cuando es mayor que cero.       </xs:documentation>
+
+						      </xs:annotation>
+
+						      <xs:simpleType>
+
+							       <xs:restriction base="xs:int">
+
+								        <xs:maxInclusive value="99"/>
+
+							       </xs:restriction>
+
+						      </xs:simpleType>
+
+					     </xs:element>
+
+					     <xs:element default="19" minOccurs="0" name="concepto">
+
+						      <xs:simpleType>
+
+							       <xs:restriction base="xs:int">
+
+								        <xs:minInclusive value="0"/>
+
+								        <xs:maxInclusive value="999"/>
+
+							       </xs:restriction>
+
+						      </xs:simpleType>
+
+					     </xs:element>
+
+					     <xs:element minOccurs="0" name="conceptoDesc">
+
+						      <xs:simpleType>
+
+							       <xs:restriction base="xs:string">
+
+								        <xs:maxLength value="60"/>
+
+							       </xs:restriction>
+
+						      </xs:simpleType>
+
+					     </xs:element>
+
+					     <xs:element default="19" minOccurs="0" name="subConcepto">
+
+						      <xs:annotation>
+
+							       <xs:documentation>
+Debe consignarse en el Comprobante de Pago cuando es distinto de AFIP-Seti-VEP.concepto       </xs:documentation>
+
+						      </xs:annotation>
+
+						      <xs:simpleType>
+
+							       <xs:restriction base="xs:int">
+
+								        <xs:minInclusive value="0"/>
+
+								        <xs:maxInclusive value="999"/>
+
+							       </xs:restriction>
+
+						      </xs:simpleType>
+
+					     </xs:element>
+
+					     <xs:element minOccurs="0" name="subConceptoDesc">
+
+						      <xs:annotation>
+
+							       <xs:documentation>
+Debe consignarse en el Comprobante de Pago cuando es distinto de AFIP-Seti-VEP.conceptoDesc       </xs:documentation>
+
+						      </xs:annotation>
+
+						      <xs:simpleType>
+
+							       <xs:restriction base="xs:string">
+
+								        <xs:maxLength value="60"/>
+
+							       </xs:restriction>
+
+						      </xs:simpleType>
+
+					     </xs:element>
+
+					     <xs:element minOccurs="0" name="periodoFiscal">
+
+						      <xs:annotation>
+
+							       <xs:documentation>
+El formato es YYYYMM. MM puede valer desde 00 (para Periodo Fiscales Anuales) hasta 12. Debe consignarse en el Comprobante de Pago       </xs:documentation>
+
+						      </xs:annotation>
+
+						      <xs:simpleType>
+
+							       <xs:restriction base="xs:int">
+
+								        <xs:maxInclusive value="205001"/>
+
+								        <xs:minInclusive value="196000"/>
+
+							       </xs:restriction>
+
+						      </xs:simpleType>
+
+					     </xs:element>
+
+					     <xs:element default="0" minOccurs="0" name="anticipoCuota">
+
+						      <xs:annotation>
+
+							       <xs:documentation>
+Debe consignarse en el Comprobante de Pago solo cuando es mayor que cero.       </xs:documentation>
+
+						      </xs:annotation>
+
+						      <xs:simpleType>
+
+							       <xs:restriction base="xs:int">
+
+								        <xs:maxInclusive value="999"/>
+
+							       </xs:restriction>
+
+						      </xs:simpleType>
+
+					     </xs:element>
+
+					     <xs:element name="importe">
+
+						      <xs:annotation>
+
+							       <xs:documentation>
+Importe total a pagar. Debe ser igual a la suma de Obligacion.importe       </xs:documentation>
+
+						      </xs:annotation>
+
+						      <xs:simpleType>
+
+							       <xs:restriction base="xs:double">
+
+								        <xs:minInclusive value="0.01"/>
+
+								        <xs:maxInclusive value="9999999999.99"/>
+
+							       </xs:restriction>
+
+						      </xs:simpleType>
+
+					     </xs:element>
+
+					     <xs:element minOccurs="0" name="ownerCuit">
+
+						      <xs:annotation>
+
+							       <xs:documentation>
+CUIT del propietario del VEP, requerido para entidades externas que construyen VEPs y luego los envian a AFIP para ser procesados       </xs:documentation>
+
+						      </xs:annotation>
+
+						      <xs:simpleType>
+
+							       <xs:restriction base="xs:long">
+
+								        <xs:minExclusive value="20000000000"/>
+
+								        <xs:maxExclusive value="34999999999"/>
+
+							       </xs:restriction>
+
+						      </xs:simpleType>
+
+					     </xs:element>
+
+					     <xs:element minOccurs="0" name="ownerTransactionId" type="xs:long">
+
+						      <xs:annotation>
+
+							       <xs:documentation>
+Nro de transaccion utilizada por el   owner para identificar univocamente al VEP generado       </xs:documentation>
+
+						      </xs:annotation>
+
+					     </xs:element>
+
+				     <xs:element maxOccurs="1" minOccurs="0" name="Detalles" type="tns:DetallesType"/>
+
+				     <xs:element name="Obligaciones" type="tns:ObligacionesType"/>
+
+				    </xs:sequence>
+
+			   </xs:complexType>
+
+			
+			   <xs:complexType name="DetallesType">
+
+				    <xs:sequence>
+
+					     <xs:element maxOccurs="99" minOccurs="0" name="Detalle" type="tns:DetalleType"/>
+
+				    </xs:sequence>
+
+			   </xs:complexType>
+
+   
+			   <xs:complexType name="ObligacionesType">
+
+				    <xs:sequence>
+
+					     <xs:element maxOccurs="99" name="Obligacion" type="tns:ObligacionType"/>
+
+				    </xs:sequence>
+
+			   </xs:complexType>
+
+   
+			   <xs:complexType name="DetalleType">
+
+				    <xs:annotation>
+
+					     <xs:documentation>
+Datos de detalle del VEP. Varias segun nroFormulario     </xs:documentation>
+
+				    </xs:annotation>
+
+				    <xs:sequence>
+
+					     <xs:element name="campo">
+
+						      <xs:annotation>
+
+							       <xs:documentation>
+Uso AFIP       </xs:documentation>
+
+						      </xs:annotation>
+
+						      <xs:simpleType>
+
+							       <xs:restriction base="xs:int">
+
+								        <xs:maxInclusive value="99"/>
+
+								        <xs:minInclusive value="1"/>
+
+							       </xs:restriction>
+
+						      </xs:simpleType>
+
+					     </xs:element>
+
+					     <xs:element default="N" minOccurs="0" name="campoTipo">
+
+						      <xs:simpleType>
+
+							       <xs:restriction base="xs:string">
+
+								        <xs:length value="1"/>
+
+								        <xs:pattern value="N|C"/>
+
+							       </xs:restriction>
+
+						      </xs:simpleType>
+
+					     </xs:element>
+
+					     <xs:element minOccurs="0" name="campoDesc">
+
+						      <xs:annotation>
+
+							       <xs:documentation>
+Debe consignarse en el Comprobante de Pago como el level del Campo.contenido.       </xs:documentation>
+
+						      </xs:annotation>
+
+						      <xs:simpleType>
+
+							       <xs:restriction base="xs:string">
+
+								        <xs:maxLength value="60"/>
+
+							       </xs:restriction>
+
+						      </xs:simpleType>
+
+					     </xs:element>
+
+					     <xs:element name="contenido">
+
+						      <xs:annotation>
+
+							       <xs:documentation>
+Debe consignarse en el Comprobante de Pago       </xs:documentation>
+
+						      </xs:annotation>
+
+						      <xs:simpleType>
+
+							       <xs:restriction base="xs:string">
+
+								        <xs:minLength value="1"/>
+
+								        <xs:maxLength value="60"/>
+
+							       </xs:restriction>
+
+						      </xs:simpleType>
+
+					     </xs:element>
+
+					     <xs:element minOccurs="0" name="contenidoDesc">
+
+						      <xs:annotation>
+
+							       <xs:documentation>
+Debe consignarse en el Comprobante de Pagos como la descripcion del Campo.contenido       </xs:documentation>
+
+						      </xs:annotation>
+
+						      <xs:simpleType>
+
+							       <xs:restriction base="xs:string">
+
+								        <xs:maxLength value="60"/>
+
+							       </xs:restriction>
+
+						      </xs:simpleType>
+
+					     </xs:element>
+
+				    </xs:sequence>
+
+			   </xs:complexType>
+
+			   <xs:complexType name="ObligacionType">
+
+				    <xs:annotation>
+
+					     <xs:documentation>
+Impuestos que se pagan, cada uno con su respectivo importe     </xs:documentation>
+
+				    </xs:annotation>
+
+				    <xs:sequence>
+
+					     <xs:element name="impuesto">
+
+						      <xs:simpleType>
+
+							       <xs:restriction base="xs:int">
+
+								        <xs:maxInclusive value="9999"/>
+
+								        <xs:minInclusive value="1"/>
+
+							       </xs:restriction>
+
+						      </xs:simpleType>
+
+					     </xs:element>
+
+					     <xs:element minOccurs="0" name="impuestoDesc">
+
+						      <xs:simpleType>
+
+							       <xs:restriction base="xs:string">
+
+								        <xs:maxLength value="60"/>
+
+							       </xs:restriction>
+
+						      </xs:simpleType>
+
+					     </xs:element>
+
+					     <xs:element name="importe">
+
+						      <xs:simpleType>
+
+							       <xs:restriction base="xs:double">
+
+								        <xs:minInclusive value="0.01"/>
+
+								        <xs:maxInclusive value="9999999999.99"/>
+
+							       </xs:restriction>
+
+						      </xs:simpleType>
+
+					     </xs:element>
+
+				    </xs:sequence>
+
+			   </xs:complexType>
+
+			   <xs:annotation>
+
+				    <xs:documentation>
+Comprobante de Pago generado por la Entidad de Pago. Puede usarse para informar Reversiones y Rechazos de DebitoDirecto    </xs:documentation>
+
+			   </xs:annotation>
+
+			   <xs:complexType name="CPType">
+
+				    <xs:sequence>
+
+					     <xs:element minOccurs="0" name="cpId">
+
+						      <xs:annotation>
+
+							       <xs:documentation>
+Asignado por AFIP para uso xs:interno       </xs:documentation>
+
+						      </xs:annotation>
+
+						      <xs:simpleType>
+
+							       <xs:restriction base="xs:long">
+
+								        <xs:minInclusive value="1"/>
+
+								        <xs:maxInclusive value="999999999999"/>
+
+							       </xs:restriction>
+
+						      </xs:simpleType>
+
+					     </xs:element>
+
+					     <xs:element minOccurs="0" name="nroVEP">
+
+						      <xs:simpleType>
+
+							       <xs:restriction base="xs:long">
+
+								        <xs:minInclusive value="1"/>
+
+								        <xs:maxInclusive value="999999999999"/>
+
+							       </xs:restriction>
+
+						      </xs:simpleType>
+
+					     </xs:element>
+
+					     <xs:element minOccurs="0" name="contribuyenteCUIT">
+
+						      <xs:annotation>
+
+							       <xs:documentation>
+Debe ser igual al AFIP-Seti-VEP.contribuyenteCUIT correspondiente       </xs:documentation>
+
+						      </xs:annotation>
+
+						      <xs:simpleType>
+
+							       <xs:restriction base="xs:long">
+
+								        <xs:minExclusive value="20000000000"/>
+
+								        <xs:maxExclusive value="34999999999"/>
+
+							       </xs:restriction>
+
+						      </xs:simpleType>
+
+					     </xs:element>
+
+					     <xs:element name="importe">
+
+						      <xs:annotation>
+
+							       <xs:documentation>
+Debe ser igual al AFIP-Seti-VEP.importe correspondiente       </xs:documentation>
+
+						      </xs:annotation>
+
+						      <xs:simpleType>
+
+							       <xs:restriction base="xs:double">
+
+								        <xs:maxInclusive value="9999999999.99"/>
+
+								        <xs:minInclusive value="0.01"/>
+
+							       </xs:restriction>
+
+						      </xs:simpleType>
+
+					     </xs:element>
+
+					     <xs:element minOccurs="0" name="sucursal">
+
+						      <xs:simpleType>
+
+							       <xs:restriction base="xs:int">
+
+								        <xs:minInclusive value="0"/>
+
+								        <xs:maxInclusive value="9999"/>
+
+							       </xs:restriction>
+
+						      </xs:simpleType>
+
+					     </xs:element>
+
+					     <xs:element name="tipoSucursal">
+
+						      <xs:simpleType>
+
+							       <xs:restriction base="xs:int">
+
+								        <xs:minInclusive value="1"/>
+
+								        <xs:maxInclusive value="99"/>
+
+							       </xs:restriction>
+
+						      </xs:simpleType>
+
+					     </xs:element>
+
+					     <xs:element minOccurs="0" name="terminal">
+
+						      <xs:simpleType>
+
+							       <xs:restriction base="xs:string">
+
+								        <xs:maxLength value="11"/>
+
+							       </xs:restriction>
+
+						      </xs:simpleType>
+
+					     </xs:element>
+
+					     <xs:element minOccurs="0" name="operador">
+
+						      <xs:simpleType>
+
+							       <xs:restriction base="xs:string">
+
+								        <xs:maxLength value="11"/>
+
+							       </xs:restriction>
+
+						      </xs:simpleType>
+
+					     </xs:element>
+
+					     <xs:element default="1" minOccurs="0" name="formaPago">
+
+						      <xs:annotation>
+
+							       <xs:documentation>
+6: Debito directo; X: Pago telefonico; Y: Pago por xs:internet       </xs:documentation>
+
+						      </xs:annotation>
+
+						      <xs:simpleType>
+
+							       <xs:restriction base="xs:int">
+
+								        <xs:pattern value="1|68|69"/>
+
+							       </xs:restriction>
+
+						      </xs:simpleType>
+
+					     </xs:element>
+
+					     <xs:element default="1" minOccurs="0" name="moneda">
+
+						      <xs:simpleType>
+
+							       <xs:restriction base="xs:int">
+
+								        <xs:minInclusive value="1"/>
+
+								        <xs:maxInclusive value="1"/>
+
+							       </xs:restriction>
+
+						      </xs:simpleType>
+
+					     </xs:element>
+
+					     <xs:element minOccurs="0" name="bancoPagador">
+
+						      <xs:annotation>
+
+							       <xs:documentation>
+Codigo de banco pagador. Debe coincidir con el banco del Osiris Concentrador       </xs:documentation>
+
+						      </xs:annotation>
+
+						      <xs:simpleType>
+
+							       <xs:restriction base="xs:int">
+
+								        <xs:minInclusive value="1"/>
+
+								        <xs:maxInclusive value="999"/>
+
+							       </xs:restriction>
+
+						      </xs:simpleType>
+
+					     </xs:element>
+
+					     <xs:element minOccurs="0" name="entidadDePago">
+
+						      <xs:simpleType>
+
+							       <xs:restriction base="xs:int">
+
+								        <xs:minInclusive value="1"/>
+
+								        <xs:maxInclusive value="9999"/>
+
+							       </xs:restriction>
+
+						      </xs:simpleType>
+
+					     </xs:element>
+
+					     <xs:element minOccurs="0" name="codControl">
+
+						      <xs:annotation>
+
+							       <xs:documentation>
+Codigo de control generado en el sitio de pago y consignado en el Comprobante de Pago       </xs:documentation>
+
+						      </xs:annotation>
+
+						      <xs:simpleType>
+
+							       <xs:restriction base="xs:string">
+
+								        <xs:maxLength value="6"/>
+
+							       </xs:restriction>
+
+						      </xs:simpleType>
+
+					     </xs:element>
+
+					     <xs:element name="nroTransaccion">
+
+						      <xs:annotation>
+
+							       <xs:documentation>
+Nro de transaccion generado por el sitio de pago y consignado en el Comprobante de Pago. Debe ser unico para cualquier CP en cada sitio de pago       </xs:documentation>
+
+						      </xs:annotation>
+
+						      <xs:simpleType>
+
+							       <xs:restriction base="xs:long">
+
+								        <xs:minInclusive value="1"/>
+
+								        <xs:maxInclusive value="999999999999"/>
+
+							       </xs:restriction>
+
+						      </xs:simpleType>
+
+					     </xs:element>
+
+					     <xs:element minOccurs="0" name="nroTarjeta">
+
+						      <xs:simpleType>
+
+							       <xs:restriction base="xs:decimal">
+
+								        <xs:maxInclusive value="9999999999999999999"/>
+
+								        <xs:minInclusive value="1"/>
+
+							       </xs:restriction>
+
+						      </xs:simpleType>
+
+					     </xs:element>
+
+					     <xs:element minOccurs="0" name="posEstablecimiento">
+
+						      <xs:simpleType>
+
+							       <xs:restriction base="xs:long">
+
+								        <xs:minInclusive value="1"/>
+
+								        <xs:maxInclusive value="99999999"/>
+
+							       </xs:restriction>
+
+						      </xs:simpleType>
+
+					     </xs:element>
+
+					     <xs:element minOccurs="0" name="posNombre">
+
+						      <xs:simpleType>
+
+							       <xs:restriction base="xs:string">
+
+								        <xs:maxLength value="30"/>
+
+							       </xs:restriction>
+
+						      </xs:simpleType>
+
+					     </xs:element>
+
+					     <xs:element minOccurs="0" name="cbu">
+
+						      <xs:simpleType>
+
+							       <xs:restriction base="xs:decimal">
+
+								        <xs:maxInclusive value="9999999999999999999999"/>
+
+								        <xs:minInclusive value="10000000000000000000"/>
+
+							       </xs:restriction>
+
+						      </xs:simpleType>
+
+					     </xs:element>
+
+					     <xs:element minOccurs="0" name="codTipoPago">
+
+						      <xs:simpleType>
+
+							       <xs:restriction base="xs:int">
+
+								        <xs:minInclusive value="1"/>
+
+								        <xs:maxInclusive value="9999"/>
+
+							       </xs:restriction>
+
+						      </xs:simpleType>
+
+					     </xs:element>
+
+					     <xs:element minOccurs="0" name="codRechazoDebDir">
+
+						      <xs:annotation>
+
+							       <xs:documentation>
+Codigo que indica el motivo del rechazo del Debito Directo       </xs:documentation>
+
+						      </xs:annotation>
+
+						      <xs:simpleType>
+
+							       <xs:restriction base="xs:int">
+
+								        <xs:minInclusive value="1"/>
+
+								        <xs:maxInclusive value="99"/>
+
+							       </xs:restriction>
+
+						      </xs:simpleType>
+
+					     </xs:element>
+
+					     <xs:element name="fechaHoraPago">
+
+						      <xs:simpleType>
+
+							       <xs:restriction base="xs:string">
+
+								        <xs:length value="19"/>
+
+							       </xs:restriction>
+
+						      </xs:simpleType>
+
+					     </xs:element>
+
+					     <xs:element minOccurs="0" name="fechaAnulacion">
+
+						      <xs:annotation>
+
+							       <xs:documentation>
+Fecha de anulacion del pago por reversion       </xs:documentation>
+
+						      </xs:annotation>
+
+						      <xs:simpleType>
+
+							       <xs:restriction base="xs:string">
+
+								        <xs:length value="10"/>
+
+							       </xs:restriction>
+
+						      </xs:simpleType>
+
+					     </xs:element>
+
+					     <xs:element minOccurs="0" name="fechaPosting">
+
+						      <xs:annotation>
+
+							       <xs:documentation>
+Dia en que el pago se va a rendir en el Osiris Concentrador       </xs:documentation>
+
+						      </xs:annotation>
+
+						      <xs:simpleType>
+
+							       <xs:restriction base="xs:string">
+
+								        <xs:length value="10"/>
+
+							       </xs:restriction>
+
+						      </xs:simpleType>
+
+					     </xs:element>
+
+				    </xs:sequence>
+
+			   </xs:complexType>
+
+			<!-- fin xsd -->
+
+			   <xs:element name="dummy">
+
+				    <xs:complexType/>
+
+			   </xs:element>
+
+			   <xs:element name="dummyResponse">
+
+				    <xs:complexType>
+
+					     <xs:sequence>
+
+						      <xs:element name="dummyReturn" type="tns:DummyResponseType"/>
+
+					     </xs:sequence>
+
+				    </xs:complexType>
+
+			   </xs:element>
+
+			   <xs:element name="createVEP">
+
+				    <xs:complexType>
+
+					     <xs:sequence>
+
+						      <xs:element name="token" type="xs:string"/>
+
+						      <xs:element name="sign" type="xs:string"/>
+
+						      <xs:element name="entidadDePago" type="xs:int"/>
+
+						      <xs:element name="vep" type="tns:VEPType"/>
+
+					     </xs:sequence>
+
+				    </xs:complexType>
+
+			   </xs:element>
+
+			   <xs:element name="createVEPResponse">
+
+				    <xs:complexType>
+
+					     <xs:sequence>
+
+						      <xs:element name="createVEPReturn" type="xs:long"/>
+
+					     </xs:sequence>
+
+				    </xs:complexType>
+
+			   </xs:element>
+
+			   <xs:element name="findMyVEPByNroVEP">
+
+				    <xs:complexType>
+
+					     <xs:sequence>
+
+						      <xs:element name="token" type="xs:string"/>
+
+						      <xs:element name="sign" type="xs:string"/>
+
+						      <xs:element name="owner" type="xs:long"/>
+
+						      <xs:element name="nroVep" type="xs:long"/>
+
+					     </xs:sequence>
+
+				    </xs:complexType>
+
+			   </xs:element>
+
+			   <xs:element name="findMyVEPByNroVEPResponse">
+
+				    <xs:complexType>
+
+					     <xs:sequence>
+
+						      <xs:element name="findMyVEPByNroVEPReturn" type="tns:CPVEPType"/>
+
+					     </xs:sequence>
+
+				    </xs:complexType>
+
+			   </xs:element>
+
+			   <xs:element name="findMyVEPByTransactionId">
+
+				    <xs:complexType>
+
+					     <xs:sequence>
+
+						      <xs:element name="token" type="xs:string"/>
+
+						      <xs:element name="sign" type="xs:string"/>
+
+						      <xs:element name="owner" type="xs:long"/>
+
+						      <xs:element name="ownerTransactionId" type="xs:long"/>
+
+					     </xs:sequence>
+
+				    </xs:complexType>
+
+			   </xs:element>
+
+			   <xs:element name="findMyVEPByTransactionIdResponse">
+
+				    <xs:complexType>
+
+					     <xs:sequence>
+
+						      <xs:element name="findMyVEPByTransactionIdReturn" type="tns:CPVEPType"/>
+
+					     </xs:sequence>
+
+				    </xs:complexType>
+
+			   </xs:element>
+
+			   <xs:element name="createVEPFromList">
+
+				    <xs:complexType>
+
+					     <xs:sequence>
+
+						      <xs:element name="vep" type="tns:ArrayOf_xsd_anyType"/>
+
+						      <xs:element name="entidadDePago" type="xs:int"/>
+
+						      <xs:element name="usuarioCuit" type="xs:long"/>
+
+					     </xs:sequence>
+
+				    </xs:complexType>
+
+			   </xs:element>
+
+			   <xs:complexType name="ArrayOf_xsd_anyType">
+
+				    <xs:sequence>
+
+					     <xs:element maxOccurs="unbounded" minOccurs="0" name="item" type="xs:anyType"/>
+
+				    </xs:sequence>
+
+			   </xs:complexType>
+
+			   <xs:element name="createVEPFromListResponse">
+
+				    <xs:complexType>
+
+					     <xs:sequence>
+
+						      <xs:element name="createVEPFromListReturn" type="xs:long"/>
+
+					     </xs:sequence>
+
+				    </xs:complexType>
+
+			   </xs:element>
+
+		  </xs:schema>
+
+	 </wsdl:types>
+
+	 <wsdl:message name="dummyRequest">
+
+		  <wsdl:part element="tns:dummy" name="parameters"/>
+
+	 </wsdl:message>
+
+	 <wsdl:message name="dummyResponse">
+
+		  <wsdl:part element="tns:dummyResponse" name="parameters"/>
+
+	 </wsdl:message>
+
+	 <wsdl:message name="findMyVEPByTransactionIdResponse">
+
+		  <wsdl:part element="tns:findMyVEPByTransactionIdResponse" name="parameters"/>
+
+	 </wsdl:message>
+
+	 <wsdl:message name="findMyVEPByNroVEPRequest">
+
+		  <wsdl:part element="tns:findMyVEPByNroVEP" name="parameters"/>
+
+	 </wsdl:message>
+
+	 <wsdl:message name="createVEPFromListRequest">
+
+		  <wsdl:part element="tns:createVEPFromList" name="parameters"/>
+
+	 </wsdl:message>
+
+	 <wsdl:message name="findMyVEPByTransactionIdRequest">
+
+		  <wsdl:part element="tns:findMyVEPByTransactionId" name="parameters"/>
+
+	 </wsdl:message>
+
+	 <wsdl:message name="findMyVEPByNroVEPResponse">
+
+		  <wsdl:part element="tns:findMyVEPByNroVEPResponse" name="parameters"/>
+
+	 </wsdl:message>
+
+	 <wsdl:message name="createVEPResponse">
+
+		  <wsdl:part element="tns:createVEPResponse" name="parameters"/>
+
+	 </wsdl:message>
+
+	 <wsdl:message name="createVEPFromListResponse">
+
+		  <wsdl:part element="tns:createVEPFromListResponse" name="parameters"/>
+
+	 </wsdl:message>
+
+	 <wsdl:message name="createVEPRequest">
+
+		  <wsdl:part element="tns:createVEP" name="parameters"/>
+
+	 </wsdl:message>
+
+	 <wsdl:portType name="ExternalVepReceptorServiceInterop">
+
+		  <wsdl:operation name="dummy">
+
+			   <wsdl:input message="tns:dummyRequest" name="dummyRequest"/>
+
+			   <wsdl:output message="tns:dummyResponse" name="dummyResponse"/>
+
+		  </wsdl:operation>
+
+		  <wsdl:operation name="createVEP">
+
+			   <wsdl:input message="tns:createVEPRequest" name="createVEPRequest"/>
+
+			   <wsdl:output message="tns:createVEPResponse" name="createVEPResponse"/>
+
+		  </wsdl:operation>
+
+		  <wsdl:operation name="findMyVEPByNroVEP">
+
+			   <wsdl:input message="tns:findMyVEPByNroVEPRequest" name="findMyVEPByNroVEPRequest"/>
+
+			   <wsdl:output message="tns:findMyVEPByNroVEPResponse" name="findMyVEPByNroVEPResponse"/>
+
+		  </wsdl:operation>
+
+		  <wsdl:operation name="findMyVEPByTransactionId">
+
+			   <wsdl:input message="tns:findMyVEPByTransactionIdRequest" name="findMyVEPByTransactionIdRequest"/>
+
+			   <wsdl:output message="tns:findMyVEPByTransactionIdResponse" name="findMyVEPByTransactionIdResponse"/>
+
+		  </wsdl:operation>
+
+	 </wsdl:portType>
+
+	 <wsdl:binding name="externalvepreceptorinteropSoapBinding" type="tns:ExternalVepReceptorServiceInterop">
+
+		  <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+		  <wsdl:operation name="dummy">
+
+			   <wsdlsoap:operation/>
+
+			   <wsdl:input>
+
+				    <wsdlsoap:body use="literal"/>
+
+			   </wsdl:input>
+
+			   <wsdl:output>
+
+				    <wsdlsoap:body use="literal"/>
+
+			   </wsdl:output>
+
+		  </wsdl:operation>
+
+		  <wsdl:operation name="createVEP">
+
+			   <wsdlsoap:operation/>
+
+			   <wsdl:input>
+
+				    <wsdlsoap:body use="literal"/>
+
+			   </wsdl:input>
+
+			   <wsdl:output>
+
+				    <wsdlsoap:body use="literal"/>
+
+			   </wsdl:output>
+
+		  </wsdl:operation>
+
+		  <wsdl:operation name="findMyVEPByNroVEP">
+
+			   <wsdlsoap:operation/>
+
+			   <wsdl:input>
+
+				    <wsdlsoap:body use="literal"/>
+
+			   </wsdl:input>
+
+			   <wsdl:output>
+
+				    <wsdlsoap:body use="literal"/>
+
+			   </wsdl:output>
+
+		  </wsdl:operation>
+
+		  <wsdl:operation name="findMyVEPByTransactionId">
+
+			   <wsdlsoap:operation/>
+
+			   <wsdl:input>
+
+				    <wsdlsoap:body use="literal"/>
+
+			   </wsdl:input>
+
+			   <wsdl:output>
+
+				    <wsdlsoap:body use="literal"/>
+
+			   </wsdl:output>
+
+		  </wsdl:operation>
+
+	 </wsdl:binding>
+
+	 <wsdl:service name="ExternalVepReceptorWSInteropImplService">
+
+		  <wsdl:port binding="tns:externalvepreceptorinteropSoapBinding" name="externalvepreceptorinterop">
+
+			   <wsdlsoap:address location="https://10.4.49.235/setiws/services/externalvepreceptorinterop"/>
+
+		  </wsdl:port>
+
+	 </wsdl:service>
+
+</wsdl:definitions>

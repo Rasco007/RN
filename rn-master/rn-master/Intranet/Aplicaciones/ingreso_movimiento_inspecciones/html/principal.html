@@ -1,0 +1,234 @@
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <!--<a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>-->
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading">Carga de Movimientos de Inspecciones</div>
+            <div class="panel-body">
+                <form id='frm_busqueda'>
+                    <div class="row">
+
+                        <div class="form-group col-md-3">
+                            <label for="c_expediente">Nro Expediente</label>
+                            <div class="input-group" id="div_input_expediente">
+                                <input name='c_expediente' type="text" class="form-control input-sm input-cod-long" id="c_expediente">
+                                <input name='d_expediente' type="text" class="form-control input-sm input-desc-short" id="d_expediente" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_c_expediente">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-3 ">
+                            <div id="div_plan_fisca">
+                                <label>Plan de Fiscalizaci&oacute;n</label>
+                                <input name='d_plan_fisca' id='d_plan_fisca' type="text" class="form-control input-sm" readonly >
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-3 ">
+                            <div id="div_año">
+                                <label>A&ntilde;o</label>
+                                <input name='n_año' id='n_año' type="text" class="form-control input-sm text-right" readonly>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-3 ">
+                            <label for="c_programa">Programa</label>
+                            <div class="input-group" id="div_input_c_programa">
+                                <input name='c_programa' type="text" class="form-control input-sm input-cod-short" id="c_programa" >
+                                <input name='d_programa' type="text" class="form-control input-sm input-desc-long" id="d_programa" readonly>
+                            </span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                            <label for="n_cuit">CUIT (*)</label>
+                            <div id="div_cuit" style="padding-left: 1%;">
+                                <input name='n_cuit' id='n_cuit' type="text" class="form-control input-sm text-right validate[required,custom[validaCuit]]" maxlength='13' >
+
+                            </div>
+                        </div>
+                        <input name='id_contribuyente'  type="hidden" class="" id="id_contribuyente" readonly>
+                        <input name='c_estado'  type="hidden" class="" id="c_estado" readonly>
+                        <input name='id_inspeccion_i'  type="hidden" class="" id="id_inspeccion_i" readonly>
+                        <input name='fecha_evento'  type="hidden" class="datepicker" id="fecha_evento" readonly>
+
+                        <div class="form-group col-md-3">
+                            <label for="d_denominacion" class="control-label">Denominación</label>
+                            <div class="input-group" id="div_input_denominacion">
+                                <input name='d_denominacion' type="text" class="mayusculas form-control input-sm validate[required]" id="d_denominacion">
+                                <span class="input-group-addon" id="mascara_lupa_d_denominacion">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon btn_lupa" id="lupa_d_denominacion">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-3 ">
+                            <label for="c_tipo_documento">Tipo Documento</label>
+                            <div class="input-group" id="div_input_tipo_documento">
+                                <input name='c_tipo_documento' type="text" class="form-control input-sm input-cod-short" id="c_tipo_documento" >
+                                <input name='d_tipo_documento' type="text" class="form-control input-sm input-desc-long" id="d_tipo_documento" readonly>
+                                    <span class="input-group-addon btn_lupa" id="lupa_tipo_documento">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                    </span>
+                               </div>
+                        </div>
+
+                        <div class="form-group col-md-3 ">
+                            <label for="nro_documento">Nro Documento</label>
+                            <div id="div_input_nro_documento">
+                                <input name='nro_documento' type="text" class="form-control input-sm" id="nro_documento" >
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div>
+                        <div class='row-search text-center' style="margin-top: 2%">
+                            <button class="btn-sm btn-primary" type="button" id="btn_buscar"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Buscar</button>
+                            <button class="btn-sm btn_limpiar" type="button" id="btn_limpiar"></button>
+                        </div>
+                    </div>
+                </form>
+
+                <div id='gridWrapper' >
+
+                    <div style="margin-top: 10px;">
+                        <table id='grid_inspecciones' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+                        <div id='grid_inspecciones_pager' class='scroll' style='text-align:center;'></div>
+                    </div>
+                    <br/>
+                    
+                    <div style="margin-top: 10px;">
+                        <table id='main_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+                        <div id='main_grid_pager' class='scroll' style='text-align:center;'></div>
+                    </div>
+                    <br/>
+                
+                 
+                
+                    <div id='detalle'>
+                        <table id='detalles_grid' class='scroll' cellpadding='0' cellspacing='0'>
+                            <tr>
+                                <td>&nbsp;</td>
+                            </tr>
+                        </table>
+                        <div id='detalles_grid_pager' class='scroll' style='text-align:center;'></div>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL DETALLE DE OBLIGACIÓN -->
+<div class="modal fade" id="modal_detalle" tabindex="-1" role="dialog" aria-labelledby="detalle_title" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="bono_title">MODIFICACIÓN DE GRUPOS</h5>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!--GRILLA Detalle-->
+                <div id="modal_grilla_detalle">
+                    <table id='modal_detalle_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+                    <div id='modal_detalle_grid_pager' class='scroll' style='text-align:center;'></div>
+                </div>
+                <br>
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- 
+<div id='gridWrapper' >
+    <div>
+        <table id='main_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+        <div id='main_grid_pager' class='scroll' style='text-align:center;'></div>
+    </div>
+    <br/>
+
+ 
+
+    <div id='detalle'>
+        <table id='detalles_grid' class='scroll' cellpadding='0' cellspacing='0'>
+            <tr>
+                <td>&nbsp;</td>
+            </tr>
+        </table>
+        <div id='detalles_grid_pager' class='scroll' style='text-align:center;'></div>
+    </div>
+</div>
+
+<div class="div-totales">
+    <div class="tot-group input-group col-md-offset-8 ">
+        <label for="tot_horas_est">Total Horas:</label>
+        <input type="text" readonly="" class="form-control input-sm text-right" id="tot_horas_est">
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="modal fade" id="rechazos_modal" tabindex="-1" role="dialog" aria-labelledby="rechazos_title" aria-hidden="true" data-backdrop="false" style="z-index: 960; top:50px ;">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="rechazos_title"></h5>
+            </div>
+            <div class="modal-body">
+                <div id='rechazos_div' style='width:850px;'>
+                    <table id='rechazos_grid' class='scroll' cellpadding='0' cellspacing='0'></table>
+                    <div id='rechazos_grid_pager' class='scroll' style='text-align: center;'></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btn_aceptar_rechazos" class="btn btn-primary" data-dismiss="modal">Aceptar</button>
+            </div>
+        </div>
+    </div>
+</div> -->

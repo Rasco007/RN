@@ -1,0 +1,587 @@
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading" style="padding-left: 1%;">Datos Principales</div>
+            <div class="panel-body">
+                    <div class="row">
+
+                        <div class="form-group col-md-2">
+                            <label for="n_cuit_filtro">CUIT</label>
+                            <div id="div_cuit">
+                                <input name='n_cuit_filtro' id='n_cuit_filtro' type="text" class="form-control input-sm text-right validate[required,custom[validaCuit]]" maxlength='13' value='<?=$p_n_cuit?>'>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-1">
+                            <label for="n_baja">Baja</label>
+                            <div class="input-group" id="div_input_plan_pago">
+                                <input name='n_baja' type="text" class="form-control input-sm" id="n_baja" readonly>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="n_cuit_reemp_filtro">CUIT reemplazo</label>
+                            <div>
+                                <input name='n_cuit_reemp_filtro' id='n_cuit_reemp_filtro' type="text" class="form-control input-sm text-right validate[required,custom[validaCuit]]" maxlength='13' readonly>
+
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-1">
+                            <label for="n_cuit_reemp_filtro">Sexo</label>
+                            <div >
+                                <input name='sexo_filtro' id='sexo_filtro' type="text" class="form-control input-sm text-right validate[required,custom[validaCuit]]" maxlength='13' readonly>
+
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="n_pc_cuit_filtro">PC CUIT</label>
+                            <div class="input-group" id="div_input_pc_cuit_filtro">
+                                <input name='n_pc_cuit_filtro' id='n_pc_cuit_filtro' type="text" class="form-control input-sm text-right validate[required,custom[validaCuit]]" maxlength='13' >
+                                <span class="input-group-addon" id="mascara_lupa_pc_cuit_filtro">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon btn_lupa" id="lupa_pc_cuit_filtro">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="d_denominacion_filtro" class="control-label">Denominación</label>
+                            <div class="input-group" id="div_input_denominacion">
+                                <input name='d_denominacion_filtro' type="text" class="mayusculas form-control input-sm validate[required]" id="d_denominacion_filtro">
+                                <span class="input-group-addon" id="mascara_lupa_d_denominacion">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon btn_lupa" id="lupa_d_denominacion">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+
+
+
+                        <div>
+
+                        </div>
+
+                    </div>
+                    <div class='row-search text-center'>
+                        <br>
+                        <button class="btn-sm btn-primary" type="button" id="btn_buscar"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Buscar</button>
+                        <button class="btn-sm btn_limpiar" type="button" id="btn_limpiar"></button>
+
+                    </div>
+                        <br>
+                        <div class="row">
+                                <div id="div_apellidos" class="col-md-4">
+                                <div class="panel panel-primary">
+                                    <div class="collapse in" aria-expanded="true">
+                                        <div class="panel-heading" style="padding-left: 1.5%;border-radius: 5px;text-align: center;">Apellidos</div>
+                                        <div class="panel-body">
+                                            <div class="row">
+                                                <div class="form-group col-md-6">
+                                                    <label for="d_casada_filtro">Casada</label>
+                                                    <div style="padding-left: 1%;">
+                                                        <input name='d_casada_filtro' id='d_casada_filtro' type="text" class="form-control input-sm "  readonly>
+                        
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group col-md-6">
+                                                    <label for="d_materno_filtro">Materno</label>
+                                                    <div style="padding-left: 1%;">
+                                                        <input name='d_materno_filtro' id='d_materno_filtro' type="text" class="form-control input-sm "  readonly>
+                        
+                                                    </div>
+                                                </div>
+
+                                        
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="div_fechas_actividad" class="col-md-4">
+                                <div class="panel panel-primary">
+                                    <div class="collapse in" aria-expanded="true">
+                                        <div class="panel-heading" style="padding-left: 1.5%;border-radius: 5px;text-align: center;">Fecha-Actividad</div>
+                                        <div class="panel-body">
+                                            <div class="row">
+                                                <div class="form-group col-md-6" style="padding:0">
+                                                    <label for="f_primera">Prim.</label>
+                                                    <div class="form-group" >
+                                                        <input name='f_primera' id='f_primera' type="text" class="form-control datepicker"  readonly >
+
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-6" style="padding:0">
+                                                    <label for="n_primera"></label>
+                                                    <div id="div_f_primera" class="form-group" style="margin-top: 1px;">
+                                                        <input name='n_primera' id='n_primera' type="text"class=" form-control" readonly >
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="form-group col-md-6" style="padding:0">
+                                                    <label for="f_segunda">Seg.</label>
+                                                    <div id="div_f_segunda" class="form-group">
+                                                        <input name='f_segunda' id='f_segunda' type="text" class="form-control datepicker"  readonly>
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group col-md-6" style="padding:0">
+                                                    <label for="n_segunda"></label>
+                                                    <div id="div_n_segunda" class="form-group" style="margin-top: 1px;">
+                                                        <input name='n_segunda' id='n_segunda' type="text" class="form-control" readonly >
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="form-group col-md-6" style="padding:0">
+                                                    <label for="f_tercera">Terc.</label>
+                                                    <div id="div_f_tercera" class="form-group">
+                                                        <input name='f_tercera' id='f_tercera' type="text"  class="form-control datepicker"  readonly >
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group col-md-6" style="padding:0">
+                                                    <label for="n_tercera"></label>
+                                                    <div id="div_n_tercera" class="form-group" style="margin-top: 1px;">
+                                                        <input name='n_tercera' id='n_tercera' type="text" class="form-control" readonly  >
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                       
+                        <div class="col-md-4">
+                            <div class="panel panel-primary">
+                                <div class="collapse in" aria-expanded="true">
+                                    <div class="panel-heading" style="padding-left: 1.5%;border-radius: 5px;text-align: center;">Fechas</div>
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="form-group col-md-6">
+                                                <label for="f_nacimiento">Nacimiento</label>
+                                                <div class="input-group" style="padding-left: 1%;">
+                                                    <input name='f_nacimiento' id='f_nacimiento' type="text" class="form-control datepicker input-sm" readonly  >
+
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group col-md-6">
+                                                <label for="f_alta">Alta-Afip</label>
+                                                <div id="div_f_nacimiento" class="input-group" style="padding-left: 1%;">
+                                                    <input name='f_alta' id='f_alta' type="text" class=" form-control datepicker input-sm"  readonly >
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div id="div_fechas" class="col-md-4">
+                            <div class="panel panel-primary">
+                                <div class="collapse in" aria-expanded="true">
+                                    <div class="panel-heading" style="padding-left: 1.5%;border-radius: 5px;text-align: center;">Domicilio</div>
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="form-group col-md-8">
+                                                <label for="d_calle">Calle</label>
+                                                <div id="div_d_calle" class="form-group" >
+                                                    <input name='d_calle' id='d_calle' type="text" class="form-control input-sm"  readonly >
+
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group col-md-4">
+                                                <label for="n_calle">Nro.</label>
+                                                <div id="div_n_calle" class="form-group" >
+                                                    <input name='n_calle' id='n_calle' type="text" class="form-control input-sm"  readonly >
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-md-6">
+                                                <label for="d_barrio">Barrio</label>
+                                                <div id="div_d_barrio" class="form-group">
+                                                    <input name='d_barrio' id='d_barrio' type="text" class=" form-control input-sm"  readonly >
+
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group col-md-3">
+                                                <label for="d_manzana">Mza</label>
+                                                <div id="div_d_manzana" class="form-group">
+                                                    <input name='d_manzana' id='d_manzana' type="text" class=" form-control input-sm" readonly  >
+
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group col-md-3">
+                                                <label for="n_torre">Torre</label>
+                                                <div id="div_n_torre"  class="form-group">
+                                                    <input name='n_torre' id='n_torre' type="text" class=" form-control input-sm"  readonly >
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="form-group col-md-2">
+                                                <label for="n_depto">Depto</label>
+                                                <div id="div_n_depto" class="form-group">
+                                                    <input name='n_depto' id='n_depto' type="text" class=" form-control input-sm" readonly  >
+
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group col-md-2">
+                                                <label for="n_piso">Piso</label>
+                                                <div id="div_n_piso" class="form-group">
+                                                    <input name='n_piso' id='n_piso' type="text" class=" form-control input-sm" readonly  >
+
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group col-md-4">
+                                                <label for="d_sec">Sec.</label>
+                                                <div id="div_d_sec" class="form-group">
+                                                    <input name='d_sec' id='d_sec' type="text" class=" form-control input-sm" readonly >
+
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group col-md-4">
+                                                <label for="d_depend">Depen.</label>
+                                                <div id="div_d_depend" class="form-group">
+                                                    <input name='d_depend' id='d_depend' type="text" class=" form-control input-sm"  readonly >
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="form-group col-md-5" style="width: 45%;margin-right: -3%;">
+                                                <label for="d_loc">Loc.</label>
+                                                <div id="div_d_loc" class="form-group">
+                                                    <input name='d_loc' id='d_loc' type="text" class="form-control input-sm"   readonly>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group col-md-5">
+                                                <label for="d_loc">Prov.</label>
+                                                <div id="div_d_pcia" class="form-group" >
+                                                    <input name='d_pcia' id='d_pcia' type="text" class="form-control input-sm"  readonly >
+
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group col-md-2" style="width: 20%;margin-left: -4%;">
+                                                <label for="n_cp">CP</label>
+                                                <div id="div_n_cp" class="form-group" >
+                                                    <input name='n_cp' id='n_cp' type="text" class="form-control input-sm"  readonly >
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div id="div_impuesto" class="col-md-2">
+                            <div class="panel panel-primary">
+                                <div class="collapse in" aria-expanded="true">
+                                    <div class="panel-heading" style="padding-left: 1.5%;border-radius: 5px;text-align: center;">Impuestos</div>
+                                    <div class="panel-body">
+                                        <div class="row">
+
+
+                                            <div class="form-group col-md-12">
+                                                <label for="n_ganancia">Ganancia</label>
+                                                <div id="div_n_ganancia" class="form-group" style="padding-left: 1%;">
+                                                    <input name='n_ganancia' id='n_ganancia' type="text" class="form-control input-sm"  readonly >
+
+                                                </div>
+                                            </div>
+
+                                            
+                                        </div>
+                                        <div class="row">
+                                           <div class="form-group col-md-12">
+                                                <label for="n_iva">IVA</label>
+                                                <div id="div_n_iva" class="form-group" style="padding-left: 1%;">
+                                                    <input name='n_iva' id='n_iva' type="text" class="form-control input-sm" readonly  >
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="form-group col-md-12">
+                                                <label for="d_autonomo">Autónomo</label>
+                                                <div id="div_d_autonomo" class="form-group" style="padding-left: 1%;">
+                                                    <input name='d_autonomo' id='d_autonomo' type="text" class="form-control input-sm" readonly  >
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="form-group col-md-12">
+                                                <label for="d_empleador">Empleador</label>
+                                                <div id="div_d_empleador" class="form-group" style="padding-left: 1%;">
+                                                    <input name='d_empleador' id='d_empleador' type="text" class="form-control input-sm" readonly  >
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div id="div_datos" class="col-md-2">
+                            <div class="panel panel-primary">
+                                <div class="collapse in" aria-expanded="true">
+                                    <div class="panel-heading" style="padding-left: 1.5%;border-radius: 5px;text-align: center;">Datos</div>
+                                    <div class="panel-body">
+                                        <div class="row">
+
+
+                                            <div class="form-group col-md-12">
+                                                <label for="d_tipo_persona">Tipo Persona</label>
+                                                <div id="div_d_tipo_persona" class="form-group" style="padding-left: 1%;">
+                                                    <input name='d_tipo_persona' id='d_tipo_persona' type="text" class="form-control input-sm"  readonly >
+
+                                                </div>
+                                            </div>
+
+                                            
+                                        </div>
+                                        <div class="row">
+                                           <div class="form-group col-md-12">
+                                                <label for="n_juridica">Form. Jurídica</label>
+                                                <div id="div_n_juridica" class="form-group" style="padding-left: 1%;">
+                                                    <input name='n_juridica' id='n_juridica' type="text" class="form-control input-sm"  readonly >
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="form-group col-md-12">
+                                                <label for="d_emp_promovida">Emp. Promovida</label>
+                                                <div id="div_d_emp_promovida" class="form-group" style="padding-left: 1%;">
+                                                    <input name='d_emp_promovida' id='d_emp_promovida' type="text" class="form-control input-sm" readonly  >
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="form-group col-md-12">
+                                                <label for="d_gran_contr">Gran. Contrib.</label>
+                                                <div id="div_d_gran_contr" class="form-group" style="padding-left: 1%;">
+                                                    <input name='d_gran_contr' id='d_gran_contr' type="text" class="form-control input-sm" readonly  >
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="form-group col-md-12">
+                                                <label for="d_pasivo">Pasivo</label>
+                                                <div id="div_d_pasivo" class="form-group" style="padding-left: 1%;">
+                                                    <input name='d_pasivo' id='d_pasivo' type="text" class="form-control input-sm" readonly  >
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="div_monotributo" class="col-md-2">
+                            <div class="panel panel-primary">
+                                <div class="collapse in" aria-expanded="true">
+                                    <div class="panel-heading" style="padding-left: 1.5%;border-radius: 5px;text-align: center;">Monotributo</div>
+                                    <div class="panel-body">
+                                        <div class="row">
+
+
+                                            <div class="form-group col-md-12">
+                                                <label for="d_monotributo">Monotributo</label>
+                                                <div id="div_d_monotributo" class="form-group" style="padding-left: 1%;">
+                                                    <input name='d_monotributo' id='d_monotributo' type="text" class="form-control input-sm" readonly  >
+
+                                                </div>
+                                            </div>
+
+                                            
+                                        </div>
+                                        <div class="row">
+                                           <div class="form-group col-md-12">
+                                                <label for="d_cat_monotributo">Monotributo Cat.</label>
+                                                <div id="div_d_cat_monotributo" class="form-group" style="padding-left: 1%;">
+                                                    <input name='d_cat_monotributo' id='d_cat_monotributo' type="text" class="form-control input-sm" readonly  >
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="form-group col-md-12">
+                                                <label for="n_act_monotributo">Monotributo Act.</label>
+                                                <div id="div_n_act_monotributo" class="form-group" style="padding-left: 1%;">
+                                                    <input name='n_act_monotributo' id='n_act_monotributo' type="text" class="form-control input-sm" readonly  >
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="div_autonomos" class="col-md-2">
+                            <div class="panel panel-primary">
+                                <div class="collapse in" aria-expanded="true">
+                                    <div class="panel-heading" style="padding-left: 1.5%;border-radius: 5px;text-align: center;">Autónomos</div>
+                                    <div class="panel-body">
+                                        <div class="row">
+
+
+                                            <div class="form-group col-md-12">
+                                                <label for="d_cat_auto">Cat. Auto mono.</label>
+                                                <div id="div_d_cat_auto" class="form-group" style="padding-left: 1%;">
+                                                    <input name='d_cat_auto' id='d_cat_auto' type="text" class="form-control input-sm"  readonly >
+
+                                                </div>
+                                            </div>
+
+                                            
+                                        </div>
+                                        <div class="row">
+                                           <div class="form-group col-md-12">
+                                                <label for="d_cat_autonomo">Cat. Autónomo</label>
+                                                <div id="div_d_cat_autonomo" class="form-group" style="padding-left: 1%;">
+                                                    <input name='d_cat_autonomo' id='d_cat_autonomo' type="text" class="form-control input-sm" readonly  >
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div id="div_datos_fallecimiento" class="panel-search">
+                            <div class="panel panel-primary">
+                                <div class="collapse in" aria-expanded="true">
+                                    <div class="panel-heading" style="padding-left: 1.5%">Datos</div>
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="form-group col-md-2">
+                                                <label for="f_cquieb">F. CQuieb</label>
+                                                <div id="div_f_cquieb" >
+                                                    <input name='f_cquieb' id='f_cquieb' type="text" class="form-control input-sm" readonly>
+                    
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group col-md-1">
+                                                <label for="d_cquieb">CQuieb</label>
+                                                <div id="div_d_cquieb" >
+                                                    <input name='d_cquieb' id='d_cquieb' type="text" class="form-control input-sm" readonly>
+                    
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group col-md-2">
+                                                <label for="f_fallecimiento">F. Fallecimiento</label>
+                                                <div id="div_input_f_fallecimiento">
+                                                    <input name='f_fallecimiento' type="text" class="form-control input-sm" id="f_fallecimiento" readonly>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group col-md-1">
+                                                <label for="d_sucesion">Sucesión</label>
+                                                <div id="div_d_sucesion" >
+                                                    <input name='d_sucesion' id='d_sucesion' type="text" class="form-control input-sm text-right validate[required,custom[validaCuit]]" maxlength='13' readonly>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group col-md-6">
+                                                <label> </label>
+                                                <div id="div_ayuda" >
+                                                    <input name='ayuda' id='ayuda' type="text" class="form-control input-sm" readonly>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!--
+                    <div class="row">
+                        <div class="col-12">
+                            <textarea style ="width: 100%;" name="descrip_obs" id="descrip_obs"></textarea>
+                        </div>
+                    </div>
+                    -->
+                    <br>
+                    <div class="row-search text-center">
+                        <button class="btn-sm btn-primary" type="button" id="btn_legajo"></span>Legajo SIAT</button>
+                        <button class="btn-sm btn-primary" type="button" id="btn_ddjj_datos"></span>DDJJ Datos AFIP</button>
+                        <button class="btn-sm btn-primary" type="button" id="btn_historico"></span>Histórico</button>
+                    </div>
+
+            </div>
+        </div>
+    </div>
+</div>

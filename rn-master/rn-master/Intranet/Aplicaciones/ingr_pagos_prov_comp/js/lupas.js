@@ -1,0 +1,71 @@
+function inicializarLupas(){
+    $("#lupa_c_banco").lupa_generica({
+        id_lista:v_lista_bancos,
+        titulos:['Código','Descripción'],
+        grid:[  {index:'c_dato',width:100},
+            {index:'d_dato',width:450}],
+        caption:'Bancos',
+        sortname:'c_dato',
+        sortorder:'asc',
+        searchCode:true,
+        searchInput: '#c_banco',
+        exactField: 'c_dato',
+        filtros: [p_pagos_lapos, p_bono_ley_4735],
+        filtrosNulos: [false, false],
+        campos:{c_dato:'c_banco', d_dato:'d_banco'},
+        keyNav:true,
+        limpiarCod: true,
+    });
+
+    $("#lupa_c_sucursal").lupa_generica({
+        id_lista:v_lista_sucursales,
+        titulos:['Código','Descripción'],
+        grid:[  {index:'c_dato',width:100},
+            {index:'d_dato',width:450}],
+        caption:'Sucursales',
+        sortname:'c_dato',
+        sortorder:'asc',
+        searchCode:true,
+        searchInput: '#c_sucursal',
+        exactField: 'c_dato',
+        filtros: ['#c_banco', p_bono_ley_4735],
+        filtrosNulos: [false, false],
+        filtrosTitulos:['Banco',''],
+        campos:{c_dato:'c_sucursal', d_dato:'d_sucursal'},
+        keyNav:true,
+        limpiarCod: true,
+    });
+    
+    $("#lupa_c_ofi").lupa_generica({
+        id_lista:v_lista_delegaciones,
+        titulos:['Código','Descripción'],
+        grid:[  {index:'c_dato',width:100},
+            {index:'d_dato',width:450}],
+        caption:'Delegaciones',
+        sortname:'c_dato',
+        sortorder:'asc',
+        searchCode:true,
+        searchInput: '#ofi_presentacion',
+        exactField: 'c_dato',
+        campos:{c_dato:'ofi_presentacion', d_dato:'ofi_nombre'},
+        keyNav:true,
+        limpiarCod: true,
+    });
+
+    $("#lupa_n_cuit_bono").lupa_generica({
+        id_lista:v_lista_contribuyentes,
+        titulos:['Cuit','Denominación', 'Id Contribuyente'],
+        grid:[  {index:'n_cuit',width:100},
+            {index:'d_denominacion',width:450},
+            {index:'id_contribuyente',hidden:true}],
+        caption:'Contribuyentes',
+        sortname:'d_denominacion',
+        sortorder:'asc',
+        searchCode:true,
+        searchInput: '#n_cuit_bono',
+        exactField: 'n_cuit',
+        campos:{n_cuit:'n_cuit_bono', d_denominacion:'d_denominacion_bono', id_contribuyente:'id_contribuyente'},
+        keyNav:true,
+        limpiarCod: true,
+    });
+}

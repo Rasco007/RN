@@ -1,0 +1,241 @@
+<style>
+    #ui-datepicker-div {
+        z-index: 11000 !important;
+        position: absolute !important;
+    }
+</style>
+
+<!-- Modal Confirmación de Multa -->
+<div class="modal fade" id="emitir_boleta_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="exampleModalLiveLabel">Impresión de Boleta</h5>
+            </div>
+            <div class="modal-body">
+                <form id="frm_emitir_boleta_modal">
+                    <div class="form-group">
+                        <label for="f_emision">Fecha Emisión (*)</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="hidden" id="id_obligacion_emitir">
+                        <div class="input-group">
+                            <input type="text" class="form-control input-sm datepicker text-center validate[required]" name="f_emision" id="f_emision" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off" style="text-align: center;">
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="button" class="btn btn-sm" id="btn_modal_emitir"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> Emitir Boleta</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Notificación de Multa -->
+<div class="modal fade" id="notificar_multa_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLiveLabel">Notificar / Confirmar Multa
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button></h5>
+        </div>
+        <div class="modal-body">
+          <form id="frm_notificar_multa_modal">
+            <div class="row">
+              <input id="n_instancia" hidden>
+              <input id="n_orden" hidden>
+              <input type="hidden" id="id_infraccion_notif">
+              <input type="hidden" id="f_generacion_notif">
+              <input type="hidden" id="id_contribuyente_notif">
+                <div class="form-group col-xs-6 col-sm-4 col-md-4">
+                        <input id="id_multa" hidden>
+                        <label for="f_notificacion_diag">Fecha Notificación (*)</label>
+                        <div class="input-group">
+                            <input type="text" class="validate[required,custom[validaFecha]] form-control input-sm datepicker text-center" name="f_notificacion_diag" id="f_notificacion_diag" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off" style="text-align: center;">
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group col-xs-6 col-sm-4 col-md-4">
+                    <label for="f_vto_pago_diag">Fecha Vencimiento </label>
+                    <div class="input-group">
+                        <input type="text" class="form-control input-sm datepicker text-center" name="f_vto_pago_diag" id="f_vto_pago_diag" placeholder="(DD/MM/AAAA)" readonly="" maxlength="10" autocomplete="off" style="text-align: center;">
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group col-xs-6 col-sm-4 col-md-4">
+                    <label for="i_monto">Monto Original </label>
+                    <div class="input-group">
+                        <input type="text" class="form-control input-sm" name="i_monto" id="i_monto" readonly="readonly"  style="text-align: right;">
+                        <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-usd"></span>
+                            </span>
+                    </div>
+                </div>
+            </div>
+              <div class="row">
+                  <div class="form-group col-md-12" id="div_c_valor">
+                      <label for="c_valor" class="control-label">Tipo Descuento *</label>
+                          <select id="c_valor" data-live-search="true" title="Tipo de Multa" class="selectpicker form-control input-sm validate[required]" data-style="cDropdown">
+
+                          </select>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="form-group col-xs-6 col-sm-4 col-md-4">
+                      <label for="i_descuento">Descuento </label>
+                      <div class="input-group">
+                          <input type="text" class="form-control input-sm" name="i_descuento" id="i_descuento" readonly="readonly"  style="text-align: right;">
+                          <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-usd"></span>
+                            </span>
+                      </div>
+                  </div>
+                  <div class="form-group col-xs-6 col-sm-4 col-md-4">
+                      <label for="i_total">Monto Final </label>
+                      <div class="input-group">
+                          <input type="text" class="form-control input-sm" name="i_total" id="i_total" readonly="readonly"  style="text-align: right;">
+                          <span class="input-group-addon">
+                          <span class="glyphicon glyphicon-usd"></span>
+                      </span>
+                      </div>
+                  </div>
+              </div>
+          </form>
+        </div>
+        <div class="modal-footer">          
+          <button type="button" class="btn btn-primary" id="btn_notificar_multa">Notificar</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Anulación de Multa -->
+<div class="modal fade" id="anular_multa_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLiveLabel">Anular Multa
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button></h5>
+      </div>
+      <div class="modal-body">
+        <form id="frm_anular_multa_modal">
+          <div class="row">
+            <input id="n_instancia" hidden>
+            <input id="n_orden" hidden>
+            <div class="form-group col-md-12">
+              <label for="d_observaciones">Observación (*)</label>
+              <textarea class="form-control validate[required]" rows="4" id="d_observaciones"></textarea>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">          
+        <button type="button" class="btn btn-primary" id="btn_confirmar_anular">Anular</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Modal Reducción de Multa -->
+  <div class="modal fade" id="reducir_multa_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLiveLabel">Reducir Multa
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button></h5>
+        </div>
+        <div class="modal-body">
+          <form id="frm_reducir_multa_modal">
+            <div class="row">
+              <div class="form-group col-xs-6 col-sm-4 col-md-4">
+                      <label for="i_reduccion">Monto Multa (*) </label>
+                      <div class="input-group">
+                          <input type="text" class="form-control input-sm validate[required,custom[validaImporte]] mascara_importe" name="i_reduccion" id="i_reduccion"  style="text-align: right;">
+                          <span class="input-group-addon">
+                              <span class="glyphicon glyphicon-usd"></span>
+                          </span>
+                      </div>
+              </div>
+            </div>
+            <div class="row">
+              <input id="n_instancia" hidden>
+              <input id="n_orden" hidden>
+              <div class="form-group col-md-12">
+                <label for="d_observaciones">Observación (*)</label>
+                <textarea class="form-control validate[required]" rows="4" id="d_observaciones" ></textarea>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">          
+          <button type="button" class="btn btn-primary" id="btn_reducir_multa">Reducir</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+<script>
+    $(document).ready(function() {
+        $('#emitir_boleta_modal').on('shown.bs.modal', function (e) {
+            $('#f_emision').val($('#f_actualizacion').val());
+        });
+
+        $('#notificar_multa_modal').on('shown.bs.modal', function (e) {
+            recuperarMultasValores();
+        });
+
+        $('#btn_modal_emitir').click(function () {
+            if ($('#frm_emitir_boleta_modal').validationEngine('validate')){
+                $('#main').procOverlay({visible:true,zIndex:59000});
+                $.ajax({
+                    type:'POST',
+                    url: FUNCIONES_BASEPATH+'maestro_abm.php',
+                    data:{
+                        "p_id_obligacion":$('#id_obligacion_emitir').val(),
+                        "p_f_actualizacion":$('#f_emision').val(),
+                        "id_menu":10732,
+                        "n_orden":0
+                    },
+                    dataType:'json',
+                    success: function( data ) {
+                        $('#main').procOverlay({visible:false});
+                        if(data.resultado == 'OK'){
+                            llamar_report('BOLETA_AGR','p_id_boleta|'+data.p_id_boleta,'PDF');
+                            mostrar_mensaje_modal('S','Emitir Boleta','Se ha generado con éxito la Boleta N°: '+data.p_id_boleta+'.',function () {
+                                $('#emitir_boleta_modal').modal('hide');
+                            });
+                        }
+                        else{
+                            mostrar_cuadro('E', 'Error', data.resultado);
+                            return;
+                        }
+                    }
+                });
+            }
+        });
+    });
+</script>

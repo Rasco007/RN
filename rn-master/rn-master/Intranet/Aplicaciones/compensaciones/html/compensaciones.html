@@ -1,0 +1,150 @@
+<div id="div_search" class="panel-search">
+	<div class="panel panel-primary">
+		<a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+			<span class="glyphicon"></span>
+		</a>
+		<div class="collapse in" id="collapse_search" aria-expanded="true">
+			<div class="panel-heading">Datos del cr&eacute;dito:</div>
+			<div class="panel-body">
+				<form id="frm_consulta">
+					<div class="row">
+						<div class="form-group col-md-1" id='div_t_imp'>
+							<label for="c_tipo_imponible">Tipo Imponible</label>
+						    <div class="input-group" id="div_input_tipo_imponible">
+								<input type="text" class="form-control input-sm input-cod-short mayusculas" id="c_tipo_imponible" value='<?php echo $c_tipo_imponible; ?>'>
+								<input type="text" class="form-control input-sm input-desc-long mayusculas"    id="d_tipo_imponible"   value='<?php echo $d_tipo_imponible; ?>' readonly>
+								<span class="input-group-addon btn_lupa" id="lupa_c_tipo_imponible"     name="lupa_c_tipo_imponible">
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </span>
+							</div>
+						</div>
+						<div class="form-group col-md-1">
+							<label for="c_tributo">Tributo (*)</label>
+						</div>
+
+						<div class="form-group col-md-3">
+							<div class="input-group" id="div_input_tributo">
+
+								<input type="text" class="form-control input-sm input-cod-short numerico validate[required]" id="c_tributo" value='<?php echo $c_tributo; ?>'>
+								<input type="text" class="form-control input-sm input-desc-long mayusculas validate[required]    "    onfocus="this.blur()"    id="d_tributo" readonly>
+
+
+								<span class="input-group-addon btn_lupa" id="lupa_c_tributo" name="lupa_c_tributo">
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </span>
+							</div>
+						</div>
+						<div class="form-group col-md-1">
+							<label for="d_objeto_hecho">Objeto (*)</label>
+						</div>
+
+						<div class="form-group col-md-3">
+
+							<div class="input-group" id="div_input_objeto_hecho">
+								<input type="text" class="form-control input-sm mayusculas validate[required]" id="d_objeto_hecho" value='<?php echo $d_objeto_hecho; ?>'>
+								<span class="input-group-addon" id="mascara_lupa_d_objeto_hecho">
+									<span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+								</span>
+								<span class="input-group-addon" id="lupa_d_objeto_hecho">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+							</div>
+						</div>
+
+						<div class="form-group col-md-3">
+						<div id="div_but_search">
+							<button type='button' class="btn-sm btn_buscar" id='btn_buscar'></button>
+                        	<button type='button' class="btn-sm btn_limpiar" id='btn_limpiar'></button>
+							<button type='button' class="btn-sm btn" id='btn_ctacte'>Cta Cte</button>
+						</div>
+					</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="content_wraper">
+	<div id="grid_creditos_div">
+		<table id="creditos_grid" class="scroll" cellpadding="0" cellspacing="0"><tr><td>&nbsp;</td></tr></table>
+		<div id="creditos_grid_pager" class="scroll" style="text-align:center;"></div>
+	</div>
+	<br>
+	<div id="div_search_contrib" class="panel-search">
+		<div class="panel panel-primary">
+			<a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search_contrib" aria-expanded="true" aria-controls="#collapse_search_contrib">
+				<span class="glyphicon"></span>
+			</a>
+			<div class="collapse in" id="collapse_search_contrib" aria-expanded="true">
+				<div class="panel-heading"><label id="lbl_contrib"></label>Datos del d&eacute;bito:</div>
+				<div class="panel-body">
+					<form id="frm_deudas">
+						<div class="row">
+							<div class="form-group col-md-1" id="div_col_imponible">
+								<label for="d_tipo_imponible1">Tipo Imponible</label>
+								<div class="input-group" id="div_input_imponible1">
+									<input type="text" class="form-control input-sm input-cod-short mayusculas" id="c_tipo_imponible1">
+									<input type="text" class="form-control input-sm input-desc-long mayusculas" id="d_tipo_imponible1" readonly>
+									<span class="input-group-addon btn_lupa1" id="lupa_c_tipo_imponible1" name="lupa_c_tipo_imponible1">
+										<span class="glyphicon glyphicon-search"></span>
+									</span>
+								</div>   
+							</div>
+							<div class="form-group col-md-1" id="div_col_tributo">
+								<label for="d_tributo1">Tributo (*)</label>
+							</div>
+							<div class="form-group col-md-3" id="div_col_tributo">
+
+								<div class="input-group" id="div_input_tributo1">
+									<input type="text" class="form-control input-sm input-cod-short numerico validate[required]" id="c_tributo1">
+									<input type="text" class="form-control input-sm input-desc-long mayusculas validate[required]" id="d_tributo1" readonly>
+
+									<span class="input-group-addon btn_lupa1" id="lupa_c_tributo1" name="lupa_c_tributo1">
+										<span class="glyphicon glyphicon-search"></span>
+									</span>
+								</div>	
+							</div>
+							<div class="form-group col-md-1" id="div_col_objeto_hecho">
+								<label for="d_objeto_hecho1">Objeto (*)</label>
+							</div>
+
+							<div class="form-group col-md-3" id="div_col_objeto_hecho">
+
+								<div class="input-group" id="div_input_objeto_hecho1">
+									<input type="text" class="form-control input-sm mayusculas validate[required]" id="d_objeto_hecho1">
+									<span class="input-group-addon" id="mascara_lupa_d_objeto_hecho1">
+										<span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+									</span>
+									<span class="input-group-addon" id="lupa_d_objeto_hecho1" name="lupa_d_objeto_hecho1">
+										<span class="glyphicon glyphicon-search"></span>
+									</span>
+								</div>	
+							</div>
+
+							<div class="form-group col-md-3" >
+							<button class="btn-sm btn_buscar" type="button" id="btn_buscar_deuda"></button>
+							<button class="btn-sm btn_limpiar" type="button" id="btn_limpiar_deuda"></button>
+							<button class="btn-sm btn" type="button" id="btn_ctacte_deuda">Cta Cte</button>
+						</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="grid_deudas_div">
+		<table id="deudas_grid" class="scroll" cellpadding="0" cellspacing="0"><tr><td>&nbsp;</td></tr></table>
+		<div id="deudas_grid_pager" class="scroll" style="text-align:center;"></div>
+	</div>
+	<div id="panel_botones">
+		<div class="row">
+			<div class="form-group col-md-12">
+				<label for="d_observacion">Observaciones</label>
+				<input type="text" class="form-control input-sm" id="d_observacion">
+			</div>	
+		</div>
+		<div class="row text-center">
+			<button class="btn btn-primary" type="button" id="btn_imputar"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Procesar</button>
+		</div>
+	</div>
+</div>

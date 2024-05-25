@@ -1,0 +1,241 @@
+<div class="modal fade" id="modal_add_operativo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="exampleModalLiveLabelAdd">Alta de Operativo</h5>
+            </div>
+            <div class="modal-body">
+                <form id="form_alta">
+                    <div class="form-group" style="display: flex;flex-direction: column;max-width: 80%;margin: 0 auto;gap: 5px;">
+                        <input type="text" name="id_plan_fis_add" id="id_plan_fis_add" hidden="">
+                        <input type="text" name="n_programa_fis_add" id="n_programa_fis_add" hidden="">
+
+                        <label for="c_departamento_add">Departamento(*)</label>
+                        <div class="input-group alta_general">
+                            <select name="c_departamento_add" class="form-control input-sm" id='c_departamento_add' readonly="true" disabled>
+                                <?php foreach ($data_departamentos as $departamento): ?>
+                                <option value="<?=$departamento['D_DATO2']; ?>"><?= $departamento['D_DATO'];?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <label for="d_titulo_add">Titulo(*)</label>
+                        <div class="input-group alta_general">
+                            <input type="text"  class="form-control input-sm validate[required]" id="d_titulo_add">
+                        </div>
+                        <label for="n_periodo_desde_add">Periodo Desde(*)</label>
+                        <div class="input-group alta_general">
+                            <input type="text"  class="form-control input-sm validate[required]" id="n_periodo_desde_add">
+                        </div>
+                        <label for="n_periodo_hasta_add">Periodo Hasta(*)</label>
+                        <div class="input-group alta_general">
+                            <input type="text"  class="form-control input-sm validate[required]" id="n_periodo_hasta_add">
+                        </div>
+                        <label for="c_inconsistencia_add">Tipo Inconsistencias(*)</label>
+                        <div class="input-group alta_general">
+                            <select name="tipo_inconsistencia" class="form-control input-sm validate[required] limpiar" id='c_inconsistencia_add'>
+                                <option value="" selected></option>
+                                <?php foreach ($data_inconsistencias as $inconsistencia): ?>
+                                <option value="<?=$inconsistencia['C_DATO']; ?>"><?= $inconsistencia['D_DATO'];?></option>
+                                <?php endforeach; ?>
+
+                            </select>
+                        </div>
+
+
+                        <div id="div_tributo_add" hidden>
+                            <label for="c_tributo_add">Tributo Analizado(*)</label>
+                            <div class="input-group" style="width: 100%">
+                                <select name="tributo" class="form-control input-sm validate[required] limpiar" id='c_tributo_add'>
+                                    <option value="" selected></option>
+                                    <?php foreach ($data_tributos as $tributo): ?>
+                                    <option value="<?=$tributo['C_TRIBUTO']; ?>"><?= $tributo['D_DESCRIP'];?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="div_plan_add" hidden>
+                            <label for="d_plan_fis_add" class="control-label">Plan de Fiscalización(*)</label>
+                            <div id="div_plan" class="input-group">
+                                <input type='text' id='d_plan_fis_add' name='d_plan_fis_add'
+                                       class='form-control input-sm validate[required]' readonly="true"/>
+                                <span class="input-group-addon btn_lupa" id="btn_plan_fis">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div id="div_programa_add" hidden>
+                            <label for="d_programa_fis_add" class="control-label">Programa de Fiscalización(*)</label>
+                            <div id="div_programa" class="input-group">
+                                <input type='text' id='d_programa_fis_add' name='d_programa_fis_add'
+                                       class='form-control input-sm validate[required]' readonly="true"/>
+                                <span class="input-group-addon btn_lupa" id="btn_programa_fis">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div id="div_procedimiento_add" hidden>
+                            <label for="c_procedimiento_add">Procedimiento Administrativo(*)</label>
+                            <div class="input-group" style="width: 100%">
+                                <select name="tipo_procedimiento" class="form-control input-sm validate[required] limpiar" id='c_procedimiento_add'>
+                                    <option value="" selected></option>
+                                    <?php foreach ($data_procedimientos as $procedimiento): ?>
+                                    <option value="<?=$procedimiento['C_DATO']; ?>"><?= $procedimiento['D_DATO'];?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                        </div>
+                        <label for="c_formato_add">Formato de Archivo</label>
+                        <div class="input-group alta_general">
+                            <select name="formato_archivo" class="form-control input-sm limpiar" id='c_formato_add'>
+                                <option value="" selected></option>
+                                <?php foreach ($data_formatos as $formato): ?>
+                                <option value="<?=$formato['C_DATO']; ?>"><?= $formato['D_DATO'];?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <label for="plantilla_mail_add">Plantilla de Mail</label>
+                        <div class="input-group alta_general">
+                            <select name="plantilla_mail" class="form-control input-sm" id='plantilla_mail_add'>
+                                <option value="" selected></option>
+                                <?php foreach ($data_plantilla_mails as $plantilla): ?>
+                                <option value="<?=$plantilla['ID_PLANTILLA_MAIL']; ?>"><?= $plantilla['D_PLANTILLA'];?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="button" class="btn btn-sm" id="btn_guardar_operativo"><span
+                            class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Guardar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal_edit_operativo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="exampleModalLiveLabelEdit">Edición de Operativo</h5>
+            </div>
+            <div class="modal-body">
+                <form id="form_edicion">
+                    <input type="text" name="n_operativo_edit" id="n_operativo_edit" hidden="">
+                    <input type="text" name="id_plan_fis_edit" id="id_plan_fis_edit" hidden="">
+                    <input type="text" name="n_programa_fis_edit" id="n_programa_fis_edit" hidden="">
+
+                    <div class="form-group" style="display: flex;flex-direction: column;max-width: 80%;margin: 0 auto;gap: 5px;">
+                        <label for="c_departamento_edit">Departamento(*)</label>
+                        <div class="input-group alta_general">
+                            <select name="departamento" class="form-control input-sm validate[required]" id='c_departamento_edit' readonly="true" disabled>
+                                <?php foreach ($data_departamentos as $departamento): ?>
+                                <option value="<?=$departamento['D_DATO2']; ?>"><?= $departamento['D_DATO'];?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <label for="d_titulo_edit">Titulo(*)</label>
+                        <div class="input-group alta_general">
+                            <input type="text"  class="form-control input-sm validate[required]" id="d_titulo_edit">
+                        </div>
+                        <label for="n_periodo_desde_edit">Periodo Desde(*)</label>
+                        <div class="input-group alta_general">
+                            <input type="text"  class="form-control input-sm validate[required]" id="n_periodo_desde_edit">
+                        </div>
+                        <label for="n_periodo_hasta_edit">Periodo Hasta(*)</label>
+                        <div class="input-group alta_general">
+                            <input type="text"  class="form-control input-sm validate[required]" id="n_periodo_hasta_edit">
+                        </div>
+                        <label for="c_inconsistencia_edit">Tipo Inconsistencias(*)</label>
+                        <div class="input-group alta_general">
+                            <select name="tipo_inconsistencia" class="form-control input-sm validate[required]" id='c_inconsistencia_edit'>
+                                <?php foreach ($data_inconsistencias as $inconsistencia): ?>
+                                <?php if ($p_sector == ';OFI;'): ?>
+                                <option value="<?=$inconsistencia['C_DATO']; ?>"><?= $inconsistencia['D_DATO'];?></option>
+                                <?php elseif ($p_sector == ';PRE;' && $inconsistencia['C_DATO'] == 11): ?>
+                                <option value="<?=$inconsistencia['C_DATO']; ?>"><?= $inconsistencia['D_DATO'];?></option>
+                                <?php endif; ?>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <div id="div_tributo_edit" hidden>
+                            <label for="c_tributo_edit">Tributo Analizado(*)</label>
+                            <div class="input-group alta_general">
+                                <select name="tributo" class="form-control input-sm validate[required]" id='c_tributo_edit' style="width: 167%;">
+                                    <?php foreach ($data_tributos as $tributo): ?>
+                                    <option value="<?=$tributo['C_TRIBUTO']; ?>"><?= $tributo['D_DESCRIP'];?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="div_plan_edit" hidden>
+                            <label for="d_plan_fis_edit" class="control-label">Plan de Fiscalización(*)</label>
+                            <div id="div_plan_edit_" class="input-group">
+                                <input type='text' id='d_plan_fis_edit' name='d_plan_fis_edit'
+                                       class='form-control input-sm validate[required]' readonly="true"/>
+                                <span class="input-group-addon btn_lupa" id="btn_plan_fis_edit">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div id="div_programa_edit" hidden>
+                            <label for="d_programa_fis_edit" class="control-label">Programa de Fiscalización(*)</label>
+                            <div id="div_programa_edit_" class="input-group">
+                                <input type='text' id='d_programa_fis_edit' name='d_programa_fis_edit'
+                                       class='form-control input-sm validate[required]' readonly="true"/>
+                                <span class="input-group-addon btn_lupa" id="btn_programa_fis_edit">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div id="div_procedimiento_edit" hidden>
+                            <label for="c_procedimiento_edit">Procedimiento Administrativo(*)</label>
+                            <div class="input-group alta_general">
+                                <select name="tipo_procedimiento" class="form-control input-sm validate[required]" id='c_procedimiento_edit' style="width: 201%;">
+                                    <?php foreach ($data_procedimientos as $procedimiento): ?>
+                                    <option value="<?=$procedimiento['C_DATO']; ?>"><?= $procedimiento['D_DATO'];?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                        </div>
+                        <label for="c_formato_edit">Formato de Archivo</label>
+                        <div class="input-group alta_general">
+                            <select name="formato_archivo" class="form-control input-sm" id='c_formato_edit'>
+                                <?php foreach ($data_formatos as $formato): ?>
+                                <option value="<?=$formato['C_DATO']; ?>"><?= $formato['D_DATO'];?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <label for="plantilla_mail_edit">Plantilla de Mail</label>
+                        <div class="input-group alta_general">
+                            <select name="plantilla_mail" class="form-control input-sm" id='plantilla_mail_edit'>
+                                <?php foreach ($data_plantilla_mails as $plantilla): ?>
+                                <option value="<?=$plantilla['ID_PLANTILLA_MAIL']; ?>"><?= $plantilla['D_PLANTILLA'];?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="button" class="btn btn-sm" id="btn_editar_operativo"><span
+                            class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Guardar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

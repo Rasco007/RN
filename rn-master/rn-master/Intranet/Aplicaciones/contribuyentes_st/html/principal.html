@@ -1,0 +1,68 @@
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true" style="">
+            <div class="panel-heading">Generación de CUIT</div>
+	        <div class="panel-body">
+	            <form id='frm_busqueda'>
+	            	<div class="row">
+	            	    <div class="form-group col-md-4 col-md-offset-2">
+						    <label for="c_tipo_documento">Tipo Documento</label>
+						    <div class="input-group" id="div_input_tipo_documento">
+						        <input name='c_tipo_documento' type="text" class="form-control input-sm input-cod-short" id="c_tipo_documento">
+						        <input name='d_c_tipo_documento' type="text" class="form-control input-sm input-desc-long validate[required]" id="d_c_tipo_documento" readonly>
+						        <span class="input-group-addon btn_lupa" id="lupa_c_tipo_documento" name='lupa_c_tipo_documento'>
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </span>
+						    </div>   
+						</div>
+
+					    <div class="form-group col-md-4">
+					        <label for="n_documento">N° de Documento</label>
+					        <input name='n_documento' maxlength='11' type="text" class="form-control input-sm text-right validate[required]" id="n_documento">
+					    </div>  
+	                </div>
+
+	                <div class="row">
+	                	<div id='m_persona_div' class='form-group col-md-4 col-md-offset-2'>
+							<label for='m_persona'>Tipo de Persona</label>
+							<div id='div_m_persona'>
+								<select name='m_persona' id='m_persona' data-live-search='true' title='Seleccione' class='selectpicker form-control input-sm validate[required]' data-style='cDropdown'> 
+									<option $selected_fisica value='F'>Humana</option>
+									<option $selected_juridica value='J'>Juridica</option>
+								</select>
+	                	
+							</div>
+						</div>
+						<div id='tipo_sexo_div' class='form-group col-md-4'>
+							<label for='estado_boleta'>Sexo</label>
+							<select name='c_sexo'id='c_sexo' data-live-search='true' title='Seleccione' class='selectpicker form-control input-sm validate[required]' data-style='cDropdown'>
+								<option $selected_masculino value='M'>Masculino</option>
+								<option $selected_femenino value='F'>Femenino</option>
+							</select>
+						</div>
+	                </div>
+
+					<div class="row">
+					    <div class="form-group col-md-4 col-md-offset-2">
+					    	<div id="div_cuit">
+						        <label>CUIT</label>
+						        <input name='n_cuit' id='n_cuit' type="text" class="form-control input-sm text-right validate[custom[validaCuit]]" maxlength='13' readonly>
+					    	</div>
+					    </div>
+					</div>
+
+	                <div class='row text-center'>
+						<button class="btn-sm btn-primary" type="button" id="btn_generar_ficticio"> Generar Ficticio</button>
+	                	<button class="btn-sm btn-primary" type="button" id="btn_generar"> Generar</button>
+						<button class="btn-sm btn-primary" type="button" id="btn_abm_contribuyente">
+							<span class='glyphicon glyphicon-user' aria-hidden='true'></span> Alta Contribuyente</button>
+						<button class="btn-sm btn_limpiar" type="button" id="btn_limpiar"></button>
+	                </div>
+	            </form>
+	        </div>
+	    </div>
+	</div>
+</div>

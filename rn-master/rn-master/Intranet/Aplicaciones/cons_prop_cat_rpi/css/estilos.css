@@ -1,0 +1,26 @@
+.div_dom{
+    margin: 10px 20px;
+}
+.div_grilla, .div_mensaje{
+    border: solid 1px #b0b0b0;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px auto;
+}
+#div_mensaje{
+    display: none;
+    padding-left: 30px !important;
+}
+#msge{
+    border: none;
+    width: 90%;
+}
+.input_dom{
+    width: 90%;
+}
+#titulo{
+    background-color: #156690;
+    margin: 0px 5px 10px 5px !important;
+    color: #FFFFFF;
+    padding: 0.5px 10px;
+}

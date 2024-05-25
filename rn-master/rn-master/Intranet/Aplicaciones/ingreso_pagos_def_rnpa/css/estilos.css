@@ -1,0 +1,29 @@
+.modal-open .datepicker{
+    z-index: 990 !important;
+}
+
+
+.fechas-container{
+    display: flex;
+    justify-content: center;
+}
+
+.fechas-box{
+    margin:1%;
+}
+.f-input{
+    padding: 5%;
+}
+
+#res_proceso{
+    height: 20vh;
+}
+.btn-container{
+    text-align: center;
+}
+#btn_procesar{
+    margin:1% ;
+}
+#btn_limpiar{
+    margin:1% ;
+}

@@ -1,0 +1,67 @@
+<div class='titlebar'>
+    <span class="ui-jqgrid-title">Eliminación de Remitos</span>
+</div>
+<div id="div_search" class="search panel-body">
+    
+    <form id='frm_remesas'>
+        <div class="row">
+
+            <div class="form-group col-md-2 col-md-offset-1">
+                <label for="remito">Remito (*):</label>
+                <div class="input-group" id="div_input_remito">
+                    <input name='remito' type="text" class="form-control input-sm numerico" id="remito" >
+                    <span class="input-group-addon btn_lupa" id="lupa_remito">
+                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                </span>
+                </div>
+            </div>
+
+            <div class="form-group col-md-2">
+                <label for="f_remesa">F. Remesa:</label>
+                <input type="text" class="form-control input-sm datepicker text-center validate[required]" disabled="true" readonly name="f_remesa" id="f_remesa" placeholder="(DD/MM/AAAA)" maxlength="10">
+                
+            </div>
+
+            <div class="form-group col-md-2">
+                <label for="f_pago">F. Pago:</label>
+                <input type="text" class="form-control input-sm datepicker text-center validate[required]" disabled="true" readonly name="f_pago" id="f_pago" placeholder="(DD/MM/AAAA)" maxlength="10">
+                
+            </div>
+
+            <div class="form-group col-md-3">
+                <label for="c_banco">Banco:</label>
+                <div class="input-group">
+                    <input name='c_banco' type="text" class="form-control input-sm input-cod-short validate[required]" id="c_banco" readonly>
+                    <input name='d_banco' type="text" class="form-control input-sm input-desc-long validate[required]" id="d_banco" readonly>
+                    <!-- <span class="input-group-addon btn_lupa" id="lupa_c_banco">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    </span> -->
+                </div>   
+            </div>
+       
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-1 col-md-offset-1">
+                <label for="cant">Cantidad:</label>
+                <input type="text" class="form-control input-sm" id="cant" name="cant" readonly>
+            </div>
+
+            <div class="form-group col-md-2">
+                <label for="importe">Importe:</label>
+                <div class="input-group">
+                    <input type="text" class="form-control input-sm text-right validate[required]" id="importe" readonly>
+                </div>
+            </div>
+
+            <div class="form-group col-md-6" style="margin-top:18px;padding-left: 4%; display:flex; justify-content: end;">
+                <button class="btn col-md-3" type="button" id="btn_buscar" ><span aria-hidden="true"></span> Buscar</button>
+                <button class="btn col-md-3" type="button" id="btn_limpiar" style="margin-left:3%"><span aria-hidden="true"></span> Limpiar</button>
+                <button class="btn-sm btn-primary col-md-3" style="margin-left:3%" type="button" id="btn_eliminar" disabled= "true"><span aria-hidden="true"></span> Eliminar</button>
+            </div>
+        </div>
+
+    </form>
+
+</div>

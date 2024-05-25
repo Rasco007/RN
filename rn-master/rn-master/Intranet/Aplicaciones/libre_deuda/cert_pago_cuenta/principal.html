@@ -1,0 +1,58 @@
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true" style="">
+            <div class="panel-heading">Datos del Contribuyente</div>
+	        <div class="panel-body">
+	            <form id='frm_busqueda'>
+	                <div class="row">
+					    <div class="form-group col-md-2">
+					    	<div id="div_cuit">
+						        <label>CUIT (*)</label>
+						        <input name='n_cuit' id='n_cuit' type="text" class="form-control input-sm text-right validate[required,custom[validaCuit]] limpiar" maxlength='13'>
+						        <input name='id_contribuyente' type="hidden" class="form-control input-sm text-right limpiar" id="id_contribuyente">
+					    	</div>
+					    </div>
+
+				        <div class="form-group col-md-6">
+					        <label for="d_denominacion">Denominación (*)</label>
+					        <input name='d_denominacion' type="text" class="mayusculas form-control input-sm validate[required] limpiar" id="d_denominacion">
+					    </div>
+	                </div>
+
+	                <div class="row">
+					    <div class="form-group col-md-6">
+						    <label for="d_domicilio">Domicilio</label>
+					        <input name='d_domicilio' type="text" class="form-control input-sm validate[required]" id="d_domicilio" readonly>
+						</div>
+
+					    <div class="form-group col-md-6">
+					        <label for="d_localidad">Localidad</label>
+					        <input name='d_localidad' type="text" class="form-control input-sm validate[required]" id="d_localidad" readonly>
+					    </div>
+				    </div>
+
+	                <div class="row">
+	            	    <div class="form-group col-md-6">
+						    <label for="d_tributo">Tributo</label>
+					        <input name='c_tributo' type="hidden" class="form-control input-sm validate[required]" id="c_tributo" readonly>
+					        <input name='d_tributo' type="text" class="form-control input-sm validate[required]" id="d_tributo" readonly>
+						</div>
+
+	            	    <div class="form-group col-md-2">
+						    <label for="n_inscripcion">Inscripción</label>
+					        <input name='n_inscripcion' type="text" class="form-control input-sm validate[required]" id="n_inscripcion" readonly>
+						</div>
+	                </div>
+
+	                <div class='row-search text-center'>
+						<button class="btn-sm btn-primary" type="button" id="btn_consultar" disabled><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Consultar</button>
+	                	<button class="btn-sm btn_limpiar" type="button" id="btn_limpiar"></button>
+	                </div>
+	            </form>
+	        </div>
+	    </div>
+	</div>
+</div>

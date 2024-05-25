@@ -1,0 +1,301 @@
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <div class="collapse in" id="collapse_search" aria-expanded="true" style="">
+            <div class="panel-heading">Automotores</div>
+	        <div class="panel-body">
+	            <form id='frm_busqueda'>
+	                <div class="row">
+					    <div class="form-group col-md-2">
+					        <label for="d_patente">Dominio</label>
+					    	<div class="input-group">
+						        <input name='d_patente' id='d_patente' type="text" class="form-control input-sm validate[required] mayusculas" value="<?=$p_objeto?>">
+						        <span class="input-group-addon btn_lupa" id="lupa_dominio" name='lupa_dominio'>
+					                <span class="glyphicon glyphicon-search"></span>
+					            </span>
+					    	</div>
+					    </div>
+
+						<div id="div_verif_dom" class="form-group col-md-1">
+							<label for="d_verif_dom"></label>
+							<input name='d_verif_dom' class="form-control input-sm numero text-center" type="text" id="d_verif_dom" maxlength="1" style="width: 50% !important;">
+						</div>
+
+				        <div id="div_dominio_vieja" class="form-group col-md-2">
+					        <label for="d_patente_vieja">Dominio Anterior</label>
+							<div class="input-group">
+								<input name='d_patente_vieja' type="text" class="mayusculas form-control input-sm" id="d_patente_vieja" value="<?=$p_patente_vieja?>">
+								<span class="input-group-addon btn_lupa" id="lupa_dom_ant" name='lupa_dom_ant'>
+					                <span class="glyphicon glyphicon-search"></span>
+					            </span>
+							</div>
+					    </div>
+
+						<div id="div_verif_dom_ant" class="form-group col-md-1">
+							<label for="d_verif_dom_ant"></label>
+							<input name='d_verif_dom_ant' class="form-control input-sm numero text-center" type="text" id="d_verif_dom_ant" maxlength="1" style="width: 50% !important;" value="<?=$digito_ant?>">
+						</div>
+
+						<div class="form-group col-md-4" style="margin-top: 15px;">
+							<button class="btn btn_buscar" type="button" id="btn_buscar"></button>
+							<button class="btn btn-primary" type="button" id="btn_continuar" style="display:none;">Continuar</button>
+		                	<button class="btn btn_limpiar" type="button" id="btn_limpiar"></button>
+						</div>
+
+	                </div>
+
+	                <div id="div_info" hidden>
+		                <div class="row">
+					        <div id="div_estado" class="form-group col-md-4">
+						        <label for="d_estado">Último Movimiento</label>
+						        <input name='d_estado' type="text" class="mayusculas form-control input-sm" id="d_estado" readonly>
+						    </div>
+
+		                	<div class="form-group col-md-4">
+						        <label for="c_motivo_alta">Motivo Alta</label>
+								<div class="input-group">
+									<input name='c_motivo_alta' type="text" class="form-control input-sm validate[required] input-cod-short mayusculas" id="c_motivo_alta">
+									<input name='d_motivo_alta' type="text" class="form-control input-sm validate[required] input-desc-long mayusculas" id="d_motivo_alta" readonly>
+									<span class="input-group-addon btn_lupa" id="lupa_motivo_alta" name='lupa_motivo_alta'>
+						                <span class="glyphicon glyphicon-search"></span>
+						            </span>
+								</div>
+							</div>
+
+							<div class="form-group col-md-2">
+	                            <label for="m_convocatoria">Sin Convocatoria</label>
+	                            <input type="checkbox" class="form-control input-sm text-center" name="m_convocatoria" id="m_convocatoria" onclick="fun_sin_convocatoria();">
+	                        </div>
+	                    </div>
+
+		            	<fieldset id="div_datos_base_imp">
+	                        <legend>Afectan a la base imponible</legend>
+			                <div class="row">
+							    <div class="form-group col-md-4">
+							        <label for="c_marca">Marca</label>
+							    	<div class="input-group">
+								        <input name='c_marca' id='c_marca' type="text" class="form-control input-sm input-cod-short mayusculas">
+								        <input name='d_marca' id='d_marca' type="text" class="form-control input-sm input-desc-long mayusculas" readonly>
+								        <span class="input-group-addon btn_lupa" id="lupa_marca" name='lupa_marca'>
+							                <span class="glyphicon glyphicon-search"></span>
+							            </span>
+							    	</div>
+							    </div>
+
+								<div class="form-group col-md-4">
+							        <label for="c_modelo">Modelo</label>
+							    	<div class="input-group">
+								        <input name='c_modelo' id='c_modelo' type="text" class="form-control input-sm input-cod-short numero">
+								        <input name='d_modelo' id='d_modelo' type="text" class="form-control input-sm input-desc-long mayusculas" readonly>
+								        <span class="input-group-addon btn_lupa" id="lupa_modelo" name='lupa_modelo'>
+							                <span class="glyphicon glyphicon-search"></span>
+							            </span>
+							    	</div>
+							    </div>
+
+							    <div class="form-group col-md-4">
+							        <label for="c_descripcion">Descripción</label>
+							    	<div class="input-group">
+								        <input name='c_descripcion' id='c_descripcion' type="text" class="form-control input-sm input-cod-short numero">
+								        <input name='d_descripcion' id='d_descripcion' type="text" class="form-control input-sm input-desc-long mayusculas" readonly>
+								        <span class="input-group-addon btn_lupa" id="lupa_descripcion" name='lupa_descripcion'>
+							                <span class="glyphicon glyphicon-search"></span>
+							            </span>
+							    	</div>
+							    </div>
+			                </div>
+
+			                <div class="row">
+			                	<div class="form-group col-md-4">
+							        <label for="c_tipo">Tipo</label>
+							    	<div class="input-group">
+								        <input name='c_tipo' id='c_tipo' type="text" class="form-control input-sm validate[required] input-cod-short mayusculas">
+								        <input name='d_tipo' id='d_tipo' type="text" class="form-control input-sm validate[required] input-desc-long mayusculas" readonly>
+								        <span class="input-group-addon btn_lupa" id="lupa_tipo" name='lupa_tipo'>
+							                <span class="glyphicon glyphicon-search"></span>
+							            </span>
+							    	</div>
+							    </div>
+
+			                	<div class="form-group col-md-2">
+							        <label for="n_modelo">Modelo/Año</label>
+							        <input name='n_modelo' id='n_modelo' type="text" maxlength="4" class="form-control input-sm validate[required] numero">
+							    </div>
+
+							    <div class="form-group col-md-2">
+							        <label for="n_peso">Peso/Cilindrada/Eslora</label>
+							        <input name='n_peso' id='n_peso' type="text" maxlength="10" class="form-control input-sm text-right validate[required] numero_decimal">
+							        <input name='n_peso_max' id='n_peso_max' type="text" hidden>
+							        <input name='d_aff' id='d_aff' type="text" hidden>
+							    </div>
+
+								<div class="form-group col-md-1">
+		                            <label for="n_hp">HP</label>
+		                            <input type="text" maxlength="4" class="form-control input-sm text-right numero_decimal" name="n_hp" id="n_hp">
+		                        </div>
+						    </div>
+
+						    <div class="row">
+			                	<div class="form-group col-md-4">
+							        <label for="c_grupo">Grupo</label>
+							    	<div class="input-group">
+								        <input name='c_grupo' id='c_grupo' type="text" class="form-control input-sm validate[required] input-cod-short mayusculas">
+								        <input name='d_grupo' id='d_grupo' type="text" class="form-control input-sm validate[required] input-desc-long mayusculas" readonly>
+								        <span class="input-group-addon btn_lupa" id="lupa_grupo" name='lupa_grupo'>
+							                <span class="glyphicon glyphicon-search"></span>
+							            </span>
+							    	</div>
+							    </div>
+
+							    <div class="form-group col-md-5">
+							        <label for="c_fmcamod">MTM</label>
+							    	<div class="input-group">
+								        <input name='c_fmcamod' id='c_fmcamod' type="text" class="form-control input-sm input-cod-short mayusculas">
+								        <input name='d_fmcamod' id='d_fmcamod' type="text" class="form-control input-sm input-desc-long mayusculas" readonly>
+								        <span class="input-group-addon btn_lupa" id="lupa_fmcamod" name='lupa_fmcamod'>
+							                <span class="glyphicon glyphicon-search"></span>
+							            </span>
+							    	</div>
+							    </div>
+						    </div>
+					    </fieldset>
+					    <br>
+					    <div class="row">
+						    <div class="form-group col-md-2">
+							    <label for="m_nacional" class="control-label">Nacional/Importado</label>
+							    <div id="div_m_nacional">
+							        <select id="m_nacional" data-live-search="true" title="Seleccione" class="selectpicker form-control input-sm" data-style="cDropdown">
+							            <option value='N' selected>Nacional</option>
+							            <option value='I'>Importado</option>
+							        </select>
+							    </div>
+							</div>
+
+							<div class="form-group col-md-4">
+						        <label for="c_combustible">Combustible</label>
+						    	<div class="input-group">
+							        <input name='c_combustible' id='c_combustible' type="text" class="form-control input-sm input-cod-short mayusculas">
+							        <input name='d_combustible' id='d_combustible' type="text" class="form-control input-sm input-desc-long mayusculas" readonly>
+							        <span class="input-group-addon btn_lupa" id="lupa_combustible" name='lupa_combustible'>
+						                <span class="glyphicon glyphicon-search"></span>
+						            </span>
+						    	</div>
+						    </div>
+
+						    <fieldset id="div_datos_gh" class="form-group col-md-4">
+	                        	<legend>Guarda Habitual</legend>
+	                        		<center>
+		                            	<input type="radio" class="input-sm radios" name="m_gh" id="m_si" value="GH" readonly ><label class="radiolabel">SI</label>
+		                            	<input type="radio" class="input-sm radios" name="m_gh" id="m_no" value="N"  readonly checked><label class="radiolabel">NO</label>
+		                            	<input type="radio" class="input-sm radios" name="m_gh" id="m_f_hasta" value="X" readonly ><label class="radiolabel">Fecha Hasta</label>
+		                            	<input name='f_hasta_gh' id='f_hasta_gh' type="text" class="input-sm input-cod-short datepicker" disabled>
+	                        		</center>
+	                    	</fieldset>
+					    </div>
+
+					    <div class="row">
+					    	<div class="form-group col-md-4">
+						        <label for="d_texto_marca">Marca no codificada</label>
+						        <input name='d_texto_marca' id='d_texto_marca' type="text" class="form-control input-sm mayusculas">
+						    </div>
+
+					    	<div class="form-group col-md-4">
+						        <label for="d_texto_modelo">Modelo no codificada</label>
+						        <input name='d_texto_modelo' id='d_texto_modelo' type="text" class="form-control input-sm mayusculas">
+						    </div>
+
+					    	<div class="form-group col-md-4">
+						        <label for="d_texto_descripcion">Descripción no codificada</label>
+						        <input name='d_texto_descripcion' id='d_texto_descripcion' type="text" class="form-control input-sm mayusculas">
+						    </div>
+					    </div>
+
+					    <div class="row">
+					    	<div class="form-group col-md-4">
+						        <label for="d_marca_motor">Marca Motor</label>
+						        <input name='d_marca_motor' id='d_marca_motor' type="text" class="form-control input-sm mayusculas">
+						    </div>
+
+					    	<div class="form-group col-md-2">
+						        <label for="n_motor">Nro. Motor</label>
+						        <input name='n_motor' id='n_motor' type="text" class="form-control input-sm mayusculas">
+						    </div>
+
+					    	<div class="form-group col-md-4">
+						        <label for="d_marca_chasis">Marca Chasis</label>
+						        <input name='d_marca_chasis' id='d_marca_chasis' type="text" class="form-control input-sm mayusculas">
+						    </div>
+
+					    	<div class="form-group col-md-2">
+						        <label for="n_chasis">Nro. Chasis</label>
+						        <input name='n_chasis' id='n_chasis' type="text" class="form-control input-sm mayusculas">
+						    </div>
+					    </div>
+
+					    <div class="row">
+					    	<div id="div_rnpa" class="form-group col-md-4">
+							    <label for="c_rnpa">RNPA</label>
+							    <div class="input-group">
+							        <input name='c_rnpa' type="text" class="form-control input-sm validate[required] input-cod-short mayusculas" id="c_rnpa">
+							        <input name='d_rnpa' type="text" class="form-control input-sm validate[required] input-desc-long" id="d_rnpa" readonly>
+							        <span class="input-group-addon btn_lupa" id="lupa_rnpa" name='lupa_rnpa'>
+						                <span class="glyphicon glyphicon-search"></span>
+						            </span>
+							    </div>   
+							</div>
+
+							<div class="form-group col-md-4">
+							    <label for="c_delegacion">Prov/Oficina</label>
+							    <div class="input-group">
+							        <input name='c_delegacion' type="text" class="form-control input-sm validate[required] input-cod-short mayusculas" id="c_delegacion">
+							        <input name='d_delegacion' type="text" class="form-control input-sm validate[required] input-desc-long" id="d_delegacion" readonly>
+							        <span class="input-group-addon btn_lupa" id="lupa_delegacion" name='lupa_delegacion'>
+						                <span class="glyphicon glyphicon-search"></span>
+						            </span>
+							    </div>   
+							</div>
+
+							<div class="form-group col-md-3" style="margin-top: 16px;">
+	                        	<button class="btn btn-primary" type="button" id="btn_mov_hist" disabled>Ver Movimientos Históricos</button>
+	                        </div>
+					    </div>
+
+					    <div class="row">
+					    	<div class="form-group col-md-2">
+		                        <label for="f_radicacion">Fecha Radicación</label>
+		                        <input name='f_radicacion' id='f_radicacion' type="text" class="form-control input-sm validate[required] text-enter datepicker">
+		                    </div>
+
+					    	<div class="form-group col-md-2">
+		                        <label for="f_inscripcion">Fecha Inscripción</label>
+		                        <input name='f_inscripcion' id='f_inscripcion' type="text" class="form-control input-sm validate[required] text-enter datepicker">
+		                    </div>
+		                    
+					    	<div class="form-group col-md-2">
+		                        <label for="f_baja">Fecha Destrucción/Desarme</label>
+		                        <input name='f_baja' id='f_baja' type="text" class="form-control input-sm text-enter datepicker" disabled>
+		                    </div>
+		                    
+					    	<div class="form-group col-md-2">
+		                        <label for="f_ult_transformacion">Última Transformación</label>
+		                        <input name='f_ult_transformacion' id='f_ult_transformacion' type="text" class="form-control input-sm text-enter datepicker" disabled>
+		                    </div>
+
+		                    <div class="form-group col-md-3" style="margin-top: 16px;">
+	                        	<button class="btn btn-primary" type="button" id="btn_impuesto_anual">Ver Impuesto Anual</button>
+	                        </div>
+					    </div>
+					    <br>
+					    <center class="row">
+					    	<button class="btn btn-primary" type="button" id="btn_contribuyente" disabled>Contribuyente</button>
+					    </center>
+					    <br>
+					    <center class="row">
+					    	<button class="btn btn-primary" type="button" id="btn_grabar_datos" style="display:none;"><span class="glyphicon glyphicon-save" aria-hidden="true"></span> Grabar Datos</button>
+					    </center>
+	                </div>
+                </form>
+	        </div>
+	    </div>
+	</div>
+</div>
+

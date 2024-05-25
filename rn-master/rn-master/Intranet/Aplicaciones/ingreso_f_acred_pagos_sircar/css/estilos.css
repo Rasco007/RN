@@ -1,0 +1,31 @@
+.modal-open .datepicker{
+    z-index: 990 !important;
+}
+
+.modal-footer{
+    text-align: left;
+    display:flex;
+    justify-content: end;
+}
+
+.input-group{
+    padding: 5px;
+    width: 150px;
+}
+
+.btn-main{
+    margin: 50px;
+}
+
+.btn-modal{
+    margin: 20px;
+}
+
+.div-volver{
+    display: flex;
+    justify-content: end;
+}
+
+.f_input{
+    width:300px;
+}

@@ -1,0 +1,39 @@
+<!--DIV BUSQUEDA-->
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true" style="">
+            <div class="panel-heading">Filtros</div>
+            <div class="panel-body">
+                <form id='frm_consulta'>
+                    <div class="row" style="display: flex; justify-content: space-between;">
+                        <div class="form-inline col-md-5">
+                            <label for="d_grupo_juicios" class="control-label">Grupo</label>
+                            <div class="input-group">
+                                <input type='text' id='c_grupo_juicios' name='c_grupo_juicios'
+                                       class='form-control input-sm input-cod-short validate[required]' readonly="true"/>
+                                <input type='text' id='d_grupo_juicios' name='d_grupo_juicios'
+                                       class='form-control input-sm input-desc-long validate[required]' readonly="true"/>
+                                <span class="input-group-addon btn_lupa" id="lupa_grupo">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-5">
+                            <button type='button' class="btn btn-sm btn_buscar" id='btn_buscar'></button>
+                            <button type='button' class="btn btn-sm btn_limpiar" id='btn_limpiar'></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--GRILLA PRINCIPAL-->
+<div id="seccion_1">
+    <table id='main_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+    <div id='main_grid_pager' class='scroll' style='text-align:center;'></div>
+</div>

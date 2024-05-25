@@ -1,0 +1,131 @@
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading">Acreditaci&oacute;n Masiva de Pagos</div>
+            <div class="panel-body">
+                <form id='frm_busqueda_rendiciones'>
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                            <label for="c_banco">Banco (*)</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm input-cod-short text-input" id="c_banco" style="text-align: center">
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_banco" readonly>
+                                <span class="input-group-addon" id="mascara_lupa_banco">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon btn_lupa" id="lupa_banco">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="c_sucursal">Sucursal</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm input-cod-short text-input" id="c_sucursal" style="text-align: center">
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_sucursal" readonly>
+                                <span class="input-group-addon" id="mascara_lupa_sucursal">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon btn_lupa" id="lupa_sucursal">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="f_desde">F. Desde</label>
+                            <input type="text" class="form-control datepicker input-sm" id="f_desde" style="text-align: center">
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="f_hasta">F. Hasta</label>
+                            <input type="text" class="form-control datepicker input-sm" id="f_hasta" style="text-align: center">
+                        </div>
+
+
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                            <label for="n_remito">Remito</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm text-input" id="n_remito" style="text-align: center">
+                                <span class="input-group-addon" id="mascara_lupa_remito">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon btn_lupa" id="lupa_remito">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-2" style="margin-top:22px">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="check_automat">
+                                <label class="form-check-label" for="check_automat">Autom&aacute;tica</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-2" style="margin-top:22px">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="check_manual">
+                                <label class="form-check-label" for="check_manual">Manual</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-2" style="margin-top:22px">
+                            <input class="form-check-input" type="checkbox" id="check_marcar_todas">
+                            <label class="form-check-label" for="check_marcar_todas">Marcar Todas</label>
+                        </div>
+
+                    </div>
+                    <div class="row text-center" style="margin: 15px 0px 15px 0px">
+                        <button type='button' id='btn_buscar' name='btn_buscar' class="btn-sm btn_buscar"></button>
+                        <button type='button' id='btn_limpiar' name='btn_limpiar' class="btn-sm btn_limpiar"></button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<table id="agrup_det_grid" class="scroll" cellpadding="0" cellspacing="0">
+    <tr><td>&nbsp;</td></tr>
+  </table>
+  <div id="agrup_det_grid_pager" class="scroll" style="text-align:center;"></div>
+
+
+
+<div class='row text-center' style = 'margin-top:10px;'>
+    <button type='button' id='btn_casos_especiales' class="ui-button ui-corner-all ui-widget">Casos Especiales</button>
+    <button type='button' id='btn_procesar' class="ui-button ui-corner-all ui-widget">Procesar</button>
+</div>
+
+
+<!--Modal para la grilla casos especiales-->
+<div class="modal" id="casos_especiales_modal" tabindex="-1" role="dialog" aria-labelledby="rechazos_title" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="rechazos_title"></h5>
+            </div>
+            <div class="modal-body">
+                <table id="casos_especiales_grid" class="scroll" cellpadding="0" cellspacing="0">
+                    <tr><td>&nbsp;</td></tr>
+                </table>
+                <div id="casos_especiales_grid_pager" class="scroll" style="text-align:center;"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btn_volver_casos" class="btn btn-secondary" data-dismiss="modal">Volver</button>
+                <button type="button" id="btn_procesar_casos" class="btn btn-primary">Procesar Casos Especiales</button>
+            </div>
+        </div>
+    </div>
+</div>
+

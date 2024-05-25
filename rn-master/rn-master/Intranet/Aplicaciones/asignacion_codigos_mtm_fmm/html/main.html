@@ -1,0 +1,75 @@
+<div id="gridWrapper" style="margin-bottom: 1%;">
+  <div class="detalle">
+    <table id="main_grid" class="scroll" cellpadding="0" cellspacing="0">
+      <tr>
+        <td>&nbsp;</td>
+      </tr>
+    </table>
+    <div id="main_grid_pager" class="scroll" style="text-align: center"></div>
+  </div>
+</div>
+
+<div id="gridWrapperAsignados" style="margin-bottom: 1%;display: none;">
+  <div class="detalle">
+    <table id="asignados_grid" class="scroll" cellpadding="0" cellspacing="0">
+      <tr>
+        <td>&nbsp;</td>
+      </tr>
+    </table>
+    <div id="asignados_grid_pager" class="scroll" style="text-align: center"></div>
+  </div>
+</div>
+
+<div id="gridWrapperNoAsignados" style="margin-bottom: 1%;display: none;">
+  <div class="detalle">
+    <table id="no_asignados_grid" class="scroll" cellpadding="0" cellspacing="0">
+      <tr>
+        <td>&nbsp;</td>
+      </tr>
+    </table>
+    <div id="no_asignados_grid_pager" class="scroll" style="text-align: center"></div>
+  </div>
+</div>
+
+<div class="form-group col-md-4">
+  <label for="marca">Filtrar por marca</label>
+  <div id="div_marca" style="padding-left: 1%;"  class="input-group">
+      <input name='c_marca' type="text" class="form-control input-sm input-cod-short" id="c_marca" >
+      <input name='d_marca' type="text" class="form-control input-sm input-desc-long" id="d_marca" readonly>
+          <span class="input-group-addon btn_lupa" id="lupa_marca">
+              <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+          </span>
+  </div>
+</div>
+
+<div class="form-group col-md-4">
+    <label for="rnpa">RNPA</label>
+    <input type="text"  id="rnpa" class='form-control text-right input-sm' readonly>
+</div>
+
+<div class="form-group col-md-4">
+    <label for="siat">SIAT</label>
+    <input type="text"  id="siat" class='form-control text-right input-sm' readonly>
+</div>
+
+
+<div class="form-group col-md-8" style="margin-top:17px">
+  <button class="btn-sm btn-primary" type="button" id="btn_consultar"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Buscar</button>
+  <button class="btn-sm btn_limpiar" type="button" id="btn_limpiar"></button>
+</div>
+
+<div class="form-group col-md-4" style="margin-top: 16px;">
+
+<button class="btn-sm btn-secondary" type="button" id="asignados">
+  Asignados
+</button>
+
+<button class="btn-sm btn-secondary" type="button" id="no_asignados">
+  No Asignados
+</button>
+
+<button class="btn-sm btn-secondary" type="button" id="ver_todos">
+  Ver todos
+</button>
+
+</div>

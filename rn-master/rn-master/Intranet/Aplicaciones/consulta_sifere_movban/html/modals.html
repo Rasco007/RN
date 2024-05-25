@@ -1,0 +1,69 @@
+
+<div class="modal fade" id="grid_modal" tabindex="-1" role="dialog" aria-labelledby="grid_modal" aria-hidden="true" data-backdrop="false" style="z-index: 960; top:50px ;">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="titulo">Listado por Fechas</h5>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="fecha_acre_desde">F. Acreditación (Desde)</label>
+                        <div class="input-group" style="width: 100%;">
+                            <input type="text" class="form-control input-sm datepicker text-center limpiar" name="fecha_acre_desde" id="fecha_acre_desde" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off">
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="fecha_acre_hasta">F. Acreditación (Hasta)</label>
+                        <div class="input-group" style="width: 100%;">
+                            <input type="text" class="form-control input-sm datepicker text-center limpiar" name="fecha_acre_hasta" id="fecha_acre_hasta" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off">
+                        </div>
+                    </div>
+                </div>
+                <div class="row-search text-center">
+                    <div class="form-group col-md-6" style="margin: 1.5% 0 0 0;">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="check_f_acred_mb">
+                            <label class="form-check-label" for="check_f_acred_mb">F. Acred. MB</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-6" style="margin: 1.5% 0 0 0;">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="check_f_acred_art">
+                            <label class="form-check-label" for="check_f_acred_art">F. Acred. ART</label>
+                        </div>
+                    </div>
+
+                    <button type="button" id="btn_generar_grilla_excel" class="btn-sm" style="font-size: 95%; background: #d0d0d0;">Generar Grilla Excel</button>
+
+
+                </div>
+
+                <div id='grid_grilla_excel_mb' class="tabla-container">
+                    <br>
+                    <div>
+                        <table id='main_grid_grilla_excel_mb' class='scroll' cellpadding='0' cellspacing='0'><tr><td></td></tr></table>
+                        <div id='main_grid_grilla_excel_mb_pager' class='scroll' style='text-align:center;'></div>
+                    </div>
+                </div>
+
+                <div id='grid_grilla_excel_art' class="tabla-container">
+                    <br>
+                    <div>
+                        <table id='main_grid_grilla_excel_art' class='scroll' cellpadding='0' cellspacing='0'><tr><td></td></tr></table>
+                        <div id='main_grid_grilla_excel_art_pager' class='scroll' style='text-align:center;'></div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btn_volver" class="btn btn-primary" data-dismiss="modal">Volver</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,117 @@
+<div class="modal fade" id="modal_add_alcance" tabindex="-1" role="dialog"
+     aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="exampleModalLiveLabel">Alta de Alcance</h5>
+            </div>
+            <div class="modal-body">
+                <form id="form_alcance">
+                    <div class="row form-group" style="justify-content: center;display: flex;flex-direction: column;max-width: 80%;margin: 0 auto;gap: 5px;">
+                        <div class="col-md-12">
+                            <label for="p_d_objeto_hecho">Inscripción(*)</label>
+                            <div id="div_ent_filtro" class="input-group" style="width: 97%">
+                                <input type="text" name="alcance_id" id="alcance_id_inspeccion" hidden="">
+                                <input type="text" name="alcance_id" id="p_id_contribuyente" hidden="">
+                                <input type="text" name="p_d_objeto_hecho" id="p_d_objeto_hecho" hidden="">
+                                <input type="text" name="p_c_tributo" id="p_c_tributo" hidden="">
+                                <input type="text" id="d_inscripcion" name="d_inscripcion"
+                                       class="form-control input-sm validate[required]" readonly="true">
+                                <span class="input-group-addon btn_lupa" id="btn_inscripcion">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-12" style="margin-top: 10px">
+                            <div class="row col-md-6 form-group">
+                                <label for="n_pos_fiscal_desde" class="control-label">Posición Fiscal Desde(*)</label>
+                                <div class="input-group" id="div_input_pos_fiscal_desde">
+                                    <input type="text" id="n_pos_fiscal_desde" placeholder="aaaa" maxlength="4"
+                                           value="" autocomplete="off"
+                                           class="form-control input-sm input-range-left validate[required]">
+                                    <input type="text"
+                                           class="form-control input-sm input-range-right validate[required]"
+                                           id="cuota_desde"
+                                           placeholder="nn" maxlength="2" value="" autocomplete="off">
+                                </div>
+                            </div>
+                            <div class="row col-md-6 form-group" style="float: right;">
+                                <label for="n_pos_fiscal_hasta" class="control-label">Posición Fiscal Hasta(*)</label>
+                                <div class="input-group" id="div_input_pos_fiscal_hasta">
+                                    <input type="text" id="n_pos_fiscal_hasta" placeholder="aaaa" maxlength="4"
+                                           value="" autocomplete="off"
+                                           class="form-control input-sm input-range-left validate[required]">
+                                    <input type="text"
+                                           class="form-control input-sm input-range-right validate[required]"
+                                           id="cuota_hasta"
+                                           placeholder="nn" maxlength="2" value="" autocomplete="off">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="button" class="btn btn-sm" id="btn_add_alcance"><span
+                            class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Guardar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal_edit_alcance" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="editExampleModalLiveLabel">Edición de Alcance</h5>
+            </div>
+            <div class="modal-body">
+                <form id="form_edit_alcance" style="margin-left: 25px">
+                    <input type="text" name="alcance_id" id="edit_id_inspeccion" hidden="">
+                    <input type="text" name="alcance_id" id="edit_id_contribuyente" hidden="">
+
+                    <div class="form-group" style="justify-content: center;display: flex;flex-direction: column;max-width: 80%;margin: 0 auto;gap: 5px;">
+                        <label for="edit_n_pos_fiscal_desde" class="control-label">Posición Fiscal Desde(*)</label>
+                        <div class="input-group" id="edit_input_pos_fiscal_desde">
+                            <input type="text" id="edit_n_pos_fiscal_desde" placeholder="aaaa" maxlength="4"
+                                   value="" autocomplete="off"
+                                   class="form-control input-sm input-range-left validate[required]">
+                            <input type="text"
+                                   class="form-control input-sm input-range-right validate[required]"
+                                   id="edit_cuota_desde"
+                                   placeholder="nn" maxlength="2" value="" autocomplete="off">
+                        </div>
+                        <br>
+                        <label for="edit_n_pos_fiscal_hasta" class="control-label">Posición Fiscal Hasta(*)</label>
+                        <div class="input-group" id="edit_input_pos_fiscal_hasta">
+                            <input type="text" id="edit_n_pos_fiscal_hasta" placeholder="aaaa" maxlength="4"
+                                   value="" autocomplete="off"
+                                   class="form-control input-sm input-range-left validate[required]">
+                            <input type="text"
+                                   class="form-control input-sm input-range-right validate[required]"
+                                   id="edit_cuota_hasta"
+                                   placeholder="nn" maxlength="2" value="" autocomplete="off">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="button" class="btn btn-sm" id="btn_edit_alcance"><span
+                            class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Guardar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

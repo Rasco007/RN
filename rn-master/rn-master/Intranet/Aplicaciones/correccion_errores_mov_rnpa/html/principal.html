@@ -1,0 +1,2054 @@
+<div id="div_filtros" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading" id="titulo"></div>
+            <div class="panel-body">
+                <form action="" id="frm_filtros">
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                            <label for="c_tipo_registro">Tipo de Registro</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm input-cod-short text-input mayusculas" id="c_tipo_registro" style="text-align: center">
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_tipo_registro" readonly>
+                                <span class="input-group-addon" id="mascara_lupa_tipo_registro">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon btn_lupa" id="lupa_tipo_registro">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>       
+                        </div>
+
+                        <div class="col-md-2">
+                            <label for="n_tramite">Nro. Trámite</label>
+                            <input type="text" class="form-control input-sm numerico" id="n_tramite" style="text-align: right">
+                        </div>
+
+                        <div class="col-md-2">
+                            <label for="dominio_nuevo">Dominio Nuevo</label>
+                            <input type="text" class="form-control input-sm mayusculas" id="dominio_nuevo" style="text-align: left">
+                        </div>
+
+                        <div class="col-md-2">
+                            <label for="n_cuit">CUIT</label>
+                            <input type="text" class="form-control input-sm numerico text-right" id="n_cuit" >
+                            <input type="hidden" class="form-control input-sm numerico text-right" id="id_contribuyente">
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="d_denominacion">Denominación</label>
+                            <div class="input-group" style="width: 100%;">
+                                <input name='d_denominacion' type="text" class="form-control input-sm mayusculas" id="d_denominacion">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label for="f_operacion">F. Operación</label>
+                            <input type="text" class="form-control input-sm datepicker" id="f_operacion" style="text-align: center">
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="c_reg_secc">Región Seccional</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm input-cod-short text-input mayusculas" id="c_reg_secc" style="text-align: center">
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_reg_secc">
+                            </div>       
+                        </div>
+
+                        <div class="col-md-2">
+                            <label for="n_envio">Nro. Envío</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm numerico" id="n_envio" style="text-align: right">
+                                <span class="input-group-addon" id="mascara_lupa_envio">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon btn_lupa" id="lupa_envio">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>  
+                        </div>
+                        <div class="col-md-2" style="margin-top: 1.25%; width: 10%">
+                            <button type='button' id='btn_ver_todos' class="ui-button ui-corner-all ui-widget">Ver Todos</button>
+                        </div>
+
+                        <div class="form-group col-md-3" style="margin: 1.3% 0 0 0; width:30%">
+                            <button type='button' id='btn_buscar' name='btn_buscar' class="btn-sm btn_buscar"></button>
+                            <button type='button' id='btn_limpiar' name='btn_limpiar' class="btn-sm btn_limpiar" style="margin-left: 3%;"></button>
+                            <button type='button' id='btn_habilitar_filtros' class="ui-button ui-corner-all ui-widget" style="margin-bottom: 3px; margin-left: 2%">Habilitar Filtros</button>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4" style="border: solid 2px #c1c1c1; padding-left: 0; margin-left: 1.2%; padding-bottom: 0.8%;">
+                            <div class="col-md-2" style="margin-top: 3.75%; margin-left: 0.5%">
+                                <span style="font-weight: bold; font-size: 14px">Mostrar</span>
+                            </div>
+                            <div class="form-group col-md-2" style="margin-top:15px; width: 16%;">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="check_ok" onclick="busqueda_check()">
+                                    <label class="form-check-label" for="check_ok">OK</label>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-2" style="margin-top:15px; width: 20%;">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="check_error" onclick="busqueda_check()">
+                                    <label class="form-check-label" for="check_error">Error</label>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-2" style="margin-top:15px; width: 16%;">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="check_np" onclick="busqueda_check()">
+                                    <label class="form-check-label" for="check_np">NP</label>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-3" style="margin-top:15px; width: 29%;">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="check_pendientes" onclick="busqueda_check()">
+                                    <label class="form-check-label" for="check_pendientes">Pendientes</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div>
+    <div>
+        <table id="main_grid" class="scroll" cellpadding="0" cellspacing="0">
+            <tr><td>&nbsp;</td></tr>
+        </table>
+        <div id="main_grid_pager" class="scroll" style="text-align:center;"></div>
+    </div>
+    <div>
+        <div class="row">
+            <div class="col-md-12">
+                <label for="d_error">Proceso</label>
+                <input type="text" class="form-control" id="d_error" style="text-align: left" readonly>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--Modal C1-->
+<div class="modal" id="c1_modal" tabindex="-1" role="dialog" aria-labelledby="c1_title" aria-hidden="true" data-backdrop="false" hidden>
+    <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document" style="margin-top: 5px">
+        <div class="modal-content">
+            <div class="modal-header" style="padding-bottom: 0;">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="btn_cerrar_c1">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="c1_title">C1 ALTAS - Datos Dominio</h5>
+            </div>
+            <div class="modal-body" style="padding-top: 2px; padding-bottom: 2px;">
+                <div id="div_datos_gral" hidden>
+                    <table id="c1_grid" class="scroll" cellpadding="0" cellspacing="0">
+                        <tr><td>&nbsp;</td></tr>
+                    </table>
+                    <div id="c1_grid_pager" class="scroll" style="text-align:center;"></div>
+                </div>
+
+                <div>
+                    <div class="row">
+                        <div class="col-md-5" style="margin-left: 1%; width: 47%">
+                            <div class="row">
+                                <div class="col-md-12" style="padding: 1%; margin-left: 1%; border-radius: 2%; border: solid 1px rgb(211, 211, 211);">
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="dominio_nuevo_c1">Dominio Nuevo</label>
+                                            <input name='dominio_nuevo_c1' type="text" class="form-control input-sm mayusculas c1" id="dominio_nuevo_c1" style="text-align: left; font-weight: bold;">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="dominio_viejo_c1">Dominio Viejo</label>
+                                            <input name='dominio_viejo_c1' type="text" class="form-control input-sm mayusculas c1" id="dominio_viejo_c1" style="text-align: left;">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-5">
+                                            <label for="marca_c1">Marca</label>
+                                            <input name="marca_c1" type="text" class="form-control input-sm mayusculas c1" id="marca_c1" style="text-align: left;">
+                                        </div>
+                                        <div class="form-group col-md-7">
+                                            <label for="modelo_c1">Modelo</label>
+                                            <input name="modelo_c1" type="text" class="form-control input-sm mayusculas c1" id="modelo_c1" style="text-align: left;">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-9">
+                                            <label for="d_tipo_c1">Tipo</label>
+                                            <input name="d_tipo_c1" type="text" class="form-control input-sm mayusculas c1" id="d_tipo_c1" style="text-align: left;">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="n_anio_modelo_c1">M/A</label>
+                                            <input name="n_anio_modelo_c1" type="text" class="form-control input-sm numerico c1" id="n_anio_modelo_c1" style="text-align: center;">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-3">
+                                            <label for="cilindrada_c1">Cilindrada</label>
+                                            <input name="cilindrada_c1" type="text" class="form-control input-sm numerico c1" id="cilindrada_c1" style="text-align: right;">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="valuacion_c1">Valuación</label>
+                                            <input name="valuacion_c1" type="text" class="form-control input-sm numerico c1" id="valuacion_c1" style="text-align: right;">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="n_peso_c1">Peso</label>
+                                            <input name="n_peso_c1" type="text" class="form-control input-sm numerico c1" id="n_peso_c1" style="text-align: right;">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="carga_c1">Carga</label>
+                                            <input name="carga_c1" type="text" class="form-control input-sm numerico c1" id="carga_c1" style="text-align: right;">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-4">
+                                            <label for="c_tipo_uso_c1">Tipo Uso</label>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control input-sm input-cod-short text-input numerico c1" id="c_tipo_uso_c1" style="text-align: center">
+                                                <input type="text" class="form-control input-sm input-desc-long mayusculas c1" id="d_tipo_uso_c1">
+                                            </div>       
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="f_radicacion_c1">F. Radic.</label>
+                                            <input name="f_radicacion_c1" type="text" class="form-control input-sm datepicker mayusculas c1" id="f_radicacion_c1" style="text-align: center;">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="f_inscripcion_c1">F. Inscrip.</label>
+                                            <input name="f_inscripcion_c1" type="text" class="form-control input-sm datepicker mayusculas c1" id="f_inscripcion_c1" style="text-align: center;">
+                                        </div>
+                                    </div>
+                                </div>  
+                            </div>
+
+                            <div class="row" style="margin-top: 1%;">
+                                <div class="col-md-12" style="padding: 1%; margin-left: 1%; border-radius: 2%; border: solid 1px rgb(211, 211, 211);">
+                                    <div class="form-group col-md-4">
+                                        <label for="categoria_c1">Categoría</label>
+                                        <input name='categoria_c1' type="text" class="form-control input-sm numerico c1" id="categoria_c1" style="text-align: right;">
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="origen_c1">Origen</label>
+                                        <input name='origen_c1' type="text" class="form-control input-sm mayusculas c1" id="origen_c1" style="text-align: left;">
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="fmcamod_c1">Fmcamod</label>
+                                        <input name='fmcamod_c1' type="text" class="form-control input-sm mayusculas c1" id="fmcamod_c1" style="text-align: left;">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top: 1%;">
+                                <div class="col-md-12" style="padding: 1%; margin-left: 1%; border-radius: 2%; border: solid 1px rgb(211, 211, 211);">
+                                    <div class="row" style="border-bottom: solid 1px rgb(211, 211, 211); width: 100%; margin-left: 0.5%; font-weight: bold; margin-bottom: 1%;">
+                                        <span>Códigos SIAT</span>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-3">
+                                            <label for="c_grupo_siat_c1">Grupo</label>
+                                            <input name='c_grupo_siat_c1' type="text" class="form-control input-sm mayusculas c1" id="c_grupo_siat_c1" style="text-align: left;">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="c_marca_siat_c1">Marca</label>
+                                            <input name='c_marca_siat_c1' type="text" class="form-control input-sm mayusculas c1" id="c_marca_siat_c1" style="text-align: left;">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="id_modelo_siat_c1">Modelo</label>
+                                            <input name='id_modelo_siat_c1' type="text" class="form-control input-sm mayusculas c1" id="id_modelo_siat_c1" style="text-align: left;">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="id_descripcion_sait_c1">Descr.</label>
+                                            <input name='id_descripcion_sait_c1' type="text" class="form-control input-sm mayusculas c1" id="id_descripcion_sait_c1" style="text-align: left;">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-md-3">
+                                            <label for="c_tipo_siat_c1">Tipo</label>
+                                            <input name='c_tipo_siat_c1' type="text" class="form-control input-sm mayusculas c1" id="c_tipo_siat_c1" style="text-align: right;">
+                                        </div>
+                                        <div class="col-md-6" style="margin-top: 4.1%; margin-left: 25%;">
+                                            <button type="button" id="btn_leer_cod_rnpa" class="btn btn-secondary" disabled>Leer códigos RNPA</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top: 1%;">
+                                <div class="col-md-12" style="padding: 1%; margin-left: 1%; border-radius: 2%; border: solid 1px rgb(211, 211, 211);">
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="n_tramite_c1">Nro. Trámite</label>
+                                            <input name="n_tramite_c1" type="text" class="form-control input-sm numerico c1" id="n_tramite_c1" style="text-align: right;">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="tipo_form_c1">Tipo Form</label>
+                                            <input name="tipo_form_c1" type="text" class="form-control input-sm numerico c1" id="tipo_form_c1" style="text-align: right;">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="n_form_c1">N. Form</label>
+                                            <input name="n_form_c1" type="text" class="form-control input-sm numerico c1" id="n_form_c1" style="text-align: right;">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-md-12">
+                                            <label for="c_tipo_tramite_c1">Tipo</label>
+                                            <div class="input-group" style="width: 100%;">
+                                                <input type="text" class="form-control input-sm input-cod-short text-input numerico c1" id="c_tipo_tramite_c1" style="text-align: center">
+                                                <input type="text" class="form-control input-sm input-desc-long mayusculas c1" id="d_tipo_tramite_c1">
+                                            </div>       
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-12">
+                                            <label for="c_accion_c1">Acción</label>
+                                            <div class="input-group" style="width: 100%;">
+                                                <input type="text" class="form-control input-sm input-cod-short text-input numerico c1" id="c_accion_c1" style="text-align: center">
+                                                <input type="text" class="form-control input-sm input-desc-long mayusculas c1" id="d_accion_c1">
+                                            </div>       
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top: 1%;">
+                                <div class="col-md-12" style="padding: 1%; margin-left: 1%; border-radius: 2%; border: solid 1px rgb(211, 211, 211);">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label for="d_error_c1">Proceso</label>
+                                            <input type="text" class="form-control c1" id="d_error_c1" style="text-align: left">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-12" style="padding: 1%; margin-left: 3.5%; border-radius: 3%; border: solid 1px rgb(211, 211, 211);">
+                                    <div class="row">
+                                        <div class="form-group col-md-5">
+                                            <label for="n_cuit_c1">CUIT</label>
+                                            <input name="n_cuit_c1" type="text" class="form-control input-sm numerico c1" id="n_cuit_c1" style="text-align: center;">
+                                        </div>
+                                        <div class="form-group col-md-7">
+                                            <label for="c_tipo_doc_c1">Documento</label>
+                                            <div class="input-group" style="width: 100%">
+                                                <input type="text" class="form-control input-sm input-cod-short text-input numerico c1" id="c_tipo_doc_c1" style="text-align: center">
+                                                <input type="text" class="form-control input-sm input-desc-long c1" id="n_documento_c1" style="text-align: right;">
+                                            </div>       
+                                        </div>
+                                    </div>
+        
+                                    <div class="row">
+                                        <div class="form-group col-md-9">
+                                            <label for="d_denominacion_c1">Razón</label>
+                                            <input name="d_denominacion_c1" type="text" class="form-control input-sm mayusculas c1" id="d_denominacion_c1" style="text-align: left;">
+                                        </div>
+                                        <div class="col-md-2" style="margin-top: 3.5%;">
+                                            <button type="button" id="btn_copy_c1" class="btn btn-secondary" data-dismiss="modal" disabled>Copy</button>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-md-12">
+                                            <label for="d_denominacion_siat_c1">Razón SIAT</label>
+                                            <input name="d_denominacion_siat_c1" type="text" class="form-control input-sm mayusculas" id="d_denominacion_siat_c1" style="text-align: left;" disabled>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label for="d_denominacion_afip_c1">Razón AFIP</label>
+                                            <input name="d_denominacion_afip_c1" type="text" class="form-control input-sm mayusculas" id="d_denominacion_afip_c1" style="text-align: left;" disabled>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="calle_c1">Calle</label>
+                                            <input name="calle_c1" type="text" class="form-control input-sm c1" id="calle_c1" style="text-align: left;">
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label for="numero_c1">Nro.</label>
+                                            <input name="numero_c1" type="text" class="form-control input-sm numerico c1" id="numero_c1" style="text-align: right;">
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label for="piso_c1">Piso</label>
+                                            <input name="piso_c1" type="text" class="form-control input-sm numerico c1" id="piso_c1" style="text-align: right;">
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label for="depto_c1">Depto</label>
+                                            <input name="depto_c1" type="text" class="form-control input-sm numerico c1" id="depto_c1" style="text-align: right;">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="barrio_c1">Barrio</label>
+                                            <input name="barrio_c1" type="text" class="form-control input-sm c1" id="barrio_c1" style="text-align: left;">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="localidad_c1">Localidad</label>
+                                            <input name="localidad_c1" type="text" class="form-control input-sm c1" id="localidad_c1" style="text-align: left;">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-md-3">
+                                            <label for="cod_postal_c1">CP</label>
+                                            <input name="cod_postal_c1" type="text" class="form-control input-sm numerico c1" id="cod_postal_c1" style="text-align: right;">
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label for="provincia_c1">Prov.</label>
+                                            <input name="provincia_c1" type="text" class="form-control input-sm numerico c1" id="provincia_c1" style="text-align: right;">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="cant_titulares_c1">Cant. Titul.</label>
+                                            <input name="cant_titulares_c1" type="text" class="form-control input-sm numerico c1" id="cant_titulares_c1" style="text-align: right;">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="localidad_siat_c1">Loc. SIAT</label>
+                                            <div class="input-group">
+                                                <input name="localidad_siat_c1" type="text" class="form-control input-sm numerico c1" id="localidad_siat_c1" style="text-align: right;">
+                                                <span class="input-group-addon btn_lupa" id="lupa_localidades">
+                                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12" style="padding: 1%; margin-left: 3.5%; border-radius: 3%; border: solid 1px rgb(211, 211, 211); margin-top: 1%">
+                                    <div class="row">
+                                        <div class="form-group col-md-12">
+                                            <label for="c_reg_secc_c1">RegSecc</label>
+                                            <div class="input-group" style="width: 100%">
+                                                <input type="text" class="form-control input-sm input-cod-short text-input numerico c1" id="c_reg_secc_c1" style="text-align: center">
+                                                <input type="text" class="form-control input-sm input-desc-long mayusculas c1" id="d_reg_secc_c1">
+                                            </div>       
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-12">
+                                            <label for="c_reg_secc_ori_c1">RegSeccOri</label>
+                                            <div class="input-group" style="width: 100%">
+                                                <input type="text" class="form-control input-sm input-cod-short text-input numerico c1" id="c_reg_secc_ori_c1" style="text-align: center">
+                                                <input type="text" class="form-control input-sm input-desc-long c1" id="d_reg_secc_ori_c1">
+                                            </div>       
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="d_muni_origen_c1">Muni. Origen</label>
+                                            <input name="d_muni_origen_c1" type="text" class="form-control input-sm mayusculas c1" id="d_muni_origen_c1" style="text-align: left;">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="f_operacion_c1">F. Operación</label>
+                                            <input name="f_operacion_c1" type="text" class="form-control input-sm datepicker c1" id="f_operacion_c1" style="text-align: center;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12" style="padding: 1%; margin-left: 3.5%; border-radius: 3%; border: solid 1px rgb(211, 211, 211); margin-top: 1%">
+                                    <div class="row">
+                                        <div class="form-group col-md-12">
+                                            <label for="d_parametros_adic_c1">Param. Adic.</label>
+                                            <input name="d_parametros_adic_c1" type="text" class="form-control input-sm mayusculas c1" id="d_parametros_adic_c1" style="text-align: left;">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="d_reservado_c1">Reservado</label>
+                                            <input name="d_reservado_c1" type="text" class="form-control input-sm c1" id="d_reservado_c1" style="text-align: left;">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="d_observaciones_c1">Observaciones</label>
+                                            <input name="d_observaciones_c1" type="text" class="form-control input-sm c1" id="d_observaciones_c1" style="text-align: left;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12" style="padding: 1%; margin-left: 3.5%; border-radius: 3%; border: solid 1px rgb(211, 211, 211); margin-top: 1%">
+                                    <div class="row">
+                                        <div class="form-group col-md-3">
+                                            <label for="n_envio_c1">Nro. Envío</label>
+                                            <input name="n_envio_c1" type="text" class="form-control input-sm numerico" id="n_envio_c1" style="text-align: right;" disabled>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="n_secuencia_c1">Sec.</label>
+                                            <input name="n_secuencia_c1" type="text" class="form-control input-sm numerico" id="n_secuencia_c1" style="text-align: right;" disabled>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="tipo_registro_c1">T. Reg</label>
+                                            <input name="tipo_registro_c1" type="text" class="form-control input-sm mayusculas" id="tipo_registro_c1" style="text-align: left;" disabled>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="tipo_sub_registro_c1">SubReg</label>
+                                            <input name="tipo_sub_registro_c1" type="text" class="form-control input-sm mayusculas" id="tipo_sub_registro_c1" style="text-align: left;" disabled>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-md-4">
+                                            <label for="cod_organismo_c1">Cod. Org</label>
+                                            <input name="cod_organismo_c1" type="text" class="form-control input-sm numerico" id="cod_organismo_c1" style="text-align: right;" disabled>
+                                        </div>
+                                        <div class="form-group col-md-4  col-md-offset-4">
+                                            <label for="c_estado_c1">Estado</label>
+                                            <input name="c_estado_c1" type="text" class="form-control input-sm mayusculas" id="c_estado_c1" style="text-align: left; font-weight: bold;" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer" style="padding-top: 0;">
+                <div class="row">
+                    <div class="col-md-12 text-left">
+                        <button type="button" id="btn_volver_c1" class="btn btn-secondary btn_c1" data-dismiss="modal">Volver</button>
+                        <button type="button" id="btn_titulares_c1" class="btn btn-secondary btn_c1" data-dismiss="modal">Titulares</button>
+                        <button type="button" id="btn_tabla_cod_rnpa_c1" class="btn btn-secondary btn_c1" data-dismiss="modal" disabled>Tabla Cod. RNPA</button>
+                        <button type="button" id="btn_no_procesar_c1" class="btn btn-secondary btn_c1" data-dismiss="modal" disabled>NO Procesar</button>
+                        <button type="button" id="btn_confirm_baja_y_proc_c1" class="btn btn-secondary btn_c1" data-dismiss="modal" disabled>Confirmar Baja y Proc.</button>
+                        <button type="button" id="btn_procesar_c1" class="btn btn-secondary btn_c1" data-dismiss="modal" disabled>Procesar</button>
+                        <button type="button" id="btn_cambiar_dom_y_proc_c1" class="btn btn-secondary btn_c1" data-dismiss="modal" disabled>Cambiar Dominio y Proc.</button>
+                        <button type="button" id="btn_guardar_c1" class="btn btn-secondary btn_c1" disabled>Guardar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Modal C2-->
+<div class="modal" id="c2_modal" tabindex="-1" role="dialog" aria-labelledby="c2_title" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="padding-bottom: 0;">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="btn_cerrar_c2">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="c2_title">C2 BAJAS - Datos Dominio</h5>
+            </div>
+            <div class="modal-body" style="padding-top: 0; padding-bottom: 0;">
+                <div id="div_datos_gral" hidden>
+                    <table id="c2_grid" class="scroll" cellpadding="0" cellspacing="0">
+                        <tr><td>&nbsp;</td></tr>
+                    </table>
+                    <div id="c2_grid_pager" class="scroll" style="text-align:center;"></div>
+                </div>
+
+                <div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-12" style="background-color: rgb(255, 223, 205); padding: 1%; margin-left: 3%; border-radius: 2%; border: solid 1px rgb(211, 211, 211);">
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="dominio_nuevo_c2">Dominio Nuevo</label>
+                                            <input name='dominio_nuevo_c2' type="text" class="form-control input-sm mayusculas c2" id="dominio_nuevo_c2" style="text-align: left; font-weight: bold;">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="dominio_viejo_c2">Dominio Viejo</label>
+                                            <input name='dominio_viejo_c2' type="text" class="form-control input-sm mayusculas c2" id="dominio_viejo_c2" style="text-align: left;">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-5">
+                                            <label for="marca_c2">Marca</label>
+                                            <input name="marca_c2" type="text" class="form-control input-sm mayusculas c2" id="marca_c2" style="text-align: left;">
+                                        </div>
+                                        <div class="form-group col-md-7">
+                                            <label for="modelo_c2">Modelo</label>
+                                            <input name="modelo_c2" type="text" class="form-control input-sm mayusculas c2" id="modelo_c2" style="text-align: left;">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-9">
+                                            <label for="d_tipo_c2">Tipo</label>
+                                            <input name="d_tipo_c2" type="text" class="form-control input-sm mayusculas c2" id="d_tipo_c2" style="text-align: left;">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="n_anio_modelo_c2">M/A</label>
+                                            <input name="n_anio_modelo_c2" type="text" class="form-control input-sm numerico c2" id="n_anio_modelo_c2" style="text-align: center;">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-3">
+                                            <label for="cilindrada_c2">Cilindrada</label>
+                                            <input name="cilindrada_c2" type="text" class="form-control input-sm numerico c2" id="cilindrada_c2" style="text-align: right;">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="valuacion_c2">Valuación</label>
+                                            <input name="valuacion_c2" type="text" class="form-control input-sm numerico c2" id="valuacion_c2" style="text-align: right;">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="n_peso_c2">Peso</label>
+                                            <input name="n_peso_c2" type="text" class="form-control input-sm numerico c2" id="n_peso_c2" style="text-align: right;">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="carga_c2">Carga</label>
+                                            <input name="carga_c2" type="text" class="form-control input-sm numerico c2" id="carga_c2" style="text-align: right;">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-8">
+                                            <label for="c_tipo_uso_c2">Tipo Uso</label>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control input-sm input-cod-short text-input numerico c2" id="c_tipo_uso_c2" style="text-align: center">
+                                                <input type="text" class="form-control input-sm input-desc-long c2" id="d_tipo_uso_c2">
+                                            </div>       
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="f_radicacion_c2">F. Baja</label>
+                                            <input name="f_radicacion_c2" type="text" class="form-control input-sm datepicker c2" id="f_radicacion_c2" style="text-align: center;">
+                                        </div>
+                                    </div>
+                                </div>  
+                            </div>
+
+                            <div class="row" style="margin-top: 2%;">
+                                <div class="col-md-12" style="padding: 1%; margin-left: 3%; border-radius: 2%; border: solid 1px rgb(211, 211, 211);">
+                                    <div class="form-group col-md-4">
+                                        <label for="categoria_c2">Categoría</label>
+                                        <input name='categoria_c2' type="text" class="form-control input-sm numerico c2" id="categoria_c2" style="text-align: right;">
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="origen_c2">Origen</label>
+                                        <input name='origen_c2' type="text" class="form-control input-sm mayusculas c2" id="origen_c2" style="text-align: left;">
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="fmcamod_c2">Fmcamod</label>
+                                        <input name='fmcamod_c2' type="text" class="form-control input-sm mayusculas c2" id="fmcamod_c2" style="text-align: left;">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top: 2%;">
+                                <div class="col-md-12" style="padding: 1%; margin-left: 3%; border-radius: 2%; border: solid 1px rgb(211, 211, 211);">
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="n_tramite_c2">Nro. Trámite</label>
+                                            <input name="n_tramite_c2" type="text" class="form-control input-sm numerico c2" id="n_tramite_c2" style="text-align: left;">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="tipo_form_c2">Tipo Form.</label>
+                                            <input name="tipo_form_c2" type="text" class="form-control input-sm numerico c2" id="tipo_form_c2" style="text-align: left;">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="n_form_c2">N. Form</label>
+                                            <input name="n_form_c2" type="text" class="form-control input-sm numerico c2" id="n_form_c2" style="text-align: left;">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="c_tipo_tramite_c2">Tipo</label>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control input-sm input-cod-short text-input numerico c2" id="c_tipo_tramite_c2" style="text-align: center">
+                                                <input type="text" class="form-control input-sm input-desc-long c2" id="d_tipo_tramite_c2">
+                                            </div>       
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            <label for="c_accion_c2">Acción</label>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control input-sm input-cod-short text-input numerico c2" id="c_accion_c2" style="text-align: center">
+                                                <input type="text" class="form-control input-sm input-desc-long c2" id="d_accion_c2">
+                                            </div>       
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-5">
+                            <div class="row">
+                                <div class="col-md-12" style="padding: 1%; margin-left: 10%; border-radius: 3%; border: solid 1px rgb(211, 211, 211);">
+                                    <div class="row">
+                                        <div class="form-group col-md-12">
+                                            <label for="c_reg_secc_c2">RegSecc</label>
+                                            <div class="input-group" style="width: 100%">
+                                                <input type="text" class="form-control input-sm input-cod-short text-input numerico c2" id="c_reg_secc_c2" style="text-align: center">
+                                                <input type="text" class="form-control input-sm input-desc-long c2" id="d_reg_secc_c2">
+                                            </div>       
+                                        </div>
+                                    </div>
+        
+                                    <div class="row">
+                                        <div class="form-group col-md-8">
+                                            <label for="f_operacion_c2">F. Operación</label>
+                                            <input name="f_operacion_c2" type="text" class="form-control input-sm datepicker c2" id="f_operacion_c2" style="text-align: center;">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="cant_titulares_c2">Cant. Titulares</label>
+                                            <input name="cant_titulares_c2" type="text" class="form-control input-sm numerico c2" id="cant_titulares_c2" style="text-align: right;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12" style="padding: 1%; margin-left: 10%; border-radius: 3%; border: solid 1px rgb(211, 211, 211); margin-top: 1%">
+                                    <div class="row">
+                                        <div class="form-group col-md-12">
+                                            <label for="d_parametros_adic_c2">Param. Adic.</label>
+                                            <input name="d_parametros_adic_c2" type="text" class="form-control input-sm mayusculas c2" id="d_parametros_adic_c2" style="text-align: left;">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-12">
+                                            <label for="d_reservado_c2">Reservado</label>
+                                            <textarea name="d_reservado" class="c2" id="d_reservado_c2" cols="30" rows="10" style="width: 365px; height: 60px;"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-12">
+                                            <label for="d_observaciones_c2">Observaciones</label>
+                                            <textarea name="d_reservado" class="c2" id="d_observaciones_c2" cols="30" rows="10" style="width: 365px; height: 60px;"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12" style="padding: 1%; margin-left: 10%; border-radius: 3%; border: solid 1px rgb(211, 211, 211); margin-top: 1%">
+                                    <div class="row">
+                                        <div class="form-group col-md-3">
+                                            <label for="n_envio_c2">Nro. Envío</label>
+                                            <input name="n_envio_c2" type="text" class="form-control input-sm numerico c2" id="n_envio_c2" style="text-align: right;">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="n_secuencia_c2">Sec.</label>
+                                            <input name="n_secuencia_c2" type="text" class="form-control input-sm numerico c2" id="n_secuencia_c2" style="text-align: right;">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="tipo_registro_c2">T. Reg</label>
+                                            <input name="tipo_registro_c2" type="text" class="form-control input-sm mayusculas c2" id="tipo_registro_c2" style="text-align: left;">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="tipo_sub_registro_c2">SubReg</label>
+                                            <input name="tipo_sub_registro_c2" type="text" class="form-control input-sm mayusculas c2" id="tipo_sub_registro_c2" style="text-align: left;">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-md-4">
+                                            <label for="cod_organismo_c2">Cod. Org</label>
+                                            <input name="cod_organismo_c2" type="text" class="form-control input-sm numerico c2" id="cod_organismo_c2" style="text-align: right;">
+                                        </div>
+                                        <div class="form-group col-md-5  col-md-offset-3">
+                                            <label for="c_estado_c2">Estado</label>
+                                            <input name="c_estado_c2" type="text" class="form-control input-sm mayusculas c2" id="c_estado_c2" style="text-align: left; font-weight: bold;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label for="d_error_c2">Proceso</label>
+                            <input type="text" class="form-control c2" id="d_error_c2" style="text-align: left; width: 97.7%">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <div class="row">
+                    <div class="col-md-4 text-center" style="width: 26%;">
+                        <button type="button" id="btn_volver_c2" class="btn btn-secondary" data-dismiss="modal">Volver</button>
+                        <button type="button" id="btn_titulares_c2" class="btn btn-secondary" data-dismiss="modal">Titulares</button>
+                    </div>
+                    <div class="col-md-2 text-center">
+                        <button type="button" id="btn_no_procesar_c2" class="btn btn-secondary" data-dismiss="modal" disabled>NO Procesar</button>
+                    </div>
+                    <div class="col-md-6 text-center" style="width: 55.5%;">
+                        <button type="button" id="btn_procesar_sin_validar_c2" class="btn btn-secondary" data-dismiss="modal" disabled>Procesar sin Validar</button>
+                        <button type="button" id="btn_procesar_c2" class="btn btn-secondary" data-dismiss="modal" disabled>Procesar</button>
+                        <button type="button" id="btn_guardar_c2" class="btn btn-secondary" disabled>Guardar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Modal C4-->
+<div class="modal" id="c4_modal" tabindex="-1" role="dialog" aria-labelledby="c4_title" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="padding-bottom: 0;">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="btn_cerrar_c4">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="c4_title">C4 PAGOS - Detalle de pago</h5>
+            </div>
+            <div class="modal-body" style="padding-top: 1px; padding-bottom: 1%">
+                <div id="div_datos_gral" hidden>
+                    <table id="c4_grid" class="scroll" cellpadding="0" cellspacing="0">
+                        <tr><td>&nbsp;</td></tr>
+                    </table>
+                    <div id="c4_grid_pager" class="scroll" style="text-align:center;"></div>
+                </div>
+
+                <div>
+                    <div class="row">
+                        <div class="col-md-5" style="margin-right: 3%; margin-left: 2%;">
+                            <div class="row">
+                                <div class="col-md-12" style="background-color: rgb(112, 192, 238); padding: 3.5%; border-radius: 3.5%; border: solid 1px rgb(211, 211, 211);">
+                                    <div class="row">
+                                        <div class="form-group col-md-6 col-md-offset-3">
+                                            <label for="dominio_nuevo_c4">Dominio Nuevo</label>
+                                            <input name='dominio_nuevo_c4' type="text" class="form-control mayusculas" id="dominio_nuevo_c4" style="text-align: left; font-weight: bold;" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top: 2%;">
+                                <div class="col-md-12" style="background-color: rgb(112, 192, 238); padding: 3.5%; border-radius: 3.5%; border: solid 1px rgb(211, 211, 211);">
+                                    <div class="row">
+                                        <div class="form-group col-md-3 col-md-offset-3">
+                                            <label for="n_pos_fiscal_c4">P. Fiscal</label>
+                                            <input name='n_pos_fiscal_c4' type="text" class="form-control input-sm mayusculas" id="n_pos_fiscal_c4" style="text-align: center;" readonly>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="n_cuota_anticipo_c4">Cuota</label>
+                                            <input name='n_cuota_anticipo_c4' type="text" class="form-control input-sm mayusculas" id="n_cuota_anticipo_c4" style="text-align: right;" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top: 2%">
+                                <div class="col-md-12" style="padding: 2.1%; border-radius: 3.5%; border: solid 1px rgb(211, 211, 211);">
+                                    <div class="row">
+                                        <div class="form-group col-md-12">
+                                            <label for="c_reg_secc_c4">RegSecc.</label>
+                                            <div class="input-group" style="width:100%">
+                                                <input type="text" class="form-control input-sm input-cod-short text-input mayusculas" id="c_reg_secc_c4" style="text-align: center" readonly>
+                                                <input type="text" class="form-control input-sm input-desc-long" id="d_reg_secc_c4" readonly>
+                                            </div>       
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top: 2%;">
+                                <div class="col-md-6" style="border: solid 1px rgb(211, 211, 211); border-radius: 2%;padding-bottom: 2%;padding-top: 2%;">
+                                    <div class="row" style="margin-bottom: 2%;">
+                                        <div class="form-group col-md-12">
+                                            <label for="trans_n_envio_c4">Trans. Nro. Envío</label>
+                                            <input name='trans_n_envio_c4' type="text" class="form-control input-sm mayusculas" id="trans_n_envio_c4" style="text-align: right;" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-bottom: 2%;">
+                                        <div class="form-group col-md-12">
+                                            <label for="trans_f_pago_c4">Trans. F. Pago</label>
+                                            <input name='trans_f_pago_c4' type="text" class="form-control input-sm mayusculas" id="trans_f_pago_c4" style="text-align: center;" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-12">
+                                            <label for="trans_f_acred_c4">Trans. F. Acred.</label>
+                                            <input name='trans_f_acred_c4' type="text" class="form-control input-sm mayusculas" id="trans_f_acred_c4" style="text-align: center;" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6" style="border: solid 1px rgb(211, 211, 211); border-radius: 2%;padding-bottom: 2%;padding-top: 2%;">
+                                    <div class="row" style="margin-bottom: 2%;">
+                                        <div class="form-group col-md-12">
+                                            <label for="f_proceso_c4">F. Proceso</label>
+                                            <input name='f_proceso_c4' type="text" class="form-control input-sm mayusculas" id="f_proceso_c4" style="text-align: center;" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-bottom: 2%;">
+                                        <div class="form-group col-md-12">
+                                            <label for="n_tramite_c4">Trámite</label>
+                                            <input name='n_tramite_c4' type="text" class="form-control input-sm mayusculas" id="n_tramite_c4" style="text-align: right;" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-12">
+                                            <label for="n_remito_c4">Remito</label>
+                                            <input name='n_remito_c4' type="text" class="form-control input-sm mayusculas" id="n_remito_c4" style="text-align: right;" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-12" style="border: solid 1px rgb(211, 211, 211); border-radius: 2%;">
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="i_impuesto_c4">Impuesto</label>
+                                            <input name='i_impuesto_c4' type="text" class="form-control input-sm mayusculas" id="i_impuesto_c4" style="text-align: right;" readonly>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="f_deposito_c4">F. Depósito</label>
+                                            <input name='f_deposito_c4' type="text" class="form-control input-sm mayusculas" id="f_deposito_c4" style="text-align: center;" readonly>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="i_comun_c4">Común</label>
+                                            <input name='i_comun_c4' type="text" class="form-control input-sm mayusculas" id="i_comun_c4" style="text-align: right;" readonly>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="f_cobro_c4">F. Cobro</label>
+                                            <input name='f_cobro_c4' type="text" class="form-control input-sm mayusculas" id="f_cobro_c4" style="text-align: center;" readonly>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="i_bonificado_c4">Bonificado</label>
+                                            <input name='i_bonificado_c4' type="text" class="form-control input-sm mayusculas" id="i_bonificado_c4" style="text-align: right;" readonly>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="f_vencimiento_c4">F. Vencimiento</label>
+                                            <input name='f_vencimiento_c4' type="text" class="form-control input-sm mayusculas" id="f_vencimiento_c4" style="text-align: center;" readonly>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="i_intereses_c4">Interes</label>
+                                            <input name='i_intereses_c4' type="text" class="form-control input-sm mayusculas" id="i_intereses_c4" style="text-align: right;" readonly>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="i_total_c4">Total</label>
+                                            <input name='i_total_c4' type="text" class="form-control input-sm mayusculas" id="i_total_c4" style="text-align: right;" readonly>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="n_cheque_c4">Cheque N°</label>
+                                            <input name='n_cheque_c4' type="text" class="form-control input-sm mayusculas" id="n_cheque_c4" style="text-align: right;" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top: 1%">
+                                <div class="col-md-12" style="border: solid 1px rgb(211, 211, 211); border-radius: 2%;">
+                                    <div class="row">
+                                        <div class="form-group col-md-3">
+                                            <label for="c_forma_pago_c4">Forma Pago</label>
+                                            <input name='c_forma_pago_c4' type="text" class="form-control input-sm mayusculas" id="c_forma_pago_c4" style="text-align: right;" readonly>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="c_moneda_c4">Moneda</label>
+                                            <input name='c_moneda_c4' type="text" class="form-control input-sm mayusculas" id="c_moneda_c4" style="text-align: right;" readonly>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="c_banco_c4">Banco</label>
+                                            <div class="input-group" style="width:100%">
+                                                <input type="text" class="form-control input-sm input-cod-short text-input mayusculas" id="c_banco_c4" style="text-align: center" readonly>
+                                                <input type="text" class="form-control input-sm input-desc-long" id="d_banco_c4" readonly>
+                                            </div>       
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top: 1%">
+                                <div class="col-md-12" style="border: solid 1px rgb(211, 211, 211); border-radius: 2%;">
+                                    <div class="row">
+                                        <div class="form-group col-md-3">
+                                            <label for="n_envio_c4">Nro. Envío</label>
+                                            <input name='n_envio_c4' type="text" class="form-control input-sm mayusculas" id="n_envio_c4" style="text-align: right;" readonly>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="n_secuencia_c4">Sec</label>
+                                            <input name='n_secuencia_c4' type="text" class="form-control input-sm mayusculas" id="n_secuencia_c4" style="text-align: right;" readonly>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="c_tipo_mov_c4">T. Reg</label>
+                                            <input name='c_tipo_mov_c4' type="text" class="form-control input-sm mayusculas" id="c_tipo_mov_c4" style="text-align: left;" readonly>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="c_tipo_registro_c4">SubReg</label>
+                                            <input name='c_tipo_registro_c4' type="text" class="form-control input-sm mayusculas" id="c_tipo_registro_c4" style="text-align: right;" readonly>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-md-4">
+                                            <label for="cod_organismo_c4">Cod. Org.</label>
+                                            <input name='cod_organismo_c4' type="text" class="form-control input-sm mayusculas" id="cod_organismo_c4" style="text-align: right;" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row" style="margin-top: 1%;">
+                        <div class="col-md-2" style="border: solid 1px rgb(211, 211, 211); border-radius: 2%; margin-left: 2%;  padding-bottom: 1%">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label for="c_estado_prov_c4">Est. Prov.</label>
+                                    <input type="text" class="form-control" id="c_estado_prov_c4" style="text-align: left" readonly>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label for="c_estado_def_c4">Est. Def.</label>
+                                    <input type="text" class="form-control" id="c_estado_def_c4" style="text-align: left" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-9" style="border: solid 1px rgb(211, 211, 211); border-radius: 2%; margin-left: 0.3%; padding-bottom: 1%;width: 77.8%;">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label for="reservado_c4">Reservado</label>
+                                    <input type="text" class="form-control" id="reservado_c4" style="text-align: left" readonly>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label for="observaciones_c4">Observaciones</label>
+                                    <input type="text" class="form-control" id="observaciones_c4" style="text-align: left" readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="row" style="margin-top: 1%">
+                        <div class="col-md-12" style="width: 98%; margin-left: 0.5%">
+                            <label for="error_ac_prov_c4">Proc. Prov.</label>
+                            <input type="text" class="form-control" id="error_ac_prov_c4" style="text-align: left" readonly>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12" style="width: 98%; margin-left: 0.5%">
+                            <label for="error_ac_def_c4">Proc. Def.</label>
+                            <input type="text" class="form-control" id="error_ac_def_c4" style="text-align: left" readonly>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer" style="padding-top: 2px">
+                <button type="button" id="btn_volver_c4" class="btn btn-secondary" data-dismiss="modal">Volver</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Modal C6-->
+<div class="modal" id="c6_modal" tabindex="-1" role="dialog" aria-labelledby="c6_title" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-lg" role="document" style="margin-top: 5px">
+        <div class="modal-content">
+            <div class="modal-header" style="padding-bottom: 0;">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="btn_cerrar_c6">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="c6_title">C6 TRANSFERENCIAS - Datos Dominio</h5>
+            </div>
+            <div class="modal-body" style="padding-top: 2px; padding-bottom: 2px;">
+                <div id="div_datos_gral" hidden>
+                    <table id="c6_grid" class="scroll" cellpadding="0" cellspacing="0">
+                        <tr><td>&nbsp;</td></tr>
+                    </table>
+                    <div id="c6_grid_pager" class="scroll" style="text-align:center;"></div>
+                </div>
+
+                <div>
+                    <div class="row">
+                        <div class="col-md-5" style="margin-left: 1%; width: 45%">
+                            <div class="row">
+                                <div class="col-md-12" style="background-color: rgb(182, 248, 202); padding: 1%; margin-left: 2%; border-radius: 2%; border: solid 1px rgb(211, 211, 211);">
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="dominio_nuevo_c6">Dominio Nuevo</label>
+                                            <input name='dominio_nuevo_c6' type="text" class="form-control input-sm mayusculas c6" id="dominio_nuevo_c6" style="text-align: left; font-weight: bold;">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="dominio_viejo_c6">Dominio Viejo</label>
+                                            <input name='dominio_viejo_c6' type="text" class="form-control input-sm mayusculas c6" id="dominio_viejo_c6" style="text-align: left;">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-5">
+                                            <label for="marca_c6">Marca</label>
+                                            <input name="marca_c6" type="text" class="form-control input-sm mayusculas c6" id="marca_c6" style="text-align: left;">
+                                        </div>
+                                        <div class="form-group col-md-7">
+                                            <label for="modelo_c6">Modelo</label>
+                                            <input name="modelo_c6" type="text" class="form-control input-sm mayusculas c6" id="modelo_c6" style="text-align: left;">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-9">
+                                            <label for="d_tipo_c6">Tipo</label>
+                                            <input name="d_tipo_c6" type="text" class="form-control input-sm mayusculas c6" id="d_tipo_c6" style="text-align: left;">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="n_anio_modelo_c6">M/A</label>
+                                            <input name="n_anio_modelo_c6" type="text" class="form-control input-sm numerico c6" id="n_anio_modelo_c6" style="text-align: left;">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-3">
+                                            <label for="cilindrada_c6">Cilindrada</label>
+                                            <input name="cilindrada_c6" type="text" class="form-control input-sm numerico c6" id="cilindrada_c6" style="text-align: right;">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="valuacion_c6">Valuación</label>
+                                            <input name="valuacion_c6" type="text" class="form-control input-sm numerico c6" id="valuacion_c6" style="text-align: right;">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="n_peso_c6">Peso</label>
+                                            <input name="n_peso_c6" type="text" class="form-control input-sm numerico c6" id="n_peso_c6" style="text-align: right;">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="carga_c6">Carga</label>
+                                            <input name="carga_c6" type="text" class="form-control input-sm numerico c6" id="carga_c6" style="text-align: right;">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="c_tipo_uso_c6">Tipo Uso</label>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control input-sm input-cod-short text-input numerico c6" id="c_tipo_uso_c6" style="text-align: center">
+                                                <input type="text" class="form-control input-sm input-desc-long c6" id="d_tipo_uso_c6">
+                                            </div>       
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="f_radicacion_c6">F. Transf.</label>
+                                            <input name="f_radicacion_c6" type="text" class="form-control input-sm datepicker c6" id="f_radicacion_c6" style="text-align: center;">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="f_operacion_c6">F. Oper.</label>
+                                            <input name="f_operacion_c6" type="text" class="form-control input-sm datepicker c6" id="f_operacion_c6" style="text-align: center;">
+                                        </div>
+                                    </div>
+                                </div>  
+                            </div>
+
+                            <div class="row" style="margin-top: 1%;">
+                                <div class="col-md-12" style="padding: 1%; margin-left: 2%; border-radius: 2%; border: solid 1px rgb(211, 211, 211);">
+                                    <div class="form-group col-md-4">
+                                        <label for="categoria_c6">Categoría</label>
+                                        <input name='categoria_c6' type="text" class="form-control input-sm numerico c6" id="categoria_c6" style="text-align: right;">
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="origen_c6">Origen</label>
+                                        <input name='origen_c6' type="text" class="form-control input-sm mayusculas c6" id="origen_c6" style="text-align: left;">
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="fmcamod_c6">Fmcamod</label>
+                                        <input name='fmcamod_c6' type="text" class="form-control input-sm mayusculas c6" id="fmcamod_c6" style="text-align: left;">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top: 1%;">
+                                <div class="col-md-12" style="padding: 1%; margin-left: 2%; border-radius: 2%; border: solid 1px rgb(211, 211, 211);">
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="n_tramite_c6">Nro. Trámite</label>
+                                            <input name="n_tramite_c6" type="text" class="form-control input-sm numerico c6" id="n_tramite_c6" style="text-align: right;">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="tipo_form_c6">Tipo Form.</label>
+                                            <input name="tipo_form_c6" type="text" class="form-control input-sm numerico c6" id="tipo_form_c6" style="text-align: right;">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="n_form_c6">N. Form</label>
+                                            <input name="n_form_c6" type="text" class="form-control input-sm numerico c6" id="n_form_c6" style="text-align: right;">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="c_tipo_tramite_c6">Tipo</label>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control input-sm input-cod-short text-input numerico c6" id="c_tipo_tramite_c6" style="text-align: center">
+                                                <input type="text" class="form-control input-sm input-desc-long c6" id="d_tipo_tramite_c6">
+                                            </div>       
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            <label for="c_accion_c6">Acción</label>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control input-sm input-cod-short text-input numerico c6" id="c_accion_c6" style="text-align: center">
+                                                <input type="text" class="form-control input-sm input-desc-long c6" id="d_accion_c6">
+                                            </div>       
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-md-12">
+                                            <label for="c_reg_secc_c6">RegSecc</label>
+                                            <div class="input-group" style="width: 100%">
+                                                <input type="text" class="form-control input-sm input-cod-short text-input numerico c6" id="c_reg_secc_c6" style="text-align: center">
+                                                <input type="text" class="form-control input-sm input-desc-long c6" id="d_reg_secc_c6">
+                                            </div>       
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top: 1%;">
+                                <div class="col-md-12" style="padding: 1%; margin-left: 2%; border-radius: 2%; border: solid 1px rgb(211, 211, 211);">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label for="d_error_c6">Proceso</label>
+                                            <input type="text" class="form-control c6" id="d_error_c6" style="text-align: left">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-12" style="padding: 1%; margin-left: 5%; border-radius: 3%; border: solid 1px rgb(211, 211, 211);">
+                                    <div class="row">
+                                        <div class="form-group col-md-5">
+                                            <label for="n_cuit_c6">CUIT</label>
+                                            <input name="n_cuit_c6" type="text" class="form-control input-sm numerico c6" id="n_cuit_c6" style="text-align: center;">
+                                        </div>
+                                        <div class="form-group col-md-7">
+                                            <label for="c_tipo_doc_c6">Documento</label>
+                                            <div class="input-group" style="width: 100%">
+                                                <input type="text" class="form-control input-sm input-cod-short text-input numerico c6" id="c_tipo_doc_c6" style="text-align: center">
+                                                <input type="text" class="form-control input-sm input-desc-long c6" id="n_documento_c6">
+                                            </div>       
+                                        </div>
+                                    </div>
+        
+                                    <div class="row">
+                                        <div class="form-group col-md-9">
+                                            <label for="d_denominacion_c6">Razón</label>
+                                            <input name="d_denominacion_c6" type="text" class="form-control input-sm mayusculas c6" id="d_denominacion_c6" style="text-align: left;">
+                                        </div>
+                                        <div class="col-md-2" style="margin-top: 3.5%;">
+                                            <button type="button" id="btn_copy_c6" class="btn btn-secondary" data-dismiss="modal" disabled>Copy</button>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-md-12">
+                                            <label for="d_denominacion_siat_c6">Razón SIAT</label>
+                                            <input name="d_denominacion_siat_c6" type="text" class="form-control input-sm mayusculas" id="d_denominacion_siat_c6" style="text-align: left;" disabled>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label for="d_denominacion_afip_c6">Razón AFIP</label>
+                                            <input name="d_denominacion_afip_c6" type="text" class="form-control input-sm mayusculas" id="d_denominacion_afip_c6" style="text-align: left;" disabled>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="calle_c6">Calle</label>
+                                            <input name="calle_c6" type="text" class="form-control input-sm c6" id="calle_c6" style="text-align: left;">
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label for="numero_c6">Nro.</label>
+                                            <input name="numero_c6" type="text" class="form-control input-sm numerico c6" id="numero_c6" style="text-align: right;">
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label for="piso_c6">Piso</label>
+                                            <input name="piso_c6" type="text" class="form-control input-sm numerico c6" id="piso_c6" style="text-align: right;">
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label for="depto_c6">Depto</label>
+                                            <input name="depto_c6" type="text" class="form-control input-sm numerico c6" id="depto_c6" style="text-align: right;">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="barrio_c6">Barrio</label>
+                                            <input name="barrio_c6" type="text" class="form-control input-sm c6" id="barrio_c6" style="text-align: left;">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="localidad_c6">Localidad</label>
+                                            <input name="localidad_c6" type="text" class="form-control input-sm c6" id="localidad_c6" style="text-align: left;">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-md-3">
+                                            <label for="cod_postal_c6">CP</label>
+                                            <input name="cod_postal_c6" type="text" class="form-control input-sm numerico c6" id="cod_postal_c6" style="text-align: right;">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="provincia_c6">Prov.</label>
+                                            <input name="provincia_c6" type="text" class="form-control input-sm numerico c6" id="provincia_c6" style="text-align: right;">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="cant_titulares_c6">Cant. Titul.</label>
+                                            <input name="cant_titulares_c6" type="text" class="form-control input-sm numerico c6" id="cant_titulares_c6" style="text-align: right;">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="localidad_siat_c6">Loc. SIAT</label>
+                                            <div class="input-group">
+                                                <input name="localidad_siat_c6" type="text" class="form-control input-sm numerico c6" id="localidad_siat_c6" style="text-align: right;">
+                                                <span class="input-group-addon btn_lupa" id="lupa_localidades_c6">
+                                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                                </span>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12" style="padding: 1%; margin-left: 5%; border-radius: 3%; border: solid 1px rgb(211, 211, 211); margin-top: 1%">
+                                    <div class="row">
+                                        <div class="form-group col-md-12">
+                                            <label for="d_parametros_adic_c6">Param. Adic.</label>
+                                            <input name="d_parametros_adic_c6" type="text" class="form-control input-sm mayusculas c6" id="d_parametros_adic_c6" style="text-align: left;">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="d_reservado_c6">Reservado</label>
+                                            <input name="d_reservado_c6" type="text" class="form-control input-sm c6" id="d_reservado_c6" style="text-align: left;">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="d_observaciones_c6">Observaciones</label>
+                                            <input name="d_observaciones_c6" type="text" class="form-control input-sm c6" id="d_observaciones_c6" style="text-align: left;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12" style="padding: 1%; margin-left: 5%; border-radius: 3%; border: solid 1px rgb(211, 211, 211); margin-top: 1%">
+                                    <div class="row">
+                                        <div class="form-group col-md-3">
+                                            <label for="n_envio_c6">Nro. Envío</label>
+                                            <input name="n_envio_c6" type="text" class="form-control input-sm numerico c6" id="n_envio_c6" style="text-align: right;">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="n_secuencia_c6">Sec.</label>
+                                            <input name="n_secuencia_c6" type="text" class="form-control input-sm numerico c6" id="n_secuencia_c6" style="text-align: right;">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="tipo_registro_c6">T. Reg</label>
+                                            <input name="tipo_registro_c6" type="text" class="form-control input-sm mayusculas c6" id="tipo_registro_c6" style="text-align: left;">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="tipo_sub_registro_c6">SubReg</label>
+                                            <input name="tipo_sub_registro_c6" type="text" class="form-control input-sm mayusculas c6" id="tipo_sub_registro_c6" style="text-align: left;">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-md-4">
+                                            <label for="cod_organismo_c6">Cod. Org</label>
+                                            <input name="cod_organismo_c6" type="text" class="form-control input-sm numerico c6" id="cod_organismo_c6" style="text-align: right;">
+                                        </div>
+                                        <div class="form-group col-md-4  col-md-offset-4">
+                                            <label for="c_estado_c6">Estado</label>
+                                            <input name="c_estado_c6" type="text" class="form-control input-sm mayusculas c6" id="c_estado_c6" style="text-align: left; font-weight: bold;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer" style="padding-top: 0;">
+                <div class="row">
+                    <div class="col-md-12 text-left">
+                        <button type="button" id="btn_volver_c6" class="btn btn-secondary" data-dismiss="modal">Volver</button>
+                        <button type="button" id="btn_titulares_c6" class="btn btn-secondary" data-dismiss="modal">Titulares</button>
+                        <button type="button" id="btn_no_procesar_c6" class="btn btn-secondary" data-dismiss="modal" disabled>NO Procesar</button>
+                        <button type="button" id="btn_procesar_sin_validar_c6" class="btn btn-secondary" data-dismiss="modal" disabled>Procesar sin Validar</button>
+                        <button type="button" id="btn_procesar_c6" class="btn btn-secondary" data-dismiss="modal" disabled>Procesar</button>
+                        <button type="button" id="btn_cambiar_dom_proc_c6" class="btn btn-secondary" data-dismiss="modal" disabled>Cambiar Dom y Proc</button>
+                        <button type="button" id="btn_guardar_c6" class="btn btn-secondary" style="margin-top: 1%;" disabled>Guardar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Modal C7-->
+<div class="modal" id="c7_modal" tabindex="-1" role="dialog" aria-labelledby="c7_title" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="btn_cerrar_c7">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="c7_title">C7 - CAMBIO DE RADICACIONES - Datos Dominio</h5>
+            </div>
+            <div class="modal-body">
+                <div id="div_datos_gral" hidden>
+                    <table id="c7_grid" class="scroll" cellpadding="0" cellspacing="0">
+                        <tr><td>&nbsp;</td></tr>
+                    </table>
+                    <div id="c7_grid_pager" class="scroll" style="text-align:center;"></div>
+                </div>
+
+                <div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-12" style="background-color: rgb(238, 238, 189); padding: 2.3%; margin-left: 3%; border-radius: 2%; border: solid 1px rgb(211, 211, 211);">
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="dominio_nuevo_c7">Dominio Nuevo</label>
+                                            <input name='dominio_nuevo_c7' type="text" class="form-control input-sm mayusculas c7" id="dominio_nuevo_c7" style="text-align: left; font-weight: bold;">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="f_alta_c7">F. Alta</label>
+                                            <input name="f_alta_c7" type="text" class="form-control input-sm datepicker c7" id="f_alta_c7" style="text-align: center;">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="f_baja_c7">F. Baja</label>
+                                            <input name="f_baja_c7" type="text" class="form-control input-sm datepicker c7" id="f_baja_c7" style="text-align: center;">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-12">
+                                            <label for="c_reg_secc_c7">RegSecc</label>
+                                            <div class="input-group" style="width: 100%;">
+                                                <input type="text" class="form-control input-sm input-cod-short text-input numerico c7" id="c_reg_secc_c7" style="text-align: center">
+                                                <input type="text" class="form-control input-sm input-desc-long c7" id="d_reg_secc_c7">
+                                            </div>       
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-4">
+                                            <label for="c_origen_info_c7">Origen Info.</label>
+                                            <input name="c_origen_info_c7" type="text" class="form-control input-sm mayusculas c7" id="c_origen_info_c7" style="text-align: left;">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="c_radicacion_c7">Tipo Radicación</label>
+                                            <input name="c_radicacion_c7" type="text" class="form-control input-sm mayusculas c7" id="c_radicacion_c7" style="text-align: left;">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="c_estado_rad_c7">Estado Radicación</label>
+                                            <input name="c_estado_rad_c7" type="text" class="form-control input-sm mayusculas c7" id="c_estado_rad_c7" style="text-align: left;">
+                                        </div>
+                                    </div>
+                                </div>  
+                            </div>
+                        </div>
+
+                        <div class="col-md-5">
+                            <div class="row">
+                                <div class="col-md-12" style="padding: 2%; margin-left: 15%; border-radius: 3%; border: solid 1px rgb(211, 211, 211);">
+                                    <div class="row">
+                                        <div class="form-group col-md-3">
+                                            <label for="n_envio_c7">Nro. Envío</label>
+                                            <input name="n_envio_c7" type="text" class="form-control input-sm numerico c7" id="n_envio_c7" style="text-align: left;">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="n_secuencia_c7">Sec.</label>
+                                            <input name="n_secuencia_c7" type="text" class="form-control input-sm numerico c7" id="n_secuencia_c7" style="text-align: left;">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="tipo_registro_c7">T. Reg</label>
+                                            <input name="tipo_registro_c7" type="text" class="form-control input-sm mayusculas c7" id="tipo_registro_c7" style="text-align: left;">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-md-4">
+                                            <label for="cod_organismo_c7">Cod. Org</label>
+                                            <input name="cod_organismo_c7" type="text" class="form-control input-sm numerico c7" id="cod_organismo_c7" style="text-align: left;">
+                                        </div>
+                                        <div class="form-group col-md-4  col-md-offset-4">
+                                            <label for="c_estado_c7">Estado</label>
+                                            <input name="c_estado_c7" type="text" class="form-control input-sm mayusculas c7" id="c_estado_c7" style="text-align: left; font-weight: bold;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top: 1%;">
+                                <div class="col-md-12" style="padding: 2%; margin-left: 15%; border-radius: 3%; border: solid 1px rgb(211, 211, 211);">
+                                    <div class="row">
+                                        <div class="form-group col-md-12">
+                                            <label for="reservado_c7">Reservado</label>
+                                            <input name="reservado_c7" type="text" class="form-control input-sm c7" id="reservado_c7" style="text-align: left;">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-md-12">
+                                            <label for="observaciones_c7">Observaciones</label>
+                                            <textarea name="observaciones_c7" id="observaciones_c7" style="width: 100%; height: 64px;" class="c7"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label for="d_error_c7">Proceso</label>
+                            <input type="text" class="form-control c7" id="d_error_c7" style="text-align: left">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <div class="row">
+                    <div class="col-md-4 text-left">
+                        <button type="button" id="btn_volver_c7" class="btn btn-secondary" data-dismiss="modal">Volver</button>
+                    </div>
+                    <div class="col-md-3 text-right">
+                        <button type="button" id="btn_no_procesar_c7" class="btn btn-secondary" data-dismiss="modal" disabled>NO Procesar</button>
+                    </div>
+                    <div class="col-md-5 text-right">
+                        <button type="button" id="btn_procesar_c7" class="btn btn-secondary" data-dismiss="modal" disabled>Procesar</button>
+                        <button type="button" id="btn_guardar_c7" class="btn btn-secondary" disabled>Guardar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Modal C8-->
+<div class="modal" id="c8_modal" tabindex="-1" role="dialog" aria-labelledby="c8_title" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-lg" role="document" style="margin-top: 5px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="btn_cerrar_c8">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="c8_title">C8 ANULACIONES - Datos Anulación</h5>
+            </div>
+            <div class="modal-body">
+                <div id="div_datos_gral" hidden>
+                    <table id="c8_grid" class="scroll" cellpadding="0" cellspacing="0">
+                        <tr><td>&nbsp;</td></tr>
+                    </table>
+                    <div id="c8_grid_pager" class="scroll" style="text-align:center;"></div>
+                </div>
+
+                <div>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="row">
+                                <div class="col-md-12" style="background-color: rgb(234, 199, 234); padding: 2%; margin-left: 7%; border-radius: 2%; border: solid 1px rgb(211, 211, 211);">
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="dominio_nuevo_c8">Dominio Nuevo</label>
+                                            <input name='dominio_nuevo_c8' type="text" class="form-control input-sm mayusculas c8" id="dominio_nuevo_c8" style="text-align: left; font-weight: bold;">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="dominio_viejo_c8">Dominio Viejo</label>
+                                            <input name='dominio_viejo_c8' type="text" class="form-control input-sm mayusculas c8" id="dominio_viejo_c8" style="text-align: left;">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-5">
+                                            <label for="marca_c8">Marca</label>
+                                            <input name="marca_c8" type="text" class="form-control input-sm mayusculas c8" id="marca_c8" style="text-align: left;">
+                                        </div>
+                                        <div class="form-group col-md-7">
+                                            <label for="modelo_c8">Modelo</label>
+                                            <input name="modelo_c8" type="text" class="form-control input-sm mayusculas c8" id="modelo_c8" style="text-align: left;">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-9">
+                                            <label for="d_tipo_c8">Tipo</label>
+                                            <input name="d_tipo_c8" type="text" class="form-control input-sm mayusculas c8" id="d_tipo_c8" style="text-align: left;">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="n_anio_modelo_c8">M/A</label>
+                                            <input name="n_anio_modelo_c8" type="text" class="form-control input-sm mayusculas c8" id="n_anio_modelo_c8" style="text-align: left;">
+                                        </div>
+                                    </div>
+                                </div>  
+                            </div>
+
+                            <div class="row" style="margin-top: 1%;">
+                                <div class="col-md-12" style="padding: 1%; margin-left: 7%; border-radius: 2%; border: solid 1px rgb(211, 211, 211);">
+                                    <div class="form-group col-md-4">
+                                        <label for="categoria_c8">Categoría</label>
+                                        <input name='categoria_c8' type="text" class="form-control input-sm mayusculas c8" id="categoria_c8" style="text-align: left;">
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="origen_c8">Origen</label>
+                                        <input name='origen_c8' type="text" class="form-control input-sm mayusculas c8" id="origen_c8" style="text-align: left;">
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="fmcamod_c8">Fmcamod</label>
+                                        <input name='fmcamod_c8' type="text" class="form-control input-sm mayusculas c8" id="fmcamod_c8" style="text-align: left;">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top: 1%;">
+                                <div class="col-md-12" style="padding: 1%; margin-left: 7%; border-radius: 2%; border: solid 1px rgb(211, 211, 211);">
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="n_tramite_c8">Nro. Trámite</label>
+                                            <input name="n_tramite_c8" type="text" class="form-control input-sm mayusculas c8" id="n_tramite_c8" style="text-align: left;">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="tipo_form_c8">Tipo Form.</label>
+                                            <input name="tipo_form_c8" type="text" class="form-control input-sm mayusculas c8" id="tipo_form_c8" style="text-align: left;">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="n_form_c8">N. Form</label>
+                                            <input name="n_form_c8" type="text" class="form-control input-sm mayusculas c8" id="n_form_c8" style="text-align: left;">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="c_tipo_tramite_c8">Tipo</label>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control input-sm input-cod-short text-input mayusculas c8" id="c_tipo_tramite_c8" style="text-align: center">
+                                                <input type="text" class="form-control input-sm input-desc-long c8" id="d_tipo_tramite_c8">
+                                            </div>       
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            <label for="c_accion_c8">Acción</label>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control input-sm input-cod-short text-input mayusculas c8" id="c_accion_c8" style="text-align: center">
+                                                <input type="text" class="form-control input-sm input-desc-long c8" id="d_accion_c8">
+                                            </div>       
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top: 1%;">
+                                <div class="col-md-12" style="padding: 1%; margin-left: 7%; border-radius: 2%; border: solid 1px rgb(211, 211, 211);">
+                                    <div class="row">
+                                        <div class="form-group col-md-12">
+                                            <label for="reservado_c8">Reservado</label>
+                                            <input name="reservado_c8" type="text" class="form-control input-sm mayusculas c8" id="reservado_c8" style="text-align: left;">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-md-12">
+                                            <label for="observaciones_c8">Observaciones</label>
+                                            <input name="observaciones_c8" type="text" class="form-control input-sm mayusculas c8" id="observaciones_c8" style="text-align: left;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-12" style="padding: 2%; margin-left: 10%; border-radius: 3%; border: solid 1px rgb(211, 211, 211);">
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="i_monto_adi_c8">Monto Adi.</label>
+                                            <input name="i_monto_adi_c8" type="text" class="form-control input-sm mayusculas c8" id="i_monto_adi_c8" style="text-align: right;">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="f_deposito_c8">F. Depósito</label>
+                                            <input name="f_deposito_c8" type="text" class="form-control input-sm datepicker numerico c8" id="f_deposito_c8" style="text-align: center;">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="i_monto_pun_c8">Monto Pun.</label>
+                                            <input name="i_monto_pun_c8" type="text" class="form-control input-sm mayusculas c8" id="i_monto_pun_c8" style="text-align: right;">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="f_baja_c8">F. Baja</label>
+                                            <input name="f_baja_c8" type="text" class="form-control input-sm numerico datepicker c8" id="f_baja_c8" style="text-align: center;">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="i_monto_imp_c8">Monto Imp.</label>
+                                            <input name="i_monto_imp_c8" type="text" class="form-control input-sm mayusculas c8" id="i_monto_imp_c8" style="text-align: right;">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="f_cobro_c8">F. Cobro</label>
+                                            <input name="f_cobro_c8" type="text" class="form-control input-sm numerico datepicker c8" id="f_cobro_c8" style="text-align: center;">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="i_monto_total_c8">Monto Total</label>
+                                            <input name="i_monto_total_c8" type="text" class="form-control input-sm mayusculas c8" id="i_monto_total_c8" style="text-align: right;">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="f_tramite_c8">F. Trámite</label>
+                                            <input name="f_tramite_c8" type="text" class="form-control input-sm numerico c8" id="f_tramite_c8" style="text-align: center;">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-md-3">
+                                            <label for="c_moneda_c8">Moneda</label>
+                                            <input name="c_moneda_c8" type="text" class="form-control input-sm mayusculas c8" id="c_moneda_c8" style="text-align: right;">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="cant_detalle_c8">Cant. Detalle</label>
+                                            <input name="cant_detalle_c8" type="text" class="form-control input-sm numerico c8" id="cant_detalle_c8" style="text-align: right;">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="c_banco_c8">Banco</label>
+                                            <div class="input-group" style="width: 100%">
+                                                <input type="text" class="form-control input-sm input-cod-short text-input mayusculas c8" id="c_banco_c8" style="text-align: center">
+                                                <input type="text" class="form-control input-sm input-desc-long c8" id="d_banco_c8">
+                                            </div>       
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12" style="padding: 2%; padding-bottom: 1%; margin-left: 10%; border-radius: 3%; border: solid 1px rgb(211, 211, 211); margin-top: 1%">
+                                    <div class="row">
+                                        <div class="form-group col-md-12">
+                                            <label for="c_reg_secc_c8">RegSecc</label>
+                                            <div class="input-group" style="width: 100%">
+                                                <input type="text" class="form-control input-sm input-cod-short text-input mayusculas c8" id="c_reg_secc_c8" style="text-align: center">
+                                                <input type="text" class="form-control input-sm input-desc-long c8" id="d_reg_secc_c8">
+                                            </div>       
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12" style="padding: 2%; padding-bottom: 0; margin-left: 10%; border-radius: 3%; border: solid 1px rgb(211, 211, 211); margin-top: 1%">
+                                    <div class="row">
+                                        <div class="form-group col-md-3">
+                                            <label for="n_envio_c8">Nro. Envío</label>
+                                            <input name="n_envio_c8" type="text" class="form-control input-sm numerico" id="n_envio_c8" style="text-align: right;" disabled>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="n_secuencia_c8">Sec.</label>
+                                            <input name="n_secuencia_c8" type="text" class="form-control input-sm mayusculas" id="n_secuencia_c8" style="text-align: right;" disabled>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="tipo_registro_c8">T. Reg</label>
+                                            <input name="tipo_registro_c8" type="text" class="form-control input-sm mayusculas" id="tipo_registro_c8" style="text-align: left;" disabled>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="tipo_sub_registro_c8">SubReg</label>
+                                            <input name="tipo_sub_registro_c8" type="text" class="form-control input-sm mayusculas" id="tipo_sub_registro_c8" style="text-align: left;" disabled>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-md-4">
+                                            <label for="cod_organismo_c8">Cod. Org</label>
+                                            <input name="cod_organismo_c8" type="text" class="form-control input-sm numerico" id="cod_organismo_c8" style="text-align: right;" disabled>
+                                        </div>
+                                        <div class="form-group col-md-4  col-md-offset-4">
+                                            <label for="c_estado_c8">Estado</label>
+                                            <input name="c_estado_c8" type="text" class="form-control input-sm mayusculas" id="c_estado_c8" style="text-align: left; font-weight: bold;" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="row">
+                        <div class="col-md-12" style="width: 97.6%; margin-left: 1%;">
+                            <label for="d_error_c8">Proceso</label>
+                            <input type="text" class="form-control c8" id="d_error_c8" style="text-align: left">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <div class="row">
+                    <div class="col-md-4 text-left">
+                        <button type="button" id="btn_volver_c8" class="btn btn-secondary" data-dismiss="modal">Volver</button>
+                        <button type="button" id="btn_detalle_c8" class="btn btn-secondary" data-dismiss="modal">Detalle</button>
+                    </div>
+                    <div class="col-md-3 text-right">
+                        <button type="button" id="btn_no_procesar_c8" class="btn btn-secondary" data-dismiss="modal" disabled>NO Procesar</button>
+                    </div>
+                    <div class="col-md-5 text-right">
+                        <button type="button" id="btn_procesar_c8" class="btn btn-secondary" data-dismiss="modal" disabled>Procesar</button>
+                        <button type="button" id="btn_guardar_c8" class="btn btn-secondary" disabled>Guardar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Modal C8 Det-->
+<div class="modal" id="c8_det_modal" tabindex="-1" role="dialog" aria-labelledby="c8_det_title" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-lg" role="document" style="margin-top: 5px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="btn_cerrar_c8_tit">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="c8_det_title">C8 Detalle de Anulaciones</h5>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <table id="c8_det_grid" class="scroll" cellpadding="0" cellspacing="0">
+                        <tr><td>&nbsp;</td></tr>
+                    </table>
+                    <div id="c8_det_grid_pager" class="scroll" style="text-align:center;"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="row">
+                    <div class="col-md-12 text-left">
+                        <button type="button" id="btn_volver_c8_det" class="btn btn-secondary" data-dismiss="modal">Volver</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Modal Titulares-->
+<div class="modal" id="titulares_modal" tabindex="-1" role="dialog" aria-labelledby="titulares_title" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-lg" role="document" style="margin-top: 5px">
+        <div class="modal-content">
+            <div class="modal-header" style="padding-bottom: 1%;">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="btn_cerrar_tit">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="titulares_title">Titulares</h5>
+            </div>
+            <div class="modal-body" style="padding-top: 0; padding-bottom: 0;">
+                <div class="panel panel-primary" style="margin-bottom: 0;">
+                    <div class="collapse in" id="collapse_search" aria-expanded="true">
+                        
+                        <div class="panel-body">
+                            <table id="titulares_grid" class="scroll" cellpadding="0" cellspacing="0">
+                                <tr><td>&nbsp;</td></tr>
+                            </table>
+                            <div id="titulares_grid_pager" class="scroll" style="text-align:center;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-primary" style="margin-bottom: 0;">
+                    <div class="collapse in" id="collapse_search" aria-expanded="true">
+                        <div class="panel-heading" id="titulo">Detalle</div>
+                        <div class="panel-body">
+                            <div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-9">
+                                                <label for="d_denominacion_tit">Razón Social</label>
+                                                <input type="text" class="form-control input-sm mayusculas titulares" id="d_denominacion_tit" style="text-align: left">
+                                                <input type="hidden" id="tipo_registro_titulares">
+                                            </div>
+                                            <div class="col-md-2" style="margin-top: 3.5%;">
+                                                <button type="button" id="btn_copy_tit" class="btn btn-secondary">Copy</button>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <label for="d_denominacion_siat_tit">Razón SIAT</label>
+                                                <input type="text" class="form-control input-sm mayusculas" id="d_denominacion_siat_tit" style="text-align: left" disabled>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <label for="d_denominacion_afip_tit">Razón AFIP</label>
+                                                <input type="text" class="form-control input-sm mayusculas" id="d_denominacion_afip_tit" style="text-align: left" disabled>
+                                            </div>
+                                        </div>
+            
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label for="n_cuit_tit">CUIT</label>
+                                                <input type="text" class="form-control input-sm numerico titulares" id="n_cuit_tit" style="text-align: left">
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label for="porcentaje_tit">%</label>
+                                                <input type="text" class="form-control input-sm numerico titulares" id="porcentaje_tit" style="text-align: left">
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label for="tipo_cuerpo_tit">Tipo Cuerpo</label>
+                                                <input type="text" class="form-control input-sm" id="tipo_cuerpo_tit" style="text-align: left" disabled>
+                                            </div>
+                                        </div>
+            
+                                        <div class="row">
+                                            <div class="form-group col-md-4">
+                                                <label for="c_tipo_doc_tit">Documento</label>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control input-sm input-cod-short text-input mayusculas titulares" id="c_tipo_doc_tit" style="text-align: center">
+                                                    <input type="text" class="form-control input-sm input-desc-long titulares" id="n_documento_tit">
+                                                </div>       
+                                            </div>
+                                            <div class="col-md-2" style="width: 15%;">
+                                                <label for="tipo_sub_registro_tit">TSubReg</label>
+                                                <input type="text" class="form-control input-sm mayusculas" id="tipo_sub_registro_tit" style="text-align: left" disabled>
+                                            </div>
+                                            <div class="col-md-2" style="width: 18%;">
+                                                <label for="n_numero_tit">Número</label>
+                                                <input type="text" class="form-control input-sm mayusculas titulares" id="n_numero_tit" style="text-align: left">
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label for="piso_tit">Piso</label>
+                                                <input type="text" class="form-control input-sm mayusculas titulares" id="piso_tit" style="text-align: left">
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label for="depto_tit">Depto</label>
+                                                <input type="text" class="form-control input-sm mayusculas titulares" id="depto_tit" style="text-align: left">
+                                            </div>
+                                        </div>
+            
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <label for="calle_tit">Calle</label>
+                                                <input type="text" class="form-control input-sm mayusculas titulares" id="calle_tit" style="text-align: left">
+                                            </div>
+                                        </div>
+            
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <label for="barrio_tit">Barrio</label>
+                                                <input type="text" class="form-control input-sm mayusculas titulares" id="barrio_tit" style="text-align: left">
+                                            </div>
+                                        </div>
+            
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <label for="d_localidad_tit">Localidad</label>
+                                                <input type="text" class="form-control input-sm mayusculas titulares" id="d_localidad_tit" style="text-align: left">
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <label for="tipo_titular_tit">Tipo Titular</label>
+                                                <input type="text" class="form-control input-sm mayusculas" id="tipo_titular_tit" style="text-align: left" disabled>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <label for="cod_postal_tit">Postal</label>
+                                                <input type="text" class="form-control input-sm mayusculas titulares" id="cod_postal_tit" style="text-align: left" >
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label for="d_localidad_siat_tit">Loc. SIAT</label>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control input-sm mayusculas titulares" id="d_localidad_siat_tit" style="text-align: left" >
+                                                    <span class="input-group-addon btn_lupa" id="lupa_localidades_tit">
+                                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                                </span>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label for="c_provincia_tit">Provincia</label>
+                                                <input type="text" class="form-control input-sm mayusculas titulares" id="c_provincia_tit" style="text-align: left">
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <label for="reservado_tit">Reservado</label>
+                                                <textarea name="reservado_tit" id="reservado_tit" style="width: 100%; height: 78.5px;" class="titulares"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <label for="c_estado_tit">Estado</label>
+                                                <input type="text" class="form-control input-sm mayusculas" id="c_estado_tit" style="text-align: left; font-weight: bold;" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="row">
+                    <div class="col-md-12 text-left">
+                        <button type="button" id="btn_volver_titulares" class="btn btn-secondary" data-dismiss="modal">Volver</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Modal Errores-->
+<div class="modal" id="error_modal" tabindex="-1" role="dialog" aria-labelledby="error_title" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="btn_cerrar_errores">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="error_title">Error</h5>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <textarea name="desc_error" id="desc_error" style="width: 100%; height: 200px;font-size: 15px;font-weight: bold;"></textarea>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <div class="row">
+                    <div class="col-md-12 text-right">
+                        <button type="button" id="btn_volver_error" class="btn btn-secondary" data-dismiss="modal">Volver</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

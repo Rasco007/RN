@@ -1,0 +1,41 @@
+<div class="modal fade" id="abm_modal" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" style="width: 30%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">Aprobar Plan</h4>
+            </div>
+            <div class="modal-body">
+                <form id="frm_cuota">
+                    
+                    <input type="hidden" readonly id="p_oper">
+                    <input type="hidden" readonly id="id_plan_fis">
+                    <input type="hidden" readonly id="d_plan">
+                    <input type="hidden" readonly id="n_anio">
+                    <input type="hidden" readonly id="d_observac">
+                    <input type="hidden" readonly id="n_inspectores_est">
+                    <input type="hidden" readonly id="n_horas_est">
+
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="f_aprobacion">F. Aprobación</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm datepicker text-center limpiar" name="f_aprobacion" id="f_aprobacion" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off">
+                            </div>
+                        </div>
+                    </div>
+                    
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="button" class="btn btn-primary" id="btn_aceptar_edicion_f_aprob">Aceptar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

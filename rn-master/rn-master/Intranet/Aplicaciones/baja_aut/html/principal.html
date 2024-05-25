@@ -1,0 +1,107 @@
+<div id="div_main" class="panel-search">
+    <div class="panel panel-primary">
+        <div class="collapse in" aria-expanded="true" style="">
+            <div class="panel-heading">Filtros de B&uacute;squeda</div>
+            <div class="panel-body">
+                <form id='frm_consulta' style="margin-top: 5px;">
+                    <div class="row">
+                        <div class="form-group col-md-2">
+                            <label for="n_cuit">CUIT</label>
+                            <input name='n_cuit' id='n_cuit' type="text"
+                                   class="form-control input-sm text-right numerico">
+                            <input name='id_contribuyente' id='id_contribuyente' type="number" hidden>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="d_denominacion">Denominación</label>
+                            <input name='d_denominacion' id='d_denominacion' type="text"
+                                   class="form-control input-sm text-right mayusculas">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="c_tipo_documento">Tipo de Documento</label>
+                            <div class="input-group" id="div_input_tipo_documento">
+                                <input type="text" class="form-control mayusculas input-sm input-cod-short"
+                                       id="c_tipo_documento">
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_tipo_documento"
+                                       readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_c_tipo_documento">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="n_documento">N° de Documento</label>
+                            <input type="text" class="form-control input-sm text-right numerico" id="n_documento"
+                                   name="n_documento">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-2">
+                            <label for="d_dominio">Dominio</label>
+                            <div class="input-group" id="div_input_dominio">
+                                <input name='d_dominio' id='d_dominio' type="text"
+                                       class="form-control input-sm mayusculas tecladoDominio">
+                                <span class="input-group-addon btn_lupa" id="mascara_lupa_dominio">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </span>
+                                <span class="input-group-addon btn_lupa" id="lupa_dominio">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-xs-1">
+                            <label for="c_verif_dom"></label>
+                            <input name='c_verif_dom' id='c_verif_dom' type="text"
+                                   class="form-control input-sm numerico" maxlength="1">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="d_dom_ant">Dominio Anterior</label>
+                            <div class="input-group" id="div_input_dom_ant">
+                                <input name='d_dom_ant' id='d_dom_ant' type="text"
+                                       class="form-control input-sm mayusculas tecladoDominio">
+                                <span class="input-group-addon btn_lupa" id="mascara_lupa_dom_ant">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </span>
+                                <span class="input-group-addon btn_lupa" id="lupa_dominio_ant">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-xs-1">
+                            <label for="c_verif_dom_ant"></label>
+                            <input name='c_verif_dom_ant' id='c_verif_dom_ant' type="text"
+                                   class="form-control input-sm numerico" maxlength="1">
+                        </div>
+                        <div class="form-group col-md-6" style="margin-top: 15px;">
+                            <button type='button' id='btn_buscar' name='btn_buscar' class="btn-sm btn_buscar"></button>
+                            <button class="btn-sm btn_limpiar" type="button" id="btn_limpiar"></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="div_automotores">
+    <table id='main_grid' class='scroll'>
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+    </table>
+    <div id='main_grid_pager' class='scroll' style='text-align:center;'></div>
+</div>
+
+<div id="div_responsables">
+    <table id='responsables_grid' class='scroll'>
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+    </table>
+    <div id='responsables_grid_pager' class='scroll' style='text-align:center;'></div>
+</div>
+
+<div class="col-md-12 text-center">
+    <br>
+    <button class="btn-sm btn-primary" type="button" id="btn_aplicar_baja">Aplicar Baja</button>
+</div>

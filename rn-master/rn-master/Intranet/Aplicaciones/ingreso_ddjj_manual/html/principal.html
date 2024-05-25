@@ -1,0 +1,597 @@
+<div id="div_filtros" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading" id="titulo">Declaración Jurada</div>
+            <div class="panel-body">
+                <form action="" id="frm_filtros">
+                    <div class="row">
+                        <input type="hidden" id="id_contribuyente">
+                        <input type="hidden" id="n_secuencia_obl">
+                        <input type="hidden" id="n_secuencia_pres">
+                        <input type="hidden" id="id_ddjj">
+                        <input type="hidden" id="aux_hijos_per">
+                        <input type="hidden" id="aux_hijos_ret">
+                        <div class="form-group col-md-4">
+                            <label for="c_tipo_form">Formulario (*)</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm input-cod-short text-input mayusculas" id="c_tipo_form" style="text-align: center">
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_tipo_form" readonly>
+                                <span class="input-group-addon" id="mascara_lupa_tipo_form">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon btn_lupa" id="lupa_tipo_form">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>       
+                        </div>
+
+                        <div class="col-md-2" id="div_d_comprobante" hidden>
+                            <label for="d_comprobante" id="d_leyenda"></label>
+                            <input type="text" class="form-control input-sm numerico" id="d_comprobante" style="text-align: right">
+                        </div>
+
+                        <div class="col-md-2">
+                            <label for="f_presentacion">Fecha de Presentación  (*)</label>
+                            <input type="text" class="form-control input-sm datepicker" id="f_presentacion" style="text-align: center">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-2" style="width: 21%;">
+                            <label for="c_tributo">Tributo  (*)</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm input-cod-short text-input mayusculas" id="c_tributo" style="text-align: center">
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_tributo" readonly>
+                                <span class="input-group-addon" id="mascara_lupa_tributo">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon btn_lupa" id="lupa_tributo">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>       
+                        </div>
+
+                        <div class="form-group col-md-2" style="width: 20%;">
+                            <label for="c_concepto">Concepto</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm input-cod-short text-input mayusculas" id="c_concepto" style="text-align: center">
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_concepto" readonly>
+                                <span class="input-group-addon" id="mascara_lupa_concepto">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon btn_lupa" id="lupa_concepto">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>       
+                        </div>
+
+                        <div class="col-md-2">
+                            <label for="d_objeto_hecho">Nro. de Inscripción  (*)</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm mayusculas" id="d_objeto_hecho" style="text-align: right">
+                                <span class="input-group-addon" id="mascara_lupa_objeto_hecho">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon btn_lupa" id="lupa_objeto_hecho">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>  
+                        </div>
+
+                        <div class="col-md-2">
+                            <label for="n_cuit">N° CUIT</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm numerico text-right" id="n_cuit" style="text-align: right">
+                                <span class="input-group-addon" id="mascara_lupa_cuit">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon btn_lupa" id="lupa_cuit">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>  
+                        </div>
+
+                        <div class="col-md-3">
+                            <label for="d_denominacion">Apellido y Nombre o Razón Social</label>
+                            <input type="text" class="form-control input-sm text-left" id="d_denominacion" readonly>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-2">
+                            <label for="n_pos_fiscal">Posición Fiscal  (*)</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm input-desc-long text-input numerico" id="n_pos_fiscal" style="text-align: right">
+                                <input type="text" class="form-control input-sm input-cod-short numerico text-center" id="n_cuota">
+                                <span class="input-group-addon" id="mascara_lupa_pos_fiscal">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon btn_lupa" id="lupa_pos_fiscal">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>       
+                        </div>
+
+                        <div class="col-md-2">
+                            <label for="id_obligacion">N° Obligación</label>
+                            <input type="text" class="form-control input-sm numerico text-right" id="id_obligacion" readonly>
+                        </div>
+
+                        <div class="col-md-2">
+                            <label for="d_presentacion">Presentación</label>
+                            <input type="text" class="form-control input-sm numerico text-left" id="d_presentacion" readonly>
+                        </div>
+
+                        <div class="form-group col-md-3" style="margin: 1.35% 0 0 3.5%; width:30%">
+                            <button type='button' id='btn_limpiar' name='btn_limpiar' class="btn-sm btn_limpiar" style="margin-left: 3%;"></button>
+                            <button type='button' id='btn_grabar' class="ui-button ui-corner-all ui-widget" style="margin-bottom: 1%;transform: scale(1.02); margin-left: 1%;" disabled>Grabar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id='tabs_grid' hidden>
+    <ul class='nav nav-tabs'>
+        <li class='nav-item active' id="etiqueta_tab_personales">
+            <a href='#tab_personales' data-toggle='tab' role='tab' data-grid='personales_grid' id="btn_tab_personales">personales</a>
+        </li>
+        <li class='nav-item' id="etiqueta_tab_retenciones" >
+            <a href='#tab_retenciones' data-toggle='tab' role='tab' data-grid='retenciones_grid' id="btn_tab_retenciones">retenciones</a>
+        </li>
+        <li class='nav-item' id="etiqueta_tab_percepciones" >
+            <a href='#tab_percepciones' data-toggle='tab' role='tab' data-grid='percepciones_grid' id="btn_tab_percepciones">percepciones</a>
+        </li>
+        <li class='nav-item' id="etiqueta_tab_sellos" >
+            <a href='#tab_sellos' data-toggle='tab' role='tab' data-grid='sellos_grid' id="btn_tab_sellos">sellos</a>
+        </li>
+    </ul>
+    <div class='tab-content'>
+        <div id='tab_personales' class='tab-pane fade active in' role='tabpanel'>
+            <div hidden>
+                <table id="personales_grid" class="scroll" cellpadding="0" cellspacing="0">
+                    <tr><td>&nbsp;</td></tr>
+                </table>
+                <div id="personales_grid_pager" class="scroll" style="text-align:center;"></div>
+            </div>
+
+            <div id="div_personales" class="panel-search">
+                <div class="panel panel-primary">
+                    <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+                        <span class="glyphicon"></span>
+                    </a>
+                    <div class="collapse in" id="collapse_search" aria-expanded="true">
+                        <div class="panel-heading" id="personales_titulo">Datos Generales</div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label for="d_calle">Calle</label>
+                                    <input type="text" class="form-control input-sm text-left mayusculas" id="d_calle" disabled>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label for="n_numero">Número</label>
+                                    <input type="text" class="form-control input-sm text-right numerico" id="n_numero" disabled>
+                                </div>
+
+                                <div class="col-md-3" style="width: 25.3%;">
+                                    <label for="d_monoblock">Monoblock</label>
+                                    <input type="text" class="form-control input-sm text-left" id="d_monoblock" disabled>
+                                </div>
+
+                                <div class="col-md-1" style="width: 14.5%;">
+                                    <label for="d_puerta">Pta.</label>
+                                    <input type="text" class="form-control input-sm text-left" id="d_puerta" disabled>
+                                </div>
+
+                                <div class="col-md-1" style="width: 14.5%;">
+                                    <label for="d_piso">Piso</label>
+                                    <input type="text" class="form-control input-sm text-right" id="d_piso" disabled>
+                                </div>
+
+                                <div class="col-md-1" style="width: 14.5%;">
+                                    <label for="d_depto">Depto.</label>
+                                    <input type="text" class="form-control input-sm text-left" id="d_depto" disabled>
+                                </div>
+
+                                <div class="col-md-1" style="width: 14.5%;">
+                                    <label for="d_oficina">Oficina</label>
+                                    <input type="text" class="form-control input-sm text-left" id="d_oficina" disabled>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label for="d_manzana">Manzana</label>
+                                    <input type="text" class="form-control input-sm text-left" id="d_manzana" disabled>
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                    <label for="c_bepo">Código de Barrio</label>
+                                    <div class="input-group" style="width: 100%;">
+                                        <select class="form-control input-sm input-cod-short" id="c_bepo" style="text-align: center;" disabled>
+                                            <option value="" selected></option>
+                                            <option value="B">BARRIO</option>
+                                            <option value="E">ESTAFETA</option>
+                                            <option value="O">OTROS</option>
+                                            <option value="P">PARAJE</option>
+                                        </select>
+                                        <input type="text" class="form-control input-sm input-desc-short" id="d_bepo" readonly>
+                                    </div>       
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label for="d_localidad">Localidad</label>
+                                    <input type="text" class="form-control input-sm text-left mayusculas" id="d_localidad" disabled>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-1" style="width: 11%;">
+                                    <label for="c_postal">Código Postal</label>
+                                    <input type="text" class="form-control input-sm text-right numerico" id="c_postal" disabled>
+                                </div>
+
+                                <div class="col-md-2" style="width: 13%;">
+                                    <label for="n_telefono_1">Teléfono 1</label>
+                                    <input type="text" class="form-control input-sm text-left mayusculas" id="n_telefono_1" disabled>
+                                </div>
+
+                                <div class="col-md-2" style="width: 13%;">
+                                    <label for="n_telefono_2">Teléfono 2</label>
+                                    <input type="text" class="form-control input-sm text-left mayusculas" id="n_telefono_2" disabled>
+                                </div>
+
+                                <div class="col-md-2" style="width: 13%;">
+                                    <label for="n_fax_1">Fax</label>
+                                    <input type="text" class="form-control input-sm text-left mayusculas" id="n_fax_1" disabled>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div id='tab_retenciones' class='tab-pane fade' role='tabpanel'>
+            <div>
+                <table id="retenciones_grid" class="scroll" cellpadding="0" cellspacing="0">
+                    <tr><td>&nbsp;</td></tr>
+                </table>
+                <div id="retenciones_grid_pager" class="scroll" style="text-align:center;"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-1 col-md-offset-6" style="width: 14%; margin-left: 57%">
+                    <label for="ti_retencion_ret"></label>
+                    <input type="text" class="form-control input-sm numerico text-right" id="ti_retencion_ret" readonly>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1 col-md-offset-6" style="width: 14%; margin-left: 57%">
+                    <label for="total_retenido">Total</label>
+                    <input type="text" class="form-control input-sm numerico text-right mascara_importe" id="total_retenido">
+                </div>
+            </div>
+        </div>
+        <div id='tab_percepciones' class='tab-pane fade' role='tabpanel'>
+            <div>
+                <table id="percepciones_grid" class="scroll" cellpadding="0" cellspacing="0">
+                    <tr><td>&nbsp;</td></tr>
+                </table>
+                <div id="percepciones_grid_pager" class="scroll" style="text-align:center;"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-1 col-md-offset-6" style="width: 12%;">
+                    <label for="ti_retencion_per"></label>
+                    <input type="text" class="form-control input-sm numerico text-right" id="ti_retencion_per" readonly>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1 col-md-offset-6" style="width: 12%;">
+                    <label for="total_percibido">Totales</label>
+                    <input type="text" class="form-control input-sm numerico text-right mascara_importe" id="total_percibido">
+                </div>
+            </div>
+        </div>
+        <div id='tab_sellos' class='tab-pane fade' role='tabpanel'>
+            <div>
+                <table id="sellos_grid" class="scroll" cellpadding="0" cellspacing="0">
+                    <tr><td>&nbsp;</td></tr>
+                </table>
+                <div id="sellos_grid_pager" class="scroll" style="text-align:center;"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-1 col-md-offset-4" style="width: 14%; margin-left: 37%">
+                    <label for="ti_retencion_sellos"></label>
+                    <input type="text" class="form-control input-sm numerico text-right" id="ti_retencion_sellos" readonly>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1 col-md-offset-6" style="width: 14%; margin-left: 86%">
+                    <label for="total_sellos">Total Retenido</label>
+                    <input type="text" class="form-control input-sm numerico text-right mascara_importe" id="total_sellos">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="abm_percepciones_modal" role="dialog" aria-labelledby="abm_percepciones_title" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="btn_cerrar_abm_percepciones">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="abm_percepciones_title"></h5>
+            </div>
+            <div class="modal-body">  
+                <input type="hidden" id="n_secuencia_det_per">
+                <input type="hidden" id="n_comprobante_dep_per">
+                <input type="hidden" id="n_comprobante_ddjj_per">
+                <div class="row">
+                    <div class="col-md-2">
+                        <label for="f_cobranza_per">Fecha de Cobranza</label>
+                        <input type="text" class="form-control input-sm datepicker" id="f_cobranza_per" style="text-align: center">
+                    </div>
+
+                    <div class="col-md-2">
+                        <label for="n_cuit_per">CUIT</label>
+                        <input type="text" class="form-control input-sm numerico text-right" id="n_cuit_per" >
+                    </div>
+
+                    <div class="col-md-5">
+                        <label for="d_denominacion_per">Nombre</label>
+                        <div class="input-group">
+                            <input type="hidden" id="id_contribuyente_per">
+                            <input type="text" class="form-control input-sm mayusculas" id="d_denominacion_per" style="text-align: left">
+                            <span class="input-group-addon" id="mascara_lupa_denominacion_per">
+                                <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                            </span>
+                            <span class="input-group-addon btn_lupa" id="lupa_denominacion_per">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </span>
+                        </div>  
+                    </div>
+
+                    <div class="col-md-3">
+                        <label for="d_objeto_hecho_per">Nro. de Inscripción</label>
+                        <input type="text" class="form-control input-sm text-left" id="d_objeto_hecho_per">
+                    </div>
+                </div>
+
+                <div class="row" style="margin-top: 1.5%;">
+                    <div class="col-md-2" style="width: 18%;">
+                        <label for="i_percibido_per">Importe Percibido (*)</label>
+                        <input type="text" class="form-control input-sm numerico text-right mascara_importe" id="i_percibido_per" >
+                    </div>
+
+                    <div class="col-md-3" style="width: 23%;">
+                        <label for="i_base_imponible_per">Imp. Base Impobible (*)</label>
+                        <input type="text" class="form-control input-sm numerico text-right mascara_importe" id="i_base_imponible_per" >
+                    </div>
+
+                    <div class="col-md-2">
+                        <label for="f_comprobante_per">F. Percepción (*)</label>
+                        <input type="text" class="form-control input-sm datepicker" id="f_comprobante_per" style="text-align: center">
+                    </div>
+
+                    <div class="col-md-3">
+                        <label for="n_comprobante_per">N° Comp. de Percepción (*)</label>
+                        <input type="text" class="form-control input-sm numerico text-right" id="n_comprobante_per" >
+                    </div>
+
+                    <div class="form-group col-md-2" style="margin-top: 2%;">
+                        <button type='button' id='btn_limpiar_per' name='btn_limpiar' class="btn-sm btn_limpiar" style="margin-left: 3%;"></button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btn_cancelar_abm_percepciones" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" id="btn_guardar_abm_percepciones" class="btn btn-secondary">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="abm_retenciones_modal" role="dialog" aria-labelledby="abm_retenciones_title" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="btn_cerrar_abm_retenciones">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="abm_retenciones_title"></h5>
+            </div>
+            <div class="modal-body"> 
+                <input type="hidden" id="n_secuencia_det_ret">
+                <input type="hidden" id="d_comprobante_ret">
+                <div class="row">
+                    <div class="col-md-2">
+                        <label for="f_retencion_ret">F. Retención (*)</label>
+                        <input type="text" class="form-control input-sm datepicker" id="f_retencion_ret" style="text-align: center">
+                    </div>
+
+                    <div class="col-md-2">
+                        <label for="n_cuit_ret">CUIT</label>
+                        <input type="text" class="form-control input-sm numerico text-right" id="n_cuit_ret" >
+                    </div>
+
+                    <div class="col-md-5">
+                        <label for="d_denominacion_ret">Nombre</label>
+                        <div class="input-group">
+                            <input type="hidden" id="id_contribuyente_ret">
+                            <input type="text" class="form-control input-sm mayusculas" id="d_denominacion_ret" style="text-align: left">
+                            <span class="input-group-addon" id="mascara_lupa_denominacion_ret">
+                                <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                            </span>
+                            <span class="input-group-addon btn_lupa" id="lupa_denominacion_ret">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </span>
+                        </div>  
+                    </div>
+
+                    <div class="col-md-3">
+                        <label for="d_objeto_hecho_ret">Nro. de Inscripción</label>
+                        <input type="text" class="form-control input-sm text-left" id="d_objeto_hecho_ret">
+                    </div>
+                </div>
+
+                <div class="row" style="margin-top: 1.5%;">
+                    <div class="col-md-3">
+                        <label for="i_retenido_ret">Importe Retenido (*)</label>
+                        <input type="text" class="form-control input-sm numerico text-right mascara_importe" id="i_retenido_ret" >
+                    </div>
+
+                    <div class="col-md-3">
+                        <label for="p_coeficiente_ret">Alícuota</label>
+                        <input type="text" class="form-control input-sm numerico text-right mascara_importe" id="p_coeficiente_ret" >
+                    </div>
+
+                    <div class="col-md-3">
+                        <label for="n_recibo_ret">N° Comp. de Recibo</label>
+                        <input type="text" class="form-control input-sm numerico text-right" id="n_recibo_ret" >
+                    </div>
+
+                    <div class="form-group col-md-2" style="margin-top: 2%;">
+                        <button type='button' id='btn_limpiar_ret' name='btn_limpiar' class="btn-sm btn_limpiar" style="margin-left: 3%;"></button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btn_cancelar_abm_retenciones" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" id="btn_guardar_abm_retenciones" class="btn btn-secondary">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="abm_sellos_modal" role="dialog" aria-labelledby="abm_sellos_title" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="btn_cerrar_abm_sellos">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="abm_sellos_title"></h5>
+            </div>
+            <div class="modal-body">  
+                <input type="hidden" id="n_secuencia_det_sellos">
+                <div class="row">
+                    <div class="col-md-2">
+                        <label for="f_retencion_sellos">F. Retención (*)</label>
+                        <input type="text" class="form-control input-sm datepicker" id="f_retencion_sellos" style="text-align: center">
+                    </div>
+
+                    <div class="col-md-2">
+                        <label for="n_cuit_sellos">CUIT</label>
+                        <input type="text" class="form-control input-sm numerico text-right" id="n_cuit_sellos" >
+                    </div>
+
+                    <div class="col-md-5">
+                        <label for="d_denominacion_sellos">Denominación</label>
+                        <input type="text" class="form-control input-sm mayusculas" id="d_denominacion_sellos" style="text-align: left">
+                    </div>
+
+                    <div class="col-md-2">
+                        <label for="i_retencion_sellos">Importe Retenido</label>
+                        <input type="text" class="form-control input-sm numerico text-right mascara_importe" id="i_retencion_sellos" >
+                    </div>
+                </div>
+
+                <div class="row" style="margin-top: 1.5%;">
+                    <div class="col-md-2">
+                        <label for="f_instrumento_sellos">F. Instrumento</label>
+                        <input type="text" class="form-control input-sm datepicker" id="f_instrumento_sellos" style="text-align: center">
+                    </div>
+
+                    <div class="col-md-2">
+                        <label for="i_base_imponible_sellos">Base Imponible</label>
+                        <input type="text" class="form-control input-sm numerico text-right mascara_importe" id="i_base_imponible_sellos" >
+                    </div>
+
+                    <div class="col-md-3">
+                        <label for="i_alicuota_sellos">Alícuota</label>
+                        <input type="text" class="form-control input-sm numerico text-right mascara_importe" id="i_alicuota_sellos" >
+                    </div>
+
+                    <div class="col-md-3">
+                        <label for="i_impuesto_sellos">Impuesto</label>
+                        <input type="text" class="form-control input-sm numerico text-right mascara_importe" id="i_impuesto_sellos" >
+                    </div>
+
+                    <div class="form-group col-md-2" style="margin-top: 2%;">
+                        <button type='button' id='btn_limpiar_sellos' name='btn_limpiar' class="btn-sm btn_limpiar" style="margin-left: 3%;"></button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btn_cancelar_abm_sellos" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" id="btn_guardar_abm_sellos" class="btn btn-secondary">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal" id="errores_modal" tabindex="-1" role="dialog" aria-labelledby="errores_title" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="btn_cerrar_c7">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="errores_title">Errores</h5>
+            </div>
+            <div class="modal-body">
+                <div id="div_errores">
+                    <table id="errores_grid" class="scroll" cellpadding="0" cellspacing="0">
+                        <tr><td>&nbsp;</td></tr>
+                    </table>
+                    <div id="errores_grid_pager" class="scroll" style="text-align:center;"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="row">
+                    <div class="col-md-3" style="margin-left: 13%;">
+                        <button type="button" id="btn_grabar_errores" class="btn btn-secondary">Grabar</button>
+                    </div>
+                    <div class="col-md-3 col-md-offset-1">
+                        <button type="button" id="btn_volver_errores" class="btn btn-secondary" data-dismiss="errores_modal">Volver</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="guardar_cambios_modal" tabindex="-1" role="dialog" aria-labelledby="guardar_cambios_title" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body" style="text-align: center;">
+                <h3 style="font-weight: bold; margin-top: 5%">Confirmación</h3>
+                <div id="div_pregunta" style="font-size: 14px; margin-top: 5%;">
+                    Desea grabar los cambios?
+                </div>
+                <div class="row text-center" style="margin-top: 10%;">
+                    <button type="button" id="btn_guardar_cambios" class="btn btn-secondary" data-dismiss="errores_modal">Si</button>
+                    <button type="button" id="btn_no_guardar_cambios" class="btn btn-secondary" style="margin-left: 1%;" data-dismiss="errores_modal">No</button>
+                    <button type="button" id="btn_cancelar_cambios" class="btn btn-secondary" style="margin-left: 1%;" data-dismiss="guardar_cambios_modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,77 @@
+<!--DIV BUSQUEDA-->
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <div class="collapse in" id="collapse_search" aria-expanded="true" style="">
+            <div class="panel-heading">Calculadora de Intereses</div>
+            <div class="panel-body">
+                <form id='frm_consulta'>
+
+                    <div class="row form-group">
+                        <div class="col-md-4 col-md-offset-4">
+                            <label for="c_indice">Tipo de Interés</label>
+                            <div id="div_indice" class="input-group">
+                                <input type='text' id='c_indice' name='c_indice' class='form-control input-sm input-cod-short validate[required] limpiar'/>
+                                <input type='text' id='d_indice' name='d_indice' class='form-control input-sm input-desc-long' readonly/>
+                                <span class="input-group-addon btn_lupa" id="btn_lupa_indice" name='btn_lupa_indice'>
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-md-4 col-md-offset-4">
+                            <label for="f_origen">Fecha Origen</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm datepicker text-center validate[required,custom[validaFecha]] limpiar" name="f_origen" id="f_origen" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row form-group">
+                        <div class="col-md-4 col-md-offset-4">
+                            <label for="f_actualizacion">Fecha de Actualización</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm datepicker text-center validate[required,custom[validaFecha]] limpiar" name="f_actualizacion" id="f_actualizacion" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-md-4 col-md-offset-4">
+                            <label for="n_importe" class="control-label">Importe</label>
+                            <input type="text" class="form-control input-sm  text-right validate[required,custom[validaImporte]] limpiar" id="n_importe" name="n_importe">
+                        </div>
+                    </div>
+
+                    <center>
+                        <button type='button' class="btn btn-primary" id='btn_calcular'><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Calcular</button>
+                        <button type='button' class="btn btn_limpiar" id='btn_limpiar'></button>
+                    </center>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<center>
+    <div class="row form-group" style="width:100%;">
+        <div class="col-md-4 col-md-offset-4">
+            <label for="n_interes" class="control-label">Importe del Interés</label>
+            <input type="text" class="form-control input-sm text-right" id="n_interes" name="n_interes" readonly>
+        </div>
+    </div>
+
+    <div class="row form-group" style="width:100%;">
+        <div class="col-md-4 col-md-offset-4">
+            <label for="n_total" class="control-label">Importe Total</label>
+            <input type="text" class="form-control input-sm text-right" id="n_total" name="n_total" readonly>
+        </div>
+    </div>
+</center>

@@ -1,0 +1,97 @@
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading">Filtros</div>
+            <div class="panel-body">
+                <form id='frm_buscar' style="margin-top: 5px;">
+
+                    <div class="row">
+
+                        <div class="form-group col-md-1 col-md-offset-1">
+                            <label for="tipo_reg">Tipo Reg. :</label>
+                            <input name='tipo_reg' id='tipo_reg' type='text' class='form-control input-sm text-right' />
+                        </div>
+
+                        <div class="form-group col-md-1">
+                            <label for="org_rec">Org. Rec. :</label>
+                            <input name='org_rec' id='org_rec' type='text' class='form-control input-sm text-right' />
+                        </div>
+
+                        <div class="form-group col-md-1">
+                            <label for="banco_adm">Banco Adm:</label>
+                            <input name='banco_adm' id='banco_adm' type='text' class='form-control input-sm text-right' />
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="f_proceso">F. Proceso:</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm datepicker text-center" name="f_proceso" id="f_proceso" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="f_acred">F. Acreditación:</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm datepicker text-center" name="f_acred" id="f_acred" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="i_tot_deb">Total Débito:</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm text-right validate[required]" id="i_tot_deb">
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="i_tot_cred">Total Crédito:</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm text-right validate[required]" id="i_tot_cred">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-2 col-md-offset-1">
+                            <label for="f_concil">F. Conciliación:</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm datepicker text-center" name="f_concil" id="f_concil" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="f_acred_dgr">F. Acreditación DGR:</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm datepicker text-center" name="f_acred_dgr" id="f_acred_dgr" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <div class='row text-center' style = 'margin-top:1.5%;'>
+                            <button type='button' id='btn_buscar' name='btn_buscar' class="btn-sm btn_buscar"></button>
+                            <button type='button' id='btn_limpiar' name='btn_limpiar' class="btn-sm btn_limpiar"></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="div_grid">
+    <table id='datos_mov_banc_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+    <div id='datos_mov_banc_grid_pager' class='scroll' style='text-align:center;'></div>
+</div>

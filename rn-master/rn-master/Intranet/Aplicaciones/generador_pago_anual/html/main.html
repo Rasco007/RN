@@ -1,0 +1,137 @@
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <!--<a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>-->
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading">Generador de Pago Anual</div>
+            <div class="panel-body">
+                <form id='frm_busqueda'>
+                    <div class="row">
+                        <div class="form-group col-md-3 col-md-offset-1">
+                            <div id="div_cuit" style="padding-left: 1%;">
+                                <label>CUIT(*)</label>
+                                <input name='n_cuit' id='n_cuit' type="text" class="form-control filtro input-sm text-right validate[required,custom[validaCuit]]" maxlength='13' >
+                                <input name='id_contribuyente' type="hidden" class="form-control input-sm text-right" id="id_contribuyente">
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-7">
+                            <label for="d_denominacion">Denominación / Razón Social</label>
+                            <div class="input-group" id="div_input_denominacion">
+                                <input name='d_denominacion' type="text" class="mayusculas form-control input-sm validate[required] filtro" id="d_denominacion">
+                                <span class="input-group-addon" id="mascara_lupa_d_denominacion">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon" id="lupa_d_denominacion">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="form-group col-md-5 col-md-offset-1">
+                            <label for="c_documento">Tipo Documento</label>
+                            <div class="input-group" id="div_input_documento">
+                                <input name='c_documento' type="text" class="form-control input-sm input-cod-short filtro" id="c_documento" >
+                                <input name='d_documento' type="text" class="form-control input-sm input-desc-long" id="d_documento" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_c_documento">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </span>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group col-md-5">
+                            <label for="documento">Nro.Documento</label>
+                            <input name='documento' maxlength='11' type="text" class="form-control input-sm text-right filtro" id="documento">
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="form-group col-md-4 col-md-offset-1">
+                            <label for="c_tipo_imponible">Tipo Imponible</label>
+                            <div class="input-group" id="div_input_tipo_imponible">
+                                <input name='c_tipo_imponible' type="text" class="form-control input-sm input-cod-short filtro" id="c_tipo_imponible" >
+                                <input name='d_tipo_imponible' type="text" class="form-control input-sm input-desc-long" id="d_tipo_imponible" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_c_tipo_imponible">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="c_tributo">Tributo(*)</label>
+                            <div class="input-group" id="div_input_tributo">
+                                <input name='c_tributo' type="text" class="form-control input-sm input-cod-short filtro" id="c_tributo" value="<?=$_POST['p_c_trib']?>">
+                                <input name='d_tributo' type="text" class="form-control input-sm input-desc-long" id="d_tributo" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_c_tributo">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="objeto">Objeto/Hecho(*)</label>
+
+                            <div class="input-group" id="div_input_obj_hecho">
+                                <input name='objeto' maxlength='11' type="text" class="form-control input-sm mayusculas filtro" id="objeto">
+                                <span class="input-group-addon" id="mascara_lupa_obj_hecho">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon btn_lupa" id="lupa_obj_hecho">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        
+                        <div class="form-group col-md-5 col-md-offset-1">
+                            <label for="c_concepto">Concepto</label>
+                            <div class="input-group" id="div_input_concepto">
+                                <input name='c_concepto' type="text" class="form-control input-sm input-cod-short" id="c_concepto" readonly value="330">
+                                <input name='d_concepto' type="text" class="form-control input-sm input-desc-long" id="d_concepto" readonly value="PAGO ANUAL">
+                                <span class="input-group-addon btn_lupa" id="lupa_c_concepto">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="year">Año(*)</label>
+                            <input name='year' maxlength='11' type="text" class="form-control input-sm mayusculas filtro" id="year">
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="cuota">Cuota(*)</label>
+                            <input name='cuota' maxlength='11' type="text" class="form-control input-sm mayusculas filtro" id="cuota">
+                        </div>
+
+                    </div>
+
+                    <!-- <div class="row">
+                        <div class="form-group col-md-4 col-md-offset-1">
+                            <label for="check_pdf" style="margin-bottom: 5px;">Generar PDF:</label>
+                            <input type="checkbox" id="check_pdf">
+                        </div>
+                    </div> -->
+
+                    <div class='row-search text-center' style="margin-top: 2%">
+                        <button class="btn-sm btn-primary" type="button" id="btn_generar"><span class="glyphicon" aria-hidden="true"></span>Generar</button>
+                        <button class="btn-sm btn-primary" type="button" id="btn_imprimir"><span class="glyphicon" aria-hidden="true"></span>Imprimir</button>
+                        <button class="btn-sm btn-primary" type="button" id="btn_pagar"><span class="glyphicon" aria-hidden="true"></span>Imprimir y Pagar</button>
+                        <button class="btn-sm btn_limpiar" type="button" id="btn_limpiar"></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

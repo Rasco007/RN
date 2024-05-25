@@ -1,0 +1,127 @@
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true" style="">
+            <div class="panel-heading">Datos de las Obligaciones</div>
+            <div class="panel-body">
+                <form id='frm_busqueda'>
+                    <div class="row">
+                        <div class="form-group col-md-2">
+                            <div id="div_cuit">
+                                <label>CUIT</label>
+                                <input name='n_cuit' id='n_cuit' type="text" class="form-control input-sm text-right validate[required,custom[validaCuit]]" maxlength='13' value='<?=$cuit?>'>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="d_denominacion">Denominación / Razón Social</label>
+                            <input name='d_denominacion' type="text" class="mayusculas form-control input-sm validate[required]" id="d_denominacion">
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="c_tipo_documento">Tipo Documento</label>
+                            <div class="input-group" id="div_input_tipo_documento">
+                                <input name='c_tipo_documento' type="text" class="form-control input-sm input-cod-short" id="c_tipo_documento" value='<?=$tipo_documento?>'>
+                                <input name='d_c_tipo_documento' type="text" class="form-control input-sm input-desc-long" id="d_c_tipo_documento" value='<?=$d_tipo_documento?>' readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_c_tipo_documento" name='lupa_c_tipo_documento'>
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="n_documento">N° de Documento</label>
+                            <input name='n_documento' maxlength='11' type="text" class="form-control input-sm text-right" id="n_documento" value='<?=$documento?>'>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="c_tributo">Tributo</label>
+                            <div class="input-group" id="div_input_tributo">
+                                <input name='c_tributo' type="text" class="form-control input-sm input-cod-short" id="c_tributo">
+                                <input name='d_tributo' type="text" class="form-control input-sm input-desc-long" id="d_tributo" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_tributo" name='lupa_tributo'>
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="objeto_hecho">Objeto/Hecho</label>
+                            <input name='objeto_hecho' type="text" id="objeto_hecho" class="form-control input-sm text-right">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="c_tributo">Concepto</label>
+                            <div class="input-group" id="div_input_concepto">
+                                <input name='c_tributo' type="text" class="form-control input-sm input-cod-short" id="c_concepto">
+                                <input name='d_tributo' type="text" class="form-control input-sm input-desc-long" id="d_concepto" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_concepto" name='lupa_tributo'>
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-2">
+                            <label for="objeto_hecho">Remesa</label>
+                            <input name='objeto_hecho' type="text" id="remesa" class="form-control input-sm text-right">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="objeto_hecho">Lote</label>
+                            <input name='objeto_hecho' type="text" id="lote" class="form-control input-sm text-right">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="objeto_hecho">Formulario</label>
+                            <input name='objeto_hecho' type="text" id="n_formulario" class="form-control input-sm text-right">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="objeto_hecho">Nro. de Comprobante</label>
+                            <input name='objeto_hecho' type="text" id="n_comprobante" class="form-control input-sm text-right">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="objeto_hecho">Posici&oacute;n Fiscal</label>
+                            <input name='objeto_hecho' type="text" id="posicion_fiscal" class="form-control input-sm text-right">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="objeto_hecho">Nro. de Cuota o Anticipo</label>
+                            <input name='objeto_hecho' type="text" id="n_cuota" class="form-control input-sm text-right">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-2">
+                            <label for="objeto_hecho">Importe Desde</label>
+                            <input name='objeto_hecho' type="text" id="importe_desde" class="form-control input-sm text-right">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="objeto_hecho">Importe Hasta</label>
+                            <input name='objeto_hecho' type="text" id="importe_hasta" class="form-control input-sm text-right">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="objeto_hecho">Fecha Pago Desde</label>
+                            <input name='objeto_hecho' type="text" id="fecha_pago_desde" class="form-control input-sm text-right">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="objeto_hecho">Fecha Pago Hasta</label>
+                            <input name='objeto_hecho' type="text" id="fecha_pago_hasta" class="form-control input-sm text-right">
+                        </div>
+                        <div class="form-group col-md-3 text-center">
+                            <label class="invisible" style="display: block;">Continuar y limpiar campos</label>
+                            <button class="btn-sm btn-primary" type="button" id="btn_continuar"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Listado</button>
+                            <button class="btn-sm btn_limpiar" type="button" id="btn_limpiar"></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<table id="cons_pagos_acred_grid" class="scroll" cellpadding="0" cellspacing="0"><tr><td></td></tr></table>
+<div id="cons_pagos_acred_grid_pager" class="scroll"></div>
+
+<form id="totalizador">
+    <label for="tot_importe_pagado">Total Importes Pagados</label>
+    <input type="text" id="tot_importe_pagado" readonly>
+</form>

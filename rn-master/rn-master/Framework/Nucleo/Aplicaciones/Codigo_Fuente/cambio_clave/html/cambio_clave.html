@@ -1,0 +1,70 @@
+<!-- dialog bootstrap -->
+  
+
+    <div class="modal fade" tabindex="-1" role="dialog" id="claveModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Cambio de Clave</h4>
+                </div>
+                <div class="modal-body">
+                    <div id="div_info_usuario">
+                        <div id="info_cuenta">
+                            <div id="div_error" style="display:none;color:#F00;">
+                                <span id="msj_error"></span>
+                            </div>
+                            <div id="div_cambia_clave">
+                                <div class="form-group">
+                                    <label>Contraseña Actual:</label>
+                                    <input type="password" name="pass_actual" id="pass_actual" type="text" class="form-control" autocomplete="off"/>
+                                </div>
+                                <div class="form-group">
+                                    <label>Contraseña Nueva:</label>
+                                    <div id="forminline_clave_nue" class="form-inline">
+                                        <input type="password" name="pass_nueva" id="pass_nueva" type="text" class="class='validate[required,minSize[8],maxSize[20]] form-control" maxlength='20' autocomplete="off"/>
+                                        <button type='button' id='btn_cc_generar_clave' class="form-control btn btn-primary" style="height: 34px;  margin-left: 3px;"><span class="glyphicon glyphicon-cog" ></span>Sugerir</button>
+                                    <!--btn_generar_clave_cambio_clave-->
+                                    </div>   
+                                </div>
+                                <div id='tr_seguridad' class="row-search" hidden>
+                                    <div id="formgroup_clave_nue2" class="form-group">
+                                        <label>Seguridad de la Clave</label>
+                                        <div class="progress" style="margin-bottom: 0px" title='Para aumentar el nivel de seguridad ingrese min&uacute;sculas, may&uacute;sculas, n&uacute;meros o m&aacute;s de 8 car&aacute;cteres.'>
+                                            <div id='status_bar' class="progress-bar progress-bar-striped active" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">Baja</div>
+                                        </div>                  
+                                    </div>              
+                                </div>
+                                <div class="form-group">
+                                    <label>Repita Contraseña Nueva:</label>
+                                    <input type="password" name="pass_nueva_rep" id="pass_nueva_rep" type="text" class="validate[required,minSize[8],maxSize[20]] form-control" maxlength='20' autocomplete="off"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                <div id="msj_info">
+                    <!--ul style="padding-left:15px;"-->
+                    <i>
+                        <p>La contrase&ntilde;a deber&aacute; poseer como m&iacute;nimo 8 caracteres de longitud.</p>
+                        <p>La contrase&ntilde;a debe contener d&iacute;gitos y letras.</p>
+                        <p>La contrase&ntilde;a no debe contener secuencias b&aacute;sicas de teclado (por ejemplo: "qwerty", "asdf" o las t&iacute;picas en numeraci&oacute;n: "1234" &oacute; "98765").</p>
+                        <p>La contrase&ntilde;a no deber&aacute; ser igual que la contrase&ntilde;a anterior. </p>
+                    </i>
+                    <!--/ul-->
+                </div>
+                </div>
+                <div class="modal-footer">
+
+					<button type="button" class="btn btn-primary" id="btn_cc_guardar">
+						<span class="glyphicon glyphicon-save" aria-hidden="true"></span> Guardar
+					</button>
+					
+					<button type="button" class="btn btn-default" id="btn_cc_cancelar_cambio">
+						<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancelar
+					</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <!-- fin dialog bootstrap -->

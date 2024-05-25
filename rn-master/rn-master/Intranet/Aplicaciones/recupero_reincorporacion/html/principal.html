@@ -1,0 +1,136 @@
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true"
+           aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading">Contribuyentes</div>
+            <div class="panel-body">
+                <form id='frm_busqueda'>
+                    <input name='id_contribuyente' id="id_contribuyente" style="display: none">
+                    <input name='c_tipo_imponible' id="c_tipo_imponible" style="display: none">
+                    <input name='d_objeto_hecho' id="d_objeto_hecho" style="display: none">
+                    <div class="row">
+                        <div class="form-group col-md-2 col-md-offset-1" id="div_cuit">
+                            <label for="n_cuit">N° de Cuit:</label>
+                            <div class="input-group" id="div_input_cuit">
+                                <input name='n_cuit' class="form-control input-sm" id="n_cuit" maxlength="15">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-3" id="div_denominacion">
+                            <label for="d_denominacion">Nombre y Apellido/Razón Social:</label>
+                            <input type="text" name='d_denominacion' class="form-control input-sm mayusculas" id="d_denominacion" maxlength="100">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="c_tipo_documento">Tipo de Documento</label>
+                            <div class="input-group" id="div_input_tipo_documento">
+                                <input type="text" class="form-control mayusculas input-sm input-cod-short"
+                                       id="c_tipo_documento">
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_tipo_documento"
+                                       readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_tipo_documento">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-2" id="div_n_documento">
+                            <label for="n_documento">Documento:</label>
+                            <div class="input-group" id="div_input_n_documento">
+                                <input name='n_documento' class="form-control input-sm numerico" id="n_documento" maxlength="10">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <?php if($p_tributo == $c_tributo_automotor) { ?>
+                        <div class="form-group col-md-2 col-md-offset-2" id="div_patente">
+                            <label for="d_patente">Dominio:</label>
+                            <div class="input-group" id="div_input_patente">
+                                <input name='d_patente' type="text"
+                                       class="form-control input-sm mayusculas alfanumerico" id="d_patente"
+                                       maxlength="20">
+                                <span class="input-group-addon btn_lupa" id="lupa_patente">
+                                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                        </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-1 digito-verif" id="div_verif_dom">
+                            <label for="d_verif_dom"></label>
+                            <input name='d_verif_dom' class="form-control input-sm text-center" id="d_verif_dom"
+                                   maxlength="1">
+                        </div>
+                        <div class="form-group col-md-2" id="div_patente_vieja">
+                            <label for="d_patente_vieja">Dominio Anterior:</label>
+                            <div class="input-group" id="div_input_patente_vieja">
+                                <input name='d_patente_vieja' type="text"
+                                       class="form-control input-sm mayusculas alfanumerico" id="d_patente_vieja"
+                                       maxlength="100">
+                                <span class="input-group-addon btn_lupa" id="lupa_patente_vieja">
+                                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                        </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-1 digito-verif" id="div_verif_dom_ant">
+                            <label for="d_verif_dom_ant"></label>
+                            <input name='d_verif_dom_ant' class="form-control input-sm text-center" id="d_verif_dom_ant"
+                                   maxlength="1">
+                        </div>
+                        <div class="form-group col-md-4" style="margin-top: 17px !important;">
+                            <?php } else { ?>
+                            <div class="form-group col-md-4 col-md-offset-4" style="margin-top: 5px !important;">
+                                <?php } ?>
+                                <button type='button' id='btn_buscar' name='btn_buscar'
+                                        class="btn-sm btn_buscar"></button>
+                                <button type='button' id='btn_limpiar' name='btn_limpiar'
+                                        class="btn-sm btn_limpiar"></button>
+                                <!--
+                                     <button type='button' id='btn_constancia' name='btn_constancia' class="btn-sm btn-primary ">Imprimir Constancia</button>
+                                -->
+                                <?php if($p_tributo != $c_tributo_automotor) { ?>
+                            </div>
+                            <?php } ?>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="div_grid_trib">
+    <table id='tributos_grid' class='scroll' cellpadding='0' cellspacing='0'>
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+    </table>
+    <div id='tributos_grid_pager' class='scroll' style='text-align:center;'></div>
+</div>
+
+<div id="div_grid_con" style="margin-top: 5px">
+    <table id='conceptos_grid' class='scroll' cellpadding='0' cellspacing='0'>
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+    </table>
+    <div id='conceptos_grid_pager' class='scroll' style='text-align:center;'></div>
+</div>
+
+<div class="panel" id="panel-buttons">
+    <div class="panel-body" style="margin-top: 10px">
+        <div class="row">
+            <button class="btn-sm btn-consulta col-md-offset-3" type="button" id="btn_datos_grales"> Datos Generales
+            </button>
+            <button class="btn-sm btn-consulta" type="button" id="btn_dom_tel"> Domicilios y Teléfonos</button>
+            <button class="btn-sm btn-consulta" type="button" id="btn_actividades"> Actividades</button>
+            <button class="btn-sm btn-primary" type="button" id="btn_reincorporacion" disabled style="margin-top: 10px">
+                Reincorporación
+            </button>
+        </div>
+        <!--
+        <div class="row">
+            <button class="btn-sm btn-primary" type="button" id="btn_reincorporacion" style="margin-top: 10px"> Reincorporación</button>
+        </div>
+        -->
+    </div>
+</div>

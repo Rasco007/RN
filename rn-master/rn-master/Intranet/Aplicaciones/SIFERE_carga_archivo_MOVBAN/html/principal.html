@@ -1,0 +1,90 @@
+<div class='titlebar'>
+    <span class="ui-jqgrid-title">Carga de movimientos de cargos OSIRIS</span>
+</div>
+<div id="div_search" class="search panel-body">
+    <form id='frm_consulta_de_generacion'>
+
+        <div class='row'>
+            <div class="form-group col-md-4">
+                <label for="ruta_archivo_recibido">Path y nombre de archivo(*)</label>
+                <div class="input-group" id="div_input_archivo_recibido">
+                    <input type='file' id='path_arch_recibido' name='d_path_arch_recibido' style='display:none' class="validate[required]" onclick="value=null" onchange='actualizar_input()'>
+                    <input name='ruta_archivo_recibido' id='ruta_archivo_recibido' type='text' class="form-control input-sm" readonly>
+                    <span class="input-group-btn " id="div_span_archivo_recibido">
+                        <button class="btn-sm btn-default" type="button" id='examinar_recibido'><span class="glyphicon glyphicon-upload" aria-hidden="true"></span></button>
+                    </span>
+                </div>
+            </div>
+
+            <div class="form-group col-md-2">
+                <label for="cant_reg">Cant. de reg. Procesados</label>
+                <div class="input-group" id="div_cant_reg" style="width: 100%">
+                    <input type="text" class="form-control  numero "  readonly id="cant_reg">
+                </div>
+            </div>
+
+            <div class="form-group col-md-1">
+                <label ></label>
+                <div class="input-group" id="div_secuencia">
+                    <input type="text" class="form-control  numero " readonly id="secuencia" >
+                </div>
+            </div>
+
+            <div class="form-group col-md-2">
+                <label ></label>
+                <div class="input-group" id="div_d_denominacion">
+                    <input type="text" class="form-control "  readonly id="d_denominacion">
+                </div>
+            </div>
+            <div class="form-group col-md-3">
+
+                <label for="p_estado">Estado de finalizaci&oacute;n</label>
+                <div class="input-group" id="div_p_estado" style="width: 100%">
+                    <input type="text" class="form-control" readonly id="p_estado" >
+                </div>
+            </div>
+        </div>
+        <div class='row' style="margin-bottom: 15px;">
+            <div class="form-group col-md-5" style="margin-top: -5px;">
+                <strong style="color: red; ">*Para agilizar el proceso, copiar el archivo al disco r&iacute;gido.</strong>
+            </div>
+        </div>
+
+        <div class="row align-items-center text-center">
+            <label for="linea">L&iacute;nea en proceso</label>
+            <div class="form-group col-md-12 mx-auto" style="text-align: center;display: flex;justify-content: center;align-items: center;">
+                <div class="input-group" id="div_linea">
+                    <textarea name="linea" id="linea" cols="80" rows="10" style="height: 100px;"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class='row text-center' style = 'margin-top:10px;'>
+            <button type='button' id='btn_levantar' class="btn-sm btn-primary">Levantar Archivo</button>
+            <button type='button' id='btn_cancelar' class="btn-sm btn">Cancelar</button>
+        </div>
+
+    </form>
+</div>
+
+<div class="modal fade" id="rechazos_modal" tabindex="-1" role="dialog" aria-labelledby="rechazos_title" aria-hidden="true" data-backdrop="false" style="z-index: 960; top:50px ;">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="rechazos_title"></h5>
+            </div>
+            <div class="modal-body">
+                <div id='rechazos_div' style='width:850px;'>
+                    <table id='rechazos_grid' class='scroll' cellpadding='0' cellspacing='0'></table>
+                    <div id='rechazos_grid_pager' class='scroll' style='text-align: center;'></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btn_aceptar_rechazos" class="btn btn-primary" data-dismiss="modal">Aceptar</button>
+            </div>
+        </div>
+    </div>
+</div>

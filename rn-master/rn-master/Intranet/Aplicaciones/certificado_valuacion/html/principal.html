@@ -1,0 +1,74 @@
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading">Generación de Certificado Valuación</div>
+            <div class="panel-body">
+                <form id='frm_consulta' style="margin-top: 5px;">
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                            <label for="d_partida">Partida</label>
+                            <div class="input-group" id="div_input_partida">
+                                <input name='d_partida' id='d_partida' type="text" class="form-control validate[required] input-sm text-right">
+                                <span class="input-group-addon btn_lupa" id="lupa_partida">
+                                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="d_nomenclatura">Nomenclatura</label>
+                            <div class="input-group" id="div_input_nomenc">
+                                <input name='d_nomenclatura' id='d_nomenclatura' type="text" class="form-control input-sm validate[required] text-right">
+                                <span class="input-group-addon btn_lupa" id="lupa_nomenclatura">
+                                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="f_emision">Fecha de Vigencia: (*)</label>
+                            <div class="input-group" id="div_input_fecha">
+                                <input type="text" class="form-control input-sm validate[required] entrada_filtro numero datepicker" placeholder="(DD/MM/AAAA)" maxlength="10" id="f_emision">
+                                <span class="input-group-addon" id="date_emision">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-3" id="div_botones" style="margin-top: 15px;">
+                            <button type='button' id='btn_buscar' name='btn_buscar' class="btn-sm btn_buscar"></button>
+                            <button type='button' id='btn_limpiar' name='btn_limpiar' class="btn-sm btn_limpiar"></button>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br>
+
+<div id="contenedor_boton" class="text-center" style="display:none">
+    <button type='button' id='btn_imprimir_certificado' name='btn_imprimir_certificado' class="btn-sm btn-primary">Imprimir Certificado</button>
+</div>
+
+<br>
+
+<div id="contenedor_responsables_de_pago" style="display:none">
+    <div class="panel panel-primary">
+        <div class="panel-heading">Responsable de pago</div>
+        <div class="panel-body">
+            <div class="form-group col-md-6">
+                <label for="n_cuit">CUIT:</label>
+                <input type="text" class="form-control input-sm" id="n_cuit" readonly>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="d_denominacion">Propietario:</label>
+                <input type="text" class="form-control input-sm" id="d_denominacion" readonly>
+            </div>
+        </div>
+    </div>
+</div>

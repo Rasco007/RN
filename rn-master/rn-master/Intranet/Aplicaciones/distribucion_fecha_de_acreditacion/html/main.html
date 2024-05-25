@@ -1,0 +1,168 @@
+<div id="div_search" class="panel-search">
+  <div class="panel panel-primary">
+    <div class="collapse in" id="collapse_search" aria-expanded="true">
+      <div class="panel-heading">Distribucion fecha de acreditacion</div>
+      <div class="panel-body">
+  <form id="frm_distribucion_fecha_de_acreditacion">      
+
+  <div class="row">
+  <div class="col-md-6">
+    <div class='titlebar'>
+      <span class="ui-jqgrid-title" id="titulo_main_grid">Archivos incorporados: BANELCO</span>
+    </div>
+    <div class="col-md-6">
+      
+    <form id='frm_ingreso_de_fechas'>
+      <div class="row justify-content-between">
+        <div class="row">
+        <div class="form-group col-md-10 col-form-label" style="margin-top: 3%;">
+          <label for="f_desde">F. desde:</label>
+          <input type="text" class="form-control input-sm datepicker text-center validate[required]" name="f_desde" id="f_desde" placeholder="(DD/MM/AAAA)" maxlength="10">
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-md-10  col-form-label" style="margin-top: 4%;">
+            <label for="f_hasta">F. hasta:</label>
+            
+            <input type="text" class="form-control input-sm datepicker text-center validate[required]" name="f_hasta" id="f_hasta" placeholder="(DD/MM/AAAA)" maxlength="10">
+
+            <input type="hidden" class="form-control input-sm" name="p_sel" id="p_sel">
+            
+          </div>
+      </div>
+          </div>
+      
+    </form>
+    </div>
+
+    <div class="button-group col-md-3"style="margin-top: 1%;margin-bottom: 1%;margin-left:-2%">
+      
+      <button class="custom-button" type="button" id="banelco" style="margin-top: 15px; margin-bottom: -4%; width: 70%;">BANELCO</button><br>
+      <button class="custom-button" type="button" id="interbanking" style="margin-top: 15px; margin-bottom: -4%;width: 70%;">INTERBANKING</button><br>
+      <button class="custom-button" type="button" id="e-pagos" style="margin-top: 15px; margin-bottom: -4%;width: 70%;">E-PAGOS</button><br>
+    </div>
+
+    <div class="col-md-3"style="margin-top: 3%;">
+      <label>
+        <input class="form-check-input" type="checkbox" id="chk_ingresado" value="first_checkbox" > INGRESADO</label><br>
+        <label for="chk_controlado" style="margin-top: 4%;">
+        <input class="form-check-input" type="checkbox" id="chk_controlado" value="second_checkbox" > CONTROLADO</label><br>
+        <input class="form-check-input" type="checkbox" id="chk_acreditado" value="second_checkbox"> <label for="chk_acreditado" style="margin-top:5%">ACREDITADO</label><br>
+        <input class="form-check-input" type="checkbox" id="chk_erroneo" value="second_checkbox"> <label for="chk_erroneo"style="margin-top:5%">ERR&Oacute;NEO</label><br><!--agregar acento literario-->
+    </div>
+  </form>
+  </div>
+  <div class="col-md-6" style="text-align: center;">
+    <div class='titlebar'>
+      <span class="ui-jqgrid-title">Ingreso de acreditacion</span>
+    </div>
+    <form id="frm_select">
+
+      <div class="col-md-6" style="text-align: center; margin-left: 2%;">
+
+
+        <form id='frm_f_acreditacion'>
+          <div class="row justify-content-between">
+            <div class="row">
+            <div class="form-group col-md-10 col-form-label" style="margin-top: 3%;">
+              <label for="f_acreditacion">F. de acreditación(*):</label>
+              <input type="text" class="form-control input-sm datepicker text-center validate[required]" name="f_acreditacion" id="f_acreditacion" placeholder="(DD/MM/AAAA)" maxlength="10">
+              </div>
+            </div>
+
+            <div class="button-group" style="text-align: center;">
+              <button type="button" id="modificar_f_acreditacion" style="margin-right: 0%; margin-top:4% ;margin-left: -16%; text-align: center;" class="btn btn-sm">Asignar</button>
+            </div>
+        </div>
+        </form>
+
+      </div>
+
+
+      <div class="button-group col-md-6" style='margin-top: 1%;margin-bottom: 1%;margin-left:-2%'>
+
+        <div class="row justify-content-between" style="margin-top: 3%;">
+          <button type="button" id="sel_todo" class="btn btn-sm" style="margin-right: 10%; margin-top: 3%; text-align: center;width: 57%;margin-bottom: -4%;">(+)Seleccionar todo</button> 
+        </div>
+
+        <div class="row justify-content-between">
+          <button type="button" id="desel_todo" class="btn btn-sm" style="margin-right: 10%; text-align: center;margin-top: 15px;width: 57%;
+          margin-bottom: -4%;">(-)Deseleccionar todo</button>
+        </div>
+
+        <div class="row justify-content-between">
+          <button type="button" id="btn_generar_planilla" class="btn btn-sm" style="margin-right: 10%; margin-top: 15px; text-align: center;width: 57%;margin-bottom: -4%;">Generar planilla</button>
+        </div>
+    
+      </div>
+
+
+  </form>
+  </div>
+</div>
+
+<div class="button-group" style="text-align: center;">
+  
+  <button type="button" class="btn-sm btn_buscar" id="btn_buscar"></button>
+
+  <button type="button" class="btn-sm btn_limpiar" id="btn_limpiar"></button>
+ </div>
+
+</div>
+
+  
+</div>
+</div>
+</div>
+
+<div style="display: none;" id="grid_ban">
+  <table id="main_grid_ban" class="scroll"  cellpadding="0" cellspacing="0">
+    
+  </table>
+  <div id="main_grid_ban_pager" class="scroll" style="text-align:center;"></div>
+
+</div>
+
+<div style="display: none;" id="grid_intbk">
+  <table id="main_grid_intbk" class="scroll" cellpadding="0" cellspacing="0">
+    
+  </table>
+  <div id="main_grid_intbk_pager" class="scroll" style="text-align:center;"></div>
+
+</div>
+
+
+<!--Grilla de epago-->
+<div style="display: none;" id="grid_epago">
+  <table id="main_grid_epago" class="scroll" cellpadding="0" cellspacing="0">
+    
+  </table>
+  <div id="main_grid_epago_pager" class="scroll" style="text-align:center;"></div>
+
+</div>
+
+<!--Grilla principal-->
+<div style="display: none;" id="grid_main" >
+<table id="main_grid" class="scroll" style="display: none;" cellpadding="0" cellspacing="0">
+    <tr><td>&nbsp;</td></tr>
+  </table>
+  <div id="main_grid_pager" class="scroll" style="text-align:center;display: none;"></div>
+</div>
+
+<!-- Grilla de detalles -->
+  <table id="detalle_grid" class="scroll" cellpadding="0" cellspacing="0">
+    <tr><td>&nbsp;</td></tr>
+  </table>
+  <div id="detalle_grid_pager" class="scroll" style="text-align:center;"></div>
+
+<!--Grilla de sumas-->
+  <table id="suma_grid" class="scroll" cellpadding="0" cellspacing="0">
+    <tr><td>&nbsp;</td></tr>
+  </table>
+  <div id="suma_grid_pager" class="scroll" style="text-align:center;"></div>
+
+
+  <div>
+    <input type="hidden" class="form-control input-sm" name="id_sesion" id="id_sesion">
+  </div>
+

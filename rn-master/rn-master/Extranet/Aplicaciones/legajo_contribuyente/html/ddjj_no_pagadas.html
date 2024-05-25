@@ -1,0 +1,50 @@
+<!-- Modal Responsables DDJJ No Pagadas -->
+<div class="modal fade" id="modal_ddjj_no_pagadas" tabindex="-1" role="dialog" aria-labelledby="ddjj_no_pagadasLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="ddjj_no_pagadasLabel">DDJJ no pagadas</h5>
+            </div>
+            <div class="modal-body">
+                <table id='ddjj_no_pagadas_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+                <div id='ddjj_no_pagadas_grid_pager' class='scroll' style='text-align:center;'></div>
+                <!-- <br>
+                <div>
+                    <b>Nota:</b> Haga doble click sobre el movimiento que desea revertir.
+                </div> -->
+                <form id="form_ddjj_no_pagadas">
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <b><input type="text" class="texto" id="d_descrip" disabled></b>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <b><input type="text" class="texto" id="d_concepto" disabled></b>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="chk_intimacion">Intimaci&oacute;n:</label>
+                            <input type="checkbox" id="chk_intimacion" disabled>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="chk_boleta_deuda">Boleta de Deuda:</label>
+                            <input type="checkbox" id="chk_boleta_deuda" disabled>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="chk_gestion_judicial">Gesti&oacute;n Judicial:</label>
+                            <input type="checkbox" id="chk_gestion_judicial" disabled>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="button" class="btn btn-secondary" id="btn_volver_ddjj_no_pagadas" data-dismiss="modal">Volver</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

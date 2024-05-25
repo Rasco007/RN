@@ -1,0 +1,173 @@
+<div class="modal fade" id="modal_add_inspeccion" tabindex="-1" role="dialog"
+     aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="exampleModalLiveLabel">Alta de Alcance</h5>
+            </div>
+            <div class="modal-body">
+                <form id="form_add_inspeccion">
+                    <div class="row form-group" style="display: flex;flex-direction: column;max-width: 80%;margin: 0 auto;gap: 5px;">
+                        <input type="text" name="id_contribuyente_add" id="id_contribuyente_add" hidden="">
+                        <input type="text" name="id_plan_fis_add" id="id_plan_fis_add" hidden="">
+                        <input type="text" name="n_programa_fis_add" id="n_programa_fis_add" hidden="">
+
+                        <label for="n_cuit_add" class="control-label">Cuit(*)</label>
+                        <div id="div_cuit" class="input-group">
+                            <input type="text" id="n_cuit_add" name="n_cuit_add"
+                                   class="form-control input-sm validate[required]" readonly="true">
+                        </div>
+                        <label for="d_denominacion_add" class="control-label">Denominación(*)</label>
+                        <input type="text" class="form-control input-sm validate[required]" id="d_denominacion_add" readonly="true">
+                        <br>
+                        <label for="d_plan_fis_add" class="control-label">Plan de Fiscalización(*)</label>
+                        <div id="div_plan" class="input-group">
+                            <input type='text' id='d_plan_fis_add' name='d_plan_fis_add'
+                                   class='form-control input-sm validate[required]' readonly="true"/>
+                            <span class="input-group-addon btn_lupa" id="btn_plan_fis">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </span>
+                        </div>
+                        <label for="d_programa_fis_add" class="control-label">Programa de Fiscalización(*)</label>
+                        <div id="div_programa" class="input-group">
+                            <input type='text' id='d_programa_fis_add' name='d_programa_fis_add'
+                                   class='form-control input-sm validate[required]' readonly="true"/>
+                            <span class="input-group-addon btn_lupa" id="btn_programa_fis">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </span>
+                        </div>
+                        <label for="c_procedimiento_add">Procedimiento Administrativo(*)</label>
+                        <div class="input-group alta_general">
+                            <select name="tipo_procedimiento" class="form-control input-sm validate[required]" id='c_procedimiento_add'>
+                                <option value="" selected></option>
+                                <?php foreach ($data_procedimientos as $procedimiento): ?>
+                                <option value="<?=$procedimiento['C_DATO']; ?>"><?= $procedimiento['D_DATO'];?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <div id="div_expte" hidden>
+                            <label for="expte_gde_add" class="control-label">Expediente GDE(*)</label>
+                            <div class="input-group" style="width: 100%">
+                                <input type="text" id="expte_gde_add" autocomplete="off" class="form-control input-sm validate[required]">
+                            </div>
+                        </div>
+                        <label for="c_tipo_inspeccion_add">Tipo de Inspección(*)</label>
+                        <div class="input-group alta_general">
+                            <select name="tipo_inspeccion" class="form-control input-sm validate[required]" id='c_tipo_inspeccion_add'>
+                                <option value="" selected></option>
+                                <?php foreach ($data_tipos_inspeccion as $inspeccion): ?>
+                                <option value="<?=$inspeccion['C_DATO']; ?>"><?= $inspeccion['D_DATO'];?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <label for="c_motivo_fiscalizacion_add">Motivo de Fiscalización(*)</label>
+                        <div class="input-group alta_general">
+                            <select name="motivo_fisca" class="form-control input-sm validate[required]" id='c_motivo_fiscalizacion_add'>
+                                <option value="" selected></option>
+                                <?php foreach ($data_motivos_fiscalizacion as $motivo): ?>
+                                <option value="<?=$motivo['C_DATO']; ?>"><?= $motivo['D_DATO'];?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="button" class="btn btn-sm" id="btn_add_inspeccion"><span
+                            class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Guardar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal_edit_inspeccion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="editExampleModalLiveLabel">Edición de Alcance</h5>
+            </div>
+            <div class="modal-body">
+                <form id="form_edit_inspeccion" style="margin-left: 25px">
+                    <div class="row form-group" style="display: flex;flex-direction: column;max-width: 80%;margin: 0 auto;gap: 5px;">
+                        <input type="text" name="id_contribuyente_edit" id="id_contribuyente_edit" hidden="">
+                        <input type="text" name="id_inspeccion_edit" id="id_inspeccion_edit" hidden="">
+                        <input type="text" name="id_plan_fis_edit" id="id_plan_fis_edit" hidden="">
+                        <input type="text" name="n_programa_fis_edit" id="n_programa_fis_edit" hidden="">
+
+                        <label for="n_cuit_add" class="control-label">Cuit(*)</label>
+                        <div id="div_cuit_edit" class="input-group">
+                            <input type="text" id="n_cuit_edit" name="n_cuit_edit"
+                                   class="form-control input-sm validate[required]" readonly="true">
+                        </div>
+                        <label for="d_denominacion_edit" class="control-label">Denominación(*)</label>
+                        <input type="text" class="form-control input-sm validate[required]" id="d_denominacion_edit" readonly="true">
+                        <br>
+                        <label for="d_plan_fis_add" class="control-label">Plan de Fiscalización(*)</label>
+                        <div id="div_plan_edit" class="input-group">
+                            <input type='text' id='d_plan_fis_edit' name='d_plan_fis_edit'
+                                   class='form-control input-sm validate[required]' readonly="true"/>
+                            <span class="input-group-addon btn_lupa" id="btn_plan_fis_edit">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </span>
+                        </div>
+                        <label for="d_programa_fis_add" class="control-label">Programa de Fiscalización(*)</label>
+                        <div id="div_programa_edit" class="input-group">
+                            <input type='text' id='d_programa_fis_edit' name='d_programa_fis_edit'
+                                   class='form-control input-sm validate[required]' readonly="true"/>
+                            <span class="input-group-addon btn_lupa" id="btn_programa_fis_edit">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </span>
+                        </div>
+                        <label for="c_procedimiento_edit">Procedimiento Administrativo(*)</label>
+                        <div class="input-group alta_general">
+                            <select name="tipo_procedimiento" class="form-control input-sm validate[required]" id='c_procedimiento_edit'>
+                                <?php foreach ($data_procedimientos as $procedimiento): ?>
+                                <option value="<?=$procedimiento['C_DATO']; ?>"><?= $procedimiento['D_DATO'];?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <div id="div_expte_edit" hidden>
+                            <label for="expte_gde_edit" class="control-label">Expediente GDE(*)</label>
+                            <div class="input-group">
+                                <input type="text" id="expte_gde_edit" autocomplete="off" class="form-control input-sm validate[required]" style="width: 252%">
+                            </div>
+                        </div>
+                        <label for="c_tipo_inspeccion_edit">Tipo de Inspección(*)</label>
+                        <div class="input-group alta_general">
+                            <select name="tipo_inspeccion" class="form-control input-sm validate[required]" id='c_tipo_inspeccion_edit'>
+                                <?php foreach ($data_tipos_inspeccion as $inspeccion): ?>
+                                <option value="<?=$inspeccion['C_DATO']; ?>"><?= $inspeccion['D_DATO'];?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <label for="c_motivo_fiscalizacion_edit">Motivo de Fiscalización(*)</label>
+                        <div class="input-group alta_general">
+                            <select name="motivo_fisca" class="form-control input-sm validate[required]" id='c_motivo_fiscalizacion_edit'>
+                                <?php foreach ($data_motivos_fiscalizacion as $motivo): ?>
+                                <option value="<?=$motivo['C_DATO']; ?>"><?= $motivo['D_DATO'];?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="button" class="btn btn-sm" id="btn_edit_inspeccion"><span
+                            class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Guardar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,94 @@
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading">Datos del Contribuyente Erróneo</div>
+            <div class="panel-body">
+                <form id='frm_consulta' style="margin-top: 5px;">
+                    <div class="row">
+                        <div class="form-group col-md-2">
+                            <label for="n_cuit">CUIT Contribuyente:</label>
+                            <input name='n_cuit' id='n_cuit' type='text' class="form-control input-sm text-right validate[required]" />
+                            <input name='id_contribuyente' id='id_contribuyente' type='hidden' class='sr-only'/>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="d_denominacion">Denominaci&oacute;n Contribuyente:</label>
+                            <input type="text" class="form-control input-sm mayusculas" id="d_denominacion">
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="d_tipo_documento">Tipo Documento:</label>
+                            <div class="input-group" id="div_input_tipo_documento">
+                                <input type="text" class="form-control mayusculas input-sm input-cod-short" id="c_tipo_documento">
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_tipo_documento" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_c_tipo_documento">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                    </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="n_documento">N&uacute;mero de Documento:</label>
+                            <input type="text" class="form-control input-sm text-right" id="n_documento" disabled="disabled">
+                        </div>
+
+                    </div>
+
+                    <div class="row text-center">
+                        <div class="form-group col-md-12" style="margin-top: 15px;">
+                            <button type='button' id='btn_limpiar' name='btn_limpiar' class="btn-sm btn_limpiar"></button>
+                            <button class="btn-sm btn-primary" type="button" id="btn_datos_contrib" disabled="disabled"><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>  Datos Contrib. Erróneo</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-primary">
+    <div id="panel_cuit" class="panel-heading"> Datos del Contribuyente Correcto</div>
+    <div class="panel-body">
+        <form id='frm_datos_unif' style="margin-top: 5px;">
+            <div class="row">
+                <div class="form-group col-md-2">
+                    <label for="unif_n_cuit">CUIT Contribuyente:</label>
+                    <input name='unif_n_cuit' id='unif_n_cuit' type='text' class="form-control input-sm text-right validate[required]" disabled="disabled"/>
+                    <input name='unif_id_contribuyente' id='unif_id_contribuyente' type='hidden' class='sr-only'/>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label for="unif_d_denominacion">Denominaci&oacute;n Contribuyente:</label>
+                    <input type="text" class="form-control input-sm mayusculas" id="unif_d_denominacion" disabled="disabled">
+                </div>
+
+                <div class="form-group col-md-3">
+                    <label for="d_tipo_documento">Tipo Documento:</label>
+                    <div class="input-group" id="div_input_unif_tipo_documento">
+                        <input type="text" class="form-control mayusculas input-sm input-cod-short" id="unif_c_tipo_documento" disabled="disabled">
+                        <input type="text" class="form-control input-sm input-desc-long" id="unif_d_tipo_documento" readonly>
+                        <span class="input-group-addon btn_lupa" id="lupa_unif_c_tipo_documento">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                    </span>
+                    </div>
+                </div>
+
+                <div class="form-group col-md-3">
+                    <label for="unif_n_documento">N&uacute;mero de Documento:</label>
+                    <input type="text" class="form-control input-sm text-right" id="unif_n_documento" disabled="disabled">
+                </div>
+            </div>
+        </form>
+        <div class="row text-center">
+            <div class="form-group col-md-12" style="margin-top: 15px;">
+                <button class="btn-sm btn-primary" type="button" id="btn_unif_datos_contrib" disabled="disabled"><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>  Datos Contrib. Correcto</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row text-center">
+    <button type='button' id='btn_procesar' name='btn_procesar' class="btn btn-sm" style="display: none">Unificar Contribuyentes</button>
+</div>

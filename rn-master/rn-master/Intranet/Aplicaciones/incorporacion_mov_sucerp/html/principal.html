@@ -1,0 +1,152 @@
+<!--GRILLA PRINCIPAL-->
+<div class="row">
+    <div class="col-md-8">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Carga de Archivos de ACARA/RNPA</div>
+            <div class="panel-body" style=" padding-top: 5px;">
+                <form id='frm_archivo'>
+                    <div class="row form-group" style="display: flex; justify-content: center;">
+                        <div class="form-inline col-md-12">
+                            <label for="d_imagen_diag" class="control-label">Archivo</label>
+                            <input id='d_imagen_diag' name='imagen_diag' class='validate[required] form-control input-sm' type='file' role='textbox' style="width: 90%">
+                        </div>
+                    </div>
+                    <div class="row " style="display: flex; justify-content: center;">
+                        <div class="form-inline col-md-12" id="div_f_pago" hidden>
+                            <label for="f_pago">Fecha Pago</label>
+                            <div class="input-group alta_general">
+                                <input type="text"  class="form-control input-sm text-center" id="f_pago" placeholder="(DD/MM/AAAA)" autocomplete="off" style="text-align: center;">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar" id="date_pago"></span></span>
+                            </div>
+                        </div>
+                        <div class="form-inline col-md-12" style="margin-left: 6%;" id="div_f_acred" hidden>
+                            <label for="f_acred">Fecha Acreditación</label>
+                            <div class="input-group alta_general">
+                                <input type="text"  class="form-control input-sm text-center" id="f_acred" placeholder="(DD/MM/AAAA)" autocomplete="off" style="text-align: center;" hidden>
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar" id="date_acreditacion"></span></span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="panel-body" style=" padding-top: 5px;">
+                <div class="row form-group" style="display: flex; justify-content: center;">
+                    <div class="form-inline col-md-8">
+                        <label for="md5_calculado" class="control-label">MD5 calculado</label>
+                        <input type="text" class="form-control input-sm" name="md5_calculado" id="md5_calculado" readonly="true" style="width: 75%; margin-left: 1%; text-align: center">
+                    </div>
+                </div>
+                <div class="row form-group" style="display: flex; justify-content: center;">
+                    <div class="form-inline col-md-8">
+                        <label for="md5_informado" class="control-label">MD5 informado</label>
+                        <input type="text" class="form-control input-sm text-right" name="md5_informado" id="md5_informado" readonly="true" style="width: 75%; text-align: center">
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body" style="padding-top: 5px;" >
+                <div class="row form-group" style="display: flex; justify-content: center;">
+                    <div class="col-md-12">
+                        <label for="comentarios">Resultado de la Carga</label>
+                        <textarea class="form-control input-sm" id='comentarios' name='comentarios' rows='9' cols='60' readonly style="width: 95.5%; height: 80px !important;"></textarea>
+                    </div>
+                </div>
+                <div class="row form-group" id="seccion_1">
+                    <div class="col-md-12" >
+                        <button type='button' class="btn btn-sm" id='btn_cargar' style="width: 13%;"><span class="glyphicon" aria-hidden="true"></span>Cargar</button>
+                        <button type='button' class="btn btn-sm" id='btn_erronea'><span class="glyphicon" aria-hidden="true"></span>Ver Línea Errónea</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4" style="float: right">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Estadística de Registros</div>
+            <div class="panel-body" style="padding-top: 5px;">
+                <form id='frm_estadistica'>
+                    <div class="row form-inline" style="display: flex;flex-direction: column;max-width: 70%;margin: 0 auto;gap: 5px;">
+                        <div class="form-inline" style="margin-left: 13.5%">
+                            <label for="envio" class="control-label">Envío</label>
+                            <input type="text" id="envio" name="envio" class="form-control input-sm" readonly="true">
+                        </div>
+                        <div class="form-inline" style="margin-left: 11.5%">
+                            <label for="leidos" class="control-label">Leídos</label>
+                            <input type="text" id="leidos" name="leidos" class="form-control input-sm" readonly="true">
+                        </div>
+                        <div class="form-inline">
+                            <label for="informados" class="control-label">Informados</label>
+                            <input type="text" id="informados" name="informados" class="form-control input-sm" readonly="true">
+                        </div>
+                        <div class="form-inline" style="margin-left: 22%">
+                            <label for="c1" class="control-label">C1</label>
+                            <input type="text" id="c1" name="c1" class="form-control input-sm" readonly="true">
+                        </div>
+                        <div class="form-inline" style="margin-left: 22%">
+                            <label for="c2" class="control-label">C2</label>
+                            <input type="text" id="c2" name="c2" class="form-control input-sm" readonly="true">
+                        </div>
+                        <div class="form-inline" style="margin-left: 22%">
+                            <label for="c3" class="control-label">C3</label>
+                            <input type="text" id="c3" name="c3" class="form-control input-sm" readonly="true">
+                        </div>
+                        <div class="form-inline" style="margin-left: 22%">
+                            <label for="c4" class="control-label">C4</label>
+                            <input type="text" id="c4" name="c4" class="form-control input-sm" readonly="true">
+                        </div>
+                        <div class="form-inline" style="margin-left: 22%">
+                            <label for="c5" class="control-label">C5</label>
+                            <input type="text" id="c5" name="c5" class="form-control input-sm" readonly="true">
+                        </div>
+                        <div class="form-inline" style="margin-left: 22%">
+                            <label for="c6" class="control-label">C6</label>
+                            <input type="text" id="c6" name="c6" class="form-control input-sm" readonly="true">
+                        </div>
+                        <div class="form-inline" style="margin-left: 22%">
+                            <label for="c7" class="control-label">C7</label>
+                            <input type="text" id="c7" name="c7" class="form-control input-sm" readonly="true">
+                        </div>
+                        <div class="form-inline" style="margin-left: 22%">
+                            <label for="c8" class="control-label">C8</label>
+                            <input type="text" id="c8" name="c8" class="form-control input-sm" readonly="true">
+                        </div>
+                        <div class="form-inline" style="margin-left: 15%">
+                            <label for="otros" class="control-label">Otros</label>
+                            <input type="text" id="otros" name="otros" class="form-control input-sm" readonly="true">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-8">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Proceso y corrección de Archivos ACARA/RNPA</div>
+            <div class="panel-body" style=" padding-top: 5px;">
+                <form id='frm_envio'>
+                    <div class="row form-group" style="display: flex; justify-content: center;">
+                        <div class="form-inline col-md-12">
+                            <label for="nro_envio" class="control-label">Nro de Envío</label>
+                            <div class="input-group" style="margin-left: 1%;">
+                                <input type="text" class="form-control input-sm text-right validate[required, custom[onlyIntNumber]]" name="nro_envio" id="nro_envio" readonly="true">
+                                <span class="input-group-addon btn_lupa" id="btn_lupa_nro_envio"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row form-group" id="seccion_2" style="margin-top: 2%;">
+                        <div class="col-md-12" >
+                            <button type='button' class="btn btn-sm" id='btn_procesar' style="width: 13%;"><span class="glyphicon" aria-hidden="true"></span>Procesar</button>
+                            <button type='button' class="btn btn-sm" id='btn_corregir'><span class="glyphicon" aria-hidden="true"></span>Corregir Errores</button>
+                            <button type='button' class="btn btn-sm" id='btn_excel' style="float: right"><span class="glyphicon" aria-hidden="true"></span>Generar Excel de Errores</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="panel-body" style=" padding-top: 5px;">
+
+            </div>
+        </div>
+    </div>
+
+</div>

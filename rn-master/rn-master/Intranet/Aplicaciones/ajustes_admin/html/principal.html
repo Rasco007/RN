@@ -1,0 +1,343 @@
+<!--DIV BUSQUEDA-->
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true" style="">
+            <div class="panel-heading">Datos del Contribuyente</div>
+            <div class="panel-body">
+                <form id='frm_contrib'>
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="n_cuit">CUIT</label>
+                            <input type="text" class="form-control input-sm text-right validate[required] limpiar" id="n_cuit">
+                            <input type="hidden" class="form-control input-sm text-right validate[required] limpiar" id="id_contribuyente">
+                            <input type="hidden" class="form-control input-sm text-right limpiar" id="cuit_limpio">
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="d_denominacion" class="control-label">Denominación</label>
+                            <input type="text" class="form-control input-sm mayusculas validate[required] limpiar" id="d_denominacion">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="c_tipo_doc">Tipo y Número Doc.</label>
+                            <div id="div_tipo_doc" class="input-group" style="width: 100% !important;">
+                                <input type='text' id='c_tipo_doc' name='c_tipo_doc' class='form-control input-sm input-cod-short mayusculas limpiar'/>
+                                <input type='text' id='n_documento' name='n_documento' class='form-control input-sm input-desc-long limpiar'/>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="c_tipo_imponible">Tipo Imponible</label>
+                            <div id="div_tipo_imponible" class="input-group">
+                                <input type='text' id='c_tipo_imponible' name='c_tipo_imponible' class='form-control input-sm input-cod-short mayusculas validate[custom[onlyIntNumber]] limpiar'/>
+                                <input type='text' id='d_tipo_imponible' name='d_tipo_imponible' class='form-control input-sm input-desc-long' readonly='true'/>
+                                <span class="input-group-addon btn_lupa" id="btn_lupa_tipo_imponible" name='btn_lupa_tipo_imponible'>
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="d_objeto_hecho">Objeto</label>
+                            <div id="div_objeto" class="input-group">
+                                <input type='text' id='d_objeto_hecho' name='d_objeto_hecho' class='form-control input-sm mayusculas limpiar'/>
+                                    <span class="input-group-addon btn_lupa" id="btn_lupa_objeto" name='btn_lupa_objeto'>
+                                        <span class="glyphicon glyphicon-search"></span>
+                                    </span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="div_search2" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search2" aria-expanded="true" aria-controls="#collapse_search2">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search2" aria-expanded="true" style="">
+            <div class="panel-heading">Detalle de la Obligación a Ajustar</div>
+            <div class="panel-body">
+                <form id='frm_oblig'>
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="c_tributo">Tributo</label>
+                            <div id="div_tributo" class="input-group">
+                                <input type='text' id='c_tributo' name='c_tributo' class='form-control input-sm input-cod-short numerico validate[required,custom[onlyIntNumber]] limpiar'/>
+                                <input type='text' id='d_tributo' name='d_tributo' class='form-control input-sm input-desc-long' readonly='true'/>
+                                <span class="input-group-addon btn_lupa" id="btn_lupa_tributo" name='btn_lupa_tributo'>
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="c_concepto">Concepto</label>
+                            <div id="div_concepto" class="input-group">
+                                <input type='text' id='c_concepto' name='c_concepto' class='form-control input-sm input-cod-short numerico validate[required,custom[onlyIntNumber]] limpiar'/>
+                                <input type='text' id='d_concepto' name='d_concepto' class='form-control input-sm input-desc-long' readonly='true'/>
+                                <span class="input-group-addon btn_lupa" id="btn_lupa_concepto" name='btn_lupa_concepto'>
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-2">
+                            <label for="n_pos_fiscal">Posición fiscal</label>
+                            <input type='text' id='n_pos_fiscal' name='n_pos_fiscal' class='form-control input-sm text-right validate[required] limpiar'/>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="n_cuota">Cuota</label>
+                            <input type='text' id='n_cuota' name='n_cuota' class='form-control input-sm text-right numerico validate[required,custom[onlyIntNumber]] limpiar' maxlength="3" />
+                        </div>
+
+                        <div class="form-group col-md-4" id="div_obl_ajustada">
+                            <label for="id_oblig_ajustada">Nro. de Obligación Ajustada</label>
+                            <input type='text' id='id_oblig_ajustada' name='id_oblig_ajustada' class='form-control input-sm mayusculas' readonly='true'/>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <button type='button' class="btn-sm btn_buscar" id='btn_buscar' style="margin-top: 18px;"></button>
+                            <button type='button' class="btn-sm btn_limpiar" id='btn_limpiar'></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="div_main_grid" style="display: none;">
+    <table id='main_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+    <div id='main_grid_pager' class='scroll' style='text-align:center;'></div>
+    <br>
+    <div>
+        <b>Nota:</b> Seleccione la obligación a ajustar.
+    </div>
+    <br>
+</div>
+
+<div id='ajustes_obligacion' hidden>
+    <div id="div_search3" class="panel-search">
+        <div class="panel panel-primary">
+            <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search3" aria-expanded="true" aria-controls="#collapse_search3">
+                <span class="glyphicon"></span>
+            </a>
+            <div class="collapse in" id="collapse_search3" aria-expanded="true" style="">
+                <div class="panel-heading">Tipo de Ajuste</div>
+                <div class="panel-body">
+                    <form id='frm_tipo_ajuste'>
+                        <div class="row">
+                            <div class="form-group col-md-12">
+                                <center>
+                                    <input type="radio" id="m_deb_cred" name="tipo_ajuste" class='input-sm' onclick="fun_select_radio();"><label style="margin-right: 30px;">&nbsp;&nbsp;Ingreso de Débito o Crédito</label>
+                                    <input type="radio" id="m_reversa" name="tipo_ajuste" class='input-sm' onclick="fun_select_radio();"><label>&nbsp;&nbsp;Reversa de un Movimiento Existente</label>
+                                </center>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="div_search4" class="panel-search">
+        <div class="panel panel-primary">
+            <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search4" aria-expanded="true" aria-controls="#collapse_search4">
+                <span class="glyphicon"></span>
+            </a>
+            <div class="collapse in" id="collapse_search4" aria-expanded="true" style="">
+                <div class="panel-heading">Detalle del Movimiento a Ajustar</div>
+                <div class="panel-body">
+                    <form id='frm_detalle_mov'>
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                                <label for="c_tipo_mov">Tipo de Mov.</label>
+                                <div id="div_tipo_mov" class="input-group">
+                                    <input type='text' id='c_tipo_mov' name='c_tipo_mov' class='form-control input-sm input-cod-short validate[required]' readonly='true'/>
+                                    <input type='text' id='d_tipo_mov' name='d_tipo_mov' class='form-control input-sm input-desc-long' readonly='true'/>
+                                    <!-- <span class="input-group-addon btn_lupa" id="btn_lupa_movimiento" name='btn_lupa_movimiento'>
+                                        <span class="glyphicon glyphicon-search"></span>
+                                    </span> -->
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <label for="c_concepto_mov">Concepto del Mov.</label>
+                                <div id="div_concepto_mov" class="input-group">
+                                    <input type='text' id='c_concepto_mov' name='c_concepto_mov' class='form-control input-sm input-cod-short validate[required]' readonly='true'/>
+                                    <input type='text' id='d_concepto_mov' name='d_concepto_mov' class='form-control input-sm input-desc-long' readonly='true'/>
+                                    <!-- <span class="input-group-addon btn_lupa" id="btn_lupa_concepto_mov" name='btn_lupa_concepto_mov'>
+                                        <span class="glyphicon glyphicon-search"></span>
+                                    </span> -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                                <label for="i_importe_mov">Importe</label>
+                                <input type='text' id='i_importe_mov' name='i_importe_mov' class='form-control input-sm text-right validate[required]' readonly='true'/>
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <label for="c_tipo_moneda">Moneda</label>
+                                <div id="div_tipo_moneda" class="input-group">
+                                    <input type='text' id='c_tipo_moneda' name='c_tipo_moneda' class='form-control input-sm input-cod-short validate[required]' readonly='true'/>
+                                    <input type='text' id='d_tipo_moneda' name='d_tipo_moneda' class='form-control input-sm input-desc-long' readonly='true'/>
+                                    <!-- <span class="input-group-addon btn_lupa" id="btn_lupa_moneda" name='btn_lupa_moneda'>
+                                        <span class="glyphicon glyphicon-search"></span>
+                                    </span> -->
+                                </div>
+                            </div>
+                            
+                            <div class="form-group col-md-2">
+                                <label for="f_movimiento">Fecha</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control input-sm text-center validate[required]" name="f_movimiento" id="f_movimiento" maxlength="10" autocomplete="off" readonly='true'>
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-2" hidden>
+                                <label for="n_secuencia_rel">Nro. Sec. Rel.</label>
+                                <input type='text' id='n_secuencia_rel' name='n_secuencia_rel' class='form-control input-sm text-right validate[required]' readonly='true'/>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <center>
+                                <div class="form-group">
+                                    <label for="btn_cons_cta_cte"></label>
+                                    <div class="input-group">
+                                        <button type='button' class="btn btn-primary" id='btn_cons_cta_cte' disabled>Consulta de la Cuenta Corriente</button>
+                                    </div>
+                                </div>
+                            </center>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="div_search5" class="panel-search">
+        <div class="panel panel-primary">
+            <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search5" aria-expanded="true" aria-controls="#collapse_search5">
+                <span class="glyphicon"></span>
+            </a>
+            <div class="collapse in" id="collapse_search5" aria-expanded="true" style="">
+                <div class="panel-heading">Detalle del Ajuste</div>
+                <div class="panel-body">
+                    <form id='frm_detalle_ajuste'>
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                                <label for="c_tipo_mov_ajuste">Tipo de Mov.</label>
+                                <div id="div_tipo_mov_ajuste" class="input-group">
+                                    <input type='text' id='c_tipo_mov_ajuste' name='c_tipo_mov_ajuste' class='form-control input-sm input-cod-short mayusculas validate[required] limpiar'/>
+                                    <input type='text' id='d_tipo_mov_ajuste' name='d_tipo_mov_ajuste' class='form-control input-sm input-desc-long' readonly='true'/>
+                                    <span class="input-group-addon btn_lupa" id="btn_lupa_movimiento_ajuste" name='btn_lupa_movimiento_ajuste'>
+                                        <span class="glyphicon glyphicon-search"></span>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <label for="c_motivo">Motivo del Ajuste</label>
+                                <div id="div_motivo" class="input-group">
+                                    <input type='text' id='c_motivo' name='c_motivo' class='form-control input-sm input-cod-short mayusculas validate[required] limpiar'/>
+                                    <input type='text' id='d_motivo' name='d_motivo' class='form-control input-sm input-desc-long' readonly='true'/>
+                                    <span class="input-group-addon btn_lupa" id="btn_lupa_motivo" name='btn_lupa_motivo'>
+                                        <span class="glyphicon glyphicon-search"></span>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-2">
+                                <label for="f_ajuste">Fecha del Ajuste</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control input-sm datepicker text-center limpiar" name="f_ajuste" id="f_ajuste" maxlength="10" autocomplete="off">
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                                <label for="m_deb_cred_ajuste" class="control-label">Débito/Crédito</label>
+                                <div id="div_m_deb_cred_ajuste">
+                                    <select id="m_deb_cred_ajuste" data-live-search="false" title="Seleccione" class="selectpicker form-control input-sm validate[required]" data-style="cDropdown">
+                                        <option value='' selected></option>
+                                        <option value='D'>Débito</option>
+                                        <option value='C'>Crédito</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <label for="c_concepto_mov_ajuste">Nuevo Concepto de Movimiento</label>
+                                <div id="div_concepto_mov_ajuste" class="input-group">
+                                    <input type='text' id='c_concepto_mov_ajuste' name='c_concepto_mov_ajuste' class='form-control input-sm input-cod-short numerico validate[required] limpiar'/>
+                                    <input type='text' id='d_concepto_mov_ajuste' name='d_concepto_mov_ajuste' class='form-control input-sm input-desc-long' readonly='true'/>
+                                    <span class="input-group-addon btn_lupa" id="btn_lupa_concepto_mov_ajuste" name='btn_lupa_concepto_mov_ajuste'>
+                                        <span class="glyphicon glyphicon-search"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                                <label for="i_importe_ajuste">Importe del Ajuste</label>
+                                <input type='text' id='i_importe_ajuste' name='i_importe_ajuste' class='form-control input-sm text-right validate[required] mascara_importe limpiar'/>
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <label for="c_tipo_moneda_ajuste">Moneda</label>
+                                <div id="div_tipo_moneda_ajuste" class="input-group">
+                                    <input type='text' id='c_tipo_moneda_ajuste' name='c_tipo_moneda_ajuste' class='form-control input-sm input-cod-short validate[required]' readonly='true'/>
+                                    <input type='text' id='d_tipo_moneda_ajuste' name='d_tipo_moneda_ajuste' class='form-control input-sm input-desc-long' readonly='true'/>
+                                    <!-- <span class="input-group-addon btn_lupa" id="btn_lupa_moneda_ajuste" name='btn_lupa_moneda_ajuste'>
+                                        <span class="glyphicon glyphicon-search"></span>
+                                    </span> -->
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-2">
+                                <label for="n_ajuste">Nro. de Ajuste</label>
+                                <input type='text' id='n_ajuste' name='n_ajuste' class='form-control input-sm text-right' readonly="true"/>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-8">
+                                <label for="d_observaciones">Observaciones</label>
+                                <textarea type='text' id='d_observaciones' name='d_observaciones' class='form-control input-sm validate[required]' style="min-width: 750px;max-width: 1050px;"/></textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <center>
+                                <button type='button' class="btn btn-primary" id='btn_aplicar_ajuste'>Aplicar Ajuste</button>
+                            </center>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

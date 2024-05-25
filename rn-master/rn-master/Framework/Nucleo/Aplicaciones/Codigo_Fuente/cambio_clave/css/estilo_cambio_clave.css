@@ -1,0 +1,28 @@
+#btn_cc_generar_clave{
+	width: 80px;
+	padding-bottom:18px;
+}
+#clave_nue_aux, #pass_nueva{
+	width: calc(100% - 83px);
+}
+
+#pass_nueva{
+	float: left;
+
+}
+
+.status_low{
+	color: red;
+}
+
+.status_medium{
+	color: yellow;
+}
+
+.status_high{
+	color: green;
+}
+
+.progress-bar-success {
+    background-color: #36d366;
+}

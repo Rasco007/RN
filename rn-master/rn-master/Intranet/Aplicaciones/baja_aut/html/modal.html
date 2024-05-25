@@ -1,0 +1,86 @@
+<style>
+    #ui-datepicker-div {
+        z-index: 11000 !important;
+        position: absolute !important;
+    }
+</style>
+<div class="modal fade" id="modal_baja" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="modal_baja_title"></h5>
+            </div>
+            <div class="modal-body">
+                <form id="frm_baja">
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="f_baja">Fecha de Baja</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm datepicker text-center validate[required]" name="f_baja" id="f_baja" maxlength="10" autocomplete="off">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="n_cert_baja">Nro. Certificado de baja</label>
+                            <input name='n_cert_baja' id='n_cert_baja' type="text" class="form-control input-sm" disabled>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label for="d_motivo">Motivo de Baja</label>
+                            <div class="input-group" id="div_input_motivo_baja">
+                                <input type="text" class="form-control mayusculas input-sm input-cod-short numerico validate[required]"
+                                       id="c_motivo">
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_motivo" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_motivo_baja">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label for="d_delegacion">Prov/Oficina</label>
+                            <div class="input-group" id="div_input_oficina">
+                                <input type="text" class="form-control mayusculas input-sm input-cod-short validate[required]"
+                                       id="c_delegacion">
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_delegacion"
+                                       readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_prov_oficina">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="button" class="btn btn-primary" id="btn_imprimir" style="display: none;">Imprimir Certificado</button>
+                    <button type="button" class="btn btn-primary" id="btn_aceptar_baja">Aceptar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Volver</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $('#modal_baja').on('hidden.bs.modal', function (e) {
+            $('#frm_baja :input').val(null).validationEngine('hideAll');
+            if (v_modo===''){
+                $('#f_baja,#c_motivo,#c_delegacion').attr('disabled',false);
+                $('#lupa_motivo_baja,#lupa_prov_oficina').show();
+            }
+            $('#btn_imprimir').hide();
+            $('#btn_aceptar_baja').show();
+            if (realizado == 'S'){
+                $('#btn_limpiar').click();
+            }
+        });
+    });
+</script>

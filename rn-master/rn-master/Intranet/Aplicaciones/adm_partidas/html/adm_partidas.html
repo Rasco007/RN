@@ -1,0 +1,133 @@
+<!--DIV BUSQUEDA-->
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true" style="">
+            <div class="panel-heading">B&uacute;squeda</div>
+            <div class="panel-body">
+                <form id='frm_consulta'>
+
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="n_cuit">CUIT</label>
+                            <input type="text" class="form-control input-sm text-right limpiar" id="n_cuit">
+                            <input type="hidden" class="form-control input-sm text-right limpiar" id="id_contribuyente">
+                        </div>
+
+                        <div class="form-group col-md-8">
+                            <label for="d_denominacion" class="control-label">Denominación</label>
+                            <input type="text" class="form-control input-sm mayusculas limpiar" id="d_denominacion">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="c_organismo">Consorcio</label>
+                            <div id="div_consorcio" class="input-group">
+                                <input type='text' id='c_organismo' name='c_organismo' class='form-control input-sm input-cod-short mayusculas limpiar'/>
+                                <input type='text' id='d_organismo' name='d_organismo' class='form-control input-sm input-desc-long' readonly="true"/>
+                                <span class="input-group-addon btn_lupa" id="btn_lupa_consorcio" name='btn_lupa_consorcio'>
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group col-md-4">
+                            <label for="c_region">Región</label>
+                            <div id="div_region" class="input-group">
+                                <input type='text' id='c_region' name='c_region' class='form-control input-sm input-cod-short mayusculas limpiar'/>
+                                <input type='text' id='d_region' name='d_region' class='form-control input-sm input-desc-long' readonly="true" />
+                                <span class="input-group-addon btn_lupa" id="btn_lupa_region" name='btn_lupa_region'>
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="c_area">Área</label>
+                            <div id="div_area" class="input-group">
+                                <input type='text' id='c_area' name='c_area' class='form-control input-sm input-cod-short mayusculas limpiar'/>
+                                <input type='text' id='d_area' name='d_area' class='form-control input-sm input-desc-long' readonly="true" />
+                                <span class="input-group-addon btn_lupa" id="btn_lupa_area" name='btn_lupa_area'>
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-2">
+                            <label for="m_rel_activa" class="control-label">Relación Activa?</label>
+                            <div id="div_m_rel_activa">
+                                <select id="m_rel_activa" data-live-search="true" title="Seleccione" class="selectpicker form-control input-sm" data-style="cDropdown">
+                                    <option value='' selected></option>
+                                    <option value='S'>Si</option>
+                                    <option value='N'>No</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="n_partida">Partida</label>
+                            <input type='text' id='n_partida' name='n_partida' class='form-control input-sm mayusculas limpiar validate[custom[onlyIntNumber]]'/>
+                        </div>
+
+                        <div class="form-group col-md-1">
+                            <label for="departamento">Dep.</label>
+                            <input type='text' id='departamento' name='departamento' class='form-control input-sm mayusculas limpiar'/>
+                        </div>
+                        <div class="form-group col-md-1">
+                            <label for="circunscripcion">Circ.</label>
+                            <input type='text' id='circunscripcion' name='circunscripcion' class='form-control input-sm mayusculas limpiar'/>
+                        </div>
+                        <div class="form-group col-md-1">
+                            <label for="seccion">Secc.</label>
+                            <input type='text' id='seccion' name='seccion' class='form-control input-sm mayusculas limpiar'/>
+                        </div>
+                        <div class="form-group col-md-1">
+                            <label for="u_caracteristica">UC</label>
+                            <input type='text' id='u_caracteristica' name='u_caracteristica' class='form-control input-sm mayusculas limpiar'/>
+                        </div>
+                        <div class="form-group col-md-1">
+                            <label for="parcela">Parc.</label>
+                            <input type='text' id='parcela' name='parcela' class='form-control input-sm mayusculas limpiar'/>
+                        </div>
+                        <div class="form-group col-md-1">
+                            <label for="u_funcional">UF</label>
+                            <input type='text' id='u_funcional' name='u_funcional' class='form-control input-sm mayusculas limpiar'/>
+                        </div>
+                    </div>
+                    
+                    <div class='row text-center'>
+                        <button type='button' class="btn-sm btn_buscar" id='btn_buscar'></button>
+                        <button type='button' class="btn-sm btn_limpiar" id='btn_limpiar'></button>    
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--GRILLA PRINCIPAL-->
+<table id='main_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+<div id='main_grid_pager' class='scroll'></div>
+<br>
+<div>
+	<b>Nota:</b> Las filas sombreadas en <label class="partidaInactiva">&nbsp;&nbsp;Rojo&nbsp;&nbsp;</label> reflejan las partidas no inscriptas en el tributo de Canon de Riego.
+</div>
+<br>
+<center>
+    <button type='button' class="btn btn-primary" id='btn_inscripcion'>Inscripción al Tributo</button>
+    <button type='button' class="btn btn-primary" id='btn_baja_tributo'>Cesar Inscripción</button>
+    <button type='button' class="btn btn-primary" id='btn_modificacion'>Modificar Datos de la Liquidación</button>
+    <button type='button' class="btn btn-primary" id='btn_extincion'>Liquidación de Extinción</button>
+    <button type='button' class="btn btn-primary" id='btn_reinscripcion'>Revertir Cese</button>
+</center>
+<br>
+<center>
+    <button type='button' class="btn btn-primary" id='btn_hist_hectareas'>Historial de hectáreas</button>
+    <button type='button' class="btn btn-primary" id='btn_hist_actividades'>Historial de Actividades</button>
+    <button type='button' class="btn btn-primary" id='btn_hist_responsables'>Historial de Responsables</button>
+</center>

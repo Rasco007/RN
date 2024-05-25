@@ -1,0 +1,856 @@
+<style>
+    .cDropdown {
+        padding: 5px 12px;
+        color: #555;
+        text-transform: none;
+        font-weight: unset;
+        font-size: 11px;
+        border: 1px solid #c2cad8 !important;
+        background-color: white !important;
+    }
+
+    .cDropdown :hover{
+        background-color: white !important;
+        color: #555;
+    }
+
+    ul.dropdown-menu{
+        z-index: 11000 !important;
+    }
+
+    #ui-datepicker-div {
+        z-index: 11000 !important;
+        position: absolute !important;
+    }
+</style>
+<!--COMERCIOS-->
+<div class="modal fade" id="com_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="com_title"></h5>
+            </div>
+            <div class="modal-body">
+                <form id="frm_com">
+                    <input type="hidden" id="com_oper">
+                    <input type="hidden" id="com_ppal" value="No">
+                    <div class="row">
+                        <div class="form-group col-md-2">
+                            <label for="com_n_comercio">Nro.: (*)</label>
+                            <input type="text" class="form-control input-sm validate[required] numero" id="com_n_comercio" maxlength="9">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="com_f_inicio">Fecha Iniciación: (*)</label>
+                            <div class="input-group">
+                                <input type="text"
+                                       class="form-control input-sm datepicker text-center validate[required]"
+                                       name="com_f_inicio" id="com_f_inicio" placeholder="(DD/MM/AAAA)" maxlength="10"
+                                       autocomplete="off" style="text-align: center;">
+                                <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="com_f_cese">Fecha Finalización:</label>
+                            <div class="input-group">
+                                <input type="text"
+                                       class="form-control input-sm datepicker text-center"
+                                       name="com_f_cese" id="com_f_cese" placeholder="(DD/MM/AAAA)" maxlength="10"
+                                       autocomplete="off" style="text-align: center;">
+                                <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-8">
+                            <label for="com_d_fantasia">Nombre de Fantasía: (*)</label>
+                            <input type="text" class="form-control input-sm validate[required] mayusculas" id="com_d_fantasia">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="com_n_telefono">Nro. de Tel.: (*)</label>
+                            <input type="text" class="form-control input-sm validate[required] numero" id="com_n_telefono" maxlength="40">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label for="com_d_calle">Calle:</label>
+                            <input type="text" class="form-control input-sm mayusculas" id="com_d_calle">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-2">
+                            <label for="com_n_numero">Numero:</label>
+                            <input type="text" class="form-control input-sm numero" id="com_n_numero" maxlength="11">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="com_monoblock">Monoblock:</label>
+                            <input type="text" class="form-control input-sm mayusculas" id="com_monoblock" maxlength="10">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="com_puerta">Puerta:</label>
+                            <input type="text" class="form-control input-sm mayusculas" id="com_puerta" maxlength="10">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="com_piso">Piso:</label>
+                            <input type="text" class="form-control input-sm mayusculas" id="com_piso" maxlength="10">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="com_depto">Depto.:</label>
+                            <input type="text" class="form-control input-sm mayusculas" id="com_depto" maxlength="10">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="com_oficina">Oficina:</label>
+                            <input type="text" class="form-control input-sm mayusculas" id="com_oficina" maxlength="10">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="com_d_provincia">Provincia:</label>
+                            <input type="hidden" id="com_c_provincia">
+                            <input type="text" class="form-control input-sm input-desc-long" id="com_d_provincia" readonly>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="com_d_localidad">Localidad:</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm input-cod-short numero" id="com_c_localidad" maxlength="3">
+                                <input type="text" class="form-control input-sm input-desc-long" id="com_d_localidad" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_com_c_localidad">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="button" class="btn btn-primary" id="btn_com_aceptar">Aceptar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--ACTIVIDADES IBD-->
+<div class="modal fade" id="actibd_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="actibd_title"></h5>
+            </div>
+            <div class="modal-body">
+                <form id="frm_actibd">
+                    <input type="hidden" id="actibd_oper">
+                    <div class="row">
+                        <div class="form-group col-md-8">
+                            <label for="actibd_d_actividad">Actividad: (*)</label>
+                            <div class="input-group">
+                                <input type="hidden" id="actibd_unidad">
+                                <input type="hidden" id="actibd_grupo">
+                                <input type="text" class="form-control input-sm input-cod-short mayusculas validate[required]" id="actibd_c_actividad">
+                                <input type="text" class="form-control input-sm input-desc-long" id="actibd_d_actividad" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_actibd_c_actividad">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="actibd_nomenclador" class="control-label">Nomenclador: (*)</label>
+                            <select id="actibd_nomenclador" class="selectpicker form-control input-sm validate[required]" data-style="cDropdown">
+                                <option value="IIBB">IIBB</option>
+                                <option value="NAES" selected>NAES</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row" id="div_car_unidad" style="display: none">
+                        <div class="form-group col-md-12">
+                            <label for="actibd_c_unidad">Unidad:</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm input-cod-short mayusculas" id="actibd_c_unidad">
+                                <input type="text" class="form-control input-sm input-desc-long" id="actibd_d_unidad" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_actibd_c_unidad">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="actibd_cantidad_unidad">Cantidad:</label>
+                            <input type="text" class="form-control input-sm numero" id="actibd_cantidad_unidad" maxlength="5">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="actibd_f_desde_unidad">Vig. Desde Unidad:</label>
+                            <div class="input-group">
+                                <input type="text"
+                                       class="form-control input-sm datepicker text-center"
+                                       name="actibd_f_desde_unidad" id="actibd_f_desde_unidad" placeholder="(DD/MM/AAAA)" maxlength="10"
+                                       autocomplete="off" style="text-align: center;">
+                                <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="actibd_f_hasta_unidad">Vig. Hasta Unidad:</label>
+                            <div class="input-group">
+                                <input type="text"
+                                       class="form-control input-sm datepicker text-center"
+                                       name="actibd_f_hasta_unidad" id="actibd_f_hasta_unidad" placeholder="(DD/MM/AAAA)" maxlength="10"
+                                       autocomplete="off" style="text-align: center;">
+                                <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="actibd_f_inicio">Fecha Inicio: (*)</label>
+                            <div class="input-group">
+                                <input type="text"
+                                       class="form-control input-sm datepicker text-center validate[required]"
+                                       name="actib_f_inicio" id="actibd_f_inicio" placeholder="(DD/MM/AAAA)" maxlength="10"
+                                       autocomplete="off" style="text-align: center;">
+                                <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="actibd_f_cese">Fecha Cese:</label>
+                            <div class="input-group">
+                                <input type="text"
+                                       class="form-control input-sm datepicker text-center"
+                                       name="actibd_f_cese" id="actibd_f_cese" placeholder="(DD/MM/AAAA)" maxlength="10"
+                                       autocomplete="off" style="text-align: center;">
+                                <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="button" class="btn btn-primary" id="btn_actibd_aceptar">Aceptar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--UNIDADES-->
+<div class="modal fade" id="uni_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="uni_title"></h5>
+            </div>
+            <div class="modal-body">
+                <form id="frm_uni">
+                    <input type="hidden" id="uni_oper">
+                    <input type="hidden" id="uni_contrib">
+                    <input type="hidden" id="uni_timp">
+                    <input type="hidden" id="uni_trib">
+                    <input type="hidden" id="uni_obj">
+                    <div class="row">
+                        <div class="form-group col-md-8">
+                            <label for="uni_d_actividad">Actividad:</label>
+                            <div class="input-group">
+                                <input type="hidden" id="uni_grupo">
+                                <input type="text" class="form-control input-sm input-cod-short mayusculas validate[required]" id="uni_c_actividad">
+                                <input type="text" class="form-control input-sm input-desc-long" id="uni_d_actividad" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_uni_c_actividad">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="uni_nomenclador" class="control-label">Nomenclador:</label>
+                            <input type="text" class="form-control input-sm" id="uni_nomenclador" disabled="disabled">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label for="uni_c_unidad">Tipo Unidad:</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm input-cod-short mayusculas" id="uni_c_unidad">
+                                <input type="text" class="form-control input-sm input-desc-long" id="uni_d_unidad" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_uni_c_unidad">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="actibd_cantidad_unidad">Unidades:</label>
+                            <input type="text" class="form-control input-sm numero" id="uni_cantidad_unidad" maxlength="5">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="uni_f_desde">Vig. Desde:</label>
+                            <div class="input-group">
+                                <input type="text"
+                                       class="form-control input-sm datepicker text-center"
+                                       name="uni_f_desde" id="uni_f_desde" placeholder="(DD/MM/AAAA)" maxlength="10"
+                                       autocomplete="off" style="text-align: center;">
+                                <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="uni_f_hasta">Vig. Hasta:</label>
+                            <div class="input-group">
+                                <input type="text"
+                                       class="form-control input-sm datepicker text-center"
+                                       name="uni_f_hasta" id="uni_f_hasta" placeholder="(DD/MM/AAAA)" maxlength="10"
+                                       autocomplete="off" style="text-align: center;">
+                                <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="button" class="btn btn-primary" id="btn_uni_aceptar">Aceptar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--ACTIVIDADES CM-->
+<div class="modal fade" id="actcm_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="actcm_title"></h5>
+            </div>
+            <div class="modal-body">
+                <form id="frm_actcm">
+                    <input type="hidden" id="actcm_oper">
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="actcm_nomenclador" class="control-label">Nomenclador: (*)</label>
+                            <select id="actcm_nomenclador" class="selectpicker form-control input-sm validate[required]" data-style="cDropdown">
+                                <option value="CUACM">CUACM</option>
+                                <option value="NAES" selected>NAES</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="actcm_d_articulo">Articulo: (*)</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm input-cod-short mayusculas validate[required]" id="actcm_c_articulo">
+                                <input type="text" class="form-control input-sm input-desc-long" id="actcm_d_articulo" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_actcm_c_articulo">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-8">
+                            <label for="actcm_d_actividad">Actividad: (*)</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm input-cod-short mayusculas validate[required]" id="actcm_c_actividad">
+                                <input type="text" class="form-control input-sm input-desc-long" id="actcm_d_actividad" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_actcm_c_actividad">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="actcm_digito">Digito: (*)</label>
+                            <input type="text" class="form-control input-sm validate[required] numero" id="actcm_digito" maxlength="1">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="actcm_f_inicio">Fecha Inicio: (*)</label>
+                            <div class="input-group">
+                                <input type="text"
+                                       class="form-control input-sm datepicker text-center validate[required]"
+                                       name="actcm_f_inicio" id="actcm_f_inicio" placeholder="(DD/MM/AAAA)" maxlength="10"
+                                       autocomplete="off" style="text-align: center;">
+                                <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="actcm_f_cese">Fecha Cese:</label>
+                            <div class="input-group">
+                                <input type="text"
+                                       class="form-control input-sm datepicker text-center"
+                                       name="actcm_f_cese" id="actcm_f_cese" placeholder="(DD/MM/AAAA)" maxlength="10"
+                                       autocomplete="off" style="text-align: center;">
+                                <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="button" class="btn btn-primary" id="btn_actcm_aceptar">Aceptar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--JURISDICCIONES-->
+<div class="modal fade" id="jur_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="jur_title"></h5>
+            </div>
+            <div class="modal-body">
+                <form id="frm_jur">
+                    <input type="hidden" id="jur_oper">
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label for="jur_d_jur">Jurisdicción: (*)</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm input-cod-short mayusculas validate[required]" id="jur_c_jur">
+                                <input type="text" class="form-control input-sm input-desc-long" id="jur_d_jur" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_jur_c_jur">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label for="jur_domicilio">Domicilio:</label>
+                            <input type="text" class="form-control input-sm mayusculas" id="jur_domicilio">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="jur_f_inicio">Fecha Inicio: (*)</label>
+                            <div class="input-group">
+                                <input type="text"
+                                       class="form-control input-sm datepicker text-center validate[required]"
+                                       name="jur_f_inicio" id="jur_f_inicio" placeholder="(DD/MM/AAAA)" maxlength="10"
+                                       autocomplete="off" style="text-align: center;">
+                                <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="jur_f_cese">Fecha Cese:</label>
+                            <div class="input-group">
+                                <input type="text"
+                                       class="form-control input-sm datepicker text-center"
+                                       name="actcm_f_cese" id="jur_f_cese" placeholder="(DD/MM/AAAA)" maxlength="10"
+                                       autocomplete="off" style="text-align: center;">
+                                <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="button" class="btn btn-primary" id="btn_jur_aceptar">Aceptar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $('#actibd_modal').on('hidden.bs.modal', function (e) {
+            $('#frm_actibd :input').val(null);
+            $('#actibd_nomenclador').selectpicker('val','NAES');
+            $('#div_car_unidad').hide();
+            $('#actibd_c_actividad, #actibd_nomenclador, #actibd_f_inicio').attr('disabled',false);
+            $('#lupa_actibd_c_actividad').show();
+            $('#actibd_c_unidad, #actibd_cantidad_unidad, #actibd_f_desde_unidad').removeClass('validate[required]');
+        });
+
+        $('#actibd_modal').on('shown.bs.modal', function (e) {
+            if ($('#actibd_oper').val() == 'M'){
+                $('#actibd_c_actividad, #actibd_nomenclador').attr('disabled',true);
+                $('#lupa_actibd_c_actividad').hide();
+                if ($('#actibd_f_cese').val()){
+                    $('#actibd_f_inicio').attr('disabled',true);
+                }else {
+                    $('#actibd_f_inicio').attr('disabled',false);
+                }
+            }
+        });
+
+        $('#com_modal').on('hidden.bs.modal', function (e) {
+            $('#frm_com :input').val(null);
+            $('#com_n_comercio').attr('disabled',false);
+            $('#com_ppal').val('No');
+            $('#lupa_com_c_localidad').show();
+        });
+
+        $('#com_modal').on('shown.bs.modal', function (e) {
+            if ($('#com_ppal').val() == 'No'){
+                $('#com_d_calle, #com_n_numero, #com_monoblock, #com_puerta, #com_piso, #com_depto, #com_oficina, #com_c_localidad').attr('disabled',false);
+                $('#com_d_calle, #com_c_localidad').addClass('validate[required]');
+                $('#lupa_com_c_localidad').show();
+            }else {
+                $('#com_d_calle, #com_n_numero, #com_monoblock, #com_puerta, #com_piso, #com_depto, #com_oficina,  #com_c_localidad').attr('disabled',true);
+                $('#com_d_calle, #com_c_localidad').removeClass('validate[required]');
+                $('#lupa_com_c_localidad').hide();
+            }
+        });
+
+        $('#uni_modal').on('hidden.bs.modal', function (e) {
+            $('#frm_uni :input').val(null);
+        });
+
+        $('#uni_modal').on('shown.bs.modal', function (e) {
+            $('#uni_contrib').val(id_contrib);
+            $('#uni_timp').val(c_tipo_imponible);
+            $('#uni_trib').val(c_tributo);
+            $('#uni_obj').val(objeto_hecho);
+        });
+
+        $('#actcm_modal').on('hidden.bs.modal', function (e) {
+            $('#frm_actcm :input').val(null);
+            $('#actcm_nomenclador').selectpicker('val','NAES');
+            $('#actcm_c_actividad,#actcm_c_articulo,#actcm_digito,#actcm_nomenclador').attr('disabled',false);
+            $('#lupa_actcm_c_articulo, #lupa_actcm_c_actividad').show();
+        });
+
+        $('#actcm_modal').on('shown.bs.modal', function (e) {
+            if ($('#actcm_oper').val() == 'M') {
+                $('#actcm_c_actividad,#actcm_c_articulo,#actcm_digito,#actcm_nomenclador').attr('disabled', true);
+                $('#lupa_actcm_c_articulo, #lupa_actcm_c_actividad').hide();
+            }
+        });
+
+        $('#jur_modal').on('hidden.bs.modal', function (e) {
+            $('#frm_jur :input').val(null);
+            $('#jur_c_jur').attr('disabled',false);
+            $('#lupa_jur_c_jur').show();
+        });
+
+        $('#jur_modal').on('shown.bs.modal', function (e) {
+            if ($('#jur_oper').val() == 'M'){
+                $('#jur_c_jur').attr('disabled',true);
+                $('#lupa_jur_c_jur').hide();
+            }
+        });
+
+        /*------------------------LUPAS MODALES----------------------------*/
+        /*---------------LUPAS ABM ACTIVIDAD IBD---------------*/
+        $("#lupa_actibd_c_actividad").lupa_generica({
+            id_lista:v_lista_act,
+            titulos:['C&oacute;digo','Nomenclador','F. Hasta','Descripci&oacute;n','Particularidad','Grupo','Unidad'],
+            grid:[{index:'c_actividad',width:100},
+                {index:'nomenclador',hidden:true},
+                {index:'vig_hasta',width:100},
+                {index:'d_actividad_red',width:250},
+                {index:'d_particularidad',width:250},
+                {index:'c_grupo',hidden:true},
+                {index:'unidad',hidden:true}],
+            caption:'Actividades',
+            sortname:'',
+            sortorder:'',
+            filtros:['#actibd_nomenclador'],
+            filtrosNulos:[false],
+            filtrosTitulos:['Nomenclador'],
+            searchInput: '#actibd_c_actividad',
+            exactField: 'c_actividad',
+            searchCode: true,
+            limpiarCod: true,
+            campos:{c_actividad:'actibd_c_actividad',d_actividad_red:'actibd_d_actividad',unidad:'actibd_unidad',c_grupo:'actibd_grupo'},
+            keyNav:true,
+            onClose: function(){
+                if ($('#actibd_unidad').val() == 'U'){
+                    $('#div_car_unidad').show();
+                    $('#actibd_c_unidad, #actibd_cantidad_unidad, #actibd_f_desde_unidad').addClass('validate[required]');
+                }else {
+                    $('#div_car_unidad').hide();
+                    $('#actibd_c_unidad, #actibd_cantidad_unidad, #actibd_f_desde_unidad').removeClass('validate[required]');
+                }
+                $('#div_car_unidad :input').val(null);
+            }
+        });
+
+        $("#lupa_actibd_c_unidad").lupa_generica({
+            id_lista:v_lista_uni,
+            titulos:['C&oacute;digo','Descripci&oacute;n'],
+            grid:[{index:'c_codigo',width:100},
+                {index:'d_descrip',width:250}],
+            caption:'Unidades',
+            sortname:'',
+            sortorder:'',
+            filtros:['#actibd_grupo'],
+            filtrosNulos:[false],
+            filtrosTitulos:['Actividad'],
+            searchInput: '#actibd_c_unidad',
+            searchCode: true,
+            limpiarCod: true,
+            exactField: 'c_codigo',
+            campos:{c_codigo:'actibd_c_unidad',d_descrip:'actibd_d_unidad'},
+            keyNav:true
+        });
+
+        /*---------------LUPAS ABM COMERCIOS---------------*/
+        $("#lupa_com_c_localidad").lupa_generica({
+            id_lista:v_lista_com_loc,
+            titulos:['C&oacute;digo','Descripci&oacute;n','c_departamento','c_provincia','n_tabla_provincia'],
+            grid:[{index:'c_localidad',width:100},
+                {index:'d_descrip',width:250},
+                {index:'c_departamento',hidden:true},
+                {index:'c_provincia',hidden:true},
+                {index:'n_tabla_provincia',hidden:true}],
+            caption:'Localidades',
+            sortname:'d_descrip',
+            sortorder:'',
+            searchInput: '#com_c_localidad',
+            searchCode: true,
+            limpiarCod: true,
+            exactField: 'c_localidad',
+            campos:{c_localidad:'com_c_localidad',d_descrip:'com_d_localidad',c_provincia:'com_c_provincia'},
+            keyNav:true,
+            onClose: function(){
+                if ($('#com_c_localidad').val()){
+                    $('#com_d_provincia').val('RIO NEGRO');
+                }else {
+                    $('#com_c_provincia').val(null);
+                    $('#com_d_provincia').val(null);
+                }
+            }
+        });
+
+        /*---------LUPAS ABM UNIDAD-------------*/
+        $("#lupa_uni_c_actividad").lupa_generica({
+            id_lista:v_lista_actxcont,
+            titulos:['C&oacute;digo','Descripci&oacute;n','Nomenclador','F. Hasta','Particularidad','Grupo'],
+            grid:[{index:'c_actividad',width:100},
+                {index:'d_actividad_red',hidden:true},
+                {index:'id_nomenclador',width:100},
+                {index:'f_vig_hasta',width:250},
+                {index:'d_particularidad',width:250},
+                {index:'c_grupo',hidden:true}],
+            caption:'Actividades',
+            sortname:'',
+            sortorder:'',
+            filtros:['#uni_contrib','#uni_timp','#uni_trib','#uni_obj'],
+            filtrosNulos:[false,false,false,false],
+            searchInput: '#uni_c_actividad',
+            exactField: 'c_actividad',
+            searchCode: true,
+            limpiarCod: true,
+            campos:{c_actividad:'uni_c_actividad',d_actividad_red:'uni_d_actividad',id_nomenclador:'uni_nomenclador',c_grupo:'uni_grupo'},
+            keyNav:true,
+            onClose: function(){
+                $('#uni_c_unidad,#uni_d_unidad,#uni_cantidad_unidad,#uni_f_desde,#uni_f_hasta').val(null);
+            }
+        });
+
+        $("#lupa_uni_c_unidad").lupa_generica({
+            id_lista:v_lista_uni,
+            titulos:['C&oacute;digo','Descripci&oacute;n'],
+            grid:[{index:'c_codigo',width:100},
+                {index:'d_descrip',width:250}],
+            caption:'Unidades',
+            sortname:'',
+            sortorder:'',
+            filtros:['#uni_grupo'],
+            filtrosNulos:[true],
+            filtrosTitulos:['Actividad'],
+            searchInput: '#uni_c_unidad',
+            searchCode: true,
+            limpiarCod: true,
+            exactField: 'c_codigo',
+            campos:{c_codigo:'uni_c_unidad',d_descrip:'uni_d_unidad'},
+            keyNav:true
+        });
+
+        /*---------LUPAS ABM ACTIVIDAD CM-------------*/
+        $("#lupa_actcm_c_articulo").lupa_generica({
+            id_lista:v_lista_art,
+            titulos:['Artículo','Descripción','n_tabla_articulo'],
+            grid:[{index:'c_dato',width:100},
+                {index:'d_dato',width:250},
+                {index:'n_tabla',hidden:true}],
+            caption:'Artículos',
+            sortname:'',
+            sortorder:'',
+            searchInput: '#actcm_c_articulo',
+            exactField: 'c_dato',
+            searchCode: true,
+            limpiarCod: true,
+            campos:{c_dato:'actcm_c_articulo',d_dato:'actcm_d_articulo'},
+            keyNav:true
+        });
+
+        $("#lupa_actcm_c_actividad").lupa_generica({
+            id_lista:v_lista_actcm,
+            titulos:['C&oacute;digo','Nomenclador','F. Hasta','Descripci&oacute;n','Act. Completa'],
+            grid:[{index:'c_actividad',width:100},
+                {index:'id_nomenclador',hidden:true},
+                {index:'f_vig_hasta',width:100},
+                {index:'d_actividad_red',width:250},
+                {index:'d_actividad_completa',width:250}],
+            caption:'Actividades',
+            sortname:'',
+            sortorder:'',
+            filtros:['#actcm_nomenclador'],
+            filtrosNulos:[false],
+            filtrosTitulos:['Nomenclador'],
+            searchInput: '#actcm_c_actividad',
+            exactField: 'c_actividad',
+            searchCode: true,
+            limpiarCod: true,
+            campos:{c_actividad:'actcm_c_actividad',d_actividad_red:'actcm_d_actividad'},
+            keyNav:true,
+            onClose: function(){
+                $('#actcm_digito').val(null);
+            }
+        });
+
+        /*---------LUPAS ABM ACTIVIDAD CM-------------*/
+        $("#lupa_jur_c_jur").lupa_generica({
+            id_lista:v_lista_jur,
+            titulos:['C&oacute;digo','Descripci&oacute;n'],
+            grid:[{index:'c_dato',width:100},
+                {index:'d_dato',width:250}],
+            caption:'Jurisdicciones',
+            sortname:'',
+            sortorder:'',
+            searchInput: '#jur_c_jur',
+            exactField: 'c_dato',
+            searchCode: true,
+            limpiarCod: true,
+            campos:{c_dato:'jur_c_jur',d_dato:'jur_d_jur'},
+            keyNav:true
+        });
+
+        /*--------------ACCIONES BOTONES--------------*/
+        /*ACTIVIDAD IBD*/
+        $('#btn_actibd_aceptar').click(function () {
+            if ($('#frm_actibd').validationEngine('validate')){
+                var params = {
+                    p_oper:$('#actibd_oper').val(),
+                    p_c_actividad:$('#actibd_c_actividad').val(),
+                    p_id_nomenclador:$('#actibd_nomenclador').val(),
+                    p_f_inicio_act:$('#actibd_f_inicio').val(),
+                    p_f_cese_act:$('#actibd_f_cese').val(),
+                    p_c_unidad:$('#actibd_c_unidad').val(),
+                    p_fvig_desde_u:$('#actibd_f_desde_unidad').val(),
+                    p_fvig_hasta_u:$('#actibd_f_hasta_unidad').val(),
+                    p_n_unidades:$('#actibd_cantidad_unidad').val(),
+                };
+                fun_abm_actibd(params);
+            }
+        });
+
+        /*UNIDAD IBD*/
+        $('#btn_uni_aceptar').click(function () {
+            if ($('#frm_uni').validationEngine('validate')){
+                var params = {
+                    p_oper:$('#uni_oper').val(),
+                    p_c_actividad:$('#uni_c_actividad').val(),
+                    p_id_nomenclador:$('#uni_nomenclador').val(),
+                    p_fvig_desde:$('#uni_f_desde').val(),
+                    p_fvig_hasta:$('#uni_f_hasta').val(),
+                    p_c_unidad:$('#uni_c_unidad').val(),
+                    p_n_unidades:$('#uni_cantidad_unidad').val()
+                };
+                fun_abm_unidad(params);
+            }
+        });
+
+        /*COMERCIOS IBD*/
+        $('#btn_com_aceptar').click(function () {
+            if ($('#frm_com').validationEngine('validate')){
+                var params = {
+                    p_oper : $('#com_oper').val(),
+                    p_n_comercio: $('#com_n_comercio').val(),
+                    p_f_inic: $('#com_f_inicio').val(),
+                    p_f_final: $('#com_f_cese').val(),
+                    p_d_fantasia: $('#com_d_fantasia').val(),
+                    p_n_tel: $('#com_n_telefono').val(),
+                    p_d_calle: $('#com_d_calle').val(),
+                    p_n_numero: $('#com_n_numero').val(),
+                    p_d_monoblock: $('#com_monoblock').val(),
+                    p_d_puerta: $('#com_puerta').val(),
+                    p_d_piso: $('#com_piso').val(),
+                    p_d_depto: $('#com_depto').val(),
+                    p_d_oficina: $('#com_oficina').val(),
+                    p_c_localidad: $('#com_c_localidad').val(),
+                    p_c_provincia: $('#com_c_provincia').val(),
+                    p_m_ppal: $('#com_ppal').val(),
+                };
+                fun_abm_comercio(params);
+            }
+        });
+
+        /*ACTIVIDAD CM*/
+        $('#btn_actcm_aceptar').click(function () {
+            if ($('#frm_actcm').validationEngine('validate')){
+                var params = {
+                    p_oper:$('#actcm_oper').val(),
+                    p_c_actividad:$('#actcm_c_actividad').val(),
+                    p_id_nomenclador:$('#actcm_nomenclador').val(),
+                    p_c_articulo:$('#actcm_c_articulo').val(),
+                    p_f_inicio_act:$('#actcm_f_inicio').val(),
+                    p_f_cese_act:$('#actcm_f_cese').val(),
+                    p_c_digito:$('#actcm_digito').val()
+                };
+                fun_abm_actcm(params);
+            }
+        });
+
+        $('#btn_jur_aceptar').click(function () {
+            if ($('#frm_jur').validationEngine('validate')){
+                var params = {
+                    p_oper:$('#jur_oper').val(),
+                    p_c_jurisdiccion:$('#jur_c_jur').val(),
+                    p_f_vig_desde:$('#jur_f_inicio').val(),
+                    p_f_vig_hasta:$('#jur_f_cese').val(),
+                    p_d_domicilio:$('#jur_domicilio').val()
+                };
+                fun_abm_jurisdiccion(params);
+            }
+        });
+    });
+</script>

@@ -1,0 +1,47 @@
+.col-md-offset-1{
+    margin-left: 12.333% !important;
+}
+
+.col-md-offset{
+    margin-left: 10.333% !important;
+}
+
+.btn-consulta{
+    color: #333333;
+    background-color: #d0d0d0;
+}
+
+#c_guarda_habitual{
+    text-align: center;
+    display: grid;
+    margin: 0px auto;
+}
+
+#div_fmcamod{
+    margin-left: 4.333% !important;
+}
+
+#div_motivo_alta {
+    margin-left: 4.333% !important;
+}
+
+#c_fmcamod{
+    width: 15% !important;
+}
+
+#c_tipo_documento_otro_cont{
+    width: 25% !important;
+    text-align: center;
+}
+
+#d_tipo_documento_otro_cont{
+    width: 75% !important;
+}
+
+.digito-verif{
+    width: 5.333% !important;
+}
+
+#div_patente{
+    margin-left: 18.667% !important;
+}

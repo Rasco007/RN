@@ -1,0 +1,175 @@
+<div id="div_general" style="max-width: 65%;margin: 0 auto;">
+    <div id="div_resumen" class="panel-search">
+        <div class="panel panel-primary">
+            <div class="collapse in" aria-expanded="true" style="">
+                <div class="panel-heading">Resumen</div>
+                <div class="panel-body">
+                    <form id='frm_resumen'>
+                        <div class="row form-group">
+                            <div class="col-md-6">
+                                <label for="motivo_estimado">Motivo de Ajuste</label>
+                                <select  class="form-control input-sm" id='motivo_estimado' readonly="true" disabled>
+                                    <option><?= $p_d_motivo_ajus_estimado;?></option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="pos_fis_desde_estimada" class="control-label">Pos Fiscal Desde Estimada</label>
+                                <input type="text" class="form-control input-sm" id="pos_fis_desde_estimada" value="<?= $p_pos_fis_desde_estimada;?>" readonly="true">
+                            </div>
+                            <div class="col-md-3">
+                                <label for="pos_fis_hasta_estimada" class="control-label">Pos Fiscal Hasta Estimada</label>
+                                <input id='pos_fis_hasta_estimada' type='text' class='form-control input-sm' value="<?= $p_pos_fis_hasta_estimada;?>" readonly="true">
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-12">
+                                <label for="regla_estimado">Regla</label>
+                                <select class="form-control input-sm" id='regla_estimado' readonly="true" disabled>
+                                    <option><?= $p_d_regla;?></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-12">
+                                <label for="i_monto_total_ajustado" class="control-label">Monto Total Ajuste</label>
+                                <input type="text" class="form-control input-sm" id="i_monto_total_ajustado" value="<?= $p_i_monto_total_ajuste;?>" readonly="true" style="text-align: right">
+                            </div>
+                        </div>
+                        <br>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="div_estimado" class="panel-search">
+        <div class="panel panel-primary">
+            <div class="collapse in" aria-expanded="true" style="">
+                <div class="panel-heading">Estimados</div>
+                <div class="panel-body">
+                    <form id='frm_estimados'>
+                        <div class="row form-group">
+                            <div class="col-md-12">
+                                <label for="i_base_estimado">Diferencia de Base Imponible</label>
+                                <input  class="form-control input-sm" id='i_base_estimado' value="<?= $p_i_base_estimado;?>" readonly="true" style="text-align: right">
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-12">
+                                <label for="i_ajuste_estimado">Ajuste Impuesto</label>
+                                <input class="form-control input-sm" id='i_ajuste_estimado' value="<?= $p_i_ajuste_estimado;?>" readonly="true" style="text-align: right">
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-12">
+                                <label for="i_impug_bonif" class="control-label">Impugnación Bonificación</label>
+                                <input type="text" class="form-control input-sm" id="i_impug_bonif" value="<?= $p_i_impug_bonif;?>" readonly="true" style="text-align: right">
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-12">
+                                <label for="i_impug_pc" class="control-label">Impugnación Pagos a Cuenta</label>
+                                <input type="text" class="form-control input-sm" id="i_impug_pc" value="<?= $p_i_impug_pc;?>" readonly="true" style="text-align: right">
+                            </div>
+                        </div>
+                        <br>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="div_resultado" class="panel-search">
+        <div class="panel panel-primary">
+            <div class="collapse in" aria-expanded="true" style="">
+                <div class="panel-heading">Resultados</div>
+                <div class="panel-body">
+                    <form id='frm_resultado'>
+                        <div class="row form-group">
+                            <div class="col-md-12">
+                                <label for="i_base_tot">Total de Base Imponible Ajustada</label>
+                                <input  class="form-control input-sm" id='i_base_tot' value="<?= $p_i_base_imponible_ajustada;?>" readonly="true" style="text-align: right">
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-12">
+                                <label for="i_ajuste_tot">Total Impuesto Ajustado</label>
+                                <input class="form-control input-sm" id='i_ajuste_tot' value="<?= $p_i_impuesto_ajustado;?>" readonly="true" style="text-align: right">
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-12">
+                                <label for="i_bonif_tot" class="control-label">Total Bonificaciones Ajustadas</label>
+                                <input type="text" class="form-control input-sm" id="i_bonif_tot" value="<?= $p_i_ajuste_bonificaciones;?>" readonly="true" style="text-align: right">
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-12">
+                                <label for="i_pc_tot" class="control-label">Total Ajuste Pagos a Cuenta</label>
+                                <input type="text" class="form-control input-sm" id="i_pc_tot" value="<?= $p_i_ajuste_pac;?>" readonly="true" style="text-align: right">
+                            </div>
+                        </div>
+                        <br>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="div_leyenda" class="panel-search">
+        <div class="panel-body" style="text-align: center">
+            <p>A fin de determinar la efectividad de la Fiscalización debe ingresar por PENTAHO, cubo
+                Fisca_efectividad_inspecciones, donde podrá verificar resultados contra lo declarado, y luego
+                comparar las diferencias detectadas contra lo Estimado.</p>
+        </div>
+    </div>
+
+    <div id="div_f109" class="panel-search">
+        <div class="panel panel-primary">
+            <div class="collapse in" aria-expanded="true" style="">
+                <div class="panel-heading">Datos Adicionales del Evento de Cierre f109</div>
+                <div class="panel-body">
+                    <form id='frm_f109'>
+                        <div class="row form-group">
+                            <div class="col-md-12">
+                                <label for="mot_ajuste_1">Motivo de Ajuste 1</label>
+                                <input  class="form-control input-sm" id='mot_ajuste_1' value="<?= $p_motivo_ajuste1;?>" readonly="true" style="text-align: right">
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-12">
+                                <label for="mot_ajuste_2">Motivo de Ajuste 2</label>
+                                <input class="form-control input-sm" id='mot_ajuste_2' value="<?= $p_motivo_ajuste2;?>" readonly="true" style="text-align: right">
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-12">
+                                <label for="mot_ajuste_3" class="control-label">Motivo de Ajuste 3</label>
+                                <input type="text" class="form-control input-sm" id="mot_ajuste_3" value="<?= $p_motivo_ajuste3;?>" readonly="true" style="text-align: right">
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-12">
+                                <label for="otros_mot_ajuste" class="control-label">Otros Motivos de Ajuste</label>
+                                <input type="text" class="form-control input-sm" id="otros_mot_ajuste" value="<?= $p_otros_motivos_ajuste;?>" readonly="true" style="text-align: right">
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-12">
+                                <label for="observaciones" class="control-label">Observaciones</label>
+                                <input type="text" class="form-control input-sm" id="observaciones" value="<?= $p_observaciones;?>" readonly="true" style="text-align: right">
+                            </div>
+                        </div>
+                        <br>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="div_botones">
+        <div class="text-center" style="display: flex; justify-content: space-evenly;">
+            <button type='button' class="btn btn-sm" onclick="window.close()" id='btn_cerrar'><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cerrar</button>
+        </div>
+    </div>
+</div>

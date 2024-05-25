@@ -1,0 +1,48 @@
+<div id="div_search" class="panel-search">
+  <div class="panel panel-primary">
+    <div class="collapse in" id="collapse_search" aria-expanded="true">
+      <div class="panel-heading">Filtros de busqueda</div>
+      <div class="panel-body">
+        <form id="frm_tabla_de_valuacion">
+          <div class="row">
+            <div class="form-group col-md-3">
+              <label>Fmcamod</label>
+              <div class="input-group" style="width: 100%">
+                <input type="text" style="width: 100%" name="c_fmcamod" id="c_fmcamod" >
+              </div>
+            </div>
+
+            <div class="form-group col-md-3">
+              <label>Descripción</label>
+              <div class="input-group" style="width: 100%">
+                <input type="text" style="width: 100%" name="d_descripcion" id="d_descripcion"  style="width: 68%;">
+              </div>
+            </div>
+            <div class="form-group col-md-3">
+              <label>Valuación</label>
+              <div class="input-group" style="width: 100%">
+                <input type="text" style="width: 100%" name="n_valuacion" id="n_valuacion" >
+              </div>
+            </div>
+
+            <div class="form-group col-md-3">
+              <label>Origen</label>
+              <div class="input-group" style="width: 100%">
+                <input type="text" style="width: 100%" name="c_origen" id="c_origen">
+              </div>
+            </div>
+          </div>
+          <div class='row text-center' id='botones_busqueda' style="margin-top: 10px;">
+            <button type="button" class="btn-sm btn_buscar" id="btn_buscar"></button>
+            <button type="button" class="btn-sm btn_limpiar" id="btn_limpiar"></button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<table id="main_grid" class="scroll" cellpadding="0" cellspacing="0">
+    <tr><td>&nbsp;</td></tr>
+  </table>
+<div id="main_grid_pager" class="scroll" style="text-align:center;"></div>

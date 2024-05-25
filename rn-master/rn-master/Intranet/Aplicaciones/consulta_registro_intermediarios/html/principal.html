@@ -1,0 +1,461 @@
+<div id="div_intermediario" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading">Registro Provincial de Intermediarios</div>
+            <div class="panel-body">
+                <form action="" id="frm_datos_intermediario">
+                    <div class="row">
+                        
+                        <div class="form-group col-md-2">        
+                            <label for="n_cuit_intermed">CUIT</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm numerico" id="n_cuit_intermed" style="text-align: center">
+                                <span class="input-group-addon btn_lupa" id="lupa_cuit">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon" id="mascara_lupa_cuit" style="display: none">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="c_tipo_doc">Tipo de Documento</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm input-cod-short text-input numerico" id="c_tipo_doc" style="text-align: center">
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_tipo_doc" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_tipo_doc">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon" id="mascara_lupa_tipo_doc" style="display: none">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                            </div>       
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="n_documento">Nro. Documento</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm numerico" id="n_documento" style="text-align: center">
+                                <span class="input-group-addon btn_lupa" id="lupa_n_doc">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon" id="mascara_lupa_n_doc" style="display: none">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group col-md-4">
+                            <label for="d_denominacion">Razón Social</label>
+                            <div class="input-group" id="div_input_denominacion">
+                                <input name='d_denominacion' type="text" class="form-control input-sm mayusculas" id="d_denominacion">
+                                <span class="input-group-addon" id="mascara_lupa_d_denominacion">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon" id="lupa_d_denominacion">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                    </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="d_objeto_hecho">Nro. Inscripción</label>
+                            <input type="text" class="form-control input-sm numerico" id="d_objeto_hecho" style="text-align: center">
+                        </div>
+
+                        <div class="form-group col-md-4 ">
+                            <label for="c_tipo_imp">Tipo Imponible</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm input-cod-short text-input numerico" id="c_tipo_imp" style="text-align: center">
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_tipo_imp" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_tipo_imp">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon" id="mascara_lupa_tipo_imp" style="display: none">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                            </div>       
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="c_tributo">Tributo</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm input-cod-short text-input numerico" id="c_tributo" style="text-align: center">
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_tributo" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_tributo">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon" id="mascara_lupa_tributo" style="display: none">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                            </div>       
+                        </div>
+
+                    </div>
+                    <div class="row text-center" style="margin: 15px 0px 15px 0px">
+                        <button type='button' id='btn_buscar' name='btn_buscar' class="btn-sm btn_buscar"></button>
+                        <button type='button' id='btn_limpiar' name='btn_limpiar' class="btn-sm btn_limpiar"></button>
+                    </div>
+
+                </form>
+                <div class="panel-heading" style="padding-left: 10px;">Datos de los Contribuyentes por cuya cuenta y orden factura</div>
+                <form action="" id="frm_datos_contribuyente">
+                    <div class="row" >
+
+                        <div class="form-group col-md-2">
+                            <label for="n_cuit_contrib">CUIT</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm numerico" id="n_cuit_contrib" style="text-align: center">
+                                <span class="input-group-addon btn_lupa" id="lupa_cuit_contrib">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon" id="mascara_lupa_cuit_contrib" style="display: none">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="d_denominacion_contrib">Razón Social</label>
+                            <div class="input-group" id="div_input_denominacion">
+                                <input name='d_denominacion_contrib' type="text" class="form-control input-sm mayusculas" id="d_denominacion_contrib">
+                                <span class="input-group-addon" id="mascara_lupa_d_denominacion_contrib">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon" id="lupa_d_denominacion_contrib">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="d_objeto_hecho_contrib">Nro. Inscripción</label>
+                            <input type="text" class="form-control input-sm numerico" id="d_objeto_hecho_contrib" style="text-align: center">
+                        </div>
+
+                        <div class="form-group col-md-1">
+                            <label class="form-label" for="">Existía Alta</label>
+                            <select class="form-control input-sm" id="existia_alta">
+                                <option value="" selected></option>
+                                <option value="SI">SI</option>
+                                <option value="NO">NO</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="c_tributo_contrib">Tributo</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm input-cod-short text-input numerico" id="c_tributo_contrib" style="text-align: center">
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_tributo_contrib" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_tributo_contrib">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon" id="mascara_lupa_tributo_contrib" style="display: none">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                            <label for="c_provincia">Provincia</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm input-cod-short text-input mayusculas" id="c_provincia" style="text-align: center">
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_provincia" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_provincia">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon" id="mascara_lupa_provincia" style="display: none">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="d_localidad">Localidad</label>
+                            <input type="text" class="form-control input-sm" id="d_localidad" style="text-align: left">
+                        </div>
+
+                        <div class="form-group col-md-1">
+                            <label for="c_postal">Postal</label>
+                            <input type="text" class="form-control input-sm numerico" id="c_postal" style="text-align: right">
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="d_calle">Calle</label>
+                            <input type="text" class="form-control input-sm" id="d_calle" style="text-align: left">
+                        </div>
+
+                        <div class="form-group col-md-1">
+                            <label for="n_numero">Número</label>
+                            <input type="text" class="form-control input-sm numerico" id="n_numero" style="text-align: right">
+                        </div>
+
+                        <div class="form-group col-md-1">
+                            <label for="piso">Piso</label>
+                            <input type="text" class="form-control input-sm numerico" id="piso" style="text-align: right">
+                        </div>
+
+                        <div class="form-group col-md-1">
+                            <label for="depto">Depto</label>
+                            <input type="text" class="form-control input-sm numerico" id="depto" style="text-align: right">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-2">
+                            <label for="d_email">Email</label>
+                            <input type="text" class="form-control input-sm" id="d_email" style="text-align: left">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="n_telefono">Teléfono</label>
+                            <input type="text" class="form-control input-sm" id="n_telefono" style="text-align: left">
+                        </div>
+
+                        <div class="form-group col-md-1">
+                            <label for="f_desde">Vig. Desde</label>
+                            <input type="text" class="form-control input-sm datepicker" id="f_desde" style="text-align: center">
+                        </div>
+
+                        <div class="form-group col-md-1">
+                            <label for="f_hasta">Vig. Hasta</label>
+                            <input type="text" class="form-control input-sm datepicker" id="f_hasta" style="text-align: center">
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="cta_contable">Cuenta Contable</label>
+                            <input type="text" class="form-control input-sm" id="cta_contable" style="text-align: left">
+                        </div>
+
+                        <div class="form-group col-md-1">
+                            <label for="n_orden">Orden</label>
+                            <input type="text" class="form-control input-sm numerico" id="n_orden" style="text-align: center">
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="c_tipo_doc_hab">Tipo Doc. Habilitante</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm input-cod-short text-input numerico" id="c_tipo_doc_hab" style="text-align: center">
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_tipo_doc_hab" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_tipo_doc_hab">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon" id="mascara_lupa_tipo_doc_hab" style="display: none">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--<div id="div_intermediario" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading">Datos de los Contribuyentes por cuya cuenta y orden factura</div>
+            <div class="panel-body">
+                <form action="" id="frm_datos_contribuyente">
+                    <div class="row" >
+                    
+                        <div class="form-group col-md-2">        
+                            <label for="n_cuit_contrib">CUIT</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm numerico" id="n_cuit_contrib" style="text-align: center">
+                                <span class="input-group-addon btn_lupa" id="lupa_cuit_contrib">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="d_denominacion_contrib">Razón Social</label>
+                            <div class="input-group" id="div_input_denominacion">
+                                <input name='d_denominacion_contrib' type="text" class="form-control input-sm mayusculas" id="d_denominacion_contrib">
+                                <span class="input-group-addon" id="mascara_lupa_d_denominacion_contrib">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon" id="lupa_d_denominacion_contrib">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                    </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-2">        
+                            <label for="d_objeto_hecho_contrib">Nro. Inscripción</label>
+                            <input type="text" class="form-control input-sm numerico" id="d_objeto_hecho_contrib" style="text-align: center">
+                        </div>
+
+                        <div class="form-group col-md-1">
+                            <label class="form-label" for="">Existía Alta</label>
+                            <select class="form-control input-sm" id="existia_alta">
+                                <option value="" selected></option>
+                                <option value="SI">SI</option>
+                                <option value="NO">NO</option>
+                            </select>   
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="c_tributo_contrib">Tributo</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm input-cod-short text-input numerico" id="c_tributo_contrib" style="text-align: center">
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_tributo_contrib" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_tributo_contrib">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>       
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-2">
+                            <label for="c_provincia">Provincia</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm input-cod-short text-input mayusculas" id="c_provincia" style="text-align: center">
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_provincia" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_provincia">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>       
+                        </div>
+
+                        <div class="form-group col-md-2">        
+                            <label for="d_localidad">Localidad</label>
+                            <input type="text" class="form-control input-sm" id="d_localidad" style="text-align: left">
+                        </div>
+
+                        <div class="form-group col-md-1">        
+                            <label for="c_postal">Postal</label>
+                            <input type="text" class="form-control input-sm numerico" id="c_postal" style="text-align: right">
+                        </div>
+
+                        <div class="form-group col-md-2">        
+                            <label for="d_calle">Calle</label>
+                            <input type="text" class="form-control input-sm" id="d_calle" style="text-align: left">
+                        </div>
+
+                        <div class="form-group col-md-1">        
+                            <label for="n_numero">Número</label>
+                            <input type="text" class="form-control input-sm numerico" id="n_numero" style="text-align: right">
+                        </div>
+
+                        <div class="form-group col-md-1">        
+                            <label for="piso">Piso</label>
+                            <input type="text" class="form-control input-sm numerico" id="piso" style="text-align: right">
+                        </div>
+
+                        <div class="form-group col-md-1">        
+                            <label for="depto">Depto</label>
+                            <input type="text" class="form-control input-sm numerico" id="depto" style="text-align: right">
+                        </div>
+
+                        <div class="form-group col-md-2">        
+                            <label for="d_email">Email</label>
+                            <input type="text" class="form-control input-sm" id="d_email" style="text-align: left">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-2">        
+                            <label for="n_telefono">Teléfono</label>
+                            <input type="text" class="form-control input-sm" id="n_telefono" style="text-align: left">
+                        </div>
+
+                        <div class="form-group col-md-1">        
+                            <label for="f_desde">Vig. Desde</label>
+                            <input type="text" class="form-control input-sm datepicker" id="f_desde" style="text-align: center">
+                        </div>
+
+                        <div class="form-group col-md-1">        
+                            <label for="f_hasta">Vig. Hasta</label>
+                            <input type="text" class="form-control input-sm datepicker" id="f_hasta" style="text-align: center">
+                        </div>
+
+                        <div class="form-group col-md-3">        
+                            <label for="cta_contable">Cuenta Contable</label>
+                            <input type="text" class="form-control input-sm" id="cta_contable" style="text-align: left">
+                        </div>
+
+                        <div class="form-group col-md-1">        
+                            <label for="n_orden">Orden</label>
+                            <input type="text" class="form-control input-sm numerico" id="n_orden" style="text-align: center">
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="c_tipo_doc_hab">Tipo Doc. Habilitante</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm input-cod-short text-input numerico" id="c_tipo_doc_hab" style="text-align: center">
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_tipo_doc_hab" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_tipo_doc_hab">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>       
+                        </div>
+                    </div>
+
+                    <div class="row text-center" style="margin: 15px 0px 15px 0px">
+                        <button type='button' id='btn_buscar' name='btn_buscar' class="btn-sm btn_buscar"></button>
+                        <button type='button' id='btn_limpiar' name='btn_limpiar' class="btn-sm btn_limpiar"></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>-->
+
+
+<div id="Grilla">
+    <table id="main_grid" class="scroll" cellpadding="0" cellspacing="0">
+        <tr><td>&nbsp;</td></tr>
+    </table>
+    <div id="main_grid_pager" class="scroll" style="text-align:center;"></div>
+</div>
+
+<div class="form-group col-md-12" style="margin-top: 20px; display: flex; margin-left: 5%;">
+    <div class="form-group col-md-1">
+        <label for="separador" class="text-end">Delimitador Archivo</label>
+    </div>
+    <div class="form-group col-md-1">
+        <input type="text" class="form-control input-sm" id="separador" style="text-align: right; font-weight: bold;" maxlength="1" readonly>
+    </div>
+    <div class="form-group col-md-1">
+        <label for="separador" class="text-end">Carpeta destino</label>
+    </div>
+    <div class="form-group col-md-2">
+        <input type="text" class="form-control input-sm"  style="font-weight: bold;" value="C\TMP" readonly>
+    </div>
+    <div class="form-group col-md-7">
+        <button type='button' id='btn_exportar_actual' class="ui-button ui-corner-all ui-widget">Exportar la Consulta Actual</button>
+        <button type='button' id='btn_exportar_todo_reg_interm' class="ui-button ui-corner-all ui-widget" style="margin-left: 0.5%;">Exportar Todo el Registro de Intermediarios</button>
+    </div>
+</div>
+
+
+
+<!--<div class="row" style="margin-top: 1%; margin-left: 15%">
+    <div class="form-group col-md-1 text-nowrap" style="margin: 5px 5px 0 0">
+        <label for="separador" class="text-end">Delimitador Archivo</label>
+    </div>
+
+    <div class="form-group col-md-1" style="margin-left: 2%;">
+        <input type="text" class="form-control input-sm" id="separador" style="text-align: right; font-weight: bold;" maxlength="1" readonly>
+    </div>
+
+    <div class="form-group col-md-9">
+
+    </div>
+</div>-->

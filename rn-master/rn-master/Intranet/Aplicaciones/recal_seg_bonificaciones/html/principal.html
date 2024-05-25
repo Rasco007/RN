@@ -1,0 +1,82 @@
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading">Seguimiento de Bonificación</div>
+            <div class="panel-body">
+                <form id='frm_busqueda'>
+                    <div class="row">
+                        <div class="form-group col-md-4 col-md-offset-2">
+                            <label for="c_tributo">Tributo:</label>
+                            <div class="input-group" id="div_input_tributo">
+                                <input name='c_tributo' type="text" class="form-control input-sm input-cod-short" maxlength="4" id="c_tributo">
+                                <input name='d_tributo' type="text" class="form-control input-sm input-desc-long" id="d_tributo" maxlength="100" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_tributo" name='lupa_tributo'>
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="d_objeto_hecho">Objeto:</label>
+                            <div class="input-group" id="div_input_objeto">
+                                <input name='d_objeto_hecho' type="text" class="form-control input-sm lupa_oculta mayusculas" id="d_objeto_hecho" maxlength="20" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_objeto_hecho" name='lupa_objeto_hecho' >
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-1 col-md-offset-2">
+                            <label>Desde</label>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="n_posicion_d">Posición Fiscal:</label>
+                            <input name='n_posicion_d' type="text" class="form-control input-sm" id="n_posicion_d" maxlength="7" placeholder="aaaa/mm">
+                        </div>
+                        <div class="form-group col-md-1">
+                            <label for="n_cuota_d">Cuota:</label>
+                            <input name='n_cuota_d' type="text" class="form-control input-sm" id="n_cuota_d" maxlength="7" placeholder="nn">
+                        </div>
+                        <div class="form-group col-md-1">
+                            <label>Hasta</label>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="n_posicion_h">Posición Fiscal:</label>
+                            <input name='n_posicion_h' type="text" class="form-control input-sm" id="n_posicion_h" maxlength="7" placeholder="aaaa/mm">
+                        </div>
+                        <div class="form-group col-md-1">
+                            <label for="n_cuota_h">Cuota:</label>
+                            <input name='n_cuota_h' type="text" class="form-control input-sm" id="n_cuota_h" maxlength="7" placeholder="nn">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-5 col-md-offset-4" style="margin-top:3px !important;">
+                        <button class="btn-sm btn-primary col-md-offset-2" type="button" id="btn_procesar"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Procesar</button>
+                        <button class="btn-sm btn_limpiar btn-sm btn-primary" type="button" id="btn_borrar_seguimiento"></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="div_grid">
+    <table id='recal_seg_bonif_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+    <div id='recal_seg_bonif_grid_pager' class='scroll' style='text-align:center;'></div>
+
+    <div class="panel" id="comentarios_grid">
+        <div class="panel-body">
+            <div class="row">
+                <label>Genera bonificación en la tabla de bonificación temporal para el objeto y período que se solicite.</label>
+            </div>
+            <div class="row">
+                <label>El seguimiento ilustra parte del proceso que se realiza para determinar si corresponde bonificación al objeto.</label>
+            </div>
+            <div class="row">
+                <label>El botón borrar seguimiento vacía la tabla de seguimiento de bonificaciones, no elimina las bonificaciones en tabla temporal.</label>
+            </div>
+        </div>
+    </div>
+</div>

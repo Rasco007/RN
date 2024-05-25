@@ -1,0 +1,146 @@
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading">Filtros de B&uacute;squeda</div>
+            <div class="panel-body">
+                <form id='frm_consulta' style="margin-top: 5px;">
+
+                    <div class="row">
+                        <div class="form-group col-md-2">
+                            <label for="n_cuit">CUIT Contribuyente:</label>
+                            <input name='n_cuit_mask' id='n_cuit' type='text' class='form-control input-sm text-right' value="<?=$_POST['p_n_cuit']?>"/>
+                            <input name='id_contribuyente' id='id_contribuyente' type='hidden' class='sr-only' value="<?=$_POST['p_id_contrib']?>"/>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="d_denominacion">Denominaci&oacute;n Contribuyente:</label>
+                            <input type="text" class="form-control input-sm mayusculas" id="d_denominacion" value="<?=$_POST['p_nombre']?>">
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="d_tipo_documento">Tipo Documento:</label>
+                            <div class="input-group" id="div_input_tipo_documento">
+                                <input type="text" class="form-control mayusculas input-sm input-cod-short" id="c_tipo_documento" value="<?=$_POST['p_c_documento']?>">
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_tipo_documento" value="<?=$_POST['p_d_documento']?>" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_c_tipo_documento">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                    </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="n_documento">N&uacute;mero de Documento:</label>
+                            <input type="text" class="form-control input-sm text-right" id="n_documento" value="<?=$_POST['p_documento']?>">
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="form-group col-md-4">
+                            <label for="d_tipo_imponible">Tipo Imponible: (*)</label>
+                            <div class="input-group" id="div_input_tipo_imponible">
+                                <input type="text" class="form-control input-sm input-cod-short validate[required]" id="c_tipo_imponible" value="<?=$_POST['p_c_timp']?>">
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_tipo_imponible" value="<?=$_POST['p_d_timp']?>" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_c_tipo_imponible">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="d_tributo">Tributo: (*)</label>
+                            <div class="input-group" id="div_input_tributo">
+                                <input type="text" class="form-control input-sm input-cod-short numero validate[required]" id="c_tributo" maxlength="3" value="<?=$_POST['p_c_trib']?>">
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_tributo" value="<?=$_POST['p_d_trib']?>" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_c_tributo">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="d_objeto_hecho">Objeto/Hecho:</label>
+                            <div class="input-group" id="div_input_obj_hecho">
+                                <span class="input-group-addon btn_lupa" id="lupa_d_objeto_hecho">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                                <input type="text" class="form-control input-sm mayusculas input-desc-long" id="d_objeto_hecho" value="<?=$_POST['p_objeto']?>" disabled>
+                                <input type="text" class="form-control input-sm numero input-cod-short text-center" id="n_digito" disabled>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row text-center">
+                        <div class="form-group col-md-12" style="margin-top: 15px;">
+                            <button type='button' id='btn_buscar' name='btn_buscar' class="btn-sm btn_buscar"></button>
+                            <button type='button' id='btn_limpiar' name='btn_limpiar' class="btn-sm btn_limpiar"></button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<table id='main_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+<div id='main_grid_pager' class='scroll' style='text-align:center;'></div>
+<br>
+<div class="panel panel-primary" id="datos_panel" style="display: none;">
+    <div id="datos_heading" class="panel-heading"> Datos Adicionales del Objeto</div>
+    <div class="panel-body">
+        <form id='frm_datos_inmo' style="margin-top: 5px;display: none;">
+            <div class="row">
+                <div class="form-group col-md-12">
+                    <label for="inmo_domicilio">Domicilio:</label>
+                    <input type="text" class="form-control input-sm mayusculas" id="inmo_domicilio" disabled="disabled">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label for="inmo_c_zona">Zona:</label>
+                    <div class="input-group col-md-12">
+                        <input type="text" class="form-control input-sm input-cod-short" id="inmo_c_zona" disabled="disabled">
+                        <input type="text" class="form-control input-sm input-desc-long" id="inmo_d_zona" disabled="disabled">
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inmo_uso">Uso:</label>
+                    <input type="text" class="form-control input-sm mayusculas" id="inmo_uso" disabled="disabled">
+                </div>
+            </div>
+        </form>
+        <form id='frm_datos_auto' style="margin-top: 5px;display: none;">
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label for="auto_dominio">Dominio Anterior:</label>
+                    <input type="text" class="form-control input-sm mayusculas" id="auto_dominio" disabled="disabled">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="auto_marca">Marca:</label>
+                    <input type="text" class="form-control input-sm mayusculas" id="auto_marca" disabled="disabled">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="auto_modelo">Modelo:</label>
+                    <input type="text" class="form-control input-sm mayusculas" id="auto_modelo" disabled="disabled">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label for="auto_desc">Descripción:</label>
+                    <input type="text" class="form-control input-sm mayusculas" id="auto_desc" disabled="disabled">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="auto_anio">Año:</label>
+                    <input type="text" class="form-control input-sm mayusculas" id="auto_anio" disabled="disabled">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<table id='bonificaciones_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+<div id='bonificaciones_grid_pager' class='scroll' style='text-align:center;'></div>

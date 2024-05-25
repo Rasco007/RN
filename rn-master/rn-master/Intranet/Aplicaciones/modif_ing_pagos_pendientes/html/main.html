@@ -1,0 +1,388 @@
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <!--<a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+                <span class="glyphicon"></span>
+            </a>-->
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading" style="text-transform: none;">Identificación de la Obligación</div>
+            <div class="panel-body">
+                <form id='frm_busqueda'>
+                    <div class="row">
+                        <input hidden='true' name='t_archivo' type="text" id="t_archivo">
+                        <input hidden='true' name='id_pago_erroneo' type="text" id="id_pago_erroneo">
+                        <input hidden='true' name='c_usuarioalt' type="text" id="c_usuarioalt">
+                        <input hidden='true' name='id_obligacion' type="text" id="id_obligacion">
+                        <input hidden='true' name='f_acreditacion' type="text" id="f_acreditacion">
+
+                        <div class="form-group col-md-3">
+                            <label for="c_tributo">Tributo</label>
+                            <div class="input-group" id="div_input_tributo">
+                                <input name='c_tributo' type="text"
+                                    class="form-control input-sm input-cod-short numerico text-right" id="c_tributo">
+                                <input name='d_tributo' type="text" class="form-control input-sm input-desc-long"
+                                    id="d_tributo" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_c_tributo">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="c_form">Form</label>
+                            <div class="input-group" id="div_input_form">
+                                <input name='c_form' type="text" class="form-control input-sm input-cod-short"
+                                    id="c_form">
+                                <input name='d_form' type="text" class="form-control input-sm input-desc-long"
+                                    id="d_form" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_c_form">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                            <input name='n_tabla_form' type="text" hidden='true' id="n_tabla_form">
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label>CUIT</label>
+                            <div id="div_input_cuit" class="input-group" style="width: 100%;">
+                                <input name='n_cuit' id='n_cuit' type="text"
+                                    class="form-control input-sm text-right validate[required,custom[validaCuit]]"
+                                    maxlength='14'>
+                                <input name='id_contribuyente' type="hidden" class="form-control input-sm text-right"
+                                    id="id_contribuyente">
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="d_denominacion">Denominación / Razón Social</label>
+                            <div class="input-group" id="div_input_denominacion">
+                                <input name='d_denominacion' type="text"
+                                    class="mayusculas form-control input-sm validate[required]" id="d_denominacion">
+                                <span class="input-group-addon" id="mascara_lupa_d_denominacion">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon btn_lupa" id="lupa_d_denominacion">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                            <label for="c_documento">Tipo Documento</label>
+                            <div class="input-group" id="div_input_form">
+                                <input name='c_documento' type="text"
+                                    class="form-control input-sm input-cod-short numerico text-right" id="c_documento">
+                                <input name='d_documento' type="text" class="form-control input-sm input-desc-long"
+                                    id="d_documento" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_c_documento">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                            <input name='n_tabla_doc' type="text" hidden='true' id="n_tabla_doc">
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="n_documento">Nro. Documento</label>
+                            <div class="input-group" id="div_input_form">
+                                <input name='n_documento' type="text" class="form-control input-sm text-right"
+                                    id="n_documento">
+                                <span class="input-group-addon" id="mascara_lupa_n_documento">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon btn_lupa" id="lupa_n_documento">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-2 ">
+                            <label for="c_tipo_imponible">Tipo Imponible</label>
+                            <div class="input-group" id="div_input_tipo_imponible">
+                                <input name='c_tipo_imponible' type="text"
+                                    class="form-control input-sm input-cod-short numerico text-right"
+                                    id="c_tipo_imponible">
+                                <input name='d_tipo_imponible' type="text" class="form-control input-sm input-desc-long"
+                                    id="d_tipo_imponible" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_c_tipo_imponible">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                            <input name='n_tabla_tipo_imp' type="text" hidden='true' id="n_tabla_tipo_imp">
+                            <input hidden='true' name='m_objeto_hecho' type="text" id="m_objeto_hecho">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="d_objeto_hecho">Nro. de Objeto/Hecho</label>
+                            <div class="input-group" id="div_input_objeto">
+                                <input type="text" class="form-control input-sm mayusculas" id="d_objeto_hecho"
+                                    name="d_objeto_hecho">
+                                <span class="input-group-addon" id="mascara_lupa_d_objeto_hecho">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon btn_lupa" id="lupa_d_objeto_hecho">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="c_concepto">Concepto</label>
+                            <div class="input-group" id="div_input_concepto">
+                                <input name='c_concepto' type="text"
+                                    class="form-control input-sm input-cod-short numerico text-right" id="c_concepto">
+                                <input name='d_concepto' type="text" class="form-control input-sm input-desc-long"
+                                    id="d_concepto" readonly>
+                                <!-- <span class="input-group-addon" id="mascara_lupa_c_concepto">
+                                        <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span> -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                            <label for="n_recibo">Nro. de Recibo o Nomenclatura</label>
+                            <input name='n_recibo' type="text" class="form-control input-sm numerico" id="n_recibo">
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="pos_fiscal">Posición Fiscal</label>
+                            <input name='pos_fiscal' maxlength="6" type="text" class="form-control input-sm"
+                                id="pos_fiscal">
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="c_tramite">Tr&aacute;mite</label>
+                            <div class="input-group" id="div_input_tramite">
+                                <input name='c_tramite' type="text" class="form-control input-sm input-cod-short"
+                                    id="c_tramite">
+                                <input name='d_tramite' type="text" class="form-control input-sm input-desc-long"
+                                    id="d_tramite" readonly>
+                                <!-- <span class="input-group-addon btn_lupa" id="lupa_c_tramite">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span> -->
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="n_cuota">Nro. de Cuota o Anticipo</label>
+                            <input name='n_cuota' type="text" class="form-control input-sm numerico text-right"
+                                id="n_cuota">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-1">
+                            <div style="margin-top:15px; ">
+                                <button class="btn-sm btn-primary" type="button" id="btn_prev" style="margin:5px"><span
+                                        class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span></button>
+                                <button class="btn-sm btn-primary" type="button" id="btn_next"
+                                    style="margin:5px; "><span class="glyphicon glyphicon-arrow-right"
+                                        aria-hidden="true"></span></button>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-11">
+                            <div class="form-group">
+                                <label for="d_error" style="color: red;">Error:</label><br>
+                                <textarea id="d_error" readonly name="d_error" class="col-lg-12"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="div_datos_pagos" class="panel-search">
+    <div class="panel panel-primary">
+        <!--<a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_boleta" aria-expanded="true" aria-controls="#collapse_boleta">
+                <span class="glyphicon"></span>
+            </a>-->
+        <div class="collapse in" id="collapse_boleta" aria-expanded="true">
+            <div class="panel-heading" style="text-transform: none;">Datos del Pago</div>
+            <div class="panel-body">
+                <form id='frm_datos_pago'>
+
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                            <label for="c_concepto_mov">Concepto del Movimiento</label>
+                            <div class="input-group" id="div_input_concepto">
+                                <input name='c_concepto_mov' type="text"
+                                    class="form-control input-sm input-cod-short numerico text-right"
+                                    id="c_concepto_mov">
+                                <input name='d_concepto_mov' type="text" class="form-control input-sm input-desc-long"
+                                    id="d_concepto_mov" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_c_concepto_mov">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="n_comprobante">Nro. de Comprobante</label>
+                            <input name='n_comprobante' type="text" class="form-control input-sm numerico text-right"
+                                id="n_comprobante">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="i_pagado">Importe Pagado</label>
+                            <input name='i_pagado' type="text"
+                                class="form-control input-sm importe mascara_importe text-right" id="i_pagado">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="c_moneda">Moneda</label>
+                            <div class="input-group" id="div_input_concepto">
+                                <input name='c_moneda' type="text" readonly
+                                    class="form-control input-sm input-cod-short numerico text-right" id="c_moneda">
+                                <input name='d_moneda' type="text" class="form-control input-sm input-desc-long"
+                                    id="d_moneda" readonly>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="f_pago">F. de Pago</label>
+                            <div class="input-group">
+                                <input type="text"
+                                    class="form-control input-sm datepicker text-center limpiar validate[required]"
+                                    name="f_pago" id="f_pago" placeholder="(DD/MM/AAAA)" maxlength="10"
+                                    autocomplete="off">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-2" hidden='true'>
+                            <label for="c_caracteristica">Caracteristica</label>
+                            <div class="input-group" id="div_input_concepto">
+                                <input name='c_caracteristica' type="text" class="form-control input-sm input-cod-short"
+                                    id="c_caracteristica">
+                                <input name='d_caracteristica' type="text" class="form-control input-sm input-desc-long"
+                                    id="d_caracteristica" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_c_caracteristica">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="c_banco_rec">Banco Receptor</label>
+                            <div class="input-group" id="div_input_banco_rec">
+                                <input name='c_banco_rec' type="text"
+                                    class="form-control input-sm input-cod-short numerico text-right" id="c_banco_rec">
+                                <input name='d_banco_rec' type="text" class="form-control input-sm input-desc-long"
+                                    id="d_banco_rec" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_banco_rec">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="c_sucursal_rec">Sucursal Receptora</label>
+                            <div class="input-group" id="div_input_sucursal_rec">
+                                <input name='c_sucursal_rec' type="text"
+                                    class="form-control input-sm input-cod-short numerico text-right"
+                                    id="c_sucursal_rec">
+                                <input name='d_sucursal_rec' type="text" class="form-control input-sm input-desc-long"
+                                    id="d_sucursal_rec" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_sucursal_rec">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="caj_rec">Cajero Receptor</label>
+                            <input name='caj_rec' type="text" class="form-control input-sm" id="caj_rec">
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="div_medio_pago" class="panel-search">
+    <div class="panel panel-primary">
+        <!-- <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_domicilio" aria-expanded="true" aria-controls="#collapse_domicilio">
+                    <span class="glyphicon glyphicon-arrow-down"></span>
+                </a> -->
+        <div class="panel-heading" style="text-transform: none;">Medio de Pago</div>
+
+        <div class="collapse in" id="collapse_domicilio" aria-expanded="true">
+
+            <div class="panel-body">
+                <form id='frm_medio_pago'>
+                    <div class="row">
+
+                        <div class="form-group col-md-3">
+                            <label for="c_medio_pago">Medio Pago</label>
+                            <div class="input-group" id="div_input_medio_pago">
+                                <input name='c_medio_pago' type="text"
+                                    class="form-control input-sm input-cod-short numerico text-right" id="c_medio_pago">
+                                <input name='d_medio_pago' type="text" class="form-control input-sm input-desc-long"
+                                    id="d_medio_pago" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_medio_pago">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                            <input name='n_tabla_mp' type="text" hidden="true" id="n_tabla_mp">
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="n_cheque">Nro. Cheque</label>
+                            <input name='n_cheque' type="text" class="form-control input-sm numerico text-right"
+                                id="n_cheque">
+                        </div>
+
+                        <div class="form-group col-md-1">
+                            <label for="n_lote">Nro. de Lote</label>
+                            <input name='n_lote' type="text" class="form-control input-sm numerico text-right"
+                                id="n_lote">
+                        </div>
+
+                        <div class="form-group col-md-3 ">
+                            <label for="c_banco_emisor">Banco Emisor</label>
+                            <div class="input-group" id="div_input_banco_emisor">
+                                <input name='c_banco_emisor' type="text"
+                                    class="form-control input-sm input-cod-short numerico text-right"
+                                    id="c_banco_emisor">
+                                <input name='d_banco_emisor' type="text" class="form-control input-sm input-desc-long"
+                                    id="d_banco_emisor" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_banco_emisor">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-2 ">
+                            <label for="n_remesa">Nro. Remesa</label>
+                            <div class="input-group" id="div_input_remesa">
+                                <input name='n_remesa' type="text" class="form-control input-sm numerico text-right"
+                                    id="n_remesa">
+                                <span class="input-group-addon btn_lupa" id="lupa_n_remesa">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-1">
+                            <label for="n_orden">Nro. de Orden</label>
+                            <input name='n_orden' type="text" class="form-control input-sm numerico text-right"
+                                id="n_orden">
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class='row-search text-center' style="margin-top: 2%">
+    <button type='button' id='btn_buscar' name='btn_buscar' class="btn-sm btn_buscar"></button>
+    <button class="btn-sm btn-primary" type="button" id="btn_grabar">Grabar</button>
+    <button class="btn-sm btn-primary" type="button" id="btn_eliminar">Eliminar</button>
+    <button class="btn-sm btn_limpiar" type="button" id="btn_limpiar"></button>
+</div>

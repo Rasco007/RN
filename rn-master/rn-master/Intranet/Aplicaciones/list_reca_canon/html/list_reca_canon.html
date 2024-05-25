@@ -1,0 +1,49 @@
+<!--DIV BUSQUEDA-->
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true" style="">
+            <div class="panel-heading">B&uacute;squeda</div>
+            <div class="panel-body">
+                <form id='frm_consulta'>
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                            <label for="f_acred_desde">Fecha Acreditación Desde (*)</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm datepicker text-center validate[required]" name="f_acred_desde" id="f_acred_desde" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="f_acred_hasta">Fecha Acreditación Hasta (*)</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm datepicker text-center validate[required]" name="f_acred_hasta" id="f_acred_hasta" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class='row text-center'>
+                        <button type='button' class="btn-sm btn_buscar" id='btn_buscar'></button>
+                        <button type='button' class="btn-sm btn_limpiar" id='btn_limpiar'></button>    
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--GRILLA PRINCIPAL-->
+<table id='main_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+<div id='main_grid_pager' class='scroll' style='text-align:center;'></div>
+<br>
+<!--GRILLA DETALLE-->
+<table id='detalle_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+<div id='detalle_grid_pager' class='scroll' style='text-align:center;'></div>

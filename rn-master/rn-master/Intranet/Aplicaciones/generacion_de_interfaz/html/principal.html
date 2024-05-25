@@ -1,0 +1,64 @@
+<div class='titlebar'>
+    <span class="ui-jqgrid-title">Generación de Interfaz</span>
+</div>
+<div id="div_search" class="search panel-body">
+    <form id='frm_consulta_de_generacion'>
+        <div class='row'>
+            <div class="form-group col-md-6">
+                <label for="c_medio_pago">Medio de Pago (*)</label>
+                <div class="input-group" id="div_input_medio_pago">
+                    <input type="text" class="form-control input-sm input-cod-short text-input numerico text-right" id="c_medio_pago" value="<?=$_POST['p_forma_pago']?>">
+                    <input type="text" class="form-control input-sm input-desc-long" style="width: 86% !important;" readonly id="d_medio_pago" value="<?=$_POST['p_d_medio_pago']?>">
+                    <span class="input-group-addon btn_lupa" id="lupa_c_medio_pago">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    </span>
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="c_producto">Producto (*)</label>
+                <div class="input-group" id="div_input_producto">
+                    <input type="text" class="form-control input-sm input-sm input-cod-short text-input numerico validate[required] text-right" id="c_producto" value="<?=$_POST['p_producto']?>">
+                    <input type="text" class="form-control input-sm input-desc-long" style="width: 86% !important;" readonly id="d_producto" value="<?=$_POST['p_d_producto']?>">
+                    <span class="input-group-addon btn_lupa" id="lupa_c_producto">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    </span>
+                </div>
+                <input type="text" hidden id="c_origen">
+            </div>
+        </div>
+        <div class='row'>
+            <div class="form-group col-md-6">
+                <label for="f_cartera">F. de Cartera (*)</label>
+                <div class="input-group">
+                    <input type="text" class="form-control input-sm text-center validate[required]" name="f_cartera" id="f_cartera" placeholder="(DD/MM/AAAA)" maxlength="10" readonly autocomplete="off">
+                    <span class="input-group-addon btn_lupa" id="lupa_f_cartera">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    </span>
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="ruta_archivo">Directorio para dejar la interfaz (terminado en barra) (*)</label>
+                <div class="input-group" id="div_input_archivo" style="width: 100%;">
+                    <input name='ruta_archivo' id='ruta_archivo' type='text' class="form-control input-sm" readonly>
+                </div>
+
+            </div>
+        </div>
+        <div class='row'>
+            <div class="form-group col-md-12"></div>
+            <div class="form-group col-md-12">
+                <label for="comentarios">Estado</label>
+                <textarea id='comentarios' name='comentarios' rows='9' class="form-control" readonly='readonly' style='font-family: tahoma,verdana;font-size: 12px; background: #FFF'></textarea>
+            </div>
+            <div class="form-group col-md-2"></div>
+        </div>
+
+        <div class='row text-center' style = 'margin-top:10px;'>
+            <button type='button' id='btn_consulta_generacion' class="ui-button ui-corner-all ui-widget">Consulta de Generación</button>
+            <button type='button' id='btn_generar_disco' class="ui-button ui-corner-all ui-widget">Generar Disco</button>
+            <button type='button' id='btn_cancelar' class="ui-button ui-corner-all ui-widget">Cancelar</button>
+
+        </div>
+
+    </form>
+</div>

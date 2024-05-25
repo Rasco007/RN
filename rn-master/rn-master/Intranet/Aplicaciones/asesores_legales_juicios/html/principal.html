@@ -1,0 +1,64 @@
+<div id='tabs_grid'>
+    <ul class='nav nav-wizard'>
+        <li class='nav-item active'>
+            <a href='#tab_asesores' id="asesores" data-toggle='tab' role='tab' data-grid='asesores_grid'>Asesores Legales</a>
+        </li>
+        <li class='nav-item'>
+            <a href='#tab_juicios' id="juicios" data-toggle='tab' role='tab' data-grid='juicios_grid'>Juicios</a>
+        </li>
+    </ul>
+    <div class='tab-content'>
+        <div id='tab_asesores' class='tab-pane fade active in' role='tabpanel'>
+            <div class="panel-body">
+                <form id='form_asesores' style="margin-top: 5px;">
+                    <div class="row" style="display: flex; justify-content: space-between;">
+                        <div class="form-group col-md-5">
+                            <button type='button' class="btn btn-sm" id='btn_calcular'><span aria-hidden="true"></span> Calcular Puntajes</button>
+                            <button type='button' class="btn btn-sm" id='btn_recalcular'><span aria-hidden="true"></span> Recalcular Puntajes</button>
+                            <button type='button' class="btn btn-sm" id='btn_distribuir'><span aria-hidden="true"></span> Distribuir Juicios</button>
+                        </div>
+                        <div class="form-inline col-md-4">
+                            <label for="d_grupo_asesores" class="control-label">Grupo</label>
+                            <div class="input-group">
+                                <input type='text' id='c_grupo_asesores' name='c_grupo_asesores'
+                                       class='form-control input-sm input-cod-short validate[required]' readonly="true"/>
+                                <input type='text' id='d_grupo_asesores' name='d_grupo_asesores'
+                                       class='form-control input-sm input-desc-long validate[required]' readonly="true"/>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <br>
+            <div>
+                <table id='asesores_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+                <div id='asesores_grid_pager' class='scroll' style='text-align:center;'></div>
+            </div>
+        </div>
+        <div id='tab_juicios' class='tab-pane fade' role='tabpanel'>
+            <div class="panel-body">
+                <form id='form_juicios' style="margin-top: 5px;">
+                    <div class="row" style="display: flex; justify-content: center;">
+                        <div class="form-group col-md-5">
+                            <button type='button' class="btn btn-sm" id='btn_asignar'><span aria-hidden="true"></span> Asignar Juicios</button>
+                        </div>
+                        <div class="form-inline col-md-4">
+                            <label for="d_grupo_juicios" class="control-label">Grupo</label>
+                            <div class="input-group">
+                                <input type='text' id='c_grupo_juicios' name='c_grupo_juicios'
+                                       class='form-control input-sm input-cod-short validate[required]' readonly="true"/>
+                                <input type='text' id='d_grupo_juicios' name='d_grupo_juicios'
+                                       class='form-control input-sm input-desc-long validate[required]' readonly="true"/>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <br>
+            <div>
+                <table id='juicios_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+                <div id='juicios_grid_pager' class='scroll' style='text-align:center;'></div>
+            </div>
+        </div>
+    </div>
+</div>

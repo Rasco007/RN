@@ -1,0 +1,59 @@
+<div class="modal fade" id="modal_editar_juicio" tabindex="-1" role="dialog"
+     aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="exampleModalLiveLabel">Editar</h5>
+            </div>
+            <div class="modal-body">
+                <form id="form_edit_juicio">
+                    <div class="row form-group" style="display: flex;flex-direction: column;max-width: 80%;margin: 0 auto;gap: 5px;">
+                        <input type="text" name="id_boleta_deuda" id="id_boleta_deuda" hidden="">
+
+                        <label for="n_cuit_represen" class="control-label">Cuit Representante(*)</label>
+                        <div id="div_cuit_represen" class="input-group">
+                            <input type="text" id="n_cuit_represen" name="n_cuit_represen"
+                                   class="form-control input-sm validate[required]" readonly="true">
+                            <span class="input-group-addon btn_lupa" id="btn_lupa_representante">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                        </div>
+                        <label for="d_denominacion_represen" class="control-label">Denominación Representante(*)</label>
+                        <input type="text" class="form-control input-sm validate[required]" id="d_denominacion_represen" readonly="true">
+                        <br>
+                        <label for="n_cuit_patro" class="control-label">Cuit Patrocinador(*)</label>
+                        <div id="div_cuit_patro" class="input-group">
+                            <input type="text" id="n_cuit_patro" name="n_cuit_patro"
+                                   class="form-control input-sm validate[required]" readonly="true">
+                            <span class="input-group-addon btn_lupa" id="btn_lupa_patrocinador">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                        </div>
+                        <label for="d_denominacion_patro" class="control-label">Denominación Patrocinador(*)</label>
+                        <input type="text" class="form-control input-sm validate[required]" id="d_denominacion_patro" readonly="true">
+                        <br>
+                        <label for="firmantes">Firmantes(*)</label>
+                        <div class="input-group alta_general">
+                            <select name="firmantes" class="form-control input-sm validate[required]" id='firmantes'>
+                                <option value="" selected></option>
+                                <?php foreach ($data_firmantes as $firmante): ?>
+                                <option value="<?=$firmante['C_DATO']; ?>"><?= $firmante['D_DATO'];?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="button" class="btn btn-sm" id="btn_guardar_juicio"><span
+                            class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Guardar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

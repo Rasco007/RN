@@ -1,0 +1,352 @@
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading">Aplicación de Bonos</div>
+            <div class="panel-body">
+                <form id='frm_busqueda'>
+
+
+                    <div class="row">
+
+                        <div id='tipo_comprobante_div' class='form-group col-md-2'>
+                            <label for='tipo_comprobante'>Tipo Comprobante</label>
+                            <select name='tipo_comprobante'id='tipo_comprobante' data-live-search='true' title='Seleccione' class=' form-control input-sm validate[required]' data-style='cDropdown' $disabled>
+                                <option value='B' selected>Boleta</option>
+                                <option value='O'>Obligación</option>
+                                </select>
+                            </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="nro_comprobante">N° Comprobante (*)</label>
+                            <input name='nro_comprobante' type="text" class="mayusculas form-control input-sm validate[required] text-right" id="nro_comprobante">
+                        </div>
+                        
+                        <div class="form-group col-md-2">
+                            <div id="div_cuit" style="padding-left: 1%;">
+                                <label>CUIT</label>
+                                <input name='n_cuit' id='n_cuit' type="text" class="form-control input-sm text-right validate[required,custom[validaCuit]]" maxlength='13' disabled>
+                                <input name='id_contribuyente' type="hidden" class="form-control input-sm text-right" id="id_contribuyente">
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="d_denominacion">Contribuyente</label>
+                            <input name='d_denominacion' type="text" class="mayusculas form-control input-sm validate[required]" id="d_denominacion" disabled>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="c_provincia">Prov/Oficina</label>
+                            <div class="input-group" id="div_input_prov">
+                                <input name='c_provincia' type="text" class="form-control input-sm input-cod-short" id="c_provincia">
+                                <input name='d_provincia' type="text" class="form-control input-sm input-desc-long" id="d_provincia" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_provincia">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class='row-search text-center'>
+                        <button class="btn-sm btn-primary" type="button" id="btn_consultar"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Consultar</button>
+                        <button class="btn-sm btn-primary" type="button" id="btn_identificar"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Identificar Obligación</button>
+                        <button class="btn-sm btn_limpiar" style="margin-top: 17px;" type="button" id="btn_limpiar"></button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="gridWrapper">
+
+    <div class='detalle'>
+        <table id='grid_tranf_bonos' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+        <div id='grid_tranf_bonos_pager' class='scroll' style='text-align:center;'></div>
+    </div>
+</div>
+
+<div id="div_inputs" class="panel-inputs" >
+    <div class="panel panel-primary">
+        <div class="collapse in" id="collapse_inputs" aria-expanded="true">
+            <div class="panel-body">
+                <form id='frm_inputs'>
+
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                            <label for="fecha_emision">F. Emisión</label>
+                            <input name='fecha_emision' type="text" class="mayusculas form-control input-sm validate[required] text-center" id="fecha_emision" disabled>
+                        </div>
+                        <div class="form-group col-md-3 col-md-offset-1">
+                            <label for="fecha_vto">F. Vto.</label>
+                            <input name='fecha_vto' type="text" class="mayusculas form-control input-sm validate[required] text-center" id="fecha_vto" disabled>
+                        </div>
+                        <div class="form-group col-md-4 col-md-offset-1">
+                            <label for="importe">Importe</label>
+                            <input name='importe' type="text" class="form-control input-sm validate[required] text-right mascara_importe " id="importe" disabled>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="div_data" class="panel-data" style="margin-top: 1%;">
+    <div class="panel panel-primary">
+        <div class="collapse in" id="collapse_data" aria-expanded="true">
+            <div class="panel-body">
+                <form id='frm_data'>
+
+                    <div class="row">
+
+                        <div class="form-group col-md-2">
+                            <label for="transferencia">Transferencia</label>
+                            <div class="input-group" id="div_input_transf">
+                                <input name='transferencia' type="text" class="mayusculas form-control input-sm validate[required] text-right" id="transferencia" disabled>
+                                <span class="input-group-addon btn_lupa" id="lupa_bonos_transf" disabled>
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-1">
+                            <label for="indice">Indice</label>
+                            <input name='indice' type="text" class="mayusculas form-control input-sm validate[required] text-right" id="indice" disabled>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="fecha">Fecha</label>
+                            <input name='fecha' type="text" class="mayusculas form-control input-sm validate[required] text-center" id="fecha" disabled>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="especie">Especie</label>
+                            <input name='especie' type="text" class="mayusculas form-control input-sm validate[required]" id="especie" disabled>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="cta_cliente">Cta. Cliente</label>
+                            <input name='cta_cliente' type="text" class="mayusculas form-control input-sm validate[required] text-right" id="cta_cliente" disabled>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="titular">Titular</label>
+                            <input name='titular' type="text" class="mayusculas form-control input-sm validate[required]" id="titular" disabled>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="c_bonos">Bonos</label>
+                            <div class="input-group" id="div_input_bonos">
+                                <input name='c_bonos' type="text" class="form-control input-sm input-cod-short" id="c_bonos" readonly>
+                                <input name='d_bonos' type="text" class="form-control input-sm input-desc-long" id="d_bonos" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_provincia" disabled>
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="v_nominal">Valor Nominal</label>
+                            <input name='v_nominal' type="text" class=" form-control input-sm validate[required] text-right mascara_importe" id="v_nominal" disabled>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="cta_comitente">Cta. Comitente</label>
+                            <input name='cta_comitente' type="text" class="mayusculas form-control input-sm validate[required] text-right" id="cta_comitente" disabled>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="descripcion">Descripción</label>
+                            <input name='descripcion' type="text" class="mayusculas form-control input-sm validate[required]" id="descripcion" disabled>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="v_residual">Valor Residual</label>
+                            <input name='v_residual' type="text" class="mayusculas form-control input-sm validate[required] text-right mascara_importe" id="v_residual" disabled>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="cotizacion">Cotización</label>
+                            <input name='cotizacion' type="text" class="form-control input-sm validate[required] text-right mascara_importe" id="cotizacion" disabled>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="v_nominal_pesos">Valor Nominal en Pesos</label>
+                            <input name='v_nominal_pesos' type="text" class="mayusculas form-control input-sm validate[required] text-right mascara_importe" id="v_nominal_pesos" disabled>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="saldo_pesos">Saldo Pesos</label>
+                            <input name='saldo_pesos' type="text" class="form-control input-sm validate[required] text-right mascara_importe " id="saldo_pesos" disabled>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="valor_pesos">Valor Pesos</label>
+                            <input name='valor_pesos' type="text" class="mayusculas form-control input-sm validate[required] text-right mascara_importe" id="valor_pesos" disabled>
+                        </div>
+
+                    </div>
+
+                    <div class='row-search text-center' style="margin-top: 2%;">
+                        <button class="btn-sm btn-primary" type="button" id="btn_cons_transf">Consultar Transferencias</button>
+                        <button class="btn-sm btn-primary" type="button" id="btn_cons_imputaciones">Consultar Imputaciones</button>
+                        <button class="btn-sm btn-primary" type="button" id="btn_imputar" disabled>Imputar Transferencia</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div style="display: none;" class='modal fade' id='modal_detalle' tabindex='-1' role='dialog' aria-labelledby='cont_histLabel' aria-hidden='true'>
+    <div class='modal-dialog modal-lg'>
+        <div class='modal-content'>
+            <div class='modal-header'>
+                <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                    <!-- <span aria-hidden='true'>&times;</span> -->
+                </button>
+                <h5 class='modal-title'>Detalle de la Obligación</h5>
+            </div>
+            <div class='modal-body'>
+                <form id='frm_modal_detalle'>
+                    
+                    <div class="form-group col-md-5">
+                        <label for="c_tributo_modal">Tributo</label>
+                        <div class="input-group" id="div_input_tributo">
+                            <input name='c_tributo_modal' type="text" class="form-control input-sm text-right input-cod-long" id="c_tributo_modal" readonly>
+                            <input name='d_tributo_modal' type="text" class="form-control input-sm input-desc-short" id="d_tributo_modal" readonly>
+                        </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <div id="div_cuit">
+                            <label>CUIT</label>
+                            <input name='n_cuit_modal' id='n_cuit_modal' type="text" class="form-control input-sm text-right validate[required,custom[validaCuit]]" maxlength='13' readonly>
+                            <input name='id_contribuyente' type="hidden" class="form-control input-sm text-right" id="id_contribuyente">
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label for="d_denominacion_modal">Contribuyente</label>
+                        <input name='d_denominacion_modal' type="text" class="mayusculas form-control input-sm validate[required]" id="d_denominacion_modal" readonly>
+                    </div>
+
+                    <div class="form-group col-md-5">
+                        <label for="c_doc_modal">Tipo Documento</label>
+                        <div class="input-group" id="div_input_doc">
+                            <input name='c_doc_modal' type="text" class="form-control input-sm text-right input-cod-long" id="c_doc_modal" readonly>
+                            <input name='doc_modal' type="text" class="form-control input-sm input-desc-short" id="doc_modal" readonly>
+                        </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-3 ">
+                        <label for="n_doc">N°Documento</label>
+                        <input type="text"  id="n_doc" class='form-control input-sm text-right'  readonly>
+                    </div>
+
+                    <div class="form-group col-md-4 ">
+                        <label for="objeto">Objeto/Hecho</label>
+                        <input type="text"  id="objeto" class='form-control input-sm'  readonly>
+                    </div>
+
+                    <div class="form-group col-md-5">
+                        <label for="c_concepto_modal">Concepto</label>
+                        <div class="input-group" id="div_input_concepto">
+                            <input name='c_concepto_modal' type="text" class="form-control input-sm text-right input-cod-long" id="c_concepto_modal" readonly>
+                            <input name='concepto_modal' type="text" class="form-control input-sm input-desc-short" id="concepto_modal" readonly>
+                        </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-3 ">
+                        <label for="pos_fiscal">Pos. Fiscal</label>
+                        <input type="text"  id="pos_fiscal" class='form-control input-sm text-right'  readonly>
+                    </div>
+
+                    <div class="form-group col-md-2 ">
+                        <label for="cuota_anticipo">Cuota/Anticipo</label>
+                        <input type="text"  id="cuota_anticipo" class='form-control input-sm text-right'  readonly>
+                    </div>
+
+                    <div class="form-group col-md-2 ">
+                        <label for="obligacion_modal">Obligación</label>
+                        <input type="text"  id="obligacion_modal" class='form-control input-sm text-right'  readonly>
+                    </div>
+
+                </form>
+            
+                <div style="text-align: center">
+                    <button type='button'  class='btn btn-secondary' id='btn_volver' data-dismiss='modal'>Volver</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div style="display: none;" class='modal fade' id='modal_aplicacion' tabindex='-1' role='dialog' aria-labelledby='cont_histLabel' aria-hidden='true'>
+    <div class='modal-dialog modal-lg' role='document'>
+        <div class='modal-content'>
+            <div class='modal-header'>
+                <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                    <span aria-hidden='true'>&times;</span>
+                </button>
+                <h5 class='modal-title' id='cont_histLabel'>Aplicación de Bonos</h5>
+            </div>
+            <div class='modal-body'>
+                <div style="margin-top: 2%;margin-bottom: 2%">
+                    <div class="form-group col-md-6">
+                        <label for="transferencia_aplicacion">Transferencia</label>
+                        <input type="text"  id="transferencia_aplicacion" class='form-control input-sm text-right' readonly>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="c_bono_aplicacion">Bonos</label>
+                        <div class="input-group" id="div_input_bono"  style="width: 100%;">
+                            <input name='c_bono_aplicacion' type="text" class="form-control input-sm input-cod-long text-right" id="c_bono_aplicacion" readonly>
+                            <input name='d_bono_aplicacion' type="text" class="form-control input-sm input-desc-short" id="d_bono_aplicacion" readonly>
+                        </span>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="especie_aplicacion">Especie</label>
+                        <input type="text"  id="especie_aplicacion" class='form-control input-sm'  readonly>
+                    </div>
+    
+                    <div class="form-group col-md-6">
+                        <label for="f_bono_aplicacion">Fecha</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control input-sm datepicker text-center limpiar" name="f_bono_aplicacion" id="f_bono_aplicacion" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off" readonly>
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="valor_nominal_aplicacion">Valor Nominal</label>
+                        <input type="text"  id="valor_nominal_aplicacion" class='form-control input-sm text-right' readonly>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="cotizacion_aplicacion">Cotización</label>
+                        <input type="text"  id="cotizacion_aplicacion" class='form-control input-sm text-right' readonly>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="cta_comitente_aplicacion">Cta.Comitente</label>
+                        <input type="text"  id="cta_comitente_aplicacion" class='form-control input-sm text-right'readonly >
+                    </div>
+                </div>
+                <table id='grid_aplicacion_bonos' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+                <div id='grid_aplicacion_bonos_pager' class='scroll'></div>
+            </div>
+            <div class='modal-footer'>
+                <div class='text-center' style="padding-top: 8%;">
+                    <button type='button' class='btn btn-secondary' id='btn_volver_aplicacion' data-dismiss='modal'>Volver</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

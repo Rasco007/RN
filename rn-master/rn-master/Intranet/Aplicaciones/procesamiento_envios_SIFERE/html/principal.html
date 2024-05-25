@@ -1,0 +1,25 @@
+<div class='titlebar'>
+    <span class="ui-jqgrid-title">Procesamiento de env&iacute;os SIFERE</span>
+</div>
+<div id='tabs' style="border: none;">
+    <div id='carga' style="width: 100%">
+        <div class='search' align='center' style="border: none" id='div_carga'>
+            
+            <div class='search' align='center' style='padding:5px;' id='div_file_upload'>
+                <form action='procesamiento_envios_SIFERE/php/descomprime_archivo.php' class='dropzone needsclick dz-clickable' id='frm_upload_mulator' name='frm_upload_mulator' method='post' enctype='multipart/form-data'>
+                    <div class='fallback'>
+                        <input name='file' type='file' />
+                    </div>
+                    <input name='p_n_id_menu' value='<?=$p_n_id_menu?>' type='hidden'/>
+                    <input name='p_n_id_lote' value='<?=$n_id_lote?>' type='hidden'/>
+                </form>
+            </div>
+            <br>
+            <div class='row-search text-center' style="margin-top: 2%">
+                <button class="btn-sm btn-primary" type="button" id="btn_procesar" style="display: none;"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Procesar</button>
+                <button class="btn-sm btn_limpiar" type="button" id="btn_limpiar"></button>
+            </div>
+        </div>
+    </div>
+
+</div>

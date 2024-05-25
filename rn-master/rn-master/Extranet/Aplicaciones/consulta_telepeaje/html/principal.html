@@ -1,0 +1,73 @@
+<!--DIV BUSQUEDA-->
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true" style="">
+            <div class="panel-heading">B&uacute;squeda</div>
+            <div class="panel-body">
+                <form id='frm_consulta'>
+                    <div class="row form-group">
+                        <div class="col-md-2">
+                            <label for="n_cuit" class="control-label">CUIT</label>
+                            <input type="text" class="form-control input-sm text-center validate[required]" id="n_cuit" placeholder="" value="<?=$n_cuit?>" disabled>
+                            <input type="hidden" class="form-control input-sm text-center validate[required]" id="id_contribuyente" value="<?=$_SESSION[id_rel_persona]?>" placeholder="">
+                        </div>
+                        <div class="col-md-9">
+                            <label for="d_denominacion" class="control-label">Denominación</label>
+                            <input type="text" class="form-control input-sm validate[required]" id="d_denominacion" placeholder="" value="<?=$d_denominacion?>" disabled>
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-md-2">
+                            <label for="d_dominio">Dominio</label>
+                            <div class="input-group">
+                                <input type='text' id='d_dominio' name='d_dominio' class='form-control input-sm' readonly/>
+                                <span class="input-group-addon btn_lupa" id="btn_lupa_dominio" name='btn_lupa_dominio'>
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="c_deuda">Deuda</label>
+                            <select name="c_deuda" id="c_deuda" title="Seleccionar" class="selectpicker form-control input-sm" data-style="cDropdown">
+                                <option value=""></option>
+                                <option value="1">Sin Deuda</option>
+                                <option value="2">Con Deuda</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="c_concepto">Concepto</label>
+                            <div id="div_concepto" class="input-group">
+                                <input type='text' id='c_concepto' name='c_concepto' class='form-control input-sm input-cod-short'/>
+                                <input type='text' id='d_concepto' name='d_concepto' class='form-control input-sm input-desc-long' readonly/>
+                                <span class="input-group-addon btn_lupa" id="btn_lupa_concepto" name='btn_lupa_concepto'>
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="f_actualizacion">Fecha Actualización (*)</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm datepicker text-center validate[required]" name="f_actualizacion" id="f_actualizacion" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off" style="text-align: center;">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-3 text-center"  style="margin-top: 15px;">
+                            <button type='button' class="btn-sm btn_buscar" id='btn_buscar'></button>
+                            <button type='button' class="btn-sm btn_limpiar" id='btn_limpiar'></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--GRILLA PRINCIPAL-->
+<table id='main_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+<div id='main_grid_pager' class='scroll' style='text-align:center;'></div>

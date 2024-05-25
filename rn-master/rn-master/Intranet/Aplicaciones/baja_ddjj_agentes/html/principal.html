@@ -1,0 +1,129 @@
+<!--DIV BUSQUEDA-->
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true" style="">
+            <div class="panel-heading">Busqueda de DDJJ</div>
+            <div class="panel-body">
+                <form id='frm_consulta'>
+                    <div class="row form-group">
+                        <div class="col-md-2">
+                            <label for="n_cuit" class="control-label">CUIT</label>
+                            <input type="text" class="form-control input-sm text-center" id="n_cuit" placeholder="">
+                            <input type="hidden" class="form-control input-sm text-center" id="id_contribuyente" placeholder="">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="d_denominacion" class="control-label">Denominación</label>
+                            <div class="input-group">
+                                <input type="text" id="d_denominacion_mayuscula" hidden="">
+                                <input type="text" id="n_documento" hidden="">
+                                <input type="text" class="form-control input-sm" id="d_denominacion" style="text-transform:uppercase;">
+                                <span class="input-group-addon" id="mascara_lupa_d_denominacion">
+                                        <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                    </span>
+                                <span class="input-group-addon btn_lupa" id="lupa_d_denominacion">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="d_tipo_doc" class="control-label">Tipo Doc.</label>
+                            <div class="input-group">
+                                <input type='text' id='c_tipo_doc' name='c_tipo_doc'
+                                       class='form-control input-sm input-cod-short'/>
+                                <input type='text' id='d_tipo_doc' name='d_tipo_doc'
+                                       class='form-control input-sm input-desc-long' readonly="true"/>
+                                <span class="input-group-addon btn_lupa" id="btn_lupa_tipo_doc">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="d_tributo" class="control-label">Tributo</label>
+                            <div class="input-group">
+                                <input type='text' id='c_tributo' name='c_tributo'
+                                       class='form-control input-sm input-cod-short'/>
+                                <input type='text' id='d_tributo' name='d_tributo'
+                                       class='form-control input-sm input-desc-long' readonly="true"/>
+                                <span class="input-group-addon btn_lupa" id="btn_lupa_tributo">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="d_objeto_hecho" class="control-label">Objeto/Hecho</label>
+                            <div class="input-group">
+                                <input type='text' id='d_objeto_hecho' name='d_objeto_hecho'
+                                       class='form-control input-sm' readonly="true"/>
+                                <span class="input-group-addon btn_lupa" id="btn_lupa_objeto_hecho">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                    </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-2">
+                            <label for="comprobante" class="control-label">Comprobante</label>
+                            <input type="text" class="form-control input-sm " name="comprobante" id="comprobante">
+                        </div>
+                        <div class="col-md-2">
+                            <label for="nro_remesa" class="control-label">Nro. de Remesa</label>
+                            <input type="text" class="form-control input-sm " name="nro_remesa" id="nro_remesa">
+                        </div>
+                        <div class="col-md-2">
+                            <label for="c_tipo_form" class="control-label">Form</label>
+                            <div class="input-group">
+                                <input type='text' id='c_tipo_form' name='c_tipo_form'
+                                       class='form-control input-sm' readonly="true"/>
+                                <span class="input-group-addon btn_lupa" id="btn_lupa_form">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                    </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row form-group" style="display: flex; justify-content: center;">
+                        <div class="col-md-3">
+                            <div class="text-center" style="margin-top: 6%;">
+                                <button type='button' class="btn-sm btn_buscar" id='btn_buscar'></button>
+                                <button type='button' class="btn-sm btn_limpiar" id='btn_limpiar'></button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="seccion_1">
+    <table id='main_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+    <div id='main_grid_pager' class='scroll' style='text-align:center;'></div>
+</div>
+<br>
+<div id="seccion_2" style="display: none">
+    <table id='detail_reten_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+    <div id='detail_reten_grid_pager' class='scroll' style='text-align:center;'></div>
+</div>
+
+<div id="seccion_3" style="display: none">
+    <table id='detail_percep_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+    <div id='detail_percep_grid_pager' class='scroll' style='text-align:center;'></div>
+</div>
+
+<div id="seccion_4" style="display: none">
+    <table id='detail_sellos_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+    <div id='detail_sellos_grid_pager' class='scroll' style='text-align:center;'></div>
+</div>
+
+<div id="seccion_5" style="display: none">
+    <table id='detail_recau_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+    <div id='detail_recau_grid_pager' class='scroll' style='text-align:center;'></div>
+</div>
+<br>
+<div id="div_botones" hidden>
+    <div class="text-center" style="display: flex; justify-content: center;">
+        <button type='button' class="btn btn-sm" id='btn_baja_ddjj'><span class="glyphicon glyphicon-user" aria-hidden="true"></span>Dar de Baja DDJJ</button>
+    </div>
+</div>

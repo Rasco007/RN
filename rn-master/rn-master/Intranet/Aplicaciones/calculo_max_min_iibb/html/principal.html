@@ -1,0 +1,159 @@
+<div id="div_max_min" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading">C&aacute;lculo m&aacute;ximo m&iacute;nimos</div>
+            <div class="panel-body">
+                <form action="" id="frm_calculo">
+                    <div class="row">
+                        <div class="form-group col-md-2">
+                            <label for="c_tributo">Tributo</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm input-cod-short text-input numerico" id="c_tributo" style="text-align: center" readonly>
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_tributo" readonly>
+                            </div>       
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="c_concepto">Concepto</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm input-cod-short text-input numerico" id="c_concepto" style="text-align: center" readonly>
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_concepto" readonly>
+                            </div>       
+                        </div>
+
+                        <div class="form-group col-md-1">        
+                            <label for="pos_fiscal">Pos. Fiscal*</label>
+                            <input type="text" class="form-control input-sm numerico" id="pos_fiscal" style="text-align: center" placeholder="AAAA">
+                        </div>
+
+                        <div class="form-group col-md-1">        
+                            <label for="cuota">Cuota Antic.*</label>
+                            <input type="text" class="form-control input-sm numerico" id="cuota" style="text-align: center">
+                        </div>
+
+                        <div class="form-group col-md-1">        
+                            <label for="maxmin">MAX MIN</label>
+                            <input type="text" class="form-control input-sm" id="maxmin" style="text-align: center" readonly>
+                        </div>
+
+                        <div class="col-md-4" style="margin-top: 1.3%;">
+                            <button type='button' id='btn_detalle' class="ui-button ui-corner-all ui-widget">Mostrar Detalle</button>
+                            <button type='button' id='btn_calculo' class="ui-button ui-corner-all ui-widget">C&aacute;lculo Max Min</button>
+                            <button type='button' id='btn_limpiar_gral' class="ui-button ui-corner-all ui-widget">Limpiar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="div_datos_contrib" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading" style="text-transform: none;">Datos del Contribuyente</div>
+            <div class="panel-body">
+                <form action="" id="frm_datos_contrib">
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="d_denominacion">Apellido y nombre/Razón Social*</label>
+                            <div class="input-group" id="div_input_denominacion">
+                                <input name='d_denominacion' type="text" class="form-control input-sm mayusculas" id="d_denominacion">
+                                <span class="input-group-addon" id="mascara_lupa_d_denominacion">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon" id="lupa_d_denominacion">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                    </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-2 ">
+                            <label for="c_tipo_doc">Tipo de Documento</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm input-cod-short text-input numerico" id="c_tipo_doc" style="text-align: center">
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_tipo_doc" readonly>
+                                <span class="input-group-addon" id="mascara_lupa_tipo_doc">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon btn_lupa" id="lupa_tipo_doc">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>       
+                        </div>
+
+                        <div class="form-group col-md-2">        
+                            <label for="n_documento">Nro. Documento</label>
+                            <input type="text" class="form-control input-sm numerico" id="n_documento" style="text-align: center">
+                        </div>
+
+                        <div class="form-group col-md-2 ">
+                            <label for="c_tipo_imp">Tipo Imponible</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm input-cod-short text-input numerico" id="c_tipo_imp" style="text-align: center">
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_tipo_imp" readonly>
+                                <span class="input-group-addon" id="mascara_lupa_tipo_imp">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon btn_lupa" id="lupa_tipo_imp">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>       
+                        </div>
+
+                        <div class="form-group col-md-2">        
+                            <label for="d_objeto_hecho">Objeto / Hecho*</label>
+                            <input type="text" class="form-control input-sm" id="d_objeto_hecho" style="text-align: center">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-2">        
+                            <label for="n_cuit">CUIT*</label>
+                            <input type="text" class="form-control input-sm numerico" id="n_cuit" style="text-align: center">
+                            <input type="hidden" id="id_contribuyente">
+                        </div>
+
+                        <div class="col-md-2" style="margin-top: 1.3%;">
+                            
+                            <button type='button' id='btn_limpiar_datos' class="ui-button ui-corner-all ui-widget">Limpiar Datos</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Modal para la grilla detalle-->
+<div class="modal" id="detalle_modal" tabindex="-1" role="dialog" aria-labelledby="detalle_title" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5>Detalle Cálculo</h5>
+            </div>
+            <div class="modal-body">
+                <table id="detalle_grid" class="scroll" cellpadding="0" cellspacing="0">
+                    <tr><td>&nbsp;</td></tr>
+                </table>
+                <div id="detalle_grid_pager" class="scroll" style="text-align:center;"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btn_imprimir" class="btn btn-secondary">Imprimir</button>
+                <button type="button" id="btn_volver_detalle" class="btn btn-secondary" data-dismiss="modal">Volver</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

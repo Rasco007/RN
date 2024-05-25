@@ -1,0 +1,79 @@
+<style>
+    .form-horizontal {
+        margin: 15px !important;
+    }
+
+    #btn_chk_all {
+        display: none;
+    }
+
+	.centrado {
+		margin-left: 36%;
+	}
+
+	h2 {
+		font-size: 25px;
+	}
+
+	.mensaje {
+		color: red;
+		font-size: 85%;
+		font-weight: 700;
+	}
+    @media only screen and (max-width: 991px) {
+        #btn_chk_all {
+            display: inline;
+        }
+
+		.centrado {
+			margin-left: auto;
+		}
+    }
+</style>
+<div class="container">
+    <div class="card">
+        <div class="card-header"><h4 class="card-title">Ingrese sus datos</h4></div>
+        <div class="card-body">
+			<form id='frm_consulta'>
+				<div class="form-group row col-md-3 centrado">
+					<label class="control-label" for="d_dominio">Dominio (*)</label>
+					<div>
+						<input type="hidden" class="form-control input-sm" id="c_clase_aut">
+						<input type="text" class="form-control input-sm validate[required] dominio"
+						name="d_dominio" id="d_dominio" style="text-align: center;">
+					</div>
+				</div>
+				<div class="form-group row col-md-3 centrado" id="div_si_tipo_aut" style="display: none">
+					<label class="control-label" for="si_tipo_aut">Tipo de Automotor (*)</label>
+					<div>
+						<input type="text" class="form-control input-sm text-center validate[required]" id="si_tipo_aut" disabled>
+					</div>
+				</div>
+				<div class="form-group row col-md-3 centrado">
+                    <label class="control-label" for="c_captcha">Código CAPTCHA (*)</label>
+                    <input type="text" class="form-control input-sm text-center validate[required]" name="c_captcha" id="c_captcha" maxlength="5">
+                </div>
+                <div class="form-group row col-md-3 centrado">
+                    <center><img id="img_captcha" src="<?=$_SESSION['captcha']['image_src']?>" alt="CAPTCHA code"></center>
+                </div>
+			</form>
+			<form id="frm_tipos_aut" style="display: none">
+				<div class="form-group row col-md-4 centrado" id="div_radio_buttons">
+				</div>
+			</form>
+			<div class="row col-md-12 text-center">
+				<h2 id="campo_importe" style="display: none"></h2>
+			</div>
+			<div class='text-center row col-md-12'>
+				<br>
+				<button type='button' class="btn btn-sm" id='btn_continuar'>Continuar</button>
+				<button type='button' class="btn btn-sm" id='btn_comprar' style="display: none"><span class="glyphicon glyphicon-check" aria-hidden="true"></span> Comprar</button>
+				<button type='button' class="btn btn-sm" id='btn_cancelar' style="display: none"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span> Cancelar</button>
+			</div>
+			<div class="col-md-12 text-center">
+				<br>
+				<span class="mensaje">(*) La vigencia del pase mensual será de 1 mes a partir de la fecha de pago.</span>
+			</div>
+		</div>
+    </div>
+</div>

@@ -1,0 +1,353 @@
+<div class="modal fade" id="detalle_deuda_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="detalle deuda_title">Detalle Deuda</h5>
+            </div>
+            <div class="modal-body">
+
+                <div class="form-group col-md-2">
+                    <label for="d_objeto_hecho_modal">Objeto/Hecho:</label>
+                    <div class="input-group" id="div_input_objeto">
+                        <input readonly type="text" class="form-control input-sm mayusculas" id="d_objeto_hecho_modal" name="d_objeto_hecho_modal">
+                    </div>
+                </div>
+
+                <div class="form-group col-md-3" >
+                    <label for="d_tributo_modal">Tributo:</label>
+                    <div class="input-group" id="div_input_tributo">
+                        <input readonly name='d_tributo_modal' type="text" class="form-control input-sm" id="d_tributo_modal" readonly>
+                    </div>
+                </div>
+
+                <div class="form-group col-md-3" >
+                    <label for="d_concepto_modal">Concepto:</label>
+                    <div class="input-group" id="div_input_concepto">
+                        <input readonly name='d_concepto_modal' type="text" class="form-control input-sm" id="d_concepto_modal" readonly>
+                    </div>
+                </div>
+
+                <div class="form-group col-md-2">
+                    <label for="n_posicion_fiscal_modal">Posici&oacute;n Fiscal:</label>
+                    <div class="input-group" id="div_input_pos_fiscal">
+                        <input readonly name='n_posicion_fiscal_modal' type="text" class="form-control input-sm text-right" id="n_posicion_fiscal_modal">
+                    </div>
+                </div>
+
+                <div class="form-group col-md-2">
+                    <label for="cuota_anticipo_modal">Cuota Anticipo:</label>
+                    <div class="input-group" id="div_input_cuota">
+                        <input readonly name='cuota_anticipo_modal' type="text" class="form-control input-sm text-right" id="cuota_anticipo_modal">
+                    </div>
+                </div>
+
+                <div class="form-group col-md-2">
+                    <label for="f_vto_modal">F. Vto. :</label>
+                    <div class="input-group" id="div_input_concepto">
+                        <input readonly type="text" class="form-control input-sm text-center" name="f_vto_modal" id="f_vto_modal">
+                    </div>
+                </div>
+
+                <div>
+                    <table id="detalle_deuda_grid" class="scroll" cellpadding="0" cellspacing="0">
+                        <tr><td>&nbsp;</td></tr>
+                    </table>
+                    <div id="detalle_deuda_grid_pager" class="scroll" style="text-align:center;"></div>
+                </div>
+
+
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Volver</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="telefonos_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="detalle deuda_title">Actualizaci&oacute;n de Datos Adicionales</h5>
+            </div>
+            <div class="modal-body">
+                <h4 id="telefonos_title" style="text-align:center">Por favor, verifique o complete los siguientes datos del contribuyente para mantener actualizada la base de datos</h4>
+                
+                <div class="row" style="display: flex;justify-content: center;">
+                    <div class="form-group col-md-3">
+                        <label for="d_denominacion_telefonos">Nombre:</label>
+                        <h5 id="d_denominacion_telefonos">d_denominacion</h5>
+                    </div>
+                </div>
+
+                <div class="row" style="display: flex;justify-content: center;">
+                    <div class="form-group col-md-3" >
+                        <label for="telefono_1">Tel&eacute;fono 1:</label>
+                        <div class="input-group" id="div_input_telefono_1">
+                            <input  name='telefono_1' type="text" class="form-control input-sm numerico" id="telefono_1" >
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-3" >
+                        <label for="telefono_2">Tel&eacute;fono 2:</label>
+                        <div class="input-group" id="div_input_telefono_2">
+                            <input  name='telefono_2' type="text" class="form-control input-sm numerico" id="telefono_2" >
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-3" >
+                        <label for="telefono_3">Celular:</label>
+                        <div class="input-group" id="div_input_celular">
+                            <input  name='telefono_3' type="text" class="form-control input-sm numerico" id="telefono_3" >
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" style="display: flex;justify-content: center;">
+                    <div class="form-group col-md-4" >
+                        <label for="usuario_act">Usuario Act.:</label>
+                        <div class="input-group" id="div_input_telefono_1">
+                            <input  name='usuario_act' type="text" class="form-control input-sm numerico" id="usuario_act" readonly>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-4" >
+                        <label for="f_actualizacion_modal">Fecha de Act.:</label>
+                        <div class="input-group" id="div_input_telefono_2">
+                            <input  name='f_actualizacion_modal' type="text" class="form-control input-sm" id="f_actualizacion_modal" readonly>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button id="btn_guardar_telefono" type="button" class="btn btn-secondary" data-dismiss="modal">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="juicios_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="detalle deuda_title">Objetos en Gestion Judicial</h5>
+            </div>
+            <div class="modal-body">
+
+                <div>
+                    <h2 style="text-align:center;background-color: rgb(226, 63, 4); color:white; margin: 0 0 0 0; padding:1%">Objetos en Gestion Judicial</h2>
+                    <div style="background-color: rgb(249, 241, 226); padding-bottom: 5%; margin: 0 0 0 0;">
+                        <h3 style="text-align:center;margin: 0 0 0 0;">**** Atención ****</h3>
+                        <h5 id="c_msg_juicio" style="text-align:center"></h5>
+                    </div>
+                </div>
+                <div>
+                    <table id="juicios_grid" class="scroll" cellpadding="0" cellspacing="0">
+                        <tr><td>&nbsp;</td></tr>
+                    </table>
+                    <div id="juicios_grid_pager" class="scroll" style="text-align:center;"></div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="honorarios_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="detalle deuda_title">Honorarios</h5>
+            </div>
+            <div class="modal-body">
+
+                <div class='titlebar'>
+                    <span id="title" class="ui-jqgrid-title">Datos Generales:</span>
+                </div>
+                <div id="div_datos_generales" class="search panel-body">
+
+                    <div class="form-group col-md-6">
+                        <label for="pph_n_cuit_acreedor">Asesor Legal:</label>
+                        <div class="input-group col-md-12">
+                            <input  type="text" class="form-control input-sm" style="width:35%" id="pph_n_cuit_acreedor">
+                            <input name='pph_d_denominacion_acreedor' type="text" class="form-control input-sm" style="width:65%"id="pph_d_denominacion_acreedor" readonly>
+                            <span class="input-group-addon btn_lupa" id="lupa_pph_n_cuit_acreedor">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label for="pph_d_juzgado">Juzgado:</label>
+                        <div class="input-group" id="div_input_juzgado">
+                            <input  type="text" class="form-control input-sm mayusculas" id="pph_d_juzgado" name="pph_d_juzgado">
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label for="pph_d_circunscripcion">Circunscripc&iacute;on:</label>
+                        <div class="input-group" id="div_input_circunscripcion">
+                            <input  type="text" class="form-control input-sm mayusculas" id="pph_d_circunscripcion" name="pph_d_circunscripcion">
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label for="pph_d_caratula">Car&aacute;tula:</label>
+                        <div class="input-group" id="div_input_caratula">
+                            <input  type="text" class="form-control input-sm mayusculas" id="pph_d_caratula" name="pph_d_caratula">
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label for="pph_d_expediente">Expediente Nro:</label>
+                        <div class="input-group" id="div_input_expediente">
+                            <input  type="text" class="form-control input-sm numerico" id="pph_d_expediente" name="pph_d_expediente">
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label for="pph_n_secretaria">Secretaria Nro:</label>
+                        <div class="input-group" id="div_input_secretaria">
+                            <input  type="text" class="form-control input-sm numerico" id="pph_n_secretaria" name="pph_n_secretaria">
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label for="pph_n_juzgado">Juzgado Nro:</label>
+                        <div class="input-group" id="div_input_secretaria">
+                            <input  type="text" class="form-control input-sm numerico" id="pph_n_juzgado" name="pph_n_juzgado">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class='titlebar'>
+                    <span id="title" class="ui-jqgrid-title">Patrocinante Fiscal:</span>
+                </div>
+                <div id="div_patrocinante_fiscal" class="search panel-body">
+
+                    <div class="form-group col-md-12">
+                        <label for="pph_n_cuit_patrocinante">Patrocinante:</label>
+                        <div class="input-group col-md-12">
+                            <input  name='pph_n_cuit_patrocinante' type="text" class="form-control input-sm " style="width:35%" id="pph_n_cuit_patrocinante">
+                            <input name='pph_d_patrocinante' type="text" class="form-control input-sm " style="width:65%" id="pph_d_patrocinante" readonly>
+                            <span class="input-group-addon btn_lupa" id="lupa_pph_n_cuit_patrocinante">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class='titlebar'>
+                    <span id="title" class="ui-jqgrid-title">Representante del Contribuyente:</span>
+                </div>
+                <div id="div_representante_contrib" class="search panel-body">
+
+                    <div class="form-group col-md-4">
+                        <label for="pph_d_denominacion_rc">Apellido y Nombre:</label>
+                        <div class="input-group" id="div_input_denominacion_rc">
+                            <input  type="text" class="form-control input-sm mayusculas" id="pph_d_denominacion_rc" name="pph_d_denominacion_rc">
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label for="pph_d_caracter_rc">En su caracter de:</label>
+                        <div class="input-group" id="div_input_caracter_rc">
+                            <input  type="text" class="form-control input-sm mayusculas" id="pph_d_caracter_rc" name="pph_d_caracter_rc">
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label for="pph_d_acredita_rc">Acredita con:</label>
+                        <div class="input-group" id="div_input_acredita_rc">
+                            <input  type="text" class="form-control input-sm mayusculas" id="pph_d_acredita_rc" name="pph_d_acredita_rc">
+                        </div>
+                    </div>
+
+                </div>
+                <input name='n_plan_pago_rel' type="hidden" class="form-control input-sm" id="n_plan_pago_rel">
+                <div>
+                    <table id="planes_pago_grid" class="scroll" cellpadding="0" cellspacing="0">
+                        <tr><td>&nbsp;</td></tr>
+                    </table>
+                    <div id="planes_pago_grid_pager" class="scroll" style="text-align:center;"></div>
+                </div>
+
+
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Volver</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="abm_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="bono_title">Alta de Planes de Pago Relacionados</h5>
+            </div>
+            <div class="modal-body">
+                <form id="frm_ppr">                
+                    <input type="hidden" readonly id="p_oper">
+
+                    <div class="row" style="display: flex;justify-content: center;">
+                        <div class="form-group col-md-9">
+                            <label for="n_plan_rel_modal">N&uacute;mero de Plan (*):</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control mayusculas validate[required]"
+                                    id="n_plan_rel_modal">
+                                <span class="input-group-addon btn_lupa" id="lupa_n_plan_rel_modal">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="button" class="btn btn-primary" id="btn_aceptar">Aceptar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

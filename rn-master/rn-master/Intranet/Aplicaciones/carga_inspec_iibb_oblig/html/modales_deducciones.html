@@ -1,0 +1,301 @@
+<style>
+    #ui-datepicker-div {
+        z-index: 59000 !important;
+        position: absolute !important;
+    }
+</style>
+
+<!-- Modal Deducciones-->
+<div class="modal fade" id="modal_deducciones" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="deducciones_titulo"></h5>
+            </div>
+            <div class="col-md-12" style="padding-left: 15px;margin-bottom: 16px;padding-bottom: 0px;">
+                <span id="msj_dj_anual_rs" class="label label-danger" style="font-size: 88%;">Se ha detectado una DJ Anual de Régimen Simplificado con deducciones declaradas. Retenciones: $<span id="i_ret_ded_anual_rs"></span>. Percepciones: $<span id="i_per_ded_anual_rs">.</span></span>
+            </div>
+            <div class="modal-body">
+                <form id="modal_deduc_form">
+                    <div class="row">
+                        <input type="hidden" id="origen_modal">
+                        <div class="form-group col-md-4 col-md-offset-1">
+                            <label for="deduccion_origen">Origen (*)</label>
+                            <select name="deduccion_origen" id="deduccion_origen" data-live-search="false" title="Seleccionar" class="selectpicker form-control input-sm validate[required]" data-style="cDropdown">
+                                <option value="1">Contribuyente</option>
+                                <option value="2">Agente</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4 col-md-offset-1" id="pos_fiscal_ded">
+                            <label>Período (*)</label>
+                            <div class="input-group" id="rango_pos">
+                                <input name='deduc_p_desde' id='deduc_p_desde' disabled type='text' class='form-control text-center input-sm validate[required]' placeholder="AAAAMM"/>
+                                <div class="input-group-addon">hasta</div>
+                                <input name='deduc_p_hasta' id='deduc_p_hasta' disabled type='text' class='form-control text-center input-sm validate[required]' placeholder="AAAAMM"/>
+                            </div>
+                        </div>
+                        <!--<div class="form-group col-md-4">
+                            <label>Fecha (*)</label>
+                            <div class="input-group" id="rango_fecha">
+                                <input name='deduc_f_desde' id='deduc_f_desde' type='input' class='form-control input-sm text-center input_fecha validate[required]' placeholder="(DD/MM/AAAA)"/>
+                                <div class="input-group-addon">hasta</div>
+                                <input name='deduc_f_hasta' id='deduc_f_hasta' type='input' class='form-control input-sm text-center input_fecha validate[required]' placeholder="(DD/MM/AAAA)"/>
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>-->
+                    </div>
+                    <div class="row text-center">
+                        <button id="btn_deduc_buscar" type="button" class="btn btn-sm">Buscar</button>
+                    </div>
+                </form>
+                <br>
+                <div>
+                    <table id='modal_deduc_grilla1' class='scroll' ><tr><td>&nbsp;</td></tr></table>
+                    <div id='modal_deduc_grilla1_pager' class='scroll' style='text-align:center;'></div>
+                    <form class="form-inline" style="text-align: right; margin-top: 10px;">
+                        <div class="form-group mb-2">
+                                <span style="margin-right: 12px;">
+                                    <label for="total_deducciones"> Total Recuperadas: </label>
+                                </span>
+                            <div class="input-group">
+                                <span class="input-group-addon">$</span>
+                                <input type="text" class="form-control input-sm" id="total_deducciones" readonly>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div id="ret_banc_div" style="display: none">
+                    <div>
+                        <table id='ret_banc_grilla2' class='scroll' ><tr><td>&nbsp;</td></tr></table>
+                        <div id='ret_banc_grilla2_pager' class='scroll'></div>
+                        <form class="form-inline" style="text-align: right; margin-top: 10px;">
+                            <div class="form-group mb-2">
+                                <span style="margin-right: 12px;">
+                                    <label for="total_ret_banc"> Total: </label>
+                                </span>
+                                <div class="input-group">
+                                    <span class="input-group-addon">$</span>
+                                    <input type="text" class="form-control input-sm" id="total_ret_banc" readonly>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div id="ret_iibb_div" style="display: none">
+                    <div>
+                        <table id='ret_iibb_grilla2' class='scroll'><tr><td>&nbsp;</td></tr></table>
+                        <div id='ret_iibb_grilla2_pager' class='scroll'></div>
+                        <form class="form-inline" style="text-align: right; margin-top: 10px;">
+                            <div class="form-group mb-2">
+                                <span style="margin-right: 12px;">
+                                    <label for="total_ret_iibb"> Total: </label>
+                                </span>
+                                <div class="input-group">
+                                    <span class="input-group-addon">$</span>
+                                    <input type="text" class="form-control input-sm" id="total_ret_iibb" readonly>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div id="percep_div" style="display: none">
+                    <div>
+                        <table id='percep_grilla2' class='scroll'><tr><td>&nbsp;</td></tr></table>
+                        <div id='percep_grilla2_pager' class='scroll'></div>
+
+                        <form class="form-inline" style="text-align: right; margin-top: 10px;">
+                            <div class="form-group mb-2">
+                                <span style="margin-right: 12px;">
+                                    <label for="total_per_iibb"> Total: </label>
+                                </span>
+                                <div class="input-group">
+                                    <span class="input-group-addon">$</span>
+                                    <input type="text" class="form-control input-sm" id="total_per_iibb" readonly>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div id="percep_aduana_div" style="display: none">
+                    <div>
+                        <table id='percep_aduana_grilla2' class='scroll'><tr><td>&nbsp;</td></tr></table>
+                        <div id='percep_aduana_grilla2_pager' class='scroll'></div>
+                        <form class="form-inline" style="text-align: right; margin-top: 10px;">
+                            <div class="form-group mb-2">
+                                <span style="margin-right: 12px;">
+                                    <label for="total_per_adu"> Total: </label>
+                                </span>
+                                <div class="input-group">
+                                    <span class="input-group-addon">$</span>
+                                    <input type="text" class="form-control input-sm" id="total_per_adu" readonly>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Alta Deducciones-->
+<div class="modal fade" id="modal_alta_deduc" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="alta_deduc_titulo"></h5>
+            </div>
+            <div class="modal-body">
+                <form id="modal_alta_deduc_form">
+                    <div class="row form-group alta_general">
+                        <div class="col-md-4 alta_general">
+                            <input type="hidden" id="alta_deduc_oper">
+                            <input type="hidden" id="alta_deduc_ndeduc">
+                            <input type="hidden" id="alta_deduc_id_contrib">
+                            <label for="alta_deduc_cuit">CUIT (*)</label>
+                            <input type="text" name="alta_deduc_cuit" id="alta_deduc_cuit" class="form-control input-sm validate[required]">
+                        </div>
+                        <div class="col-md-7 alta_general">
+                            <label for="alta_deduc_denominacion" class="control-label">Denominación (*)</label>
+                            <input type="text" class="form-control input-sm validate[required]" id="alta_deduc_denominacion" placeholder="Este campo posee autocomplete">
+                        </div>
+                    </div>
+                    <div class="row form-group alta_banco">
+                        <div class="col-md-4 alta_banco">
+                            <label for="alta_deduc_cbu" class="control-label">CBU</label>
+                            <input type="text" class="form-control input-sm" id="alta_deduc_cbu">
+                        </div>
+                        <div class="col-md-3 alta_banco">
+                            <label for="alta_deduc_tcuenta" class="control-label">Tipo Cuenta</label>
+                            <select id="alta_deduc_tcuenta" title="Seleccionar" class="form-control input-sm">
+                                <option value=""></option>
+                                <?php foreach ($cuentas as $cuenta): ?>
+                                <option value="<?=$cuenta['D_DATO2']; ?>"> <?=$cuenta['D_DATO']; ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <div class="col-md-3 alta_banco">
+                            <label for="alta_deduc_tmoneda" class="control-label">Tipo Moneda</label>
+                            <select id="alta_deduc_tmoneda" title="Seleccionar" class="form-control input-sm">
+                                <option value=""></option>
+                                <option value="P">PESOS</option>
+                                <option value="O">OTROS</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row form-group alta_general">
+                        <div class="col-md-2 alta_general">
+                            <label for="alta_deduc_anio" class="control-label">Año</label>
+                            <input type="text" class="form-control input-sm" id="alta_deduc_anio" placeholder="AAAA">
+                        </div>
+                        <div class="col-md-2 alta_general">
+                            <label for="alta_deduc_mes" class="control-label">Mes</label>
+                            <input type="text" class="form-control input-sm" id="alta_deduc_mes" placeholder="MM">
+                        </div>
+                        <div class="col-md-3 alta_banco">
+                            <label for="alta_deduc_pfisc" class="control-label">Período</label>
+                            <input type="text" class="form-control input-sm" id="alta_deduc_pfisc" placeholder="AAAAMM">
+                        </div>
+                        <div class="col-md-4 alta_iibb alta_adu alta_per">
+                            <label for="alta_deduc_fecha">Fecha</label>
+                            <div class="input-group alta_general">
+                                <input type="input"  class="form-control input-sm input_fecha text-center" id="alta_deduc_fecha" placeholder="(DD/MM/AAAA)" autocomplete="off" style="text-align: center;">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-3 alta_general">
+                            <label for="alta_deduc_impor" class="control-label">Importe (*)</label>
+                            <input type="text" class="form-control input-sm mascara_importe validate[required]" id="alta_deduc_impor">
+                        </div>
+                    </div>
+                    <div class="row form-group alta_general">
+                        <div class="col-md-3 alta_iibb alta_adu alta_per">
+                            <label for="alta_deduc_ncomp" class="control-label">N. Comprobante</label>
+                            <input type="text" class="form-control input-sm" id="alta_deduc_ncomp" maxlength="20">
+                        </div>
+                        <div class="col-md-3 alta_iibb">
+                            <label for="alta_deduc_dcomp" class="control-label">Comprobante</label>
+                            <input type="text" class="form-control input-sm" id="alta_deduc_dcomp" maxlength="16">
+                        </div>
+                        <div class="col-md-3 alta_iibb alta_per">
+                            <label for="alta_deduc_tcomp" class="control-label">Tipo Comp.</label>
+                            <select name="alta_deduc_tcomp" id="alta_deduc_tcomp" class="form-control input-sm">
+                                <option value=""></option>
+                                <option value="NO">No Informado</option>
+                                <option value="F">Factura</option>
+                                <option value="R">Recibo</option>
+                                <option value="D">Nota de Débito</option>
+                                <option value="C">Nota de Crédito</option>
+                                <option value="O">Otros</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row form-group alta_general">
+                        <div class="col-md-2 alta_iibb alta_per">
+                            <label for="alta_deduc_letra" class="control-label">Letra</label>
+                            <select name="alta_deduc_letra" id="alta_deduc_letra" class="form-control input-sm">
+                                <option value="-">-</option>
+                                <option value="A">A</option>
+                                <option value="B">B</option>
+                                <option value="C">C</option>
+                                <option value="E">E</option>
+                                <option value="M">M</option>
+                                <option value="T">T</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2 alta_iibb alta_per">
+                            <label for="alta_deduc_sucursal" class="control-label">Sucursal</label>
+                            <input type="text" class="form-control input-sm" id="alta_deduc_sucursal" style="text-transform:uppercase">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button id="btn_alta_deduc" type="button" class="btn btn-sm">Aceptar</button>
+                <button type="button" class="btn btn-sm" data-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $('#modal_deducciones').on('shown.bs.modal', function (e) {
+            let gridParentWidth1 = $('#gbox_modal_deduc_grilla1').parent().width();
+            let gridParentWidth2 = $('#gbox_modal_deduc_grilla1').parent().width();
+            let gridParentWidth3 = $('#gbox_modal_deduc_grilla1').parent().width();
+            let gridParentWidth4 = $('#gbox_modal_deduc_grilla1').parent().width();
+            let gridParentWidth5 = $('#gbox_modal_deduc_grilla1').parent().width();
+            $('#modal_deduc_grilla1').setGridWidth(gridParentWidth1);
+            $('#ret_banc_grilla2').setGridWidth(gridParentWidth2);
+            $('#ret_iibb_grilla2').setGridWidth(gridParentWidth3);
+            $('#percep_grilla2').setGridWidth(gridParentWidth4);
+            $('#percep_aduana_grilla2').setGridWidth(gridParentWidth5);
+        });
+
+        $('#modal_deducciones').on('hidden.bs.modal', function (e) {
+            if (modo == 'CAR'){
+                _get_datosVerif(v_n_instancia,v_n_orden,v_id_obligacion);
+            }
+        });
+
+        $('#modal_alta_deduc').on('hidden.bs.modal', function (e) {
+            $('#modal_alta_deduc_form :input').val(null);
+            $('#alta_deduc_cuit').attr('disabled',false);
+            $('#alta_deduc_denominacion').attr('disabled',false);
+        });
+    });
+</script>

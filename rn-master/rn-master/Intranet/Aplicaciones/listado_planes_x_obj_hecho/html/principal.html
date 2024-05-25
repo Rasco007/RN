@@ -1,0 +1,52 @@
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading" style="padding-left: 1%; text-transform: none;">Consulta Planes de Pago por Objeto/Hecho</div>
+            <div class="panel-body">
+                <form id='frm_listado_planes_x_obj_hecho' style="margin-top: 5px;">
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                            <label for="d_tipo_imponible">Tipo Imponible (*)</label>
+                            <div class="input-group" id="div_input_tipo_imponible">
+                                <input type="text" class="form-control input-sm input-cod-short numero" id="c_tipo_imponible">
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_tipo_imponible" readonly>
+                                <span class="input-group-addon" id="mascara_lupa_c_tipo_imponible">
+									<span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+								</span>
+                                <span class="input-group-addon btn_lupa" id="lupa_c_tipo_imponible">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="d_objeto_hecho">Objeto/Hecho (*)</label>
+                            <div class="input-group" id="div_input_obj_hecho">
+                                <input type="text" class="form-control input-sm mayusculas" id="d_objeto_hecho">
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <div class="text-center" style="margin: 1.5% 0 0 0;float: right;">
+                                <button type="button" class="btn btn-primary btn-sm" id="btn_buscar">BUSCAR</button>
+                                <button type="button" class="btn btn-primary btn-sm" id="btn_limpiar">LIMPIAR</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id='grid_planes_de_pago' class="tabla-container">
+    <div>
+        <table id='main_grid_planes_de_pago' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+        <div id='main_grid_planes_de_pago_pager' class='scroll' style='text-align:center;'></div>
+    </div>
+    <br/>
+</div>
+
+
+

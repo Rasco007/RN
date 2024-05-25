@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.5.1.final using JasperReports Library version 6.5.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="header_A4" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" whenResourceMissingType="Key" uuid="3faf3d88-5073-4e4f-8059-286e6fd1812e">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="ireport.jasperserver.url" value="http://10.10.144.238:8123/jasperserver/"/>
+	<property name="ireport.jasperserver.user" value="jasperadmin"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="RN"/>
+	<property name="ireport.jasperserver.report.resource" value="/reports/RN/template/VHeader_A4_int"/>
+	<parameter name="p_id_sesion" class="java.lang.Integer"/>
+	<queryString language="SQL">
+		<![CDATA[select  wb.c_usuarioalt as c_usuario, 
+        to_char(sysdate, 'dd/mm/yyyy hh24:mi:ss') as f_impresion, 
+        tr.d_encabezado as d_titulo,
+        (select b_imagen from imagenes  where c_imagen = 'LOGO_REP_ART') as b_imagen,
+        (select b_imagen from imagenes  where c_imagen = 'LOGO_REP_INF') as b_imagen1
+  from web_llamadas wb, tipos_reportes tr 
+ where wb.id_sesion = $P{p_id_sesion} 
+       and wb.d_url = tr.d_reporte]]>
+	</queryString>
+	<field name="C_USUARIO" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="C_USUARIO"/>
+	</field>
+	<field name="F_IMPRESION" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="F_IMPRESION"/>
+	</field>
+	<field name="D_TITULO" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="D_TITULO"/>
+	</field>
+	<field name="B_IMAGEN" class="java.awt.Image">
+		<property name="com.jaspersoft.studio.field.label" value="B_IMAGEN"/>
+	</field>
+	<field name="B_IMAGEN1" class="java.awt.Image">
+		<property name="com.jaspersoft.studio.field.label" value="B_IMAGEN1"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="95">
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
+			<image scaleImage="RealHeight">
+				<reportElement x="1" y="0" width="159" height="95" uuid="9b9da1e5-204a-487c-bcd0-ed72f23393c3"/>
+				<imageExpression><![CDATA[$F{B_IMAGEN}]]></imageExpression>
+			</image>
+			<image scaleImage="RealHeight">
+				<reportElement x="330" y="0" width="210" height="95" uuid="3f5215f1-b119-4673-be39-c46ca8e7f481"/>
+				<imageExpression><![CDATA[$F{B_IMAGEN1}]]></imageExpression>
+			</image>
+			<frame>
+				<reportElement x="0" y="70" width="540" height="21" isPrintWhenDetailOverflows="true" uuid="297879be-0a8e-4426-8836-713a2e3ff70c">
+					<property name="ShowOutOfBoundContent" value="false"/>
+				</reportElement>
+				<rectangle radius="10">
+					<reportElement stretchType="ContainerHeight" x="0" y="0" width="540" height="21" isPrintWhenDetailOverflows="true" forecolor="#AAAAAA" backcolor="#CCCCCC" uuid="84159f19-a6dc-47f9-8586-dd4de051f7b7"/>
+				</rectangle>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="0" y="0" width="540" height="21" isPrintWhenDetailOverflows="true" uuid="a20eac62-3340-4514-8472-e1348d2d8003"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="13" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{D_TITULO}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageHeader>
+</jasperReport>

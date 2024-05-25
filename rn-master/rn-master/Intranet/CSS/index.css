@@ -1,0 +1,100 @@
+body{
+	background-color: #ffffff !important;
+}
+
+
+
+.login-block {
+    margin: 30px auto;
+    min-height: 93.6vh
+}
+
+.login-block .auth-box {
+    margin: 20px auto 0;
+    max-width: 500px !important
+}
+
+.card {
+    border-radius: 5px;
+    -webkit-box-shadow: 0 0 5px 0 rgba(43, 43, 43, .1), 0 11px 6px -7px rgba(43, 43, 43, .1);
+    box-shadow: 0 0 5px 0 rgba(43, 43, 43, .1), 0 11px 6px -7px rgba(43, 43, 43, .1);
+    border: none;
+    margin-bottom: 30px;
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+    background-color: #fff
+}
+
+.card .card-block {
+    padding: 0.25rem
+}
+
+.form-material .form-control {
+    display: inline-block;
+    height: 40px;
+    width: 80%;
+    border: none;
+    border-radius: 0;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 9px;
+    background-color: transparent;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-bottom: 1px solid #ccc
+}
+
+
+.btn-primary {
+    -webkit-transition: all ease-in .3s;
+    transition: all ease-in .3s
+}
+
+
+#form_filtro p{
+	margin: 10% 0% 10% 5%;
+	overflow: hidden;
+}
+
+.bottom_border_only {
+	border-width: 0 0 2px 0 !important;
+	box-shadow: none;
+}
+
+.input_txt_class{
+	float: left; 
+	margin-left: 3%; 
+	width: 55%;
+	height:auto;
+	background: #fcfcfc;
+}
+
+#form_filtro .form-control:focus{
+	border-color: #005596 !important;
+	outline: 0;
+	-webkit-box-shadow: none !important;
+	box-shadow: none !important;
+}
+
+#title_intra{
+	color:#747474;
+	margin: 3% 5%;
+}
+
+
+#btn_wrapper{
+	text-align: center;
+	margin-top: 15%;
+	margin-bottom: 10%;
+}
+
+#btn_ingresar{
+	box-shadow: 1px 1px 5px black;
+}
+
+.tdi_logo{
+	background: url("../../Framework/Proyecto/Imagenes/logo_index.png") no-repeat scroll 15px 11px;
+	background-size: 160px 70px;
+	height: 75px;
+	text-align: center;
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table id='consultas_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+    <div id='consultas_grid_pager' class='scroll' style='text-align:center;'></div>
+    <br>
+
+    <div id='tabs_grid'>
+        <ul class='nav nav-tabs'>
+            <li class='nav-item active'>
+                <a href='#tab_parametros' data-toggle='tab' role='tab' data-grid='parametros_grid'>Parámetros</a>
+            </li>
+            <li class='nav-item'>
+                <a href='#tab_resultados' data-toggle='tab' role='tab' data-grid='resultados_grid'>Resultados</a>
+            </li>
+        </ul>
+        <div class='tab-content'>
+            <div id='tab_parametros' class='tab-pane fade active in' role='tabpanel'>
+                <div>
+                    <table id='parametros_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+                    <div id='parametros_grid_pager' class='scroll' style='text-align:center;'></div>
+                </div>
+            </div>
+            <div id='tab_resultados' class='tab-pane fade' role='tabpanel'>
+                <div>
+                    <table id='resultados_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+                    <div id='resultados_grid_pager' class='scroll' style='text-align:center;'></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

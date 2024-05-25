@@ -1,0 +1,48 @@
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true" style="">
+            <div class="panel-heading">Datos del Contribuyente</div>
+	        <div class="panel-body">
+	            <form id='frm_busqueda'>
+	                <div class="row">
+	            	    <div class="form-group col-md-2">
+						    <label for="d_objeto" id="label_objeto">Patente (*)</label>
+					        <input name='d_objeto' type="text" class="form-control input-sm mayusculas validate[required] limpiar" id="d_objeto">
+						</div>
+
+						<div class="form-group col-md-2" id="div_nomenclatura" hidden>
+						    <label for="d_nomenclatura">Nomenclatura (*)</label>
+						    <div class="input-group">
+						        <input name='d_nomenclatura' type="text" class="form-control input-sm" id="d_nomenclatura" readonly>
+						        <span class="input-group-addon btn_lupa" id="lupa_d_nomenclatura" name='lupa_d_nomenclatura'>
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </span>
+						    </div>
+						</div>
+
+					    <div class="form-group col-md-2">
+					    	<div id="div_cuit">
+						        <label>CUIT Propietario</label>
+						        <input name='n_cuit' id='n_cuit' type="text" class="form-control input-sm text-right validate[required,custom[validaCuit]]" maxlength='13' readonly>
+						        <input name='id_contribuyente' type="hidden" class="form-control input-sm text-right" id="id_contribuyente">
+					    	</div>
+					    </div>
+
+				        <div class="form-group col-md-4">
+					        <label for="d_denominacion">Nombre</label>
+					        <input name='d_denominacion' type="text" class="mayusculas form-control input-sm validate[required]" id="d_denominacion" readonly>
+					    </div>
+	                </div>
+
+	                <div class='row-search text-center'>
+						<button class="btn-sm btn-primary" type="button" id="btn_consultar" disabled><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Consultar</button>
+	                	<button class="btn-sm btn_limpiar" type="button" id="btn_limpiar"></button>
+	                </div>
+	            </form>
+	        </div>
+	    </div>
+	</div>
+</div>

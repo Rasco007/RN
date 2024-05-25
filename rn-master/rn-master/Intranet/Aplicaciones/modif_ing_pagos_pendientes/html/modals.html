@@ -1,0 +1,123 @@
+<div class="modal fade" id="datos_obl_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="div_datos_resp" class="panel-search">
+                    <div class="panel panel-primary">
+                        
+                        <div class="panel-heading">Datos del Responsable de Pago</div>
+        
+                        <div class="collapse in" id="collapse_domicilio" aria-expanded="true">
+                            
+                            <div class="panel-body">
+                                    <div id="leyenda_cont" style="color:red; text-align: center;"></div>
+                                    <div class="row">
+                                        <div class="form-group col-md-3 col-md-offset-1">
+                                            <label>CUIT</label>
+                                            <div id="div_input_cuit_modal" class="input-group" >
+                                                <input readonly name='n_cuit_modal' id='n_cuit_modal' type="text" class="form-control  text-right" maxlength='14' >
+                                            </div>
+                                        </div>
+            
+                                        <div class="form-group col-md-3">
+                                            <label for="d_denominacion_modal">Denominación / Razón Social</label>
+                                            <div class="input-group" id="div_input_denominacion_modal">
+                                                <input readonly name='d_denominacion_modal' type="text" class="mayusculas form-control validate[required]" id="d_denominacion_modal">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group col-md-2">
+                                            <label for="c_documento_modal">Tipo Documento</label>
+                                            <div class="input-group">
+                                                <input readonly name='c_documento_modal' type="text" class="form-control input" id="c_documento_modal">
+                                            </div>
+                                        </div>
+            
+                                        <div class="form-group col-md-2">
+                                            <label for="n_documento_modal">Nro. Documento</label>
+                                            <div class="input-group">
+                                                <input readonly name='n_documento_modal' type="text" class="form-control" id="n_documento_modal">
+                                            </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="div_datos_obl" class="panel-search">
+                    <div class="panel panel-primary">
+                        
+                        <div class="panel-heading">Datos de la Obligación de Pago</div>
+        
+                        <div class="collapse in" id="collapse_domicilio" aria-expanded="true">
+                            
+                            <div class="panel-body">
+                                    <div id="leyenda_obl" style="color:red; text-align: center;"></div>
+                                    <div class="row">
+                                        <div class="form-group col-md-3 col-md-offset-1">
+                                            <label for="c_tributo_modal">Tributo</label>
+                                            <div class="input-group" id="div_input_tributo_modal">
+                                                <input readonly name='c_tributo_modal' type="text" class="form-control input-cod-short" id="c_tributo_modal">
+                                                <input name='d_tributo_modal' type="text" class="form-control input-desc-long" id="d_tributo_modal" readonly>
+                                            </div>
+                                        </div>
+            
+                                        <div class="form-group col-md-3">
+                                            <label for="c_concepto_modal">Concepto_modal</label>
+                                            <div class="input-group" id="div_input_concepto_modal">
+                                                <input readonly name='c_concepto_modal' type="text" class="form-control input-cod-short" id="c_concepto_modal" >
+                                                <input name='d_concepto_modal' type="text" class="form-control input-desc-long" id="d_concepto_modal" readonly >
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group col-md-2">
+                                            <label for="pos_fiscal_modal">Posición Fiscal</label>
+                                            <input readonly name='pos_fiscal_modal' maxlength="6" type="text" class="form-control" id="pos_fiscal_modal">
+                                        </div>
+
+                                        <div class="form-group col-md-2">
+                                            <label for="n_cuota_modal">Cuota</label>
+                                            <div class="input-group">
+                                                <input readonly name='n_cuota_modal' type="text" class="form-control" id="n_cuota_modal">
+                                            </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+                <input name='id_contribuyente_modal' type="hidden" class="form-control input-sm text-right" id="id_contribuyente_modal">
+                <div id="div_grid" >
+                    <table id='plan_pagos_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+                    <div id='plan_pagos_grid_pager' class='scroll' style='text-align:center;'></div>
+                </div>
+                <div id="div_datos_planes" class="panel-search">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">Datos de Planes de Pago</div>
+        
+                        <div class="collapse in" id="collapse_domicilio" aria-expanded="true">
+                            
+                            <div class="panel-body">
+                                <div style="color:red; text-align: center;"> Para estos datos el contribuyente no esta inscripto en un plan de pago.</div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="text-center">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Volver</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

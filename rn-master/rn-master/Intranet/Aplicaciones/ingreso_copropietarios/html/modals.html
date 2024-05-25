@@ -1,0 +1,131 @@
+<div class="modal fade" id="modal_coprop" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="modal_coprop_title">Editar Responsables</h5>
+            </div>
+            <div class="modal-body">
+                <table id='tmp_coprop_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+                <div id='tmp_coprop_grid_pager' class='scroll'></div>
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="button" class="btn btn-primary" id="btn_grabar_tmp">GUARDAR <span class="glyphicon glyphicon-save" aria-hidden="true"></span></button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Volver</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modificacion_datos" tabindex="-1" role="dialog" aria-labelledby="modificacion_datosLabel" aria-hidden="true">
+    <div class="modal-dialog modal-ms" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="modificacion_datosLabel">Modificar Registro</h5>
+            </div>
+            <div class="modal-body">
+                <form id="form_modificacion_datos">
+                    <input type="text" class="form-control" name="id_contribuyente" id="id_contribuyente" style="display: none">
+                    <input type="text" class="form-control" name="rid" id="rid" style="display: none">
+
+                    <div class="form-group">
+                        <label for="n_cuit">Cuit</label>
+                        <div class="input-group" id="div_cuit">
+                            <input type="text" class="form-control formElement" name="n_cuit" id="n_cuit" style="text-align: left;">
+                            <span class="input-group-addon btn_lupa" id="lupa_cuit" name="lupa_cuit">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="c_tipo_documento">Tipo Doc.</label>
+                        <div class="input-group" id="div_documento">
+                            <input type="text" class="form-control formElement" name="c_tipo_documento" id="c_tipo_documento" style="text-align: left;">
+                            <span class="input-group-addon btn_lupa" id="lupa_documento" name="lupa_documento">
+                                    <span class="glyphicon glyphicon-search"></span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="n_documento">Nro. Documento</label>
+                        <input type="text" class="form-control formElement" name="n_documento" id="n_documento" style="text-align: left;">
+                    </div>
+                    <div class="form-group">
+                        <label for="d_denominacion">Denominación (*)</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control mayusculas formElement validate[required]" name="d_denominacion" id="d_denominacion" style="text-align: left;">
+                            <span class="input-group-addon btn_lupa" id="lupa_denominacion" name="lupa_denominacion">
+                                    <span class="glyphicon glyphicon-search"></span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="c_tipo_respon">Tipo Resp. (*)</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control formElement validate[required]" name="c_tipo_respon" id="c_tipo_respon" style="text-align: left;">
+                            <span class="input-group-addon btn_lupa" id="lupa_respon" name="lupa_respon">
+                                    <span class="glyphicon glyphicon-search"></span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="d_respon">Respons.</label>
+                        <input type="text" class="form-control formElement" name="d_respon" id="d_respon" style="text-align: left;" disabled="disabled">
+                    </div>
+                    <div class="form-group">
+                        <label for="p_participacion">Particip (*)</label>
+                        <input type="text" class="form-control formElement validate[required] mascara_importe" name="p_participacion" id="p_participacion" style="text-align: right;">
+                    </div>
+                    <div class="form-group">
+                        <label for="f_vig_desde">Fecha Desde (*)</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control datepicker text-center validate[required] formElement" name="f_vig_desde" id="f_vig_desde" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off">
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="f_vig_hasta">Fecha Hasta</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control datepicker text-center formElement" name="f_vig_hasta" id="f_vig_hasta" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off">
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="button" class="btn btn-primary" id="btn_editar">GUARDAR <span class="glyphicon glyphicon-save" aria-hidden="true"></span></button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">CANCELAR</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function(){
+        $("#n_cuit",'#form_modificacion_datos').mask("99-99999999-9");
+        $("#n_documento",'#form_modificacion_datos').mask("999999999");
+        $('#modal_coprop').on('shown.bs.modal', function (e) {
+            let gridParentWidth = $('#gbox_tmp_coprop_grid').parent().width();
+            $('#tmp_coprop_grid').setGridWidth(gridParentWidth);
+        });
+
+        $('#modal_coprop').on('hidden.bs.modal', function (e) {
+            $('#tmp_coprop_grid').jqGrid('clearGridData');
+        });
+    });
+</script>

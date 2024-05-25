@@ -1,0 +1,141 @@
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true" style="">
+            <div class="panel-heading">Anulación</div>
+            <div class="panel-body">
+                <form id='frm_busqueda'>
+                    <div class="row">
+                        <?php if($p_tributo == 60) { ?>
+                        <div class="form-group col-md-4">
+                            <label for="d_partida">Partida</label>
+                            <div class="input-group" id="div_input_partida">
+                                <input name='d_partida' id='d_partida' type="text" class="form-control input-sm text-right mayusculas" placeholder="Seleccione una partida">
+                                <span class="input-group-addon btn_lupa" id="lupa_partida">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="d_nomenclatura">Nomenclatura</label>
+                            <div class="input-group" id="div_input_nomenc">
+                                <input name='d_nomenclatura' id='d_nomenclatura' type="text" class="form-control input-sm text-right mayusculas" placeholder="Seleccione una nomenclatura">
+                                <span class="input-group-addon btn_lupa" id="lupa_nomenclatura">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <?php } elseif ($p_tributo == 90) {?>
+                        <div class="form-group col-md-2">
+                            <label for="d_partida">Dominio:</label>
+                            <div class="input-group" id="div_input_partida">
+                                <input name='d_partida' id='d_partida' type="text" class="form-control input-sm text-right mayusculas">
+                                <span class="input-group-addon btn_lupa" id="lupa_partida">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-1">
+                            <label for="d_verif_dom"></label>
+                            <input name='d_verif_dom' class="form-control input-sm numero text-center" id="d_verif_dom" maxlength="1" style="width: 50% !important;">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="d_nomenclatura">Dominio Anterior:</label>
+                            <div class="input-group" id="div_input_nomenc">
+                                <input name='d_nomenclatura' id='d_nomenclatura' type="text" class="form-control input-sm text-right mayusculas">
+                                <span class="input-group-addon btn_lupa" id="lupa_nomenclatura">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-1">
+                            <label for="d_verif_dom_ant"></label>
+                            <input name='d_verif_dom_ant' class="form-control input-sm numero text-center" id="d_verif_dom_ant" maxlength="1" style="width: 50% !important;">
+                        </div>
+                        <?php } ?>
+                        <div class="form-group col-md-4 text-center">
+                            <label class="invisible" style="display: block;">Continuar y limpiar campos</label>
+                            <button class="btn-sm btn-primary" type="button" id="btn_continuar"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Continuar</button>
+                            <button class="btn-sm btn_limpiar" type="button" id="btn_limpiar"></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="div_contrib" class="panel-search">
+    <div class="panel panel-primary">
+        <div class="collapse in" aria-expanded="true" style="">
+            <div class="panel-heading">Datos del Contribuyente</div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="form-group col-md-2">
+                        <label for="n_cuit">CUIT</label>
+                        <input name='n_cuit' id='n_cuit' type="text" class="form-control input-sm text-right" readonly>
+                        <input name='id_contribuyente' id='id_contribuyente' type="number" hidden>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="d_denominacion">Denominación</label>
+                        <input name='d_denominacion' id='d_denominacion' type="text" class="form-control input-sm text-right" readonly>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="c_tipo_documento">Tipo de Documento</label>
+                        <div class="input-group" id="div_input_tipo_documento">
+                            <input type="text" class="form-control mayusculas input-sm input-cod-short" id="c_tipo_documento" readonly>
+                            <input type="text" class="form-control input-sm input-desc-long" id="d_tipo_documento" readonly>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label for="n_documento">N° de Documento</label>
+                        <input type="text" class="form-control input-sm text-right" id="n_documento" name="n_documento" readonly>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="div_info" class="panel-search">
+    <div class="panel panel-primary">
+        <div class="collapse in" aria-expanded="true" style="">
+            <div class="panel-heading">Informaci&oacute;n</div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label for="d_motivo_alta">Motivo</label>
+                        <div class="input-group" id="div_input_motivo">
+                            <input type="text" class="form-control mayusculas input-sm input-cod-short" id="c_motivo_alta" readonly>
+                            <input type="text" class="form-control input-sm input-desc-long" id="d_motivo_alta" readonly>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="d_fecha">Fecha</label>
+                        <input name='d_fecha' id='d_fecha' type="text" class="form-control input-sm text-right" readonly>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="d_fecha_anul">Fecha de Anulación</label>
+                        <input name='d_fecha_anul' id='d_fecha_anul' type="text" class="form-control input-sm text-right" placeholder="(DD/MM/AAAA)">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="d_delegacion">Prov/Oficina</label>
+                        <div class="input-group" id="div_input_oficina">
+                            <input type="text" class="form-control mayusculas input-sm input-cod-short" id="c_delegacion">
+                            <input type="text" class="form-control input-sm input-desc-long" id="d_delegacion" readonly>
+                            <span class="input-group-addon btn_lupa" id="lupa_prov_oficina">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-12 text-center" id="div_btn_anular">
+    <button class="btn-sm btn-primary" type="button" id="btn_anular">Anular</button>
+</div>

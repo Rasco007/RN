@@ -1,0 +1,218 @@
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true" style="">
+            <div class="panel-heading">Datos del Contribuyente</div>
+            <div class="panel-body">
+                <form id='frm_busqueda'>
+                    <div class="row">
+                        <div class="form-group col-md-2">
+                            <label for="n_cuit">CUIT (*)</label>
+                            <input name='n_cuit' id='n_cuit' type="text" class="form-control input-sm text-right validate[required]" maxlength='13' value='<?=$n_cuit?>' readonly>
+                            <input name='id_contribuyente' type="hidden" class="form-control input-sm text-right" id="id_contribuyente" value='<?=$p_id_contribuyente?>'>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="d_denominacion">Denominación / Razón Social (*)</label>
+                            <input type="text" class="form-control input-sm mayusculas" id="d_denominacion" value='<?=$d_denominacion?>' readonly>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="c_tipo_documento">Tipo de Documento</label>
+                            <div class="input-group" id="div_input_tipo_documento">
+                                <input type="text" class="form-control mayusculas input-sm input-cod-short" id="c_tipo_documento" value='<?=$c_tipo_documento?>' readonly>
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_tipo_documento" value='<?=$d_tipo_documento?>' readonly>
+                                <!-- <span class="input-group-addon btn_lupa" id="lupa_c_tipo_documento">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span> -->
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="n_documento">N° de Documento</label>
+                            <input type="text" class="form-control input-sm text-right" id="n_documento" name="n_documento" value='<?=$n_documento?>' readonly>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                            <label for="c_tipo_imponible">Tipo Imponible</label>
+                            <div class="input-group" id="div_input_tipo_imp">
+                                <input name='c_tipo_imponible' type="text" class="form-control input-sm input-cod-short limpiar" id="c_tipo_imponible">
+                                <input name='d_tipo_imponible' type="text" class="form-control input-sm input-desc-long limpiar" id="d_tipo_imponible" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_tipo_imp" name='lupa_tipo_imp'>
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="c_tributo">Tributo</label>
+                            <div class="input-group" id="div_input_tributo">
+                                <input name='c_tributo' type="text" class="form-control input-sm input-cod-short limpiar" id="c_tributo">
+                                <input name='d_tributo' type="text" class="form-control input-sm input-desc-long limpiar" id="d_tributo" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_tributo" name='lupa_tributo'>
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="d_objeto_hecho">Objeto/Hecho</label>
+                            <div class="input-group" id="div_input_objeto">
+                                <input name='d_objeto_hecho' type="text" class="form-control input-sm input-desc-long limpiar" id="d_objeto_hecho" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_objeto_hecho" name='lupa_objeto_hecho'>
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-3 text-center">
+                            <label class="invisible" style="display: block;">Continuar y limpiar campos</label>
+                            <button class="btn-sm btn-primary" type="button" id="btn_continuar"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Continuar</button>
+                            <button class="btn-sm btn_limpiar" type="button" id="btn_limpiar"></button>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="bloque_consultas" style="display:none">
+    <div class="titulo_consultas">Consultas</div>
+    <div id="accordion">
+        <h3> Sobre usted</h3>
+        <div>
+            <div class="card" id="card_cons_contrib">
+                <center><i class="fas fa-user fa-3x"></i></center>
+                <!-- <center><i class="far fa-user fa-3x"></i></center> -->
+                <h4>Datos Generales</h4>
+                <p>Consultas generales sobre usted</p>
+            </div>
+        </div>
+        
+        <h3> Sobre sus Inmuebles y Automotores</h3>
+        <div>
+            <div class="card" id="card_inmuebles">
+                <center><i class="fas fa-home fa-3x"></i></center>
+                <h4>Inmuebles</h4>
+                <p>Consultas sobre sus inmuebles</p>
+            </div>
+            <div class="card" id="card_automotor">
+                <center><i class="fas fa-car fa-3x"></i></center>
+                <h4>Automotor</h4>
+                <p>Consultas sobre sus automotores</p>
+            </div>
+        </div>
+        
+        <h3> Sobre sus DDJJ</h3>
+        <div>
+            <div class="card no_disponible" id="card_ddjj">
+                <center><i class="fas fa-file-alt fa-3x"></i></center>
+                <!-- <center><i class="far fa-file-alt fa-3x"></i></center> -->
+                <h4>DDJJ</h4>
+                <p>Consultas sobre sus declaraciones juradas</p>
+            </div>
+            <div class="card no_disponible" id="card_ddjj_pendientes">
+                <center><i class="fas fa-file-alt fa-3x"></i></center>
+                <!-- <center><i class="far fa-file-alt fa-3x"></i></center> -->
+                <h4>DDJJ Pendientes</h4>
+                <p>Consultas sobre sus declaraciones juradas pendientes</p>
+            </div>
+            <div class="card no_disponible" id="card_ddjj_ret_perc">
+                <center><i class="fas fa-file-alt fa-3x"></i></center>
+                <!-- <center><i class="far fa-file-alt fa-3x"></i></center> -->
+                <h4>DDJJ Ret./Perc</h4>
+                <p>Consultas sobre sus declaraciones juradas sobre retenciones / percepciones</p>
+            </div>
+            <div class="card no_disponible" id="card_ddjj_pend_agentes">
+                <center><i class="fas fa-file-alt fa-3x"></i></center>
+                <!-- <center><i class="far fa-file-alt fa-3x"></i></center> -->
+                <h4>DDJJ Pend. de Agentes</h4>
+                <p>Consultas sobre sus declaraciones juradas pendientes de agente</p>
+            </div>
+            <div class="card " id="card_dj_no_pres">
+                <center><i class="fas fa-file-alt fa-3x"></i></center>
+                <!-- <center><i class="far fa-file-alt fa-3x"></i></center> -->
+                <h4>DDJJ No Presentadas</h4>
+                <p>Consultas sobre sus declaraciones juradas no presentadas</p>
+            </div>
+            <div class="card" id="card_ddjj_no_pagadas">
+                <center><i class="fas fa-file-alt fa-3x"></i></center>
+                <!-- <center><i class="far fa-file-alt fa-3x"></i></center> -->
+                <h4>DDJJ No pagadas</h4>
+                <p>Consultas sobre sus declaraciones juradas no pagadas</p>
+            </div>
+        </div>
+        
+        <h3> Sobre su deuda</h3>
+        <div>
+            <div class="card" id="card_cta_cte">
+                <center><i class="fas fa-dollar-sign fa-3x"></i></center>
+                <h4>Saldos</h4>
+                <p>Consultas de saldos en su cuenta corriente</p>
+            </div>
+            <div class="card no_disponible" id="card_pagos_pendientes">
+                <center><i class="fas fa-money-bill-wave fa-3x"></i></center>
+                <h4>Pagos pendientes</h4>
+                <p>Consultas sobre sus pagos pendientes</p>
+            </div>
+            <div class="card no_disponible" id="card_planes_de_pago">
+                <center><i class="fas fa-money-bill-wave fa-3x"></i></center>
+                <h4>Planes de pago</h4>
+                <p>Consultas sobre sus planes de pago</p>
+            </div>
+            <div class="card" id="card_inmuebles_no_pagados">
+                <center><i class="fas fa-money-bill-wave fa-3x"></i></center>
+                <h4>Inmuebles no pagados</h4>
+                <p>Consultas sobre los inmuebles no pagados</p>
+            </div>
+            <div class="card no_disponible" id="card_pagos_acred">
+                <center><i class="fas fa-money-bill-wave fa-3x"></i></center>
+                <h4>Pagos acreditados</h4>
+                <p>Consultas sobre sus pagos acreditados</p>
+            </div>
+        </div>
+        
+        <h3> Sobre instancias judiciales</h3>
+        <div>
+            <div class="card" id="card_instancias">
+                <center><i class="fas fa-gavel fa-3x"></i></center>
+                <h4>Instancias</h4>
+                <p>Consultas sobre sus instancias</p>
+            </div>
+            <div class="card no_disponible" id="card_inspecciones">
+                <center><i class="fas fa-gavel fa-3x"></i></center>
+                <h4>Inspecciones</h4>
+                <p>Consultas sobre sus inspecciones</p>
+            </div>
+        </div>
+        
+        <h3> Sobre sus Excenciones</h3>
+        <div>
+            <div class="card" id="card_excenciones_hechos">
+                <center><i class="fas fa-file-alt fa-3x"></i></center>
+                <!-- <center><i class="far fa-file-alt fa-3x"></i></center> -->
+                <h4>Excenciones Hechos</h4>
+                <p>Consultas sobre sus excenciones</p>
+            </div>
+            <div class="card" id="card_excenciones_objetos">
+                <center><i class="fas fa-file-alt fa-3x"></i></center>
+                <!-- <center><i class="far fa-file-alt fa-3x"></i></center> -->
+                <h4>Excenciones Objetos</h4>
+                <p>Consultas sobre sus excenciones</p>
+            </div>
+        </div>
+        
+        <h3> Sobre Sellos</h3>
+        <div>
+            <div class="card no_disponible" id="card_instrumentos_sellos">
+                <center><i class="fas fa-gavel fa-3x"></i></center>
+                <h4>Instrumentos Sellos</h4>
+                <p>Consultas sobre sus sellos</p>
+            </div>
+        </div>
+    </div>
+</div>

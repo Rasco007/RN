@@ -1,0 +1,11 @@
+.div_bottom{
+    margin: 0 4% 0 4%;
+}
+
+.tab-deshabilitado{
+    background-color: rgb(223, 209, 209);
+    opacity:50%;
+}
+.total_cuota{
+    width:90% !important;
+}

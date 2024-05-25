@@ -1,0 +1,7 @@
+#totalizador{
+    display: flex;
+}
+
+#totalizador_cuit, #totalizador_nombre, #totalizador_importe_pagado, #totalizador_obj_hecho{
+    margin: auto;
+}

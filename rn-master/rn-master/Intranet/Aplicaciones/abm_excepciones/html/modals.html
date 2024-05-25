@@ -1,0 +1,752 @@
+<style>
+    #ui-datepicker-div {
+        z-index: 11000 !important;
+        position: absolute !important;
+    }
+
+    .cDropdown {
+        padding: 5px 12px;
+        color: #555;
+        text-transform: none;
+        font-weight: unset;
+        font-size: 11px;
+        border: 1px solid #c2cad8 !important;
+        background-color: white !important;
+    }
+
+    .cDropdown :hover{
+        background-color: white !important;
+        color: #555;
+    }
+</style>
+<div class="modal fade" id="exc_act_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="exc_act_title">Actividades</h5>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="excep_act_id_excep">
+                <input type="hidden" id="excep_act_c_mot">
+                <input type="hidden" id="excep_act_f_desde">
+                <input type="hidden" id="excep_act_f_hasta">
+                <div>
+                    <table id='excep_act_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+                    <div id='excep_act_grid_pager' class='scroll'></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Volver</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="act_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="act_title">Actividades</h5>
+            </div>
+            <div class="modal-body">                
+                <form id="frm_actividad">
+                    <input type="hidden" id="act_oper">
+                    <div class="row">
+                        <div class="form-group col-md-9">
+                            <label for="act_c_act">Actividad:</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm input-cod-short validate[required]"
+                                    id="act_c_act">
+                                <input type="text" class="form-control input-sm input-desc-long" id="act_d_act"
+                                    readonly>
+                                <span class="input-group-addon btn_lupa" id="act_lupa_c_act">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="act_nomen">Nomenclador:</label>
+                            <input type="text" class="form-control input-sm validate[required]" id="act_nomen" disabled="disabled">
+                        </div>   
+                    </div>
+                    <div class="row" id="div_alicuota">
+                        <div class="form-group col-md-4" id="div_act_ali">
+                            <label for="act_ali">Alícuota 2017:</label>
+                            <div class="input-group">
+                                <select id="act_ali" data-live-search="true" data-size="5" title="Seleccionar" class="selectpicker form-control input-sm" data-style="cDropdown">
+                                    <option value=""></option>
+                                    <?php foreach ($alicuotas as $alicuota): ?>
+                                    <option value="<?=$alicuota['P_VALOR_INFO']; ?>"> <?=$alicuota['P_VALOR_INFO'];?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                                <span class="input-group-addon">%</span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4" id="div_act_imin">
+                            <label for="act_imin" class="control-label">Importe Mínimo:</label>
+                            <select id="act_imin" data-live-search="true" data-size="5" title="Seleccionar" class="selectpicker form-control input-sm" data-style="cDropdown">
+                                <option value=""></option>
+                                <option value="0">0</option>
+                                <option value="60">60</option>
+                                <option value="80">80</option>
+                                <option value="100">100</option>
+                                <option value="110">110</option>
+                                <option value="150">150</option>
+                                <option value="170">170</option>
+                                <option value="200">200</option>
+                                <option value="220">220</option>
+                                <option value="250">250</option>
+                                <option value="280">280</option>
+                                <option value="300">300</option>
+                                <option value="340">340</option>
+                                <option value="400">400</option>
+                                <option value="470">470</option>
+                                <option value="500">500</option>
+                                <option value="550">550</option>
+                                <option value="600">600</option>
+                                <option value="630">630</option>
+                                <option value="670">670</option>
+                                <option value="700">700</option>
+                                <option value="840">840</option>
+                                <option value="990">990</option>
+                                <option value="1010">1010</option>
+                                <option value="1130">1130</option>
+                                <option value="1260">1260</option>
+                                <option value="1400">1400</option>
+                                <option value="1510">1510</option>
+                                <option value="1650">1650</option>
+                                <option value="1890">1890</option>
+                                <option value="2100">2100</option>
+                                <option value="2520">2520</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row" id="div_porcentajes">
+                        <div class="form-group col-md-4" id="div_act_imp">
+                            <label for="act_imp">Exención Impuesto:</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm text-right" id="act_imp">
+                                <span class="input-group-addon">%</span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4" id="div_act_min">
+                            <label for="act_min">Exención Mínimo:</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm text-right" id="act_min">
+                                <span class="input-group-addon">%</span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="button" class="btn btn-primary" id="btn_guardar_act">Aceptar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="excep_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="excep_title">Exención</h5>
+            </div>
+            <div class="modal-body">
+                <form id="frm_excepcion">
+                    <input type="hidden" id="excep_oper">
+                    <input type="hidden" id="excep_id_excep">
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label for="excep_d_tipo">Tipo de Exención:</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm input-cod-short mayusculas validate[required]"
+                                    id="excep_c_tipo">
+                                <input type="text" class="form-control input-sm input-desc-long" id="excep_d_tipo"
+                                    readonly>
+                                <span class="input-group-addon btn_lupa" id="excep_lupa_c_excep">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="excep_f_desde">Fecha Vig. Desde:</label>
+                            <div class="input-group">
+                                <input type="text"
+                                       class="form-control input-sm datepicker text-center validate[required]"
+                                       name="excep_f_desde" id="excep_f_desde" placeholder="(DD/MM/AAAA)" maxlength="10"
+                                       autocomplete="off" style="text-align: center;">
+                                <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="excep_f_hasta">Fecha Vig. Hasta:</label>
+                            <div class="input-group">
+                                <input type="text"
+                                       class="form-control input-sm datepicker text-center"
+                                       name="excep_f_hasta" id="excep_f_hasta" placeholder="(DD/MM/AAAA)" maxlength="10"
+                                       autocomplete="off" style="text-align: center;">
+                                <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                            </div>
+                        </div>                
+                    </div>
+                    <div class="row">                    
+                        <div class="form-group col-md-9">
+                            <label for="excep_d_mot">Motivo de Excepción: (*)</label>
+                            <div class="input-group">
+                                <input type="hidden" id="excep_max_porc">
+                                <input type="hidden" id="excep_n_mes_afec">
+                                <input type="text" class="form-control input-sm input-cod-short numero validate[required]"
+                                    id="excep_c_mot">
+                                <input type="text" class="form-control input-sm input-desc-long" id="excep_d_mot"
+                                    readonly>
+                                <span class="input-group-addon btn_lupa" id="excep_lupa_c_mot">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="excep_mot_hasta">Fecha Hasta:</label>
+                            <input type="text" class="form-control input-sm" id="excep_mot_hasta" disabled="disabled">
+                        </div>                    
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label for="excep_resolucion">Resolución:</label>                                        
+                                <input type="text" class="form-control input-sm mayusculas" id="excep_resolucion">                                
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                            <label for="excep_porc">Porcentaje Exento:</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm text-right" id="excep_porc">
+                                <span class="input-group-addon">%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="datos_act" style="display: none;">
+                        <div class="row">
+                            <div class="form-group col-md-9">
+                                <label for="excep_c_act">Actividad:</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control input-sm input-cod-short"
+                                        id="excep_c_act">
+                                    <input type="text" class="form-control input-sm input-desc-long" id="excep_d_act"
+                                        readonly>
+                                    <span class="input-group-addon btn_lupa" id="excep_lupa_c_act">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="excep_nomen">Nomenclador:</label>
+                                <input type="text" class="form-control input-sm" id="excep_nomen" disabled="disabled">
+                            </div>   
+                        </div>       
+                        <div class="row">
+                            <div class="form-group col-md-4" id="div_excep_imp">
+                                <label for="excep_imp">Exención Impuesto:</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control input-sm text-right" id="excep_imp">
+                                    <span class="input-group-addon">%</span>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4" id="div_excep_min">
+                                <label for="excep_min">Exención Mínimo:</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control input-sm text-right" id="excep_min">
+                                    <span class="input-group-addon">%</span>
+                                </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="button" class="btn btn-primary" id="btn_guardar_excep">Aceptar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function(){
+        //modal abm excepcion
+        $('#excep_modal').on('hidden.bs.modal', function (e) {
+            $('#frm_excepcion :input').val(null).validationEngine('hideAll');
+            $('#excep_c_tipo, #excep_c_mot, #excep_c_act').unbind('blur');
+        });
+
+        $('#excep_modal').on('shown.bs.modal', function (e){
+            $('html').scrollTop(200);
+            $.fn.modal.Constructor.prototype.enforceFocus = function () { };
+            $('#excep_lupa_c_excep').lupa_generica({
+                id_lista:v_lista_tipos_exen,
+                titulos:['C&oacute;digo','Descripci&oacute;n'],
+                grid:[{index:'c_codigo',width:100},
+                    {index:'d_descrip',width:250}],
+                caption:'Tipos de Exenciones',
+                sortname:'d_descrip',
+                sortorder:'asc',
+                searchInput: '#excep_c_tipo',
+                searchCode: true,
+                limpiarCod: true,
+                exactField: 'c_codigo',
+                campos:{c_codigo:'excep_c_tipo',d_descrip:'excep_d_tipo'},
+                keyNav:true,
+                onClose: function(){
+                    $('#excep_c_mot').unbind('blur');
+                    $('#excep_f_desde,#excep_f_hasta,#excep_c_mot,#excep_d_mot,#excep_mot_hasta,#excep_resolucion,#excep_porc').val(null);
+                    $('#datos_act :input').val(null);
+                    $('#datos_act').hide();
+                    if ($('#excep_c_tipo').val()) {
+                        if ($('#excep_c_tipo').val() == 'E') {
+                            $('#excep_porc').attr('disabled',false);
+                            $('#excep_lupa_c_mot').lupa_generica({
+                                id_lista:v_lista_exenciones,
+                                titulos:['C&oacute;digo','Descripci&oacute;n',
+                                    'Fecha Desde','Fecha Hasta','Régimen','Forma Jurídica',
+                                    'Tipo Domicilio','Localidad','Tipo Persona','% Max.'],
+                                grid:[{index:'c_exencion',width:100},
+                                    {index:'d_exencion',width:250},
+                                    {index:'f_vig_desde',width:150},
+                                    {index:'f_vig_hasta',width:150},
+                                    {index:'C_REGIMEN',width:100},
+                                    {index:'forma_juridica',width:150},
+                                    {index:'tipo_de_domicilio',width:150},
+                                    {index:'localidad',width:150},
+                                    {index:'M_PERSONA',width:100},
+                                    {index:'P_MAX_EXENCION',width:100}],
+                                caption:'Motivos de Exenciones',
+                                sortname:'d_exencion',
+                                sortorder:'asc',
+                                searchInput: '#excep_c_mot',
+                                searchCode: true,
+                                limpiarCod: true,
+                                exactField: 'c_exencion',
+                                filtros:['#excep_f_desde','#excep_f_hasta'],
+                                filtrosNulos:[false,true],
+                                filtrosTitulos:['Fecha Vig. Desde como mínimo','Fecha Vig. Hasta'],
+                                campos:{c_exencion:'excep_c_mot',d_exencion:'excep_d_mot',f_vig_hasta:'excep_mot_hasta'},
+                                keyNav:true,
+                                onClose: function(){
+                                    $('#excep_resolucion,#datos_act :input').val(null);
+                                    $('#excep_porc').val(0).change();
+                                }
+                            });
+                        }else {
+                            $('#excep_porc').attr('disabled',true);
+                            $('#excep_lupa_c_mot').lupa_generica({
+                                id_lista:v_lista_sit_esp,
+                                titulos:['Descripci&oacute;n','C&oacute;digo',
+                                    'Fecha Desde','Fecha Hasta','Régimen','Nomenclador','Actividad',
+                                    'Tipo Domicilio','Localidad','Mes Afectado'],
+                                grid:[{index:'d_situacion',width:250},
+                                    {index:'c_situacion',width:100},
+                                    {index:'f_vig_desde',width:150},
+                                    {index:'f_vig_hasta',width:150},
+                                    {index:'C_REGIMEN',width:100},
+                                    {index:'nomenclador',width:100},
+                                    {index:'c_actividad',width:100},
+                                    {index:'tipo_de_domicilio',width:150},
+                                    {index:'localidad',width:150},
+                                    {index:'n_mes_afectado',width:100}],
+                                caption:'Motivos de Exenciones',
+                                sortname:'d_situacion',
+                                sortorder:'asc',
+                                searchInput: '#excep_c_mot',
+                                searchCode: true,
+                                limpiarCod: true,
+                                exactField: 'c_situacion',
+                                filtros:['#excep_f_desde','#excep_f_hasta'],
+                                filtrosNulos:[false,true],
+                                filtrosTitulos:['Fecha Vig. Desde como mínimo','Fecha Vig. Hasta'],
+                                campos:{d_situacion:'excep_d_mot',c_situacion:'excep_c_mot',
+                                    f_vig_hasta:'excep_mot_hasta',n_mes_afectado:'excep_n_mes_afec'},
+                                keyNav:true
+                            });
+                        }
+                    }
+                }
+            });
+            
+            let id_lista_act;
+            if (parse(c_tributo) == 10) {
+                id_lista_act = v_lista_actividades10;
+            }else {
+                id_lista_act = v_lista_actividades20;
+            }
+
+            $('#excep_lupa_c_act').lupa_generica({
+                id_lista:id_lista_act,
+                titulos:['Nomenclador','C&oacute;digo','Descripci&oacute;n',
+                    'Tabla Nomenclador'],
+                grid:[{index:'id_nomenclador',width:100},
+                    {index:'c_actividad',width:250},
+                    {index:'d_actividad',width:250},
+                    {index:'n_tabla_nomenclador',hidden:true}],
+                caption:'Actividades',
+                sortname:'d_actividad',
+                sortorder:'asc',
+                searchInput: '#excep_c_act',
+                searchCode: true,
+                limpiarCod: true,
+                exactField: 'c_actividad',
+                filtros:[id_contrib,
+                    c_tributo,c_tipo_imponible,objeto_hecho,
+                    '#excep_f_desde','#excep_f_hasta'],
+                filtrosNulos:[false,true],
+                filtrosTitulos:['','','','','Fecha Vig. Desde como mínimo','Fecha Vig. Hasta'],
+                campos:{id_nomenclador:'excep_nomen',c_actividad:'excep_c_act',
+                    d_actividad:'excep_d_act'},
+                keyNav:true
+            });
+
+            if ($('#excep_oper').val() == 'M') {
+                if ($('#excep_c_tipo').val() == 'E') {
+                    $('#excep_porc').attr('disabled',false);
+                    $('#excep_lupa_c_mot').lupa_generica({
+                        id_lista:v_lista_exenciones,
+                        titulos:['C&oacute;digo','Descripci&oacute;n',
+                            'Fecha Desde','Fecha Hasta','Régimen','Forma Jurídica',
+                            'Tipo Domicilio','Localidad','Tipo Persona','% Max.'],
+                        grid:[{index:'c_exencion',width:100},
+                            {index:'d_exencion',width:250},
+                            {index:'f_vig_desde',width:150},
+                            {index:'f_vig_hasta',width:150},
+                            {index:'C_REGIMEN',width:100},
+                            {index:'forma_juridica',width:150},
+                            {index:'tipo_de_domicilio',width:150},
+                            {index:'localidad',width:150},
+                            {index:'M_PERSONA',width:100},
+                            {index:'P_MAX_EXENCION',width:100}],
+                        caption:'Motivos de Exenciones',
+                        sortname:'d_exencion',
+                        sortorder:'asc',
+                        searchInput: '#excep_c_mot',
+                        searchCode: true,
+                        limpiarCod: true,
+                        exactField: 'c_exencion',
+                        filtros:['#excep_f_desde','#excep_f_hasta'],
+                        filtrosNulos:[false,true],
+                        filtrosTitulos:['Fecha Vig. Desde como mínimo','Fecha Vig. Hasta'],
+                        campos:{c_exencion:'excep_c_mot',d_exencion:'excep_d_mot',f_vig_hasta:'excep_mot_hasta'},
+                        keyNav:true,
+                        onClose: function(){
+                            $('#excep_resolucion,#datos_act :input').val(null);
+                            $('#excep_porc').val(0).change();
+                        }
+                    });
+                }else {
+                    $('#excep_porc').attr('disabled',true);
+                    $('#excep_lupa_c_mot').lupa_generica({
+                        id_lista:v_lista_sit_esp,
+                        titulos:['Descripci&oacute;n','C&oacute;digo',
+                            'Fecha Desde','Fecha Hasta','Régimen','Nomenclador','Actividad',
+                            'Tipo Domicilio','Localidad','Mes Afectado'],
+                        grid:[{index:'d_situacion',width:250},
+                            {index:'c_situacion',width:100},
+                            {index:'f_vig_desde',width:150},
+                            {index:'f_vig_hasta',width:150},
+                            {index:'C_REGIMEN',width:100},
+                            {index:'nomenclador',width:100},
+                            {index:'c_actividad',width:100},
+                            {index:'tipo_de_domicilio',width:150},
+                            {index:'localidad',width:150},
+                            {index:'n_mes_afectado',width:100}],
+                        caption:'Motivos de Exenciones',
+                        sortname:'d_situacion',
+                        sortorder:'asc',
+                        searchInput: '#excep_c_mot',
+                        searchCode: true,
+                        limpiarCod: true,
+                        exactField: 'c_situacion',
+                        filtros:['#excep_f_desde','#excep_f_hasta'],
+                        filtrosNulos:[false,true],
+                        filtrosTitulos:['Fecha Vig. Desde como mínimo','Fecha Vig. Hasta'],
+                        campos:{d_situacion:'excep_d_mot',c_situacion:'excep_c_mot',
+                            f_vig_hasta:'excep_mot_hasta',n_mes_afectado:'excep_n_mes_afec'},
+                        keyNav:true
+                    });
+                }
+                $('#excep_c_mot').blur();
+            }
+        });
+
+        //modal actividades
+        $('#exc_act_modal').on('hidden.bs.modal', function (e) {
+           $('#excep_act_id_excep,#excep_act_c_mot').val(null).validationEngine('hideAll');
+           $('#excep_c_act').unbind('blur');
+        });
+
+        $('#exc_act_modal').on('shown.bs.modal', function (e) {
+            $('html').scrollTop(200);
+            if (parse($('#excep_act_c_mot').val()) == 53) {
+                $("#excep_act_grid").jqGrid('hideCol',['p_alicuota','l_minimo']);
+                $("#excep_act_grid").jqGrid('showCol',['p_exencion_impuesto','p_exencion_minimo']);
+            }else if (parse($('#excep_act_c_mot').val()) == 93) {
+                $("#excep_act_grid").jqGrid('showCol',['p_exencion_impuesto']);
+                if (parse(c_tributo) == 10) {
+                    $("#excep_act_grid").jqGrid('showCol',['p_exencion_minimo']);
+                }
+                $("#excep_act_grid").jqGrid('hideCol',['p_alicuota','l_minimo']);
+            } else if (parse($('#excep_act_c_mot').val()) == 86){
+                $("#excep_act_grid").jqGrid('hideCol',['p_alicuota','l_minimo']);
+                $("#excep_act_grid").jqGrid('showCol',['p_exencion_impuesto','p_exencion_minimo']);
+            } else if (parse($('#excep_act_c_mot').val()) == 87){
+                $("#excep_act_grid").jqGrid('hideCol',['p_exencion_impuesto','p_exencion_minimo']);
+                $("#excep_act_grid").jqGrid('showCol',['p_alicuota','l_minimo']);
+            } else if (parse($('#excep_act_c_mot').val()) == 88){
+                $("#excep_act_grid").jqGrid('hideCol',['p_alicuota','l_minimo','p_exencion_impuesto','p_exencion_minimo']);
+            } else {
+                $("#excep_act_grid").jqGrid('hideCol',['p_alicuota','l_minimo','p_exencion_impuesto','p_exencion_minimo']);
+            }
+
+            if (parse(c_tributo) == 10) {
+                $("#excep_act_grid").jqGrid('showCol',['p_exencion_minimo']);
+            } else {
+                
+            }
+
+            let id_lista_act;
+            if (parse(c_tributo) == 10) {
+                id_lista_act = v_lista_actividades10;
+            }else {
+                id_lista_act = v_lista_actividades20;
+            }
+            
+            if (parse($('#excep_act_c_mot').val()) != 87) {
+                $('#act_lupa_c_act').lupa_generica({
+                    id_lista:id_lista_act,
+                    titulos:['Nomenclador','C&oacute;digo','Descripci&oacute;n',
+                        'Tabla Nomenclador'],
+                    grid:[{index:'id_nomenclador',width:100},
+                        {index:'c_actividad',width:250},
+                        {index:'d_actividad',width:250},
+                        {index:'n_tabla_nomenclador',hidden:true}],
+                    caption:'Actividades',
+                    sortname:'d_actividad',
+                    sortorder:'asc',
+                    searchInput: '#act_c_act',
+                    searchCode: true,
+                    limpiarCod: true,
+                    exactField: 'c_actividad',
+                    filtros:[id_contrib,
+                        c_tributo,c_tipo_imponible,objeto_hecho,
+                        '#excep_act_f_desde','#excep_act_f_hasta'],
+                    filtrosNulos:true,
+                    campos:{id_nomenclador:'act_nomen',c_actividad:'act_c_act',
+                        d_actividad:'act_d_act'},
+                    keyNav:true
+                }); 
+            }
+
+            if (parse($('#excep_act_c_mot').val()) == 87){
+                $('#act_c_act').attr('disabled',true);
+            }else{
+                $('#act_c_act').attr('disabled',false);
+            }
+        });
+
+        //modal abm actividad
+
+        $('#act_modal').on('hidden.bs.modal', function (e) {
+            $('#frm_actividad :input').val(null).validationEngine('hideAll');
+            $('#frm_actividad .selectpicker').selectpicker('val','');
+        });
+
+        $('#act_modal').on('shown.bs.modal', function (e) {
+            $('html').scrollTop(200);
+            if (parse($('#excep_act_c_mot').val()) == 53) {
+                $('#div_act_ali').hide();
+                $('#act_ali').attr("disabled",true);
+                $('#div_act_imin').hide();
+                $('#act_imin').attr("disabled",true);
+                $('#div_act_imp').show();
+                $('#act_imp').attr("disabled",false);
+                $('#div_act_min').show();
+                $('#act_min').attr("disabled",true);
+            }else if (parse($('#excep_act_c_mot').val()) == 93) {
+                $('#div_act_ali').hide();
+                $('#act_ali').attr("disabled",true);
+                $('#div_act_imin').hide();
+                $('#act_imin').attr("disabled",true);
+                $('#div_act_imp').show();
+                $('#act_imp').attr("disabled",false);
+                $('#div_act_min').show();
+                if (parse(c_tributo) == 10) {
+                    $('#act_min').attr("disabled",false);
+                }else {
+                    $('#act_min').attr("disabled",true);
+                }
+            } else if (parse($('#excep_act_c_mot').val()) == 86){
+                $('#div_act_ali').hide();
+                $('#act_ali').attr("disabled",true);
+                $('#div_act_imin').hide();
+                $('#act_imin').attr("disabled",true);
+                $('#div_act_imp').show();
+                $('#act_imp').attr("disabled",true);
+                $('#div_act_min').show();
+                $('#act_min').attr("disabled",false);
+            } else if (parse($('#excep_act_c_mot').val()) == 87){
+                $('#div_act_ali').show();
+                $('#act_ali').attr("disabled",false);
+                $('#div_act_imin').show();
+                if (parse(c_tributo) == 10) {
+                    $('#act_imin').attr("disabled",false);
+                }else{
+                    $('#act_imin').attr("disabled",true);
+                }
+                $('#div_act_imp').hide();
+                $('#act_imp').attr("disabled",true);
+                $('#div_act_min').hide();
+                $('#act_min').attr("disabled",true);
+            } else if (parse($('#excep_act_c_mot').val()) == 88){
+                $('#div_act_ali').hide();
+                $('#act_ali').attr("disabled",true);
+                $('#div_act_imin').hide();
+                $('#act_imin').attr("disabled",true);
+                $('#div_act_imp').hide();
+                $('#act_imp').attr("disabled",true);
+                $('#div_act_min').hide();
+                $('#act_min').attr("disabled",true);
+            } else {
+                $('#div_act_ali').hide();
+                $('#act_ali').attr("disabled",true);
+                $('#div_act_imin').hide();
+                $('#act_imin').attr("disabled",true);
+                $('#div_act_imp').hide();
+                $('#act_imp').attr("disabled",true);
+                $('#div_act_min').hide();
+                $('#act_min').attr("disabled",true);
+            }
+        });
+
+        $('#excep_porc, #excep_imp, #excep_min, #act_imp, #act_min').mask('999,99');
+
+        $('#excep_porc').change(function(e) {    
+            e.preventDefault();
+            if ($('#excep_porc').val() && parse($('#excep_porc').val()) == 0) {
+                if ($.inArray(parse($('#excep_c_mot').val()),[53,86,88,93]) !== -1) {
+                    $('#datos_act').show();
+                    if (parse($('#excep_c_mot').val()) == 53) {
+                        $('#div_excep_imp').show();
+                        $('#excep_imp').attr("disabled",false);
+                        $('#div_excep_min').show();
+                        $('#excep_min').attr("disabled",true);
+                    }else if (parse($('#excep_c_mot').val()) == 93) {
+                        $('#div_excep_imp').show();
+                        $('#excep_imp').attr("disabled",false);
+                        if (parse(c_tributo) == 10) {
+                            $('#div_excep_min').show();
+                            $('#excep_min').attr("disabled",false);
+                        }else {
+                            $('#div_excep_min').show();
+                            $('#excep_min').attr("disabled",true);
+                        }
+                    } else if (parse($('#excep_c_mot').val()) == 86){
+                        $('#div_excep_imp').show();
+                        $('#excep_imp').attr("disabled",true).show();
+                        $('#div_excep_min').show();
+                        $('#excep_min').attr("disabled",false);
+                    } else if (parse($('#excep_c_mot').val()) == 88){
+                        $('#div_excep_imp').hide();
+                        $('#excep_imp').attr("disabled",true);
+                        $('#div_excep_min').hide();
+                        $('#excep_min').attr("disabled",true);
+                    } else {
+                        $('#div_excep_imp').hide();
+                        $('#excep_imp').attr("disabled",true);
+                        $('#div_excep_min').hide();
+                        $('#excep_min').attr("disabled",true);
+                    }
+                }else{
+                    $('#datos_act').hide();
+                    $('#div_excep_imp').hide();
+                    $('#excep_imp').attr("disabled",true);
+                    $('#div_excep_min').hide();
+                    $('#excep_min').attr("disabled",true);
+                }
+            }else{
+                $('#datos_act').hide();
+                $('#div_excep_imp').hide();
+                $('#excep_imp').attr("disabled",true);
+                $('#div_excep_min').hide();
+                $('#excep_min').attr("disabled",true);
+            }
+        });
+
+        $('#btn_guardar_excep').click(function () {
+            if ($('#frm_excepcion').validationEngine('validate')) {
+                var params = {
+                    p_id_excepcion:$('#excep_id_excep').val(),
+                    p_c_tipo_excep:$('#excep_c_tipo').val(),
+                    p_c_motivo:$('#excep_c_mot').val(),
+                    p_n_mes_afectado:$('#excep_n_mes_afec').val(),
+                    p_mot_f_hasta:$('#excep_mot_hasta').val(),
+                    p_p_exencion_impuesto:$('#excep_porc').val(),
+                    p_d_resolucion:$('#excep_resolucion').val(),
+                    p_f_vig_desde:$('#excep_f_desde').val(),
+                    p_f_vig_hasta:$('#excep_f_hasta').val(),
+                    p_id_nomenclador:$('#excep_nomen').val(),
+                    p_c_actividad:$('#excep_c_act').val(),
+                    p_exencion_impuesto_act:$('#excep_imp').val(),
+                    p_exencion_minimo_act:$('#excep_min').val(),
+                    p_oper:$('#excep_oper').val()
+                };
+                if (parse($('#excep_c_mot').val()) == 87) {
+                    mostrar_cuadro('I', 'Atención', 'Se procederá a cargar todas las actividades de forma automatica con alícuota en 0 y deberá modificarlas al terminar el proceso.<br>¿Desea continuar?',function() {
+                        abm_excepcion(params);
+                    },function() {
+                        return;
+                    });
+                }else{
+                    abm_excepcion(params);
+                }
+            }
+        });
+
+        $('#btn_guardar_act').click(function () {
+            if ($('#frm_actividad').validationEngine('validate')) {
+                var params = {
+                    p_id_excepcion:$('#excep_act_id_excep').val(),
+                    p_id_nomenclador:$('#act_nomen').val(),
+                    p_c_actividad:$('#act_c_act').val(),
+                    p_exencion_impuesto_act:$('#act_imp').val(),
+                    p_exencion_minimo_act:$('#act_min').val(),
+                    p_p_alicuota:$('#act_ali').val(),
+                    p_l_minimo:$('#act_imin').val(),
+                    p_oper:$('#act_oper').val()
+                };
+                abm_actividad(params);
+            }
+        });
+
+    });
+</script>

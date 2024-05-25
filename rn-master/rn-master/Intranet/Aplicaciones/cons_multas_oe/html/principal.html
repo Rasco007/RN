@@ -1,0 +1,119 @@
+<!--DIV BUSQUEDA-->
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true" style="">
+            <div class="panel-heading">B&uacute;squeda</div>
+            <div class="panel-body">
+                <form id='frm_consulta'>
+                    <div class="row form-group">
+                        <div class="col-md-2">
+                            <label for="n_cuit" class="control-label">CUIT</label>
+                            <input type="text" class="form-control input-sm text-center validate[required]" id="n_cuit" placeholder="">
+                            <input type="hidden" class="form-control input-sm text-center" id="id_contribuyente" placeholder="">
+                        </div>
+                        <div class="col-md-9">
+                            <label for="d_denominacion" class="control-label">Denominación</label>
+                            <input type="text" class="form-control input-sm validate[required]" id="d_denominacion" placeholder="">
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-md-2">
+                            <label for="f_notificacion">Fecha Notificación</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm datepicker text-center" name="f_notificacion" id="f_notificacion" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off" style="text-align: center;">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="f_generacion">Fecha Generación</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm datepicker text-center" name="f_generacion" id="f_generacion" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off" style="text-align: center;">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <label for="tipo_multa" class="control-label">Tipo de Multa</label>
+                            <select id="tipo_multa" data-live-search="true" title="Seleccionar" class="selectpicker form-control input-sm" data-style="cDropdown">
+                                <option value=""></option>
+                                <?php foreach ($infracciones as $infraccion): ?>
+                                <option value="<?=$infraccion['ID_INFRACCION']; ?>"> <?=$infraccion['D_INFRACCION']; ?> - Art: <?=$infraccion['D_ARTICULO']; ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-md-2">
+                            <label for="c_estado">Estado</label>
+                            <select name="c_estado" id="c_estado" title="Seleccionar" class="selectpicker form-control input-sm" data-style="cDropdown">
+                                <option value=""></option>
+                                <option value="1">Notificado</option>
+                                <option value="2">Sin Notificar</option>
+                                <option value="3">Anulada</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="pfp_vig">PFP Vig.</label>
+                            <select name="pfp_vig" id="pfp_vig" title="Seleccionar" class="selectpicker form-control input-sm" data-style="cDropdown">
+                                <option value=""></option>
+                                <option value="1">SI</option>
+                                <option value="2">NO</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="juicio_vig">Juicio Vig.</label>
+                            <select name="juicio_vig" id="juicio_vig" title="Seleccionar" class="selectpicker form-control input-sm" data-style="cDropdown">
+                                <option value=""></option>
+                                <option value="1">SI</option>
+                                <option value="2">NO</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="c_deuda">Deuda</label>
+                            <select name="c_deuda" id="c_deuda" title="Seleccionar" class="selectpicker form-control input-sm" data-style="cDropdown">
+                                <option value=""></option>
+                                <option value="1">Saldada</option>
+                                <option value="2">Impaga</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="f_actualizacion">Fecha Actualización (*)</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm datepicker text-center validate[required] input_fecha" name="f_actualizacion" id="f_actualizacion" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off" style="text-align: center;">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class='row text-center'>
+                        <br>
+                        <button type='button' class="btn-sm btn_buscar" id='btn_buscar'></button>
+                        <button type='button' class="btn-sm btn_limpiar" id='btn_limpiar'></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--GRILLA PRINCIPAL-->
+<table id='main_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+<div id='main_grid_pager' class='scroll' style='text-align:center;'></div>
+<br>
+<!--<div class="row col-md-12 text-right">
+    <label for="i_saldo_total">Saldo Total</label>
+    <input type="text" class="input-sm text-right" id="i_saldo_total" placeholder="0" disabled>
+</div>-->
+<div class="text-center">
+    <button type='button' class="btn btn-sm" id='btn_emitir_boleta' style="display: none"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> Emitir Boleta</button>
+</div>

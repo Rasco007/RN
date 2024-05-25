@@ -1,0 +1,77 @@
+<div class="modal fade" id="modal_fecha" tabindex="-1" role="dialog" aria-labelledby="modal_fechaLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="modal_fechaLabel">Modificar Fecha</h5>
+            </div>
+            <div class="modal-body">
+                <form id="frm_fecha">
+                    <input type="hidden" id="id_contrib_old">
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label for="c_motivo_fecha">Motivo</label>
+                            <div id="div_motivo" class="input-group">
+                                <input type='text' id='c_motivo_fecha' name='c_motivo_fecha' class='form-control input-sm input-cod-short mayusculas' disabled="disabled"/>
+                                <input type='text' id='d_motivo_fecha' name='d_motivo_fecha' class='form-control input-sm input-desc-long' disabled="disabled"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label for="c_deleg_fecha">Prov./Oficina</label>
+                            <div id="div_deleg_fecha" class="input-group">
+                                <input type="hidden" id='ntabla_deleg_fecha'>
+                                <input type='text' id='c_deleg_fecha' name='c_deleg_fecha' class='form-control input-sm input-cod-short mayusculas' disabled="disabled"/>
+                                <input type='text' id='d_deleg_fecha' name='d_deleg_fecha' class='form-control input-sm input-desc-long' disabled="disabled"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label for="f_altabaja_fecha">Fecha (*)</label>
+                            <div class="input-group">
+                                <input type="hidden" id="foriginal_fecha">
+                                <input type="text" class="form-control input-sm datepicker text-center validate[required]" name="f_altabaja_fecha" id="f_altabaja_fecha" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="button" class="btn-sm btn-primary" id="btn_guardar">Guardar</button>
+                    <button type="button" class="btn-sm btn-danger" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $('#modal_fecha').on('hidden.bs.modal', function (e) {
+            $('#frm_fecha :input').val(null).validationEngine('hideAll');
+        });
+
+        $('#btn_guardar').click(function () {
+            if ($('#frm_fecha').validationEngine('validate')){
+                mostrar_cuadro('C', 'Atención',
+                    'Ud. cambiará la fecha.<br>¿Desea continuar?',
+                    function () {
+                        fun_update_fecha();
+                    }, function () {
+                        return;
+                    }
+                );
+            }
+        });
+    });
+</script>

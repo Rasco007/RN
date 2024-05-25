@@ -1,0 +1,77 @@
+<div class="modal fade" tabindex="-1" role="dialog" id="id_modal_adj_archivo" data-keyboard="false" data-backdrop="false" style="z-index: 960; top:50px ;">
+    <form id="frm_adjuntar" action="../../Framework/Nucleo/Funciones/adjuntar_archivos.php" method="post" target="upload_target" enctype="multipart/form-data">
+        <div class="modal-dialog" style="width:60%;" role="document">
+            <div class="modal-content col-md-12" style="padding-left:0px; padding-right:0px;">
+                <div class="modal-header project_title">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Gestión de Archivo</h4>
+                </div>
+
+                <div class="modal-body">
+                    <!-- Campos utilizados como parametros para la funcion de SUBMIT -->
+                    <input id="file_adj_archivo" name="file_adj_archivo" type="file" style="display: none; margin-left: 5px"/>
+                    <input id="oper" name='oper' type="hidden"/>
+                    <input id="adj_cod_archivo" name='adj_cod_archivo' type="hidden"/>
+                    <input id="adj_fun_arch_destino" name='adj_fun_arch_destino' type="hidden"/>
+                    <input id="adj_archivo_dest" name='adj_archivo_dest' type="hidden"/>
+                    <input id="adj_campo_nom_original" name='adj_campo_nom_original' type="hidden"/>
+                    <input id="adj_campo_path_dest" name='adj_campo_path_dest' type="hidden"/>
+
+                    <!-- Campos visibles -->
+                    <div class="input-group row" id="div_input_archivo">
+                        <div class="col-md-7 align-items-center">
+                            <input id="d_adj_archivo" name="d_adj_archivo" class="form-control input-sm" style="height:23px;font-size:12px; padding-top:4px;" readonly/>
+                        </div>
+                        <div class="col-md-2">
+                            <button type="button" class="btn btn-primary" id="bt_adj_examinar" style="height:23px; padding:0px 15px;" >
+                                <span class="glyphicon glyphicon-file" aria-hidden="true"></span>  Seleccionar Archivo
+                            </button>
+                        </div>
+                        <div class="col-md-2">
+                            <button type="button" class="btn btn-primary" id="bt_adj_eliminar" style="height:23px; padding:0px 15px; margin-left: 70px;" >
+                                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Borrar Archivo
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="bt_adj_submit">
+                        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>  Aceptar
+                        </button>
+                    <button type="button" class="btn btn-primary" id="bt_adj_cancel" data-dismiss="modal">
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>  Cancelar
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+    </form>
+
+    <iframe id="upload_target" name="upload_target" src="empty.php" style="width:0px;height:0px;border:0px;"></iframe>
+</div>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="visualizador_adjunto" style="top:50px;">
+    <div class="modal-dialog" style="width:40%;" role="document">
+        <div class="modal-content col-md-12" style="padding-left:0px; padding-right:0px;">
+            <div class="modal-header project_title">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Vista Previa</h4>
+            </div>
+        <div class="modal-body">
+                <div id="visualizador_foto_adjunto"></div>
+                <p style="font-size:15px; color:red;">Si considera que es correcto el archivo que está visualizando presione <b>Aceptar</b>.Caso contrario presione <b>Cancelar</b>.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btn_confirmar_img">
+                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>  Aceptar
+                </button>
+                <button type="button" class="btn btn-primary" id="btn_cancelar_img" data-dismiss="modal" data-backdrop="false">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>  Cancelar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

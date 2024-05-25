@@ -1,0 +1,74 @@
+<div class="modal fade" id="modal_add_accion" role="dialog"
+     aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="exampleModalLiveLabel">Alta de Acción</h5>
+            </div>
+            <div class="modal-body">
+                <form id="form_add_accion">
+                    <div class="row form-group" style="display: flex;flex-direction: column;max-width: 80%;margin: 0 auto;gap: 5px;">
+                        <input type='text' id='c_estado_add' name='c_estado_add' hidden=""/>
+
+                        <label for="fecha_add">Fecha(*)</label>
+                        <div class="input-group alta_general">
+                            <input type="text"  class="form-control input-sm input_fecha text-center validate[required] datepicker" id="fecha_add" placeholder="(DD/MM/AAAA)" autocomplete="off" style="text-align: center;">
+                            <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar" id="date"></span>
+                                </span>
+                        </div>
+                        <label for="c_accion_add">Acción(*)</label>
+                        <div class="input-group alta_general">
+                            <select name="c_accion_add" class="form-control input-sm validate[required]" id='c_accion_add'>
+                                <option value="" selected></option>
+                                <?php foreach ($data_acciones as $accion): ?>
+                                <option value="<?=$accion['C_DATO']; ?>"><?= $accion['D_DATO'];?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <label for="d_observacion_add">Observaciones</label>
+                        <div class="input-group alta_general">
+                            <input type='text' id='d_observacion_add' name='d_observacion_add' class='form-control input-sm'/>
+                        </div>
+                        <label for="d_acto_add">Acto Administrativo</label>
+                        <div class="input-group alta_general">
+                            <input type='text' id='d_acto_add' name='d_acto_add' class='form-control input-sm validate[custom[onlyIntNumber]]'/>
+                        </div>
+                        <label for="fecha_vencimiento_add">Fecha de Vencimiento</label>
+                        <div class="input-group alta_general">
+                            <input type="text"  class="form-control input-sm input_fecha text-center datepicker" id="fecha_vencimiento_add" placeholder="(DD/MM/AAAA)" autocomplete="off" style="text-align: center;">
+                            <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar" id="date_vencimiento"></span>
+                                </span>
+                        </div>
+                        <label for="fecha_fin_add">Fecha de Fin</label>
+                        <div class="input-group alta_general">
+                            <input type="text"  class="form-control input-sm input_fecha text-center datepicker" id="fecha_fin_add" placeholder="(DD/MM/AAAA)" autocomplete="off" style="text-align: center;">
+                            <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar" id="date_fin"></span>
+                                </span>
+                        </div>
+                        <label id="label" for="d_estado_add">Estado de la Acción</label>
+                        <div class="input-group alta_general">
+                            <input type='text' id='d_estado_add' name='d_estado_add'
+                                   class='form-control input-sm' readonly="true"/>
+                            <span class="input-group-addon btn_lupa" id="btn_lupa_estado">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="button" class="btn btn-sm" id="btn_add_accion"><span
+                            class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Guardar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

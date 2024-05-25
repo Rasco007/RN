@@ -1,0 +1,47 @@
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading">Movimientos de Automotores</div>
+            <div class="panel-body">
+                <form id='frm_busqueda'>
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="d_patente">Dominio</label>
+                            <div class="input-group">
+                                <input name='d_patente' type="text" class="form-control input-sm mayusculas validate[required]" id="d_patente" maxlength="20" value="<?=$p_patente?>">
+                                <span class="input-group-addon btn_lupa" id="lupa_patente">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div id="div_dom_anterior">
+                            <div class="form-group col-md-4">
+                                <label for="d_patente_vieja">Dominio Anterior</label>
+                                <div class="input-group">
+                                    <input name='d_patente_vieja' type="text" class="form-control input-sm mayusculas" id="d_patente_vieja" maxlength="100" value="<?=$p_patente_vieja?>">
+                                    <span class="input-group-addon btn_lupa" id="lupa_patente_vieja">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4" style="margin-top: 15px !important;">
+                            <button type='button' id='btn_buscar' name='btn_buscar' class="btn btn_buscar"></button>
+                            <button type='button' id='btn_limpiar' name='btn_limpiar' class="btn btn_limpiar"></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="div_grid">
+    <table id='movimientos_auto_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+    <div id='movimientos_auto_grid_pager' class='scroll' style='text-align:center;'></div>
+</div>

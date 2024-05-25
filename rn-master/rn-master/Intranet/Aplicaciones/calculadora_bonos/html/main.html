@@ -1,0 +1,51 @@
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading">Calculadora de Bonos</div>
+            <div class="panel-body">
+                <form id='frm_busqueda'>
+
+
+                    <div class="row">
+                        <div class="form-group col-md-3 col-md-offset-1">
+                            <label for="f_vencimiento">F. de Vencimiento</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm datepicker text-center limpiar" name="f_vencimiento" id="f_vencimiento" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                   
+                        <div class="form-group col-md-3">
+                            <label for="i_pagar">Importe a Pagar</label>
+                            <input type="text"  id="i_pagar" class='form-control mascara_importe text-right input-sm' >
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="saldo">Saldo</label>
+                            <input type="text"  id="saldo" class='form-control mascara_importe text-right input-sm' >
+                        </div>
+
+                        <button class="btn-sm btn_limpiar" style="margin-top: 17px;" type="button" id="btn_limpiar"></button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="gridWrapper">
+
+    <div class='detalle'>
+        <table id='grid_calcula_bonos' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+        <div id='grid_calcula_bonos_pager' class='scroll' style='text-align:center;'></div>
+    </div>
+
+</div>
+
+<div class="form-group col-md-2 col-md-offset-10" style="margin-top: 1%;display:none" id="i_total_wrapper">
+    <label>Importe Total</label>
+    <input type="text" id="i_total" class="form-control input-sm text-right" readonly>
+</div>

@@ -1,0 +1,241 @@
+<style>
+    #ui-datepicker-div {
+        z-index: 11000 !important;
+        position: absolute !important;
+    }
+</style>
+
+<!-- Modal Alta de partida -->
+<div class="modal fade" id="datos_contrib" tabindex="-1" role="dialog" aria-labelledby="datos_contribLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="datos_contribLabel">Datos del Contribuyente</h5>
+            </div>
+            <div class="modal-body">
+                <div id="div_grilla_contrib">
+                    <table id='contribuyentes_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+                    <div id='contribuyentes_pager' class='scroll'></div>
+                </div>
+
+                <div id="div_form_contrib">
+                    <form id="frm_datos_contrib">
+                        <div class="row">
+                            <div class="form-group col-md-5 col-md-offset-1">
+                                <div id="div_cuit">
+                                    <label>CUIT</label>
+                                    <input name='n_cuit' id='n_cuit' type="text" class="form-control input-sm text-right validate[required,custom[validaCuit]]" maxlength='13'>
+                                    <input name='id_contribuyente' type="hidden" class="form-control input-sm text-right" id="id_contribuyente">
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-5">
+                                <label for="d_denominacion">Denominación / Razón Social</label>
+                                <div class="input-group">
+                                    <input name='d_denominacion' type="text" class="mayusculas form-control input-sm validate[required]" id="d_denominacion">
+                                    <span class="input-group-addon btn_lupa" id="lupa_contribuyentes" name='lupa_contribuyentes'>
+                                        <span class="glyphicon glyphicon-search"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="form-group col-md-5 col-md-offset-1">
+                                <label for="c_tipo_documento">Tipo Documento</label>
+                                <div class="input-group">
+                                    <input name='c_tipo_documento' type="text" class="form-control input-sm input-cod-short" id="c_tipo_documento">
+                                    <input name='d_tipo_documento' type="text" class="form-control input-sm input-desc-long" id="d_tipo_documento" readonly>
+                                    <span class="input-group-addon btn_lupa" id="lupa_tipo_documento" name='lupa_tipo_documento'>
+                                        <span class="glyphicon glyphicon-search"></span>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-5">
+                                <label for="n_documento">N° de Documento</label>
+                                <input name='n_documento' maxlength='11' type="text" class="form-control input-sm text-right" id="n_documento">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-5 col-md-offset-1">
+                                <label for="c_tipo_domicilio">Tipo Domicilio</label>
+                                <div class="input-group">
+                                    <input name='c_tipo_domicilio' type="text" class="form-control input-sm input-cod-short" id="c_tipo_domicilio">
+                                    <input name='d_tipo_domicilio' type="text" class="form-control input-sm input-desc-long" id="d_tipo_domicilio" readonly>
+                                    <span class="input-group-addon btn_lupa" id="lupa_tipo_domicilio" name='lupa_tipo_domicilio'>
+                                        <span class="glyphicon glyphicon-search"></span>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-5">
+                                <label for="d_domicilio">Domicilio</label>
+                                <input name='d_domicilio' type="text" class="mayusculas form-control input-sm" id="d_domicilio" readonly>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-5 col-md-offset-1">
+                                <label for="c_motivo_alta">Motivo de Alta</label>
+                                <div class="input-group">
+                                    <input name='c_motivo_alta' type="text" class="form-control input-sm input-cod-short" id="c_motivo_alta" readonly>
+                                    <input name='d_motivo_alta' type="text" class="form-control input-sm input-desc-long" id="d_motivo_alta" readonly>
+                                    <!-- <span class="input-group-addon btn_lupa" id="lupa_motivo_alta" name='lupa_motivo_alta'>
+                                        <span class="glyphicon glyphicon-search"></span>
+                                    </span> -->
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-5">
+                                <label for="f_vig_desde">Fecha Desde</label>
+                                <input name='f_vig_desde' id='f_vig_desde' type="text" class="form-control input-sm text-enter" readonly>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-5 col-md-offset-1">
+                                <label for="c_motivo_baja">Motivo de Baja</label>
+                                <div class="input-group">
+                                    <input name='c_motivo_baja' type="text" class="form-control input-sm input-cod-short" id="c_motivo_baja" readonly>
+                                    <input name='d_motivo_baja' type="text" class="form-control input-sm input-desc-long" id="d_motivo_baja" readonly>
+                                    <!-- <span class="input-group-addon btn_lupa" id="lupa_motivo_baja" name='lupa_motivo_baja'>
+                                        <span class="glyphicon glyphicon-search"></span>
+                                    </span> -->
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-5">
+                                <label for="f_hasta">Fecha Hasta</label>
+                                <input name='f_hasta' id='f_hasta' type="text" class="form-control input-sm text-enter" readonly>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-5 col-md-offset-1">
+                                <label for="c_motivo_cese_prov">Motivo de Baja Provisoria</label>
+                                <div class="input-group">
+                                    <input name='c_motivo_cese_prov' type="text" class="form-control input-sm input-cod-short" id="c_motivo_cese_prov" readonly>
+                                    <input name='d_motivo_cese_prov' type="text" class="form-control input-sm input-desc-long" id="d_motivo_cese_prov" readonly>
+                                    <!-- <span class="input-group-addon btn_lupa" id="lupa_motivo_cese_prov" name='lupa_motivo_cese_prov'>
+                                        <span class="glyphicon glyphicon-search"></span>
+                                    </span> -->
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-5">
+                                <label for="f_cese_provisorio">Fecha Baja Provisoria</label>
+                                <input name='f_cese_provisorio' id='f_cese_provisorio' type="text" class="form-control input-sm text-enter" readonly>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- <br><p><u><b>Aclaración</b></u>: Los cambios en los datos se guardarán de forma permanente.</p> -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Volver</button>
+                    <button type="button" class="btn btn-primary" id="btn_con_cuit">Nuevo Contribuyente con CUIT</button>
+                    <button type="button" class="btn btn-primary" id="btn_sin_cuit">Nuevo Contribuyente sin CUIT</button>
+                </div><br>
+                <div class="text-center">
+                    <button type="button" class="btn btn-primary" id="btn_legajo_contrib">Legajo Contribuyente</button>
+                    <button type="button" class="btn btn-primary" id="btn_responsables">Responsables</button>
+                    <button type="button" class="btn btn-primary" id="btn_exenciones">Exenciones</button>
+                    <button type="button" class="btn btn-primary" id="btn_cta_cte">Cuenta Corriente</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="modal_mtm" tabindex="-1" role="dialog" aria-labelledby="mtm_title" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="mtm_title">Marca y Modelo del Automotor</h5>
+            </div>
+            <div class="modal-body">
+                <form id="frm_datos_mtm">
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="aux_marca">Marca</label>
+                            <div class="input-group">
+                                <input name='aux_marca' type="text" class="form-control input-sm mayusculas" id="aux_marca" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_aux_marca" name='lupa_aux_marca'>
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="aux_mtm">MTM</label>
+                            <div class="input-group">
+                                <input name='aux_mtm' type="text" class="form-control input-sm mayusculas" id="aux_mtm" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_aux_mtm" name='lupa_aux_mtm'>
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="aux_descripcion">Mod./Desc.</label>
+                            <input name='aux_descripcion' type="text" class="form-control input-sm mayusculas" id="aux_descripcion" readonly>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Volver</button>
+                    <button type="button" class="btn btn-primary" id="btn_aceptar_mtm">Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="modal_impuesto_anual" tabindex="-1" role="dialog" aria-labelledby="impuesto_anual_title" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="impuesto_anual_title">Valuación</h5>
+            </div>
+            <div class="modal-body">
+                <table id='tmp_impuesto_anual_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+                <div id='tmp_impuesto_anual_grid_pager' class='scroll'></div>
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Volver</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $('#datos_contrib').on('hidden.bs.modal', function (e) {
+            if (!v_existe && !$("#c_motivo_alta","#frm_datos_contrib").val()){
+                $("#c_motivo_alta","#frm_datos_contrib").val($("#c_motivo_alta","#frm_busqueda").val());
+                $("#d_motivo_alta","#frm_datos_contrib").val($("#d_motivo_alta","#frm_busqueda").val());
+            }
+            if (!v_existe && !$("#f_vig_desde","#frm_datos_contrib").val()){
+                $("#f_vig_desde","#frm_datos_contrib").val($("#f_radicacion").val());
+            }
+        });
+    });
+</script>

@@ -1,0 +1,114 @@
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading">Datos de Automotor</div>
+            <div class="panel-body">
+                <form id='frm_consulta' style="margin-top: 5px;">
+                    <div class="row">
+                        <div id="contenedor_lupa_dominio" class="form-group col-md-2">
+                            <label for="d_dominio">Dominio: </label>
+                            <div class="input-group" id="div_input_dominio">
+                                <input name='d_dominio' id='d_dominio' type="text" class="form-control input-sm text-right mayusculas" maxlength="20">
+                                <span class="input-group-addon btn_lupa" id="mascara_lupa_dominio">
+                                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon btn_lupa" id="lupa_dominio" style="display:none">
+                                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-1">
+                            <label for="c_verificador_dom"></label>
+                            <input name='c_verificador_dom' type="text" class="form-control input-sm numerico" id="c_verificador_dom" placeholder="N" maxlength="1">
+                        </div>
+
+                        <div class="form-group col-md-1">
+                        </div>
+
+                        <div id="contenedor_lupa_dominio_anterior" class="form-group col-md-2">
+                            <label for="d_dominio_anterior">Dominio Anterior: </label>
+                            <div class="input-group" id="div_input_domant">
+                                <input name='d_dominio_anterior' id='d_dominio_anterior' type="text" class="form-control input-sm text-right mayusculas" maxlength="100">
+                                <span class="input-group-addon btn_lupa" id="mascara_lupa_dominio_anterior">
+                                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon btn_lupa" id="lupa_dominio_anterior" style="display:none">
+                                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-1">
+                            <label for="c_verificador_dom_ant"></label>
+                            <input name='c_verificador_dom_ant' type="text" class="form-control input-sm numerico" id="c_verificador_dom_ant" placeholder="N" maxlength="1">
+                        </div>
+
+                        <div class="form-group col-md-3 text-center" style="margin-top: 15px;">
+                            <button type='button' id='btn_buscar' name='btn_buscar' class="btn-sm btn_buscar"></button>
+                            <button type='button' id='btn_limpiar' name='btn_limpiar' class="btn-sm btn_limpiar"></button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="contenedor_detalle" style="display:none">
+    <div class="panel panel-primary">
+        <div class="panel-heading">Detalle</div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="form-group col-md-3">
+                    <label for="c_marca">Marca:</label>
+                    <div class="input-group" id="div_input_marca">
+                        <input name='c_marca' type="text" class="form-control input-sm input-cod-short" id="c_marca" readonly>
+                        <input name='d_marca' type="text" class="form-control input-sm input-desc-long" id="d_marca" readonly>
+                    </div>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="c_modelo">Modelo:</label>
+                    <div class="input-group" id="div_input_modelo">
+                        <input name='c_modelo' type="text" class="form-control input-sm input-cod-short" id="c_modelo" readonly>
+                        <input name='d_modelo' type="text" class="form-control input-sm input-desc-long" id="d_modelo" readonly>
+                    </div>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="c_descripcion">Descripcion:</label>
+                    <div class="input-group" id="div_input_descripcion">
+                        <input name='c_descripcion' type="text" class="form-control input-sm input-cod-short" id="c_descripcion" readonly>
+                        <input name='d_descripcion' type="text" class="form-control input-sm input-desc-long" id="d_descripcion" readonly>
+                    </div>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="c_tipo">Tipo:</label>
+                    <div class="input-group" id="div_input_tipo">
+                        <input name='c_tipo' type="text" class="form-control input-sm input-cod-short" id="c_tipo" readonly>
+                        <input name='d_tipo' type="text" class="form-control input-sm input-desc-long" id="d_tipo" readonly>
+                    </div>
+                </div>
+            </div>
+            <div class="row col-md-offset-2">
+                <div class="form-group col-md-3">
+                    <label for="d_modelo_año">Modelo Año:</label>
+                    <input type="text" class="form-control input-sm" id="d_modelo_año" readonly>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="d_peso_cilin">Peso/Cilin:</label>
+                    <input type="text" class="form-control input-sm" id="d_peso_cilin" readonly>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="f_radicacion">Fecha de radicacion:</label>
+                    <input type="text" class="form-control input-sm" id="f_radicacion" readonly>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="contenedor_boton" class="text-center" style="display:none">
+    <button type='button' id='btn_borrar_dominio' name='btn_borrar_dominio' class="btn-sm btn-primary">Borrar Dominio</button>
+</div>

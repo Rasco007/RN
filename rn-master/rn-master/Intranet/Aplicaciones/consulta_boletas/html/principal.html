@@ -1,0 +1,207 @@
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading">Consulta de Boletas</div>
+            <div class="panel-body">
+                <form id='frm_consulta_pagos_acred' style="margin-top: 5px;">
+
+                    <div class="row">
+
+                        <div class="form-group col-md-2">
+                            <label for="n_cuit">CUIT</label>
+                            <input name='n_cuit' id='n_cuit' type='text' class='form-control input-sm text-right' />
+                            <input name='id_contribuyente' id='id_contribuyente' type='hidden'/>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="desc_denom">Denominación</label>
+                            <div class="input-group" id="div_input_denominacion">
+                                <input name='d_denominacion' type="text" class="form-control input-sm mayusculas" id="desc_denom">
+                                <span class="input-group-addon" id="mascara_lupa_d_denominacion">
+                                        <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                    </span>
+                                <span class="input-group-addon" id="lupa_d_denominacion">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                    </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="d_tributo">Tributo</label>
+                            <div class="input-group" id="div_input_tributo">
+                                <input type="text" class="form-control input-sm input-cod-short numero text-right" id="c_tributo" maxlength="3">
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_tributo" readonly>
+                                <span class="input-group-addon" id="mascara_lupa_c_tributo">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon btn_lupa" id="lupa_c_tributo">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="d_objeto_hecho">Objeto/Hecho Trámite</label>
+
+                            <div class="input-group" id="div_input_obj_hecho">
+
+                                <input type="text" class="form-control input-sm mayusculas validate[required] text-right" id="d_objeto_hecho">
+                                <span class="input-group-addon" id="mascara_lupa_obj_hecho">
+									<span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+								</span>
+                                <span class="input-group-addon btn_lupa" id="lupa_obj_hecho">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="form-group col-md-3">
+                            <label for="d_tipo">Tipo</label>
+                            <div class="input-group" id="div_input_tipo">
+                                <input type="text" class="form-control input-sm input-cod-short numero text-right" id="c_tipo" maxlength="3">
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_tipo" readonly>
+                                <span class="input-group-addon" id="mascara_lupa_c_tipo">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon btn_lupa" id="lupa_c_tipo">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-2" style="margin: 1.5% 0 0 0;">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="check_boletas_pagas" checked>
+                                <label class="form-check-label" for="check_boletas_pagas">Boletas Pagas</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-2" style="margin: 1.5% 0 0 0;">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="check_boletas_impagas" checked>
+                                <label class="form-check-label" for="check_boletas_impagas">Boletas Impagas</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="n_boleta">Nro. Boleta</label>
+                            <input type="text" class="form-control input-sm text-right" id="n_boleta">
+
+                            <input type="hidden" id="tasas_ext">
+                        </div>
+
+                        <div class='row text-right' style="margin: 18px 15px 0 0;">
+                            <button type='button' id='btn_consulta' name='btn_consulta' class="btn-sm btn_buscar"></button>
+                            <button type='button' id='btn_limpiar' name='btn_limpiar' class="btn-sm btn_limpiar"></button>
+                        </div>
+
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id='grid' class="tabla-container">
+    <div id="div_grid_boletas">
+        <table id='main_grid_boletas' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+        <div id='main_grid_boletas_pager' class='scroll' style='text-align:center;'></div>
+    </div>
+
+    <div id="div_grid_boletas_pagas">
+        <table id='main_grid_boletas_pagas' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+        <div id='main_grid_boletas_pagas_pager' class='scroll' style='text-align:center;'></div>
+    </div>
+
+    <div id="div_grid_boletas_impagas">
+        <table id='main_grid_boletas_impagas' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+        <div id='main_grid_boletas_impagas_pager' class='scroll' style='text-align:center;'></div>
+    </div>
+
+    <div id="div_grid_boletas_sellos">
+        <table id='main_grid_boletas_sellos' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+        <div id='main_grid_boletas_sellos_pager' class='scroll' style='text-align:center;'></div>
+    </div>
+
+    <div id="div_grid_boletas_tasa_externa">
+        <table id='main_grid_boletas_tasa_externa' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+        <div id='main_grid_boletas_tasa_externa_pager' class='scroll' style='text-align:center;'></div>
+    </div>
+
+    <br/>
+
+    <div id='div_detalle_boletas'>
+        <table id='detalles_grid_boletas' class='scroll' cellpadding='0' cellspacing='0'>
+            <tr>
+                <td>&nbsp;</td>
+            </tr>
+        </table>
+        <div id='detalles_grid_boletas_pager' class='scroll' style='text-align:center;'></div>
+
+        <div style="display: flex; margin-top: 1%;">
+            <div class="col-md-4" style="width: auto;">
+                <p style="font-size: 11px;font-weight: bold;">Tipos de comprobante:</p>
+            </div>
+            <div style="display: flex">
+                <div class="col-md-4">
+                    <p style="font-size: 11px;font-weight: bold;">901=COM</p>
+                    <p style="font-size: 11px;font-weight: bold;">904=MOR</p>
+                    <p style="font-size: 11px;font-weight: bold;">907=REA</p>
+                </div>
+                <div class="col-md-4">
+                    <p style="font-size: 11px;font-weight: bold;">902=CRE</p>
+                    <p style="font-size: 11px;font-weight: bold;">905=SYS</p>
+                    <p style="font-size: 11px;font-weight: bold;">909=RED</p>
+                </div>
+                <div class="col-md-4">
+                    <p style="font-size: 11px;font-weight: bold;">903=PFP</p>
+                    <p style="font-size: 11px;font-weight: bold;">906=SYL</p>
+                    <p style="font-size: 11px;font-weight: bold;">908=LIQ</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div id='div_detalle_boletas_sellos'>
+        <table id='detalles_grid_boletas_sellos' class='scroll' cellpadding='0' cellspacing='0'>
+            <tr>
+                <td>&nbsp;</td>
+            </tr>
+        </table>
+        <div id='detalles_grid_boletas_sellos_pager' class='scroll' style='text-align:center;'></div>
+
+        <div style="display: flex; margin-top: 1%;">
+            <div class="col-md-4" style="width: auto;">
+                <p style="font-size: 11px;font-weight: bold;">Tipos de comprobante:</p>
+            </div>
+            <div style="display: flex">
+                <div class="col-md-4">
+                    <p style="font-size: 11px;font-weight: bold;">901=COM</p>
+                    <p style="font-size: 11px;font-weight: bold;">904=MOR</p>
+                    <p style="font-size: 11px;font-weight: bold;">907=REA</p>
+                </div>
+                <div class="col-md-4">
+                    <p style="font-size: 11px;font-weight: bold;">902=CRE</p>
+                    <p style="font-size: 11px;font-weight: bold;">905=SYS</p>
+                    <p style="font-size: 11px;font-weight: bold;">909=RED</p>
+                </div>
+                <div class="col-md-4">
+                    <p style="font-size: 11px;font-weight: bold;">903=PFP</p>
+                    <p style="font-size: 11px;font-weight: bold;">906=SYL</p>
+                    <p style="font-size: 11px;font-weight: bold;">908=LIQ</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+

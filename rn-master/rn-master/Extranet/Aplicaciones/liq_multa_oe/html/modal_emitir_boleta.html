@@ -1,0 +1,79 @@
+<style>  
+    #ui-datepicker-div {
+        z-index: 11000 !important;
+        position: absolute !important;
+    }
+</style>
+
+<!-- Modal Confirmación de Multa -->
+<div class="modal fade" id="modal_emitir_boleta" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="exampleModalLiveLabel">Impresión de Boleta</h5>
+            </div>
+            <div class="modal-body">
+                <form id="form_modal_emitir">
+                    <div class="form-group">
+                        <label for="f_emision">Fecha Emisión (*)</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="hidden" id="id_obligacion_emitir">
+                        <div class="input-group">
+                            <input type="text" class="form-control input-sm input_fecha text-center validate[required]" name="f_emision" id="f_emision" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off" style="text-align: center;" readonly="">
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="button" class="btn btn-sm" id="btn_modal_emitir"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> Emitir Boleta</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $('#modal_emitir_boleta').on('hidden.bs.modal', function (e) {
+            fun_reiniciar_pantalla();
+        });
+
+        $('#btn_modal_emitir').click(function () {
+            if ($('#form_modal_emitir').validationEngine('validate')){
+                $('#main').procOverlay({visible:true,zIndex:59000});
+                $.ajax({
+                    type:'POST',
+                    url: FUNCIONES_BASEPATH+'maestro_abm.php',
+                    data:{
+                        "p_id_obligacion":$('#id_obligacion_emitir').val(),
+                        "p_f_actualizacion":$('#f_emision').val(),
+                        "id_menu":10752,
+                        "n_orden":1
+                    },
+                    dataType:'json',
+                    success: function( data ) {
+                        $('#main').procOverlay({visible:false});
+                        if(data.resultado == 'OK'){
+                            llamar_report('BOLETA_AGR','p_id_boleta|'+data.p_id_boleta,'PDF');
+                            mostrar_mensaje_modal('S','Emitir Boleta','Se ha generado con éxito la Boleta N°: '+data.p_id_boleta+'.',function () {
+                                $('#modal_emitir_boleta').modal('hide');
+                            });
+                        }
+                        else{
+                            mostrar_cuadro('E', 'Error', data.resultado);
+                            return;
+                        }
+                    }
+                });
+            }
+        });
+    });
+</script>

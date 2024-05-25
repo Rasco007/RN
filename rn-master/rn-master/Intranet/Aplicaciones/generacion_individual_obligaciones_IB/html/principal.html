@@ -1,0 +1,125 @@
+<div class='titlebar'>
+    <span class="ui-jqgrid-title">Generador Individual de Obligaciones IIBB</span>
+</div>
+<div id="div_search" class="search panel-body">
+    <form id='frm_generacion_individual'>
+        <div class='row'>
+            <div class="form-group col-md-5 col-md-offset-1">
+                <label for="c_tributo">Tributo (*):</label>
+                <div class="input-group" id="div_input_tributo">
+                    <input type="text" class="form-control input-sm input-cod-short numero validate[required]" id="c_tributo">
+                    <input type="text" class="form-control input-sm input-desc-long" readonly id="d_tributo">
+                    <span class="input-group-addon btn_lupa" id="lupa_c_tributo">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    </span>
+                </div>
+            </div>
+            <div class="form-group col-md-5">
+                <label for="c_concepto">Concepto (*):</label>
+                <div class="input-group" id="div_input_concepto">
+                    <input type="text" class="form-control input-sm input-cod-short numero validate[required]" id="c_concepto">
+                    <input type="text" class="form-control input-sm input-desc-long" readonly id="d_concepto">
+                    <span class="input-group-addon btn_lupa" id="lupa_c_concepto">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class='row'>
+            <div class="form-group col-md-5 col-md-offset-1">
+                <label for="f_periodo_desde">Posición Desde (*):</label>
+                <div class="input-group">
+                    <input type="text" class="form-control input-sm text-center validate[required]" id="f_periodo_desde" name="f_periodo_desde" placeholder="AAAAMM" maxlength="6">
+                </div>
+            </div>
+            <div class="form-group col-md-5">
+                <label for="f_periodo_hasta">Posición Hasta:</label>
+                <div class="input-group">
+                    <input type="text" class="form-control input-sm text-center" id="f_periodo_hasta" name="f_periodo_hasta" placeholder="AAAAMM" maxlength="6">
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class='titlebar'>
+            <span class="ui-jqgrid-title">Datos del Contribuyente</span>
+        </div>
+        <br>
+
+        <div class='row'>
+            <div class="form-group col-md-3 col-md-offset-2">
+                <div id="div_cuit">
+                    <label for="n_cuit">CUIT (*):</label>
+                    <input name='id_contribuyente' type="hidden" class="form-control input-sm text-right" id="id_contribuyente">
+                    <input type="text" class="form-control input-sm text-right validate[required,custom[validaCuit]]" maxlength='13' id="n_cuit">
+                </div>
+            </div>
+
+            <div class="form-group col-md-5">
+                <label for="nombre">Apellido y Nombre / Razón Social (*):</label>
+                <div class="input-group" id="div_nombre">
+                    <input name='nombre' type="text" class="mayusculas form-control input-sm validate[required]" id="nombre">
+                    <span class="input-group-addon" id="mascara_lupa_nombre">
+                        <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                    </span>
+                    <span class="input-group-addon btn_lupa" id="lupa_nombre">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    </span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="form-group col-md-3 col-md-offset-2">
+                <label for="c_documento">Tipo Documento:</label>
+                <div class="input-group" id="div_input_documento">
+                    <input name='c_documento' type="text" class="form-control input-sm input-cod-short" id="c_documento" >
+                    <input name='d_documento' type="text" class="form-control input-sm input-desc-long" id="d_documento" readonly>
+                    <span class="input-group-addon btn_lupa" id="lupa_c_documento">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    </span>
+                </div>
+            </div>
+            <div class="form-group col-md-5">
+                <label for="documento">Nro.Documento:</label>
+                <input name='documento' maxlength='11' type="text" class="form-control input-sm text-right" id="documento">
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-3 col-md-offset-2">
+                <label for="c_tipo_imponible">Tipo Imponible:</label>
+                <div class="input-group" id="div_input_tipo_imponible">
+                    <input name='c_documento' type="text" class="form-control input-sm input-cod-short" id="c_tipo_imponible" >
+                    <input name='d_tipo_imponible' type="text" class="form-control input-sm input-desc-long" id="d_tipo_imponible" readonly>
+                    <span class="input-group-addon btn_lupa" id="lupa_c_tipo_imponible">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    </span>
+                </div>
+            </div>
+
+
+            <div class="form-group col-md-5">
+                <label for="obj_hecho">Objeto/Hecho (*):</label>
+                <div class="input-group" id="div_input_obj_hecho">
+                    <input name='obj_hecho' type="text" class="form-control input-sm mayusculas validate[required]" id="obj_hecho">
+                    <span class="input-group-addon btn_lupa" id="lupa_obj_hecho">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    </span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class='row text-center' style = 'margin-top:25px;'>
+            <button type='button' id='btn_generar' class="ui-button ui-corner-all ui-widget">Generar</button>
+            <button type='button' id='btn_cancelar' class="ui-button ui-corner-all ui-widget">Cancelar</button>
+        </div>
+
+    </form>
+
+
+
+</div>
+
+
+

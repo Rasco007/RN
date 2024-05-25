@@ -1,0 +1,197 @@
+<div id="tabs" hidden>
+    <ul>
+        <li><a href="#tabs-1">Resumen</a></li>
+        <li><a href="#tabs-2">Detalle</a></li>
+        <li><a href="#tabs-3">Cuotas</a></li>
+    </ul>
+    <div id="tabs-1">
+        <form id="frm_tab1">
+            <div class="row">
+                <div class="form-group col-md-2 col-md-offset-1">
+                    <label>Tributo</label>
+                    <div class="input-group">
+                        <input type="text" id="c_tributo" class="form-control mayusculas input-sm input-cod-short" readonly>
+                        <input type="text" id="d_tributo" class="form-control input-sm input-desc-long" readonly>
+                    </div>
+                </div>
+                <div class="form-group col-md-2">
+                    <label>Concepto</label>
+                    <div class="input-group">
+                        <input type="text" id="c_concepto" class="form-control mayusculas input-sm input-cod-short" readonly>
+                        <input type="text" id="d_concepto" class="form-control input-sm input-desc-long" readonly>
+                    </div>
+                </div>
+                <div class="form-group col-md-3">
+                    <label>Objeto/Hecho</label>
+                    <input type="text" id="d_objeto_hecho" class="form-control input-sm text-right" readonly>
+                </div>
+                <div class="form-group col-md-3">
+                    <label>Tipo Imponible</label>
+                    <div class="input-group">
+                        <input type="text" id="c_tipo_imponible" class="form-control mayusculas input-sm input-cod-short" readonly>
+                        <input type="text" id="d_tipo_imponible" class="form-control input-sm input-desc-long" readonly>
+                    </div>
+                </div>
+            </div>
+            <div class="bloque-resumen">
+                <div class="row">
+                    <div class="form-group col-md-3 col-md-offset-1">
+                        <label>Deuda Original</label>
+                        <input type="text" id="i_original" class="form-control input-sm text-right" readonly>
+                    </div>
+                    <div class="form-group col-md-3 col-md-offset-4">
+                        <label>Deuda Original con Decuentos</label>
+                        <input type="text" id="i_original_dto" class="form-control input-sm text-right" readonly>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-3 col-md-offset-1">
+                        <label>Intereses Resarcitorios</label>
+                        <input type="text" id="i_intereses_resarc" class="form-control input-sm text-right" readonly>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label>Decuento Interés (%)</label>
+                        <input type="text" id="p_dto_interes" class="form-control input-sm text-right" readonly>
+                    </div>
+                    <div class="form-group col-md-3 col-md-offset-2 bloque-total">
+                        <label>Intereses con Descuentos</label>
+                        <input type="text" id="i_intereses_dto" class="form-control input-sm text-right" readonly>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-3 col-md-offset-8">
+                        <label>Total a Financiar</label>
+                        <input type="text" id="i_total_financiar" class="form-control input-sm text-right" readonly>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-2 col-md-offset-1">
+                    <label>Cantidad de Cuotas</label>
+                    <input type="text" id="n_cuotas" class="form-control input-sm text-right" readonly>
+                </div>
+                <div class="form-group col-md-3">
+                    <label>Cálculo de Cuotas por Método</label>
+                    <input type="text" id="d_metodo" class="form-control input-sm text-right" readonly>
+                </div>
+                <div class="form-group col-md-2">
+                    <label>Periodicidad de las Cuotas</label>
+                    <input type="text" id="d_periodicidad" class="form-control input-sm text-right" readonly>
+                </div>
+                <div class="form-group col-md-3">
+                    <label>Aporte Anticipo</label>
+                    <input type="text" id="i_anticipo" class="form-control input-sm text-right" readonly>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-2 col-md-offset-1">
+                    <label>Importe de Intereses</label>
+                    <input type="text" id="i_intereses" class="form-control input-sm text-right" readonly>
+                </div>
+                <div class="form-group col-md-3">
+                    <label>Importe de Tasas</label>
+                    <input type="text" id="i_tasas" class="form-control input-sm text-right" readonly>
+                </div>
+                <div class="form-group col-md-2">
+                    <label>Importe Total</label>
+                    <input type="text" id="i_total" class="form-control input-sm text-right" readonly>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-2 col-md-offset-1">
+                    <label for="f_confirmacion">Fecha de confirmación</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control input-sm text-center" name="f_confirmacion" id="f_confirmacion" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off" readonly>
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group col-md-3">
+                    <label>Usuario Efectivación</label>
+                    <input type="text" id="c_usuario_efec" class="form-control input-sm text-right" readonly>
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="f_actualizacion">Fecha actualización</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control input-sm text-center" name="f_actualizacion" id="f_actualizacion" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off" readonly>
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-3 col-md-offset-1">
+                    <label>Motivo Finalización</label>
+                    <div class="input-group">
+                        <input type="text" id="c_motivo" class="form-control mayusculas input-sm input-cod-short" readonly>
+                        <input type="text" id="d_motivo" class="form-control input-sm input-desc-long" readonly>
+                    </div>
+                </div>
+                <div class="form-group col-md-2">
+                    <label>Usuario Actualización</label>
+                    <input type="text" id="c_usuario_act" class="form-control input-sm text-right" readonly>
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="f_finalizacion">Fecha Finalización</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control input-sm text-center" name="f_finalizacion" id="f_finalizacion" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off" readonly>
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-4 col-md-offset-1">
+                    <label>Contribuyente Alternativo</label>
+                    <div class="input-group" style="width: 720px !important;">
+                        <input type="text" id="n_cuit_alter" class="form-control input-sm input-cod-short" readonly>
+                        <input type="text" id="d_denominacion_alter" class="form-control mayusculas input-sm input-desc-long" readonly>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-3 col-md-offset-1">
+                    <label>Situación</label>
+                    <input type="text" id="d_situacion" class="form-control input-sm text-right" readonly>
+
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="f_alta">Fecha de Alta en el Sistema</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control input-sm text-center" name="f_alta" id="f_alta" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off" readonly>
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group col-md-2">
+                    <label>Usuario Alta</label>
+                    <input type="text" id="c_usuario_alta" class="form-control input-sm text-right" readonly>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div id="tabs-2">
+        <table id="detalle_grid" class="scroll" cellpadding="0" cellspacing="0"></table>
+        <div id="detalle_grid_pager" class="scroll"></div>
+    </div>
+
+    <div id="tabs-3">
+        <table id="cuotas_grid" class="scroll" cellpadding="0" cellspacing="0"></table>
+        <div id="cuotas_grid_pager" class="scroll"></div>
+        <br>
+        <div class="row col-md-offset-4">
+            <div class="col-md-4" style='text-align:right;font-weight: bold'>Total: $&nbsp;</div>
+            <div class="col-md-4">
+                <input name='i_saldo_total' id='i_saldo_total' type="text" class="form-control input-sm" readonly='readonly' style='text-align:right;font-weight: bold;'/>
+            </div>
+            <div class="col-md-4">
+                <input name='d_membrete_plan' id='d_membrete_plan' type="text" class="form-control input-sm" readonly='readonly' style='font-weight: bold;'/>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,246 @@
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <div class="collapse in" id="collapse_search" aria-expanded="true" style="">
+            <div class="panel-heading">Datos del Objeto</div>
+	        <div class="panel-body">
+	            <form id='frm_busqueda'>
+	                <div class="row">
+					    <div class="form-group col-md-2">
+					        <label id="label_objeto" for="d_objeto_hecho">Objeto</label>
+					    	<div class="input-group">
+						        <input name='d_objeto_hecho' id='d_objeto_hecho' type="text" class="form-control input-sm validate[required] mayusculas">
+						        <span class="input-group-addon btn_lupa" id="lupa_objeto" name='lupa_objeto'>
+					                <span class="glyphicon glyphicon-search"></span>
+					            </span>
+					    	</div>
+					    </div>
+
+						<div id="div_verif_dom" class="form-group col-md-1" style="display:none">
+							<label for="d_verif_dom"></label>
+							<input name='d_verif_dom' class="form-control input-sm numero text-center" id="d_verif_dom" maxlength="1" style="width: 50% !important;">
+						</div>
+
+				        <div id="div_dominio_anterior" class="form-group col-md-2" style="display:none">
+					        <label for="d_dominio_anterior">Dominio Anterior</label>
+							<div class="input-group">
+								<input name='d_dominio_anterior' type="text" class="mayusculas form-control input-sm" id="d_dominio_anterior">
+								<span class="input-group-addon btn_lupa" id="lupa_dom_ant" name='lupa_dom_ant'>
+					                <span class="glyphicon glyphicon-search"></span>
+					            </span>
+							</div>
+					    </div>
+
+						<div id="div_verif_dom_ant" class="form-group col-md-1" style="display:none">
+							<label for="d_verif_dom_ant"></label>
+							<input name='d_verif_dom_ant' class="form-control input-sm numero text-center" id="d_verif_dom_ant" maxlength="1" style="width: 50% !important;">
+						</div>
+
+				        <div id="div_nomenclatura_real" class="form-group col-md-2" style="display:none">
+					        <label for="d_nomenclatura_real">Nomenclatura</label>
+					        <input name='d_nomenclatura_real' type="text" class="mayusculas form-control input-sm" id="d_nomenclatura_real" readonly>
+					    </div>
+
+					    <div class='col-md-4 text-center'>
+					    	<label class="invisible" style="display: block;">Buscar y limpiar</label>
+							<button class="btn-sm btn-primary" type="button" id="btn_buscar"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Buscar</button>
+		                	<button class="btn-sm btn_limpiar" type="button" id="btn_limpiar"></button>
+		                </div>
+	                </div>
+                </form>
+	        </div>
+	    </div>
+	</div>
+</div>
+
+<div id="datos_transferencia" style="display:none">
+	<div id="div_search2" class="panel-search">
+	    <div class="panel panel-primary">
+	        <div class="collapse in" id="collapse_search2" aria-expanded="true" style="">
+	            <div class="panel-heading">Datos del Contribuyente Anterior</div>
+		        <div class="panel-body">
+		            <form id='frm_cont_anterior'>
+		                <div class="row">
+						    <div class="form-group col-md-2">
+						    	<div id="div_cuit_old">
+							        <label>CUIT</label>
+							        <input name='n_cuit_old' id='n_cuit_old' type="text" class="form-control input-sm text-right cuit validate[required,custom[validaCuit]]" maxlength='13' readonly>
+							        <input name='id_contribuyente_old' type="hidden" class="form-control input-sm text-right" id="id_contribuyente_old" readonly>
+						    	</div>
+						    </div>
+
+					        <div class="form-group col-md-6">
+						        <label for="d_denominacion_old">Denominación / Razón Social</label>
+						        <input name='d_denominacion_old' type="text" class="mayusculas form-control input-sm validate[required]" id="d_denominacion_old" readonly>
+						    </div>
+		                </div>
+
+		                <div class="row">
+		            	    <div class="form-group col-md-4">
+							    <label for="c_tipo_documento_old">Tipo Documento</label>
+							    <div class="input-group" id="div_input_tipo_documento_old">
+							        <input name='c_tipo_documento_old' type="text" class="form-control input-sm input-cod-short" id="c_tipo_documento_old" readonly>
+							        <input name='d_tipo_documento_old' type="text" class="form-control input-sm input-desc-long" id="d_tipo_documento_old" readonly>
+							    </div>   
+							</div>
+
+						    <div class="form-group col-md-2">
+						        <label for="n_documento_old">N° de Documento</label>
+						        <input name='n_documento_old' maxlength='11' type="text" class="form-control input-sm text-right documento" id="n_documento_old" readonly>
+						    </div>
+
+						    <div class="form-group col-md-2">
+	                            <label for="f_vig_desde_old">Fecha Desde</label>
+	                            <div class="input-group">
+	                                <input type="text" class="form-control input-sm datepicker text-center" name="f_vig_desde_old" id="f_vig_desde_old" maxlength="10" autocomplete="off" readonly disabled>
+	                                <span class="input-group-addon">
+	                                    <span class="glyphicon glyphicon-calendar"></span>
+	                                </span>
+	                            </div>
+	                        </div>
+
+						    <div class="form-group col-md-2">
+	                            <label for="f_vig_hasta_old">Fecha Hasta</label>
+	                            <div class="input-group">
+	                                <input type="text" class="form-control input-sm datepicker text-center" name="f_vig_hasta_old" id="f_vig_hasta_old" maxlength="10" autocomplete="off" readonly disabled>
+	                                <span class="input-group-addon">
+	                                    <span class="glyphicon glyphicon-calendar"></span>
+	                                </span>
+	                            </div>
+	                        </div>
+		                </div>
+		            </form>
+		        </div>
+		    </div>
+		</div>
+	</div>
+
+	<div id="div_search3" class="panel-search">
+	    <div class="panel panel-primary">
+	        <div class="collapse in" id="collapse_search3" aria-expanded="true" style="">
+	            <div class="panel-heading">Datos del Contribuyente Nuevo</div>
+		        <div class="panel-body">
+		            <form id='frm_cont_nuevo'>
+		                <div class="row">
+						    <div class="form-group col-md-2">
+						    	<div id="div_cuit_new">
+							        <label>CUIT (*)</label>
+							        <input name='n_cuit_new' id='n_cuit_new' type="text" class="form-control input-sm text-right cuit validate[required,custom[validaCuit]]" maxlength='13'>
+							        <input name='id_contribuyente_new' type="hidden" class="form-control input-sm text-right" id="id_contribuyente_new">
+						    	</div>
+						    </div>
+
+					        <div class="form-group col-md-6">
+						        <label for="d_denominacion_new">Denominación / Razón Social (*)</label>
+						        <input name='d_denominacion_new' type="text" class="mayusculas form-control input-sm" id="d_denominacion_new">
+						    </div>
+		                </div>
+
+		                <div class="row">
+		            	    <div class="form-group col-md-4">
+							    <label for="c_tipo_documento_new">Tipo Documento</label>
+							    <div class="input-group" id="div_input_tipo_documento_new">
+							        <input name='c_tipo_documento_new' type="text" class="form-control input-sm input-cod-short" id="c_tipo_documento_new">
+							        <input name='d_tipo_documento_new' type="text" class="form-control input-sm input-desc-long" id="d_tipo_documento_new" readonly>
+							        <span class="input-group-addon btn_lupa" id="lupa_tipo_documento" name='lupa_tipo_documento'>
+	                                    <span class="glyphicon glyphicon-search"></span>
+	                                </span>
+							    </div>   
+							</div>
+
+						    <div class="form-group col-md-2">
+						        <label for="n_documento_new">N° de Documento</label>
+						        <input name='n_documento_new' maxlength='11' type="text" class="form-control input-sm text-right documento" id="n_documento_new" readonly>
+						    </div>
+
+		            	    <div class="form-group col-md-4">
+							    <label for="c_tipo_domicilio_new">Tipo Domicilio (*)</label>
+							    <div class="input-group" id="div_input_tipo_documento_new">
+							        <input name='c_tipo_domicilio_new' type="text" class="form-control input-sm input-cod-short validate[required]" id="c_tipo_domicilio_new">
+							        <input name='d_tipo_domicilio_new' type="text" class="form-control input-sm input-desc-long" id="d_tipo_domicilio_new" readonly>
+							        <span class="input-group-addon btn_lupa" id="lupa_tipo_domicilio" name='lupa_tipo_domicilio'>
+	                                    <span class="glyphicon glyphicon-search"></span>
+	                                </span>
+							    </div>   
+							</div>
+		                </div>
+		                <br>
+		                <div class="row">
+			                <center>
+								<button type='button' id='btn_con_cuit' class='btn btn-primary' style='margin-left:20px;margin-right:20px;' disabled>Nuevo Contribuyente con CUIT</button>
+								<button type='button' id='btn_sin_cuit' class='btn btn-primary' style='margin-left:20px;margin-right:20px;' disabled>Nuevo Contribuyente sin CUIT</button>
+								<button type='button' id='btn_responsables' class='btn btn-primary' style='margin-left:20px;margin-right:20px;' disabled>Responsables</button>
+								<button type='button' id='btn_legajo_contribuyente' class='btn btn-primary' style='margin-left:20px;margin-right:20px;'>Legajo Contribuyente</button>
+							</center>
+						</div>
+		            </form>
+		        </div>
+		    </div>
+		</div>
+	</div>
+	<div id="div_search3" class="panel-search">
+	    <div class="panel panel-primary">
+	        <div class="collapse in" id="collapse_search3" aria-expanded="true" style="">
+	            <div class="panel-heading">Datos de la Transferencia</div>
+		        <div class="panel-body">
+		            <form id='frm_datos_transf'>
+						<div class="row">
+							<div class="form-group col-md-2">
+							    <label for="f_movimiento">Fecha de Movimiento</label>
+							    <div class="input-group">
+							        <input type="text" class="form-control input-sm datepicker text-center validate[required]" name="f_movimiento" id="f_movimiento" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off">
+							        <span class="input-group-addon">
+							            <span class="glyphicon glyphicon-calendar"></span>
+							        </span>
+							    </div>
+							</div>
+
+						    <div id="div_motivo" class="form-group col-md-4">
+							    <label for="c_motivo">Motivo</label>
+							    <div class="input-group" id="div_input_tipo_documento">
+							        <input name='c_motivo' type="text" class="form-control input-sm input-cod-short validate[required]" id="c_motivo">
+							        <input name='d_motivo' type="text" class="form-control input-sm input-desc-long" id="d_motivo" readonly>
+							        <span class="input-group-addon btn_lupa" id="lupa_motivo" name='lupa_motivo'>
+						                <span class="glyphicon glyphicon-search"></span>
+						            </span>
+							    </div>   
+							</div>
+
+						    <div id="div_rnpa" class="form-group col-md-4" style="display:none;">
+							    <label for="c_rnpa">RNPA</label>
+							    <div class="input-group" id="div_input_tipo_documento">
+							        <input name='c_rnpa' type="text" class="form-control input-sm input-cod-short" id="c_rnpa">
+							        <input name='d_rnpa' type="text" class="form-control input-sm input-desc-long" id="d_rnpa" readonly>
+							        <span class="input-group-addon btn_lupa" id="lupa_rnpa" name='lupa_rnpa'>
+						                <span class="glyphicon glyphicon-search"></span>
+						            </span>
+							    </div>   
+							</div>
+							
+							<div id="div_4_minuta" class="form-group col-md-2" style="display:none;">
+						        <label for="m_cuarta_min">Es 4ta Minuta</label>
+						        <input type="checkbox" class="form-control input-sm text-center" name="m_cuarta_min" id="m_cuarta_min">
+						    </div>
+
+						    <div class="form-group col-md-4">
+							    <label for="c_delegacion">Prov/Oficina</label>
+							    <div class="input-group" id="div_input_tipo_documento">
+							        <input name='c_delegacion' type="text" class="form-control input-sm input-cod-short validate[required]" id="c_delegacion">
+							        <input name='d_delegacion' type="text" class="form-control input-sm input-desc-long" id="d_delegacion" readonly>
+							        <span class="input-group-addon btn_lupa" id="lupa_delegacion" name='lupa_delegacion'>
+						                <span class="glyphicon glyphicon-search"></span>
+						            </span>
+							    </div>   
+							</div>
+						</div>
+						<br>
+						<div class="row">
+							<center>
+								<button type='button' id='btn_confirmar' class='btn btn-primary' style='margin-left:20px;margin-right:20px;' disabled>Confirmar</button>
+							</center>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

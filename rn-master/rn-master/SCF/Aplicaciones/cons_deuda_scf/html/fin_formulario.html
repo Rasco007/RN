@@ -1,0 +1,59 @@
+
+				<div class="form-group row col-md-4 col-md-offset-4">
+					<label class="control-label" for="f_actualizacion">Fecha Actualización (*)</label>
+					<div class="input-group">
+						<input type="text" class="form-control input-sm datepicker text-center validate[required]" name="f_actualizacion" id="f_actualizacion" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off" style="text-align: center;" readonly>
+						<span class="input-group-addon">
+							<span class="glyphicon glyphicon-calendar"></span>
+						</span>
+					</div>
+				</div>
+                <div class="form-group row col-md-4 col-md-offset-4">
+                    <label class="control-label" for="c_captcha">Código CAPTCHA (*)</label>
+                    <input type="text" class="form-control input-sm text-center validate[required]" name="c_captcha" id="c_captcha" maxlength="5">
+                </div>
+                <div class="form-group row col-md-4 col-md-offset-4">
+                    <center><img id="img_captcha" src="<?=$_SESSION['captcha']['image_src']?>" alt="CAPTCHA code"></center>
+                </div>
+				<div class='form-group row col-md-offset-4 col-md-4 text-center'>
+					<button type='button' class="btn-sm btn_buscar" id='btn_buscar'></button>
+					<button type='button' class="btn-sm btn-primary" id='btn_actualizar' hidden>Actualizar Deuda</button>
+					<button type='button' class="btn-sm btn_limpiar" id='btn_limpiar' hidden></button>
+				</div>
+			</form>
+		</div> 
+	</div>
+	<br>           
+
+    <!-- TABLA PRINCIPAL-->
+    <div id="div_detalle" class="scroll" hidden >
+        <div id="tabla_principal">
+            <table>
+                <thead>
+                <tr>
+                    <th scope="col" ><?=$concepto_grilla?></th>
+                    <th scope="col" >Periodo</th>
+                    <th scope="col">Fecha Vencimiento</th>
+                    <th scope="col">Capital</th>
+                    <th scope="col">Interes</th>
+                    <th scope="col">Saldo</th>
+                    <th scope="col" style="width: 2px;"><input type="checkbox" id="chkbox_all" onclick="sumarTotales(this,true)"></th>
+                </tr>
+                </thead>
+                <tbody id="table_body">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br>
+	
+    <!--BOTONERA-->
+    <div class="text-center" aria-label="Toolbar with button groups" id="div_botones">
+        <button id="emitir_boleta" class="btn btn-sm" style="display: none;">
+            <span class="glyphicon glyphicon-print"></span> Emitir Boleta
+        </button>
+        <button id="pagar_boleta" class="btn btn-sm" style="display: none; margin-left: 100px;">
+            <span class="glyphicon glyphicon-file"></span> Pagar Boleta
+        </button>
+    </div>
+</div>

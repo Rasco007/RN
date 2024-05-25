@@ -1,0 +1,148 @@
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading">Filtros</div>
+            <div class="panel-body">
+                <form id='frm_confirmacion_juicios' style="margin-top: 5px;">
+                    <div class="row">
+                        <div class="form-group col-md-1" style="width: 12%;">
+                            <label for="id_boleta_deuda">Boleta de Deuda</label>
+                            <input name='id_boleta_deuda' id='id_boleta_deuda' type='text' class='form-control input-sm text-right' onkeypress="return soloNumeros(event)"/>
+                        </div>
+                        <div class="form-group col-md-1" style="width: 11%;" >
+                            <label for="c_expediente">Expediente Adm.</label>
+                            <input name='c_expediente' id='c_expediente' type='text' class='form-control input-sm' readonly/>
+                        </div>
+                        <div class="form-group col-md-1" style="width: 8%;">
+                            <label for="n_instancia">Instancia</label>
+                            <input name='n_instancia' id='n_instancia' type='text' class='form-control input-sm text-right' readonly/>
+                        </div>
+                        <div class="form-group col-md-1" style="width: 10%;">
+                            <label for="n_orden">Nro de Orden</label>
+                            <input name='n_orden' id='n_orden' type='text' class='form-control input-sm text-right' readonly/>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="d_instancia">Tipo de instancia</label>
+                            <div class="input-group" id="div_input_instancia">
+                                <input type="text" class="form-control input-sm input-cod-short numero text-right" id="c_instancia" readonly>
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_instancia" readonly>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-1" style="width: 11%;">
+                            <label for="n_cuit">CUIT</label>
+                            <input name='n_cuit' id='n_cuit' type='text' class='form-control input-sm' readonly/>
+                            <input name='id_contribuyente' id='id_contribuyente' type='hidden'/>
+                        </div>
+                        <div class="form-group col-md-4" style="width: 23%;">
+                            <label for="desc_denom">Denominación</label>
+                            <div class="input-group" style="width: 100%;" id="div_input_denominacion">
+                                <input name='d_denominacion' type="text" class="form-control input-sm mayusculas" id="desc_denom" readonly>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-2" style="width: 15%;">
+                            <label for="n_documento">Tipo Documento</label>
+                            <div class="input-group" id="div_input_tipo_documento">
+                                <input type="text" class="form-control mayusculas input-sm input-cod-short text-right" id="c_tipo_documento" readonly>
+                                <input type="text" class="form-control input-sm input-desc-long text-right" id="n_documento" readonly>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-2" style="width: 23%;">
+                            <label for="sector_origen">Sector Origen</label>
+                            <div class="input-group" id="div_input_sector_origen">
+                                <input type="text" class="form-control input-sm input-cod-short numero text-right" id="c_sector_origen" readonly>
+                                <input type="text" class="form-control input-sm input-desc-long" id="sector_origen" readonly>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-2" style="width: 12%;">
+                            <label for="f_origen">F. de Def. del Juicio</label>
+                            <input name='f_origen' id='f_origen' type='text' class='form-control input-sm text-center' readonly/>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="motivo_origen">Motivo</label>
+                            <div class="input-group" id="div_input_motivo_origen">
+                                <input type="text" class="form-control input-sm input-cod-short numero text-right" id="c_motivo_origen" readonly>
+                                <input type="text" class="form-control input-sm input-desc-long" id="motivo_origen" readonly>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-1" style="width: 12%;">
+                            <label for="f_vto">F. de Vto.</label>
+                            <input name='f_vto' id='f_vto' type='text' class='form-control input-sm text-center' readonly/>
+                        </div>
+                        <div class="form-group col-md-2" style="width: 9%;">
+                            <label for="d_resolucion">Resolución</label>
+                            <input name='d_resolucion' id='d_resolucion' type='text' class='form-control input-sm' readonly/>
+                        </div>
+                        <div class="form-group col-md-1" style="width: 12%;">
+                            <label for="f_resolucion">F. de Resol.</label>
+                            <input name='f_resolucion' id='f_resolucion' type='text' class='form-control input-sm text-center' readonly/>
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label for="d_observ">Obsevaciones</label>
+                            <textarea id='d_observ' name='d_observ' rows='2' class="form-control" readonly='readonly'></textarea>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row" align="center">
+                        <button type='button' id='btn_consulta' name='btn_buscar' class="btn-sm btn_buscar"></button>
+                        <button type='button' id='btn_limpiar' name='btn_limpiar' class="btn-sm btn_limpiar"></button> 
+                    </div>
+                    <div class="row">
+                        <div class="panel-heading" style="width: 25%;margin: 0.5%;">Confirmación</div>
+                        <div class="text-left">
+                            <div class="form-group col-md-2" style="width: 12%;">
+                                <label for="f_confirmacion">F. de Confirmación</label>
+                                <input name='f_confirmacion' id='f_confirmacion' type='text' class='form-control input-sm text-center limpiar' placeholder="(DD/MM/AAAA)" readonly />
+                            </div>
+                            <button type="button" class="btn btn-primary btn-main" id="btn_confirmar" style="margin-top: 1%;">Confirmar Juicio</button>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id='grid_datos_instancia' class="tabla-container">
+    <div>
+        <table id='main_grid_datos_instancia' class='scroll'><tr><td>&nbsp;</td></tr></table>
+        <div id='main_grid_datos_instancia_pager' class='scroll' style='text-align:center;'></div>
+    </div>
+</div>
+
+<div id='grid_detalle_instancia' class="tabla-container" style="margin-top: 0.5%;">
+    <div>
+        <table id='main_grid_detalle_instancia' class='scroll'><tr><td>&nbsp;</td></tr></table>
+        <div id='main_grid_detalle_instancia_pager' class='scroll' style='text-align:center;'></div>
+    </div>
+</div>
+
+
+<div id="totalizador" class="grid-container" style="display: flex; float: right;">
+    <div id="totalizador_nombre">
+        <label for="sum_adeudado">Total Importe Adeudado</label><br>
+        <input type="text" id="sum_adeudado" class="text-right" readonly>
+    </div>
+    <div id="totalizador_obj_hecho">
+        <label for="sum_interes">Total Interés</label></br>
+        <input type="text" id="sum_interes" class="text-right" readonly>
+    </div>
+    <div id="totalizador_importe_pagado">
+        <label for="sum_actualizado">Total Importe Actualizado</label><br>
+        <input type="text" id="sum_actualizado" class="text-right" readonly>
+    </div>
+</div>

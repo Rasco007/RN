@@ -1,0 +1,140 @@
+<div id="div_filtros" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading">Contribuyente</div>
+            <div class="panel-body">
+                <form action="" id="frm_filtros">
+                    <div class="row">
+                        <div class="form-group col-md-2">        
+                            <label for="n_cuit">CUIT</label>
+                            <input type="text" class="form-control input-sm numerico text-right" id="n_cuit" >
+                            <input type="hidden" id="id_contribuyente">
+                            <input type="hidden" id="p_tributo">
+                            <input type="hidden" id="f_cese_provisorio">
+                            <input type="hidden" id="c_tipo_imp">
+                            
+                        </div>
+
+                        <div class="form-group col-md-5">
+                            <label for="d_denominacion">Denominación</label>
+                            <div class="input-group" id="div_input_denominacion">
+                                <input name='d_denominacion' type="text" class="form-control input-sm mayusculas" id="d_denominacion">
+                                <span class="input-group-addon" id="mascara_lupa_d_denominacion">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon" id="lupa_d_denominacion">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="c_tipo_doc">Tipo de Documento</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm input-cod-short text-input mayusculas" id="c_tipo_doc" style="text-align: center">
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_tipo_doc" readonly>
+                                <span class="input-group-addon" id="mascara_lupa_tipo_doc">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon btn_lupa" id="lupa_tipo_doc">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>       
+                        </div>
+
+                        <div class="form-group col-md-2">        
+                            <label for="n_documento">Nro. Documento</label>
+                            <input type="text" class="form-control input-sm numerico text-right" id="n_documento">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                            <label for="c_tributo">Tributo (*)</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm input-cod-short text-input numerico" id="c_tributo" style="text-align: center">
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_tributo" readonly>
+                                <span class="input-group-addon" id="mascara_lupa_tributo">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon btn_lupa" id="lupa_tributo">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>       
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="d_objeto_hecho">Nro. Objeto/Hecho</label>
+                            <div class="input-group" id="div_input_denominacion">
+                                <input name='d_objeto_hecho' type="text" class="form-control input-sm mayusculas" id="d_objeto_hecho">
+                                <span class="input-group-addon" id="mascara_lupa_d_objeto_hecho">
+                                    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                </span>
+                                <span class="input-group-addon" id="lupa_d_objeto_hecho">
+                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-2">        
+                            <label for="f_vig_desde">F. Vig. Desde</label>
+                            <input type="text" class="form-control input-sm datepicker" id="f_vig_desde" style="text-align: center">
+                        </div>
+
+
+                        <div class="text-center col-md-2" style="margin: 1.3% 0 0 0">
+                            <button type='button' id='btn_buscar' name='btn_buscar' class="btn-sm btn_buscar"></button>
+                            <button type='button' id='btn_limpiar' name='btn_limpiar' class="btn-sm btn_limpiar" style="margin-left: 3%;"></button>
+                        </div>
+
+                        <div class="form-group col-md-2">        
+                            <label for="f_nueva">Nueva F.</label>
+                            <input type="text" class="form-control input-sm datepicker" id="f_nueva" style="text-align: center" placeholder="dd/mm/aaaa" disabled>
+                        </div>
+
+                        <div class="col-md-1" style="margin: 1.3% 0 0 0">
+                            <button type='button' id='btn_procesar' class="ui-button ui-corner-all ui-widget" style="height: 28px; margin-bottom: 3px; margin-left: 2%;">Procesar</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="div_contrib_tributo" hidden>
+    <table id="contrib_tributo_grid" class="scroll" cellpadding="0" cellspacing="0">
+        <tr><td>&nbsp;</td></tr>
+    </table>
+    <div id="contrib_tributo_grid_pager" class="scroll" style="text-align:center;"></div>
+</div>
+
+<div id="div_actividades_cm" hidden>
+    <table id="actividades_cm_grid" class="scroll" cellpadding="0" cellspacing="0">
+        <tr><td>&nbsp;</td></tr>
+    </table>
+    <div id="actividades_cm_grid_pager" class="scroll" style="text-align:center;"></div>
+</div>
+<div id="div_jurisdicciones" hidden>
+    <table id="jurisdicciones_grid" class="scroll" cellpadding="0" cellspacing="0">
+        <tr><td>&nbsp;</td></tr>
+    </table>
+    <div id="jurisdicciones_grid_pager" class="scroll" style="text-align:center;"></div>
+</div>
+
+<div id="div_establecimientos" hidden>
+    <table id="establecimientos_grid" class="scroll" cellpadding="0" cellspacing="0">
+        <tr><td>&nbsp;</td></tr>
+    </table>
+    <div id="establecimientos_grid_pager" class="scroll" style="text-align:center;"></div>
+</div>
+<div id="div_actividades_ibd" hidden>
+    <table id="actividades_ibd_grid" class="scroll" cellpadding="0" cellspacing="0">
+        <tr><td>&nbsp;</td></tr>
+    </table>
+    <div id="actividades_ibd_grid_pager" class="scroll" style="text-align:center;"></div>
+</div>

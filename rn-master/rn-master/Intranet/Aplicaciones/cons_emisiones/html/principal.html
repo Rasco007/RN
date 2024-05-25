@@ -1,0 +1,63 @@
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true" style="">
+            <div class="panel-heading">Datos de la Emisión</div>
+            <div class="panel-body">
+                <form id='frm_filtro' style="margin-top: 5px;">
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                            <label for="id_cons_dinamica">Tributo (*):</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control mayusculas input-sm input-cod-short validate[required] limpiar" id="c_tributo">
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_tributo" readonly>
+                                <span class="input-group-addon btn_lupa" id="lupa_c_tributo">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="id_cons_dinamica">Concepto (*):</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control mayusculas input-sm input-cod-short validate[required] limpiar" id="c_concepto">
+                                <input type="text" class="form-control input-sm input-desc-long" id="d_concepto" readonly>
+                                <span class="input-group-addon btn_lupa " id="lupa_c_concepto">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-1">
+                            <label for="n_anio">Año (*):</label>
+                            <input type="text" class="form-control input-sm validate[required] limpiar" id="n_anio">
+                        </div>
+                        <div class="form-group col-md-1">
+                            <label for="n_cuota">Cuota (*):</label>
+                            <input type="text" class="form-control input-sm validate[required] limpiar" id="n_cuota">
+                        </div>
+                        <div class="form-group col-md-4 text-center" style="margin-top: 5px;">
+                            <button type='button' id='btn_buscar' name='btn_buscar' class="btn btn_buscar" style="margin-top: 15px;"></button>
+                            <button type='button' id='btn_limpiar' name='btn_limpiar' class="btn btn_limpiar" style="margin-top: 15px;"></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<table id="emisiones_grid" class="scroll" cellpadding="0" cellspacing="0"><tr><td></td></tr></table>
+<div id="emisiones_grid_pager" class="scroll"></div>
+<br>
+<center>
+    <button type='button' class="btn btn-primary" id='btn_aprobar_emision'>Aprobar Emisión</button>
+</center>
+<br>
+<table id="boletas_emitidas_grid" class="scroll" cellpadding="0" cellspacing="0"><tr><td></td></tr></table>
+<div id="boletas_emitidas_grid_pager" class="scroll"></div>
+<br>
+<center>
+    <button type='button' class="btn btn-primary" id='btn_imprimir_emision' style='margin-left:20px;margin-right:20px;'>Impresión Masiva</button>
+    <button type='button' class="btn btn-primary" id='btn_imprimir_puntual' style='margin-left:20px;margin-right:20px;'>Impresión Puntual</button>
+</center>

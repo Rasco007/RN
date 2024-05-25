@@ -1,0 +1,89 @@
+<div class='titlebar'>
+    <span class="ui-jqgrid-title">Generación de Link/Banelco</span>
+</div>
+<div id="div_search" class="search panel-body">
+    <form id='frm_consulta_de_generacion' style="margin-top: 5px;">
+        <div class='row' style="margin-top: 15px;">
+            <div class="form-group col-md-4">
+                <label for="c_tributo">Tributo (*)</label>
+                <div class="input-group" id="div_input_tributo">
+                    <input type="text" class="form-control input-sm input-cod-short numero validate[required]" id="c_tributo" data-prompt-position="topLeft">
+                    <input type="text" class="form-control input-sm input-desc-long" readonly id="d_tributo">
+                    <span class="input-group-addon btn_lupa" id="lupa_c_tributo">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    </span>
+                </div>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="c_concepto">Concepto</label>
+                <div class="input-group" id="div_input_concepto">
+                    <input type="text" class="form-control input-sm input-cod-short numero" id="c_concepto">
+                    <input type="text" class="form-control input-sm input-desc-long" readonly id="d_concepto">
+                    <span class="input-group-addon btn_lupa" id="lupa_c_concepto">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    </span>
+                </div>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="tipo_banco">Interfaz Para(*)</label>
+                <div class="dropdown" id="tipo_banco">
+                    <select name="t_interfaz" id="t_interfaz" style="width:100%" class="validate[required]">
+                        <option value="B" selected>Banelco</option>
+                        <option value="L">Link</option>
+                    </select>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class='row' style="margin-top: 15px;">
+            <div class="form-group col-md-2">
+                <label for="n_año">A&ntilde;o</label>
+                <input type="text" class="form-control  numero validate[]" id="n_año" maxlength=4>
+            </div>
+            <div class="form-group col-md-1">
+                <label for="n_cuota">Cuota</label>
+                <input  type="text" class="form-control validate[]" id="n_cuota" maxlength=2>
+            </div>
+            <div class="form-group col-md-3">
+                <label for="id_sesion">Sesi&oacute;n</label>
+                <input type="text" class="form-control numero" id="id_sesion">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="ruta_archivo_recibido">Ingresar nombre de archivo(*)</label>
+                <div id="div_input_archivo_recibido">
+                    <input type='file' id='path_arch_recibido' name='d_path_arch_recibido' style='display:none' class="validate[required]" onchange='actualizar_input()'>
+                    <input name='ruta_archivo_recibido' id='ruta_archivo_recibido' type='text' class="form-control validate[required]" data-prompt-position="topLeft">
+
+                </div>
+            </div>
+        </div>
+        <div class='row text-center' style = 'margin-top:15px;'>
+            <button type='button' id='btn_procesar' class="btn-sm btn">Generar</button>
+            <button type='button' id='btn_limpiar' class="btn-sm btn btn_limpiar"></button>
+        </div>
+    </form>
+</div>
+<div class="modal fade" id="rechazos_modal" tabindex="-1" role="dialog" aria-labelledby="rechazos_title" aria-hidden="true" data-backdrop="false" style="z-index: 960; top:50px ;">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="rechazos_title"></h5>
+            </div>
+            <div class="modal-body">
+                <div id='rechazos_div' style='width:850px;'>
+                    <table id='rechazos_grid' class='scroll' cellpadding='0' cellspacing='0'></table>
+                    <div id='rechazos_grid_pager' class='scroll' style='text-align: center;'></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btn_aceptar_rechazos" class="btn btn-primary" data-dismiss="modal">Aceptar</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

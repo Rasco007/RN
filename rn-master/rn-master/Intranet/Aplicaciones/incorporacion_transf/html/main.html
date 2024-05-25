@@ -1,0 +1,153 @@
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <div class="collapse in" id="collapse_search" aria-expanded="true">
+            <div class="panel-heading">Incorporación de Transferencias y Cuentas</div>
+            <div class="panel-body">
+                <form id='frm_busqueda'>
+
+                    <div class="row">
+                        <div class="form-group col-md-6 ">
+                            <label for="f_proceso">F. de Proceso</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm datepicker text-center limpiar" name="f_proceso" id="f_proceso" placeholder="(DD/MM/AAAA)" maxlength="10" autocomplete="off" readonly>
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                   
+                        <div class="form-group col-md-6 ">
+                            <label for="n_proceso">Nro. Proceso</label>
+                            <input type="text"  id="n_proceso" class='form-control text-right input-sm' readonly>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-12 ">
+                            <label for="ruta_archivo_transferencias">Path y Nombre de Archivo de Transferencias (Con Extensión):</label>
+                            <div class="input-group" id="div_input_archivo_transferencias">
+                                <input type='file' id='d_path_arch_transferencias' name='path_arch_transferencias' style='display:none' class="validate[required]" onchange='actualizar_input()'>
+                                <input name='ruta_archivo_transferencias' id='ruta_archivo_transferencias' type='text' class="form-control input-sm" >
+                                <span class="input-group-btn " id="div_span_archivo_transferencias">
+                                    <button class="btn-sm btn-default" type="button" id='examinar_transferencias'><span class="glyphicon glyphicon-upload" aria-hidden="true"></span></button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label for="ruta_archivo_cuentas">Path y Nombre de Archivo de Cuentas (Con Extensión):</label>
+                            <div class="input-group" id="div_input_archivo_cuentas">
+                                <input type='file' id='d_path_arch_cuentas' name='path_arch_cuentas' style='display:none' class="validate[required]" onchange='actualizar_input()'>
+                                <input name='ruta_archivo_cuentas' id='ruta_archivo_cuentas' type='text' class="form-control input-sm">
+                                <span class="input-group-btn " id="div_span_archivo_cuentas">
+                                    <button class="btn-sm btn-default" type="button" id='examinar_cuentas'><span class="glyphicon glyphicon-upload" aria-hidden="true"></span></button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="cant_procesados_transf">Cant. Registros Procesados</label>
+                            <input type="text"  id="cant_procesados_transf" class='form-control text-right input-sm' readonly>
+                        </div>
+                   
+                        <div class="form-group col-md-6">
+                            <label for="cant_procesados_cuentas">Cant. Registros Procesados</label>
+                            <input type="text"  id="cant_procesados_cuentas" class='form-control text-right input-sm' readonly>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label for="estado_transf">Estado del Proceso</label>
+                            <input type="text"  id="estado_transf" class='form-control text-left input-sm' readonly>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label for="estado_cuenta">Estado del Proceso</label>
+                            <input type="text"  id="estado_cuenta" class='form-control text-left input-sm' readonly>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="transf_incorporadas">Transferencias Incorporadas</label>
+                            <input type="text"  id="transf_incorporadas" class='form-control text-right input-sm' readonly>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="transf_existentes">Transferencias existentes</label>
+                            <input type="text"  id="transf_existentes" class='form-control text-right input-sm' readonly>
+                        </div>
+                   
+                        <div class="form-group col-md-4">
+                            <label for="transf_err">Transferencias Erroneas</label>
+                            <input type="text"  id="transf_err" class='form-control text-right input-sm' readonly>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="cuentas_incorporadas">Cuentas Incorporadas</label>
+                            <input type="text"  id="cuentas_incorporadas" class='form-control text-right input-sm' readonly>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="cuentas_existentes">Cuentas existentes</label>
+                            <input type="text"  id="cuentas_existentes" class='form-control text-right input-sm' readonly>
+                        </div>
+                   
+                        <div class="form-group col-md-4">
+                            <label for="cuentas_err">Cuentas Erroneas</label>
+                            <input type="text"  id="cuentas_err" class='form-control text-right input-sm' readonly>
+                        </div>
+
+                    </div>
+                 <div class='row-search text-center' id="contenedor_btn" style="margin-top: 2%;margin-right: 7%;">
+                            <button type='button' id='btn_procesar' class="ui-button ui-corner-all ui-widget">Procesar</button>
+                            <button type='button' id='btn_errores' class="ui-button ui-corner-all ui-widget" disabled>Errores</button>
+                            <button class="btn-sm btn_limpiar" type="button" id="btn_limpiar"></button>
+                        </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div style="display: none;" class='modal fade' id='main_grid_modal' tabindex='-1' role='dialog' aria-labelledby='cont_histLabel' aria-hidden='true'>
+    <div class='modal-dialog modal-lg' role='document'>
+        <div class='modal-content'>
+            <div class='modal-header'>
+                <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                    <span aria-hidden='true'>&times;</span>
+                </button>
+                <h5 class='modal-title' id='cont_histLabel'>Errores</h5>
+            </div>
+            <div class='modal-body'>
+                <table id='main_grid' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+                <div id='main_grid_pager' class='scroll' style='text-align:center;'></div>
+            </div>
+            <div class="form-group col-md-12">
+                <label>Error</label>
+                <textarea id="error" rows="5" cols="50" class='form-control input-sm' readonly></textarea>
+            </div>
+            <div class="form-group col-md-12" >
+                <label>Datos</label>
+                <textarea id="datos" rows="5" cols="50" class='form-control input-sm' readonly></textarea>
+            </div>
+            <div class='modal-footer'>
+                <div class='text-center'>
+                    <button type='button' class='btn btn-secondary' id='btn_volver_cons_deuda' data-dismiss='modal'>Volver</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

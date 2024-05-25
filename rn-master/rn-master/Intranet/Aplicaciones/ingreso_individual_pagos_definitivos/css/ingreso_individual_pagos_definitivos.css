@@ -1,0 +1,19 @@
+.div_checkbox{
+    margin-top:1.5%;
+    display:flex;
+}
+
+.btn_inmueble{
+    background-color: #D0D0D0;
+}
+
+.div-totales{
+    text-align: left;
+    display:flex;
+    justify-content: end;
+}
+
+.tot-group{
+    padding: 0.5%;
+    width: 14%;
+}

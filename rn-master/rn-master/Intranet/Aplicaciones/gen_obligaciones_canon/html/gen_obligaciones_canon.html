@@ -1,0 +1,160 @@
+<!--DIV BUSQUEDA-->
+<div id="div_search" class="panel-search">
+    <div class="panel panel-primary">
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse_search" aria-expanded="true" aria-controls="#collapse_search">
+            <span class="glyphicon"></span>
+        </a>
+        <div class="collapse in" id="collapse_search" aria-expanded="true" style="">
+            <div class="panel-heading">Parámetros de Liquidación</div>
+            <div class="panel-body">
+                <form id='form_liquidacion'>
+
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="c_tributo">Tributo (*)</label>
+                            <div id="div_tributo" class="input-group">
+                                <input type='text' id='c_tributo' name='c_tributo' value='<?=$c_tributo?>' class='form-control input-sm input-cod-short mayusculas validate[required]' readonly/>
+                                <input type='text' id='d_tributo' name='d_tributo' value='<?=$d_descrip?>' class='form-control input-sm input-desc-long validate[required]' readonly/>
+                                <span class="input-group-addon btn_lupa" id="btn_lupa_tributo" name='btn_lupa_tributo'>
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="c_concepto">Concepto (*)</label>
+                            <div id="div_concepto" class="input-group">
+                                <input type='text' id='c_concepto' name='c_concepto' class='form-control input-sm input-cod-short mayusculas validate[required] limpiar'/>
+                                <input type='text' id='d_concepto' name='d_concepto' class='form-control input-sm input-desc-long validate[required] limpiar' readonly/>
+                                <span class="input-group-addon btn_lupa" id="btn_lupa_concepto" name='btn_lupa_concepto'>
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="form-group col-md-2">
+                            <label for="n_posicion_fiscal">Año (*)</label>
+                            <input type="text" class="form-control input-sm text-right validate[required] limpiar" name="n_posicion_fiscal" id="n_posicion_fiscal" maxlength="7" placeholder="AAAA">
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="n_cuota">Cuota (*)</label>
+                            <input type="text" class="form-control input-sm text-right validate[required] limpiar" name="n_cuota" id="n_cuota" maxlength="2">
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="c_region">Región</label>
+                            <div id="div_region" class="input-group">
+                                <input type='text' id='c_region' name='c_region' class='form-control input-sm input-cod-short mayusculas limpiar'/>
+                                <input type='text' id='d_region' name='d_region' class='form-control input-sm input-desc-long limpiar' readonly/>
+                                <span class="input-group-addon btn_lupa" id="btn_lupa_region" name='btn_lupa_region'>
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="c_area">Área</label>
+                            <div id="div_area" class="input-group">
+                                <input type='text' id='c_area' name='c_area' class='form-control input-sm input-cod-short mayusculas limpiar'/>
+                                <input type='text' id='d_area' name='d_area' class='form-control input-sm input-desc-long limpiar' readonly/>
+                                <span class="input-group-addon btn_lupa" id="btn_lupa_area" name='btn_lupa_area'>
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-2">
+                            <label for="n_periodo_desde">Período Desde</label>
+                            <input type="text" class="form-control input-sm text-center limpiar" name="n_periodo_desde" id="n_periodo_desde" maxlength="7" placeholder="(DD/MM/AAAA)" readonly>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="n_periodo_hasta">Período Hasta</label>
+                            <input type="text" class="form-control input-sm text-center limpiar" name="n_periodo_hasta" id="n_periodo_hasta" maxlength="7" placeholder="(DD/MM/AAAA)" readonly>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="f_vtop">Fecha Vencimiento</label>
+                            <input type="text" class="form-control input-sm text-center limpiar" name="f_vtop" id="f_vtop" maxlength="7" placeholder="(DD/MM/AAAA)" readonly>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="f_vtop2">Fecha 2do Vencimiento</label>
+                            <input type="text" class="form-control input-sm text-center limpiar" name="f_vtop2" id="f_vtop2" maxlength="7" placeholder="(DD/MM/AAAA)" readonly>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="f_vto_prox">Fecha Próximo Vencimiento</label>
+                            <input type="text" class="form-control input-sm text-center limpiar" name="f_vto_prox" id="f_vto_prox" maxlength="7" placeholder="(DD/MM/AAAA)" readonly>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <center>
+                            <input type="radio" id="m_individual" name="tipo_liq" class='input-sm' onclick="fun_muestra_datos_contrib();"><label>Individual</label>
+                            <input type="radio" id="m_masiva" name="tipo_liq" class='input-sm' onclick="fun_muestra_datos_contrib();" checked><label>Masiva</label>
+                        </center>
+                    </div>
+
+                    <fieldset id="div_datos_contrib" hidden>
+                        <legend>Datos del Contribuyente</legend>
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                                <label for="n_cuit" class="control-label">CUIT (*)</label>
+                                <input type="text" class="form-control input-sm text-right validate[required] datos_contrib limpiar" id="n_cuit">
+                                <input type="hidden" class="form-control input-sm text-right validate[required] datos_contrib limpiar" id="id_contribuyente">
+                            </div>
+                            <div class="form-group col-md-8">
+                                <label for="d_denominacion" class="control-label">Denominación (*)</label>
+                                <input type="text" class="form-control input-sm mayusculas validate[required] datos_contrib limpiar" id="d_denominacion">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                                <label for="d_objeto">Objeto (*)</label>
+                                <div id="div_objeto" class="input-group">
+                                    <input type='text' id='d_objeto' name='d_objeto' class='form-control input-sm mayusculas validate[required] datos_contrib limpiar' readonly/>
+                                    <span class="input-group-addon btn_lupa" id="btn_lupa_objeto" name='btn_lupa_objeto'>
+                                        <span class="glyphicon glyphicon-search"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <br>
+                    <div class='row text-center'>
+                        <button type='button' class="btn btn-primary" id='btn_liquidar'>Liquidar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Grilla de Errores -->
+<div class="modal fade" id="modal_errores" tabindex="-1" role="dialog" aria-labelledby="erroresLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="erroresLabel">Errores</h5>
+            </div>
+            <div class="modal-body">
+                <!--GRILLA ERRORES-->
+                <table id='grid_errores' class='scroll' cellpadding='0' cellspacing='0'><tr><td>&nbsp;</td></tr></table>
+                <div id='grid_errores_pager' class='scroll' style='text-align:center;'></div>
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
